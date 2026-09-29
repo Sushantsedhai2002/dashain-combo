@@ -195,14 +195,14 @@
 **Description:** Implement a CLI that reads a requested registry JSON file, validates through the public parser, prints stable actionable issues, and returns meaningful process exit codes without network access.
 
 **Acceptance criteria:**
-- [ ] Valid files exit `0`; invalid files or unreadable input exit non-zero with no stack trace for expected errors.
-- [ ] Output ordering is deterministic and contains no credentials or raw library details.
-- [ ] Automated tests prove that validation performs no network requests.
+- [x] Valid files exit `0`; invalid files or unreadable input exit non-zero with no stack trace for expected errors.
+- [x] Output ordering is deterministic and contains no credentials or raw library details.
+- [x] Automated tests prove that validation performs no network requests.
 
 **Verification:**
-- [ ] Observe CLI tests fail before implementation.
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test -- validate-cli.test.ts`.
-- [ ] Run the package CLI against valid and invalid fixtures.
+- [x] Observe CLI tests fail before implementation.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test -- validate-cli.test.ts`.
+- [x] Run the package CLI against valid and invalid fixtures.
 
 **Dependencies:** Tasks 6 and 7
 
@@ -219,14 +219,14 @@
 **Description:** Implement a separately invoked live checker for enabled channels with explicit timeouts, bounded concurrency, and per-channel results. It must never mutate registry data or claim that reachability proves authenticity.
 
 **Acceptance criteria:**
-- [ ] Bounded concurrency and timeout behavior are covered with mocked HTTP tests.
-- [ ] Every enabled channel receives a deterministic result category without aborting the entire run.
-- [ ] The command is excluded from `pnpm check`, offline validation, and deterministic tests that access real networks.
+- [x] Bounded concurrency and timeout behavior are covered with mocked HTTP tests.
+- [x] Every enabled channel receives a deterministic result category without aborting the entire run.
+- [x] The command is excluded from `pnpm check`, offline validation, and deterministic tests that access real networks.
 
 **Verification:**
-- [ ] Observe mocked live-check tests fail before implementation.
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test -- check-live.test.ts`.
-- [ ] Run the CLI against a local fixture or mocked endpoint; do not require external availability for acceptance.
+- [x] Observe mocked live-check tests fail before implementation.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test -- check-live.test.ts`.
+- [x] Run the CLI against a local fixture or mocked endpoint; do not require external availability for acceptance.
 
 **Dependencies:** Task 8
 
@@ -240,10 +240,10 @@
 
 ## Checkpoint: Operator commands
 
-- [ ] `pnpm sources:validate -- --file <valid-fixture>` exits `0`.
-- [ ] Invalid fixture validation exits non-zero with ordered structured issues.
-- [ ] Default tests pass with external network access disabled.
-- [ ] Live checker timeout and concurrency tests pass.
+- [x] `pnpm sources:validate -- --file <valid-fixture>` exits `0`.
+- [x] Invalid fixture validation exits non-zero with ordered structured issues.
+- [x] Default tests pass with external network access disabled.
+- [x] Live checker timeout and concurrency tests pass.
 
 ## Phase 4: Verified Nepal source portfolio
 
