@@ -10,6 +10,7 @@
     "build": "tsc --noEmit --project tsconfig.json",
     "typecheck": "tsc --noEmit --project tsconfig.json",
     "lint": "eslint src test",
+    "sources:check": "node src/cli/check-live-entry.mjs",
     "sources:validate": "node src/cli/validate-entry.mjs",
     "test": "vitest run --root ../.. --config vitest.workspace.ts packages/source-registry/test",
     "test:coverage": "vitest run --root ../.. --config vitest.workspace.ts --coverage packages/source-registry/test"
