@@ -1,0 +1,9 @@
+{
+  "name": "dashain-offer-radar",
+  "private": true,
+  "engines": {
+    "node": "24.21.0",
+    "pnpm": "10.26.1"
+  },
+  "packageManager": "pnpm@10.26.1"
+}
