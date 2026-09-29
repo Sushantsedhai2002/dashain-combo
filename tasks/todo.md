@@ -116,14 +116,14 @@
 **Description:** Test-first, implement `parseSourceRegistry` so invalid input returns the approved `RegistryIssue[]` contract, never partial data or raw Zod errors.
 
 **Acceptance criteria:**
-- [ ] Fully valid registry arrays return `{ ok: true, sources }`.
-- [ ] Invalid input returns all applicable issues in deterministic path order without partial source data.
-- [ ] Active-source verification and enabled-channel requirements produce the approved issue codes.
+- [x] Fully valid registry arrays return `{ ok: true, sources }`.
+- [x] Invalid input returns all applicable issues in deterministic path order without partial source data.
+- [x] Active-source verification and enabled-channel requirements produce the approved issue codes.
 
 **Verification:**
-- [ ] Observe focused parser tests fail before implementation.
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test -- parse-source-registry.test.ts`.
-- [ ] Run package typecheck and lint.
+- [x] Observe focused parser tests fail before implementation.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test -- parse-source-registry.test.ts`.
+- [x] Run package typecheck and lint.
 
 **Dependencies:** Task 4
 
