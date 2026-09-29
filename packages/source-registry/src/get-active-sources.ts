@@ -1,4 +1,4 @@
-import type { SourceDefinition } from "./index.js";
+import type { SourceDefinition } from "./index.ts";
 
 export function getActiveSources(
   sources: readonly SourceDefinition[],

@@ -39,5 +39,5 @@ export type RegistryResult =
   | Readonly<{ ok: true; sources: readonly SourceDefinition[] }>
   | Readonly<{ ok: false; issues: readonly RegistryIssue[] }>;
 
-export { getActiveSources } from "./get-active-sources.js";
-export { parseSourceRegistry } from "./parse-source-registry.js";
+export { getActiveSources } from "./get-active-sources.ts";
+export { parseSourceRegistry } from "./parse-source-registry.ts";

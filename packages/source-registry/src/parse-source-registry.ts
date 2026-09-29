@@ -1,6 +1,6 @@
-import { canonicalizeChannelUrl } from "./canonicalize-channel-url.js";
-import type { RegistryIssue, RegistryResult, SourceDefinition } from "./index.js";
-import { SourceRegistrySchema } from "./schema.js";
+import { canonicalizeChannelUrl } from "./canonicalize-channel-url.ts";
+import type { RegistryIssue, RegistryResult, SourceDefinition } from "./index.ts";
+import { SourceRegistrySchema } from "./schema.ts";
 
 function formatPath(path: readonly PropertyKey[]): string {
   let formatted = "$";
