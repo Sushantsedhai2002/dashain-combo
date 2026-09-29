@@ -1,9 +1,25 @@
 {
   "name": "dashain-offer-radar",
   "private": true,
+  "type": "module",
   "engines": {
     "node": "24.21.0",
     "pnpm": "10.26.1"
   },
-  "packageManager": "pnpm@10.26.1"
+  "packageManager": "pnpm@10.26.1",
+  "scripts": {
+    "build": "pnpm --recursive --if-present run build",
+    "typecheck": "tsc --noEmit --project tsconfig.base.json",
+    "lint": "eslint .",
+    "format:check": "prettier --check \"**/*.{json,js,mjs,cjs,ts,tsx,yaml,yml}\"",
+    "test": "vitest run --config vitest.workspace.ts --passWithNoTests",
+    "test:coverage": "vitest run --config vitest.workspace.ts --coverage --passWithNoTests",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test"
+  },
+  "devDependencies": {
+    "eslint": "10.11.0",
+    "prettier": "3.9.9",
+    "typescript": "7.0.2",
+    "vitest": "5.0.2"
+  }
 }

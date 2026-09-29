@@ -35,14 +35,14 @@
 **Description:** Configure pinned TypeScript, ESLint, Prettier, and Vitest tooling with strict root scripts. Keep all default checks deterministic and network-free.
 
 **Acceptance criteria:**
-- [ ] Root scripts expose `build`, `typecheck`, `lint`, `format:check`, `test`, `test:coverage`, and `check`.
-- [ ] TypeScript strict mode and the spec’s prohibition on unchecked/suppressed typing are represented in configuration.
-- [ ] Formatting, linting, typechecking, and an empty-workspace test command complete without configuration errors.
+- [x] Root scripts expose `build`, `typecheck`, `lint`, `format:check`, `test`, `test:coverage`, and `check`.
+- [x] TypeScript strict mode and the spec’s prohibition on unchecked/suppressed typing are represented in configuration.
+- [x] Formatting, linting, typechecking, and an empty-workspace test command complete without configuration errors.
 
 **Verification:**
-- [ ] Run `pnpm typecheck`.
-- [ ] Run `pnpm lint` and `pnpm format:check`.
-- [ ] Run `pnpm test -- --run`.
+- [x] Run `pnpm typecheck`.
+- [x] Run `pnpm lint` and `pnpm format:check`.
+- [x] Run `pnpm test -- --run`.
 
 **Dependencies:** Task 1
 

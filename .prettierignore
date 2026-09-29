@@ -1,0 +1,7 @@
+.agents/
+.claude/
+data/
+node_modules/
+dist/
+coverage/
+pnpm-lock.yaml
