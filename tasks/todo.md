@@ -139,14 +139,14 @@
 **Description:** Define conservative URL-equivalence behavior with table-driven tests, then use it to reject duplicate source IDs and duplicate canonical channel URLs.
 
 **Acceptance criteria:**
-- [ ] Canonicalization rules are comparison-only and preserve original URLs in successful output.
-- [ ] Equivalent tested URL forms produce `DUPLICATE_CHANNEL_URL`; repeated IDs produce `DUPLICATE_SOURCE_ID`.
-- [ ] Distinct paths/accounts are not collapsed by over-aggressive normalization.
+- [x] Canonicalization rules are comparison-only and preserve original URLs in successful output.
+- [x] Equivalent tested URL forms produce `DUPLICATE_CHANNEL_URL`; repeated IDs produce `DUPLICATE_SOURCE_ID`.
+- [x] Distinct paths/accounts are not collapsed by over-aggressive normalization.
 
 **Verification:**
-- [ ] Observe canonicalization and duplicate tests fail before implementation.
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test -- canonicalize-channel-url.test.ts parse-source-registry.test.ts`.
-- [ ] Run package typecheck and lint.
+- [x] Observe canonicalization and duplicate tests fail before implementation.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test -- canonicalize-channel-url.test.ts parse-source-registry.test.ts`.
+- [x] Run package typecheck and lint.
 
 **Dependencies:** Task 5
 

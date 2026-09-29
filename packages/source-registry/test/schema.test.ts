@@ -62,6 +62,18 @@ describe("SourceDefinitionSchema", () => {
       { ...validSource, channels: [{ ...validSource.channels[0], url: "http://example.com" }] },
     ],
     [
+      "a channel URL containing credentials",
+      {
+        ...validSource,
+        channels: [
+          {
+            ...validSource.channels[0],
+            url: "https://operator:secret@example.com/offers",
+          },
+        ],
+      },
+    ],
+    [
       "a non-HTTPS evidence URL",
       {
         ...validSource,

@@ -36,6 +36,7 @@ describe("parseSourceRegistry", () => {
         id: "paused-store",
         displayName: "Paused Store",
         status: "PAUSED",
+        channels: [{ kind: "WEBSITE", url: "https://paused.example.com/", isEnabled: false }],
         verification: null,
       }),
     ];
@@ -159,6 +160,82 @@ describe("parseSourceRegistry", () => {
     if (!result.ok) {
       expect(Object.keys(result.issues[0] ?? {})).toEqual(["code", "path", "message"]);
     }
+  });
+
+  it("rejects repeated source IDs at every later occurrence", () => {
+    const result = parseSourceRegistry([
+      source(),
+      source({
+        displayName: "Duplicate Daraz",
+        channels: [{ kind: "WEBSITE", url: "https://duplicate.example.com/", isEnabled: true }],
+      }),
+      source({
+        displayName: "Another Duplicate Daraz",
+        channels: [{ kind: "WEBSITE", url: "https://another.example.com/", isEnabled: true }],
+      }),
+    ]);
+
+    expect(result).toEqual({
+      ok: false,
+      issues: [
+        {
+          code: "DUPLICATE_SOURCE_ID",
+          path: "$[1].id",
+          message: 'Source ID duplicates the value first declared at "$[0].id".',
+          sourceId: "daraz-nepal",
+        },
+        {
+          code: "DUPLICATE_SOURCE_ID",
+          path: "$[2].id",
+          message: 'Source ID duplicates the value first declared at "$[0].id".',
+          sourceId: "daraz-nepal",
+        },
+      ],
+    });
+  });
+
+  it("rejects repeated canonical channel URLs without rewriting originals", () => {
+    const firstUrl = "https://SOCIAL.example.com/daraz-nepal/";
+    const repeatedUrl = "https://social.example.com:443/daraz-nepal#offers";
+    const result = parseSourceRegistry([
+      source({
+        channels: [{ kind: "FACEBOOK", url: firstUrl, isEnabled: true }],
+      }),
+      source({
+        id: "another-store",
+        displayName: "Another Store",
+        channels: [{ kind: "FACEBOOK", url: repeatedUrl, isEnabled: true }],
+      }),
+    ]);
+
+    expect(result).toEqual({
+      ok: false,
+      issues: [
+        {
+          code: "DUPLICATE_CHANNEL_URL",
+          path: "$[1].channels[0].url",
+          message: 'Channel URL duplicates the value first declared at "$[0].channels[0].url".',
+          sourceId: "another-store",
+        },
+      ],
+    });
+    expect(firstUrl).toBe("https://SOCIAL.example.com/daraz-nepal/");
+    expect(repeatedUrl).toBe("https://social.example.com:443/daraz-nepal#offers");
+  });
+
+  it("does not collapse distinct channel paths or accounts", () => {
+    const firstUrl = "https://social.example.com/brand-one";
+    const secondUrl = "https://social.example.com/brand-two";
+    const input = [
+      source({ channels: [{ kind: "FACEBOOK", url: firstUrl, isEnabled: true }] }),
+      source({
+        id: "brand-two",
+        displayName: "Brand Two",
+        channels: [{ kind: "FACEBOOK", url: secondUrl, isEnabled: true }],
+      }),
+    ];
+
+    expect(parseSourceRegistry(input)).toEqual({ ok: true, sources: input });
   });
 
   it("matches the documented result and issue types", () => {

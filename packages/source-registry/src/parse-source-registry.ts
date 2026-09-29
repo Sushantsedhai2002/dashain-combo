@@ -1,3 +1,4 @@
+import { canonicalizeChannelUrl } from "./canonicalize-channel-url.js";
 import type { RegistryIssue, RegistryResult, SourceDefinition } from "./index.js";
 import { SourceRegistrySchema } from "./schema.js";
 
@@ -112,6 +113,51 @@ function activeSourceIssues(sources: readonly SourceDefinition[]): readonly Regi
   return issues;
 }
 
+function duplicateIssues(sources: readonly SourceDefinition[]): readonly RegistryIssue[] {
+  const issues: RegistryIssue[] = [];
+  const firstIdPaths = new Map<string, string>();
+  const firstChannelPaths = new Map<string, string>();
+
+  for (const [sourceIndex, source] of sources.entries()) {
+    const idPath = `$[${sourceIndex}].id`;
+    const firstIdPath = firstIdPaths.get(source.id);
+
+    if (firstIdPath === undefined) {
+      firstIdPaths.set(source.id, idPath);
+    } else {
+      issues.push(
+        Object.freeze({
+          code: "DUPLICATE_SOURCE_ID",
+          path: idPath,
+          message: `Source ID duplicates the value first declared at "${firstIdPath}".`,
+          sourceId: source.id,
+        }),
+      );
+    }
+
+    for (const [channelIndex, channel] of source.channels.entries()) {
+      const channelPath = `$[${sourceIndex}].channels[${channelIndex}].url`;
+      const canonicalUrl = canonicalizeChannelUrl(channel.url);
+      const firstChannelPath = firstChannelPaths.get(canonicalUrl);
+
+      if (firstChannelPath === undefined) {
+        firstChannelPaths.set(canonicalUrl, channelPath);
+      } else {
+        issues.push(
+          Object.freeze({
+            code: "DUPLICATE_CHANNEL_URL",
+            path: channelPath,
+            message: `Channel URL duplicates the value first declared at "${firstChannelPath}".`,
+            sourceId: source.id,
+          }),
+        );
+      }
+    }
+  }
+
+  return issues;
+}
+
 function failure(issues: readonly RegistryIssue[]): RegistryResult {
   return Object.freeze({
     ok: false,
@@ -138,9 +184,9 @@ export function parseSourceRegistry(input: unknown): RegistryResult {
     return failure(issues);
   }
 
-  const semanticIssues = activeSourceIssues(parsed.data);
-  if (semanticIssues.length > 0) {
-    return failure(semanticIssues);
+  const registryIssues = [...activeSourceIssues(parsed.data), ...duplicateIssues(parsed.data)];
+  if (registryIssues.length > 0) {
+    return failure(registryIssues);
   }
 
   return Object.freeze({ ok: true, sources: parsed.data });

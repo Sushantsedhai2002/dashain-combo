@@ -2,7 +2,10 @@ import { z } from "zod";
 
 const SOURCE_STATUSES = ["CANDIDATE", "ACTIVE", "PAUSED", "RETIRED"] as const;
 const CHANNEL_KINDS = ["WEBSITE", "FACEBOOK", "INSTAGRAM", "TIKTOK"] as const;
-const httpsUrl = z.url().regex(/^https:\/\//i);
+const httpsUrl = z
+  .url()
+  .regex(/^https:\/\//i)
+  .refine((value) => !/^https:\/\/[^/?#]*@/i.test(value));
 
 export const SourceChannelSchema = z
   .strictObject({
