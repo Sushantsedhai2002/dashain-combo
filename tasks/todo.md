@@ -60,14 +60,14 @@
 **Description:** Add a private workspace package with strict TypeScript build/test scripts and a deliberately empty public entry point, proving package resolution before contract implementation.
 
 **Acceptance criteria:**
-- [ ] `@dashain-offer/source-registry` is recognized by pnpm with pinned runtime/dev dependencies.
-- [ ] The package compiles in strict mode and exposes only `src/index.ts`.
-- [ ] A smoke test proves the package test runner and workspace filtering work.
+- [x] `@dashain-offer/source-registry` is recognized by pnpm with pinned runtime/dev dependencies.
+- [x] The package compiles in strict mode and exposes only `src/index.ts`.
+- [x] A smoke test proves the package test runner and workspace filtering work.
 
 **Verification:**
-- [ ] Run `pnpm --filter @dashain-offer/source-registry typecheck`.
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test`.
-- [ ] Run `pnpm build`.
+- [x] Run `pnpm --filter @dashain-offer/source-registry typecheck`.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test`.
+- [x] Run `pnpm build`.
 
 **Dependencies:** Task 2
 
@@ -81,10 +81,10 @@
 
 ## Checkpoint: Workspace foundation
 
-- [ ] `pnpm install --frozen-lockfile` succeeds.
-- [ ] `pnpm check` succeeds.
-- [ ] `pnpm build` succeeds.
-- [ ] Review the first staged diff for secrets and unintended generated files.
+- [x] `pnpm install --frozen-lockfile` succeeds.
+- [x] `pnpm check` succeeds.
+- [x] `pnpm build` succeeds.
+- [x] Review the first staged diff for secrets and unintended generated files.
 
 ## Phase 2: Registry contract
 

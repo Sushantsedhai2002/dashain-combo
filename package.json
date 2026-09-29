@@ -9,7 +9,7 @@
   "packageManager": "pnpm@10.26.1",
   "scripts": {
     "build": "pnpm --recursive --if-present run build",
-    "typecheck": "tsc --noEmit --project tsconfig.base.json",
+    "typecheck": "tsc --noEmit --project tsconfig.base.json && pnpm --recursive --if-present run typecheck",
     "lint": "eslint .",
     "format:check": "prettier --check \"**/*.{json,js,mjs,cjs,ts,tsx,yaml,yml}\"",
     "test": "vitest run --config vitest.workspace.ts --passWithNoTests",

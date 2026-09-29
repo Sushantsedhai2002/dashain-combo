@@ -1,0 +1,23 @@
+{
+  "name": "@dashain-offer/source-registry",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit --project tsconfig.json",
+    "typecheck": "tsc --noEmit --project tsconfig.json",
+    "lint": "eslint src test",
+    "test": "vitest run --root ../.. --config vitest.workspace.ts packages/source-registry/test",
+    "test:coverage": "vitest run --root ../.. --config vitest.workspace.ts --coverage packages/source-registry/test"
+  },
+  "dependencies": {
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vitest": "5.0.2"
+  }
+}
