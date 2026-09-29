@@ -1,0 +1,11 @@
+[
+  {
+    "id": "Invalid ID",
+    "displayName": "Invalid Source",
+    "status": "UNKNOWN",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [],
+    "verification": null
+  }
+]

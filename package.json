@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit --project tsconfig.base.json && pnpm --recursive --if-present run typecheck",
     "lint": "eslint .",
     "format:check": "prettier --check \"**/*.{json,js,mjs,cjs,ts,tsx,yaml,yml}\"",
+    "sources:validate": "pnpm --filter @dashain-offer/source-registry sources:validate",
     "test": "vitest run --config vitest.workspace.ts --passWithNoTests",
     "test:coverage": "vitest run --config vitest.workspace.ts --coverage --passWithNoTests",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test"

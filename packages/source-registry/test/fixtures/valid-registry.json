@@ -1,0 +1,20 @@
+[
+  {
+    "id": "daraz-nepal",
+    "displayName": "Daraz Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.daraz.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-29T12:00:00.000Z",
+      "evidenceUrl": "https://www.daraz.com.np/about-us/"
+    }
+  }
+]
