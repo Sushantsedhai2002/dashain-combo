@@ -93,14 +93,14 @@
 **Description:** Test-first, define strict Zod schemas and public readonly semantic types for source status, channel kinds, verification evidence, and source definitions.
 
 **Acceptance criteria:**
-- [ ] Valid source/channel records parse with the approved semantic shape.
-- [ ] Unknown fields, non-HTTPS URLs, malformed dates, invalid IDs, empty market segments, and unsupported enum values are rejected.
-- [ ] Public types are readonly and exported only through the package entry point.
+- [x] Valid source/channel records parse with the approved semantic shape.
+- [x] Unknown fields, non-HTTPS URLs, malformed dates, invalid IDs, empty market segments, and unsupported enum values are rejected.
+- [x] Public types are readonly and exported only through the package entry point.
 
 **Verification:**
-- [ ] First run the focused schema test and observe the expected red failure.
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test -- schema.test.ts` after implementation.
-- [ ] Run package typecheck and lint.
+- [x] First run the focused schema test and observe the expected red failure.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test -- schema.test.ts` after implementation.
+- [x] Run package typecheck and lint.
 
 **Dependencies:** Task 3
 
