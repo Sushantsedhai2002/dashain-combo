@@ -163,14 +163,14 @@
 **Description:** Test-first, implement `getActiveSources` with stable registry ordering and readonly output, then expose only the approved package contract.
 
 **Acceptance criteria:**
-- [ ] Only `ACTIVE` records are returned and input order is preserved.
-- [ ] The selector does not mutate its input.
-- [ ] The public entry point exposes the documented contract and no schema-library internals.
+- [x] Only `ACTIVE` records are returned and input order is preserved.
+- [x] The selector does not mutate its input.
+- [x] The public entry point exposes the documented contract and no schema-library internals.
 
 **Verification:**
-- [ ] Observe selector tests fail before implementation.
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test -- get-active-sources.test.ts`.
-- [ ] Run package typecheck, lint, and build.
+- [x] Observe selector tests fail before implementation.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test -- get-active-sources.test.ts`.
+- [x] Run package typecheck, lint, and build.
 
 **Dependencies:** Task 5
 
