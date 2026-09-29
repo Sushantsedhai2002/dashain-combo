@@ -183,10 +183,10 @@
 
 ## Checkpoint: Registry contract
 
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test:coverage`.
-- [ ] Confirm at least 80% coverage of changed executable lines.
-- [ ] Run `pnpm check` and `pnpm build`.
-- [ ] Confirm no raw Zod errors or mutable configuration are publicly exposed.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test:coverage`.
+- [x] Confirm at least 80% coverage of changed executable lines.
+- [x] Run `pnpm check` and `pnpm build`.
+- [x] Confirm no raw Zod errors or mutable configuration are publicly exposed.
 
 ## Phase 3: Operator commands
 
