@@ -5,13 +5,11 @@ export function canonicalizeChannelUrl(value: string): string {
   }
 
   const canonicalAuthority = parts[1].toLowerCase().replace(/:443$/, "");
-  const configuredPath = parts[2] ?? "";
-  const path =
-    configuredPath === ""
-      ? "/"
-      : configuredPath !== "/" && configuredPath.endsWith("/")
-        ? configuredPath.slice(0, -1)
-        : configuredPath;
+  let path = parts[2] || "/";
+  if (path !== "/" && path.endsWith("/")) {
+    path = path.slice(0, -1);
+  }
+
   const query = parts[3] ?? "";
 
   return `https://${canonicalAuthority}${path}${query}`;
