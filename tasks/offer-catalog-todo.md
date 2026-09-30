@@ -172,14 +172,14 @@
 **Description:** Build the catalog service and PostgreSQL repository path for publishing one validated active-source offer, calculating expiry, mapping the row to immutable output, and retrieving it while visible.
 
 **Acceptance criteria:**
-- [ ] Publishing a valid priced or text-only offer creates one row with a generated catalog ID, injected first-discovery time, calculated expiry, and active-source seller snapshot.
-- [ ] Returned timestamps are normalized UTC ISO strings, money is range-checked, and lifecycle status is derived for the injected clock.
-- [ ] Invalid input returns structured issues before SQL; unexpected storage failures expose only a catalog-owned sanitized error.
+- [x] Publishing a valid priced or text-only offer creates one row with a generated catalog ID, injected first-discovery time, calculated expiry, and active-source seller snapshot.
+- [x] Returned timestamps are normalized UTC ISO strings, money is range-checked, and lifecycle status is derived for the injected clock.
+- [x] Invalid input returns structured issues before SQL; unexpected storage failures expose only a catalog-owned sanitized error.
 
 **Verification:**
-- [ ] Observe catalog unit and repository integration tests fail before implementation.
-- [ ] Run focused `catalog.test.ts` and `offer-repository.integration.ts` tests.
-- [ ] Run package typecheck, lint, and unit coverage.
+- [x] Observe catalog unit and repository integration tests fail before implementation.
+- [x] Run focused `catalog.test.ts` and `offer-repository.integration.ts` tests.
+- [x] Run package typecheck, lint, and unit coverage.
 
 **Dependencies:** Tasks 3 and 6
 

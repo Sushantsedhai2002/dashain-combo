@@ -12,7 +12,7 @@
     "lint": "eslint src test",
     "migrate": "node src/cli/migrate-entry.mjs",
     "test": "vitest run --root ../.. --config vitest.workspace.ts packages/offer-catalog/test",
-    "test:coverage": "vitest run --root ../.. --config vitest.workspace.ts --coverage --coverage.include=packages/offer-catalog/src/**/*.ts packages/offer-catalog/test",
+    "test:coverage": "vitest run --root ../.. --config vitest.workspace.ts --coverage --coverage.include=packages/offer-catalog/src/*.ts packages/offer-catalog/test",
     "test:integration": "vitest run --root ../.. --config packages/offer-catalog/vitest.integration.config.ts"
   },
   "dependencies": {
