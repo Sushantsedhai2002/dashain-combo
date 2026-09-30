@@ -46,6 +46,35 @@ function io(registry: string) {
 }
 
 describe("ingestion CLI", () => {
+  it("dry-runs every supported active source, continues after failure, and can select one source", async () => {
+    const other = {
+      ...source,
+      id: "online-saathi",
+      displayName: "Online Saathi",
+      channels: [{ kind: "WEBSITE", isEnabled: true, url: "https://onlinesaathi.com/" }],
+    };
+    const result = io(JSON.stringify([source, other]));
+    const scan = vi.fn<typeof result.dependencies.scan>(result.dependencies.scan);
+    const dependencies = {
+      ...result.dependencies,
+      supportedSourceIds: ["evostore", "online-saathi"],
+      scan,
+    };
+    expect(await runIngestionCli(["--dry-run"], dependencies)).toBe(0);
+    expect(scan).toHaveBeenCalledTimes(2);
+    scan.mockClear();
+    expect(await runIngestionCli(["--dry-run", "--source", "online-saathi"], dependencies)).toBe(0);
+    expect(scan).toHaveBeenCalledTimes(1);
+    expect(await runIngestionCli(["--source", "unknown"], dependencies)).toBe(1);
+    const failed = await runIngestionCli(["--dry-run"], {
+      ...dependencies,
+      scan: async (s) =>
+        s.id === "evostore" ? { ok: false, reason: "NETWORK_ERROR" } : result.dependencies.scan(),
+    });
+    expect(failed).toBe(1);
+    expect(result.output.join(" ")).toContain("Online Saathi");
+    expect(result.publish).not.toHaveBeenCalled();
+  });
   it("validates registry before network or publication", async () => {
     const result = io("{}");
     const scan = vi.fn(result.dependencies.scan);

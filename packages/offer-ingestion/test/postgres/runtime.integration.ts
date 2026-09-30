@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { readFile } from "node:fs/promises";
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import pg from "pg";
@@ -42,9 +43,48 @@ afterAll(async () => {
 });
 
 describe("ingestion runtime with PostgreSQL", () => {
+  it("publishes all five recorded sources and preserves their identities on a repeated run", async () => {
+    const origins: Readonly<Record<string, string>> = {
+      "https://evostore.com.np": "evostore",
+      "https://onlinesaathi.com": "online-saathi",
+      "https://midea.com.np": "midea-nepal",
+      "https://www.neostore.com.np": "neo-store",
+      "https://calibershoes.com": "caliber-shoes",
+    };
+    const runtime = createIngestionRuntime(databaseUrl, io, {
+      fetchPage: async (url) => {
+        if (url.endsWith("/robots.txt")) return { status: 200, body: "User-agent: *\nAllow: /" };
+        const id = origins[new URL(url).origin];
+        if (id === undefined) throw new Error("Unexpected fixture origin");
+        return {
+          status: 200,
+          body: await readFile(new URL(`../fixtures/${id}.html`, import.meta.url), "utf8"),
+        };
+      },
+    });
+    try {
+      expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
+      const before = await pool.query<{ id: string; source_id: string; first_discovered_at: Date }>(
+        "SELECT id, source_id, first_discovered_at FROM offers ORDER BY id",
+      );
+      expect(before.rows).toHaveLength(59);
+      expect(new Set(before.rows.map((row) => row.source_id)).size).toBe(5);
+      expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
+      const after = await pool.query(
+        "SELECT id, source_id, first_discovered_at FROM offers ORDER BY id",
+      );
+      expect(after.rows).toEqual(before.rows);
+    } finally {
+      await runtime.close();
+    }
+  });
   it("publishes an active source offer idempotently across runs", async () => {
     const runtime = createIngestionRuntime(databaseUrl, io, {
-      fetchPage: async () => ({ status: 200, body: html }),
+      fetchPage: async (url) => ({
+        status: 200,
+        body: url.endsWith("/robots.txt") ? "User-agent: *\nAllow: /" : html,
+      }),
+      sourceIds: ["evostore"],
     });
     try {
       expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
@@ -63,7 +103,11 @@ describe("ingestion runtime with PostgreSQL", () => {
     const client = await pool.connect();
     await client.query("SELECT pg_advisory_lock($1)", [1_846_273_913]);
     const runtime = createIngestionRuntime(databaseUrl, io, {
-      fetchPage: async () => ({ status: 200, body: html }),
+      fetchPage: async (url) => ({
+        status: 200,
+        body: url.endsWith("/robots.txt") ? "User-agent: *\nAllow: /" : html,
+      }),
+      sourceIds: ["evostore"],
     });
     try {
       expect(await runIngestionCli([], runtime.dependencies)).toBe(0);

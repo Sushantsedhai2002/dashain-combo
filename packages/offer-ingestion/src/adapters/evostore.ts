@@ -4,6 +4,7 @@ import { load } from "cheerio";
 
 import type { SourceDefinition } from "@dashain-offer/source-registry";
 import type { CandidateOffer, ScanResult, SourceAdapter } from "../runner.ts";
+import { inferProductDetails, parseNprPrice } from "./product-details.ts";
 
 const ORIGIN = "https://evostore.com.np";
 const LISTING_URL = `${ORIGIN}/special-offers`;
@@ -13,15 +14,6 @@ export type PageFetcher = (
   url: string,
   source: SourceDefinition,
 ) => Promise<Readonly<{ status: number; body: string }>>;
-
-function parseNpr(text: string): number | null {
-  const match = /^NPR\s+((?:\d{1,3}(?:,\d{3})+|\d+))(?:\.(\d{1,2}))?$/i.exec(text.trim());
-  if (match === null) return null;
-  const rupees = Number(match[1]?.replaceAll(",", ""));
-  const paisa = Number((match[2] ?? "").padEnd(2, "0"));
-  const amountMinor = rupees * 100 + paisa;
-  return Number.isSafeInteger(amountMinor) ? amountMinor : null;
-}
 
 function productUrl(href: string | undefined): string | null {
   if (href === undefined) return null;
@@ -71,8 +63,8 @@ function parsePage(html: string): readonly CandidateOffer[] | null {
     const priceElement = card.find(".price p").first();
     const originalText = priceElement.find("s").first().text().trim();
     const saleText = priceElement.clone().find("s").remove().end().text().trim();
-    const originalMinor = parseNpr(originalText);
-    const saleMinor = parseNpr(saleText);
+    const originalMinor = parseNprPrice(originalText);
+    const saleMinor = parseNprPrice(saleText);
     if (
       destinationUrl === null ||
       title.length === 0 ||
@@ -89,7 +81,7 @@ function parsePage(html: string): readonly CandidateOffer[] | null {
       sourceOfferKey: `evostore:${createHash("sha256").update(new URL(destinationUrl).pathname).digest("hex")}`,
       title,
       productName: title,
-      category: "OTHER",
+      ...inferProductDetails(title),
       destinationUrl,
       imageUrl: imageUrl(card.find(".img-container img").first().attr("src")),
       originalPrice: { currency: "NPR", amountMinor: originalMinor },

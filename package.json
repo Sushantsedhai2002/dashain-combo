@@ -19,6 +19,7 @@
     "catalog:test:integration:coverage": "pnpm --filter @dashain-offer/offer-catalog test:integration:coverage",
     "ingestion:once": "pnpm --filter @dashain-offer/offer-ingestion ingest",
     "ingestion:worker": "pnpm --filter @dashain-offer/offer-ingestion worker",
+    "ingestion:evaluate": "pnpm --filter @dashain-offer/offer-ingestion evaluate",
     "ingestion:test:integration": "pnpm --filter @dashain-offer/offer-ingestion test:integration",
     "ingestion:test:integration:coverage": "pnpm --filter @dashain-offer/offer-ingestion test:integration:coverage",
     "sources:check": "pnpm --filter @dashain-offer/source-registry sources:check",

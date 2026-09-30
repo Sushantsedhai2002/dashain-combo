@@ -3,6 +3,7 @@ import { parseSourceRegistry, type SourceDefinition } from "@dashain-offer/sourc
 import type { RunResult, ScanResult } from "../runner.ts";
 
 export type IngestionCliDependencies = Readonly<{
+  supportedSourceIds?: readonly string[];
   readRegistry(): Promise<string>;
   scan(source: SourceDefinition): Promise<ScanResult>;
   publish(sources: readonly SourceDefinition[]): Promise<readonly RunResult[] | null>;
@@ -19,9 +20,26 @@ export async function runIngestionCli(
   dependencies: IngestionCliDependencies,
 ): Promise<number> {
   const commandArgs = args[0] === "--" ? args.slice(1) : args;
-  const dryRun = commandArgs.length === 1 && commandArgs[0] === "--dry-run";
-  if (commandArgs.length !== 0 && !dryRun) {
-    dependencies.stderr("Usage: ingestion:once [--dry-run]\n");
+  let dryRun = false;
+  let selectedSource: string | null = null;
+  for (let index = 0; index < commandArgs.length; index += 1) {
+    const argument = commandArgs[index];
+    if (argument === "--dry-run" && !dryRun) {
+      dryRun = true;
+      continue;
+    }
+    const next = commandArgs[index + 1];
+    if (
+      argument === "--source" &&
+      selectedSource === null &&
+      next !== undefined &&
+      /^[a-z0-9-]+$/.test(next)
+    ) {
+      selectedSource = next;
+      index += 1;
+      continue;
+    }
+    dependencies.stderr("Usage: ingestion:once [--dry-run] [--source <source-id>]\n");
     return 1;
   }
 
@@ -38,29 +56,45 @@ export async function runIngestionCli(
     return 1;
   }
 
-  const source = sources.find((entry) => entry.id === "evostore" && entry.status === "ACTIVE");
-  if (source === undefined) {
-    dependencies.stderr("EvoStore is not active in the source registry.\n");
+  const supported = dependencies.supportedSourceIds ?? ["evostore"];
+  const enabled = sources.filter(
+    (entry) =>
+      entry.status === "ACTIVE" &&
+      supported.includes(entry.id) &&
+      (selectedSource === null || entry.id === selectedSource),
+  );
+  if (enabled.length === 0) {
+    dependencies.stderr(
+      "Requested adapter source is unsupported or not active in the source registry.\n",
+    );
     return 1;
   }
 
   try {
     if (dryRun) {
-      const result = await dependencies.scan(source);
-      if (!result.ok) {
-        dependencies.stderr(`EvoStore scan failed: ${result.reason}.\n`);
-        return 1;
-      }
-      dependencies.stdout(`EvoStore: ${result.offers.length} candidates found.\n`);
-      for (const offer of result.offers.slice(0, 20)) {
+      let failed = false;
+      for (const source of enabled) {
+        const result = await dependencies.scan(source);
+        if (!result.ok) {
+          dependencies.stderr(
+            `${terminalText(source.displayName)} scan failed: ${result.reason}.\n`,
+          );
+          failed = true;
+          continue;
+        }
         dependencies.stdout(
-          `${terminalText(offer.title)} | ${terminalText(offer.destinationUrl)}\n`,
+          `${terminalText(source.displayName)}: ${result.offers.length} candidates found.\n`,
         );
+        for (const offer of result.offers.slice(0, 20)) {
+          dependencies.stdout(
+            `${terminalText(offer.title)} | ${terminalText(offer.destinationUrl)}\n`,
+          );
+        }
       }
-      return 0;
+      return failed ? 1 : 0;
     }
 
-    const results = await dependencies.publish(sources);
+    const results = await dependencies.publish(enabled);
     if (results === null) {
       dependencies.stdout("Another ingestion run is active.\n");
       return 0;

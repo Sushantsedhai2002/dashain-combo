@@ -4,6 +4,8 @@ import pg from "pg";
 
 import { createOfferCatalog } from "@dashain-offer/offer-catalog";
 import { createEvoStoreAdapter, type PageFetcher } from "../adapters/evostore.ts";
+import { createListingAdapter, LISTING_PROFILES } from "../adapters/listings.ts";
+import { createRobotsAwareFetcher } from "../http/robots.ts";
 import { checkOfferPresence, createSafePageFetcher } from "../http/safe-fetch.ts";
 import { PostgresObservationStore } from "../postgres/observation-store.ts";
 import { runIngestionMigrations } from "../postgres/migrate.ts";
@@ -18,19 +20,31 @@ type Io = Readonly<{ stdout(message: string): void; stderr(message: string): voi
 export function createIngestionRuntime(
   databaseUrl: string | undefined,
   io: Io,
-  options: Readonly<{ fetchPage?: PageFetcher }> = {},
+  options: Readonly<{ fetchPage?: PageFetcher; sourceIds?: readonly string[] }> = {},
 ): Readonly<{
   dependencies: IngestionCliDependencies;
   close(): Promise<void>;
 }> {
   const fetchPage = options.fetchPage ?? createSafePageFetcher();
-  const adapter = createEvoStoreAdapter(fetchPage);
+  const createAdapters = (guardedFetch: PageFetcher) =>
+    [
+      createEvoStoreAdapter(guardedFetch),
+      ...LISTING_PROFILES.map((profile) => createListingAdapter(profile, guardedFetch)),
+    ].filter(
+      (adapter) => options.sourceIds === undefined || options.sourceIds.includes(adapter.sourceId),
+    );
+  const dryRunAdapters = createAdapters(createRobotsAwareFetcher(fetchPage));
   let pool: pg.Pool | null = null;
   let catalog: ReturnType<typeof createOfferCatalog> | null = null;
 
   const dependencies: IngestionCliDependencies = {
+    supportedSourceIds: dryRunAdapters.map((adapter) => adapter.sourceId),
     readRegistry: () => readFile(REGISTRY_URL, "utf8"),
-    scan: (source) => adapter.scan(source),
+    scan: async (source) =>
+      dryRunAdapters.find((adapter) => adapter.sourceId === source.id)?.scan(source) ?? {
+        ok: false,
+        reason: "UNSUPPORTED_SOURCE",
+      },
     async publish(sources) {
       if (databaseUrl === undefined || databaseUrl.trim() === "")
         throw new Error("DATABASE_URL missing");
@@ -46,12 +60,13 @@ export function createIngestionRuntime(
         );
         locked = result.rows[0]?.acquired === true;
         if (!locked) return null;
+        const guardedFetch = createRobotsAwareFetcher(fetchPage);
         const runner = createIngestionRunner({
           sources,
-          adapters: [adapter],
+          adapters: createAdapters(guardedFetch),
           catalog,
           observations: new PostgresObservationStore(pool),
-          checkPresence: (url, source) => checkOfferPresence(url, source, fetchPage),
+          checkPresence: (url, source) => checkOfferPresence(url, source, guardedFetch),
         });
         return await runner.runOnce();
       } finally {

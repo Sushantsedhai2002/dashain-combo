@@ -1,0 +1,141 @@
+{
+  "recordedAt": "2026-09-30",
+  "method": "Selected cards annotated from recorded visible title, link and price evidence. Category and brand are reviewed interpretation. The sample measures field correctness, not full-source recall or ongoing live accuracy.",
+  "offers": [
+    {
+      "sourceId": "evostore",
+      "title": "ACTON III",
+      "destinationUrl": "https://evostore.com.np/acton_iii",
+      "originalMinor": 4290000,
+      "saleMinor": 3900000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Beats Fit Pro",
+      "destinationUrl": "https://evostore.com.np/beats-fit-pro",
+      "originalMinor": 3700000,
+      "saleMinor": 2990000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "Beats"
+    },
+    {
+      "sourceId": "evostore",
+      "title": "DJI Mini 4K Fly More Combo",
+      "destinationUrl": "https://evostore.com.np/dij-mini-4k-fly-more-combo",
+      "originalMinor": 8000000,
+      "saleMinor": 7740000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "DJI"
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Samsung Galaxy F22",
+      "destinationUrl": "https://onlinesaathi.com/samsung-galaxy-f22-5",
+      "originalMinor": 2449900,
+      "saleMinor": 2399900,
+      "category": "MOBILE_AND_TABLETS",
+      "brandName": "Samsung"
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Samsung RT37M5535SL 345Ltr 5 In 1 Convertible Double Door Refrigerator -Silver",
+      "destinationUrl": "https://onlinesaathi.com/samsung-rt37m5535sl-345ltr-5-in-1-convertible-double-door-refrigerator--silver",
+      "originalMinor": 8249000,
+      "saleMinor": 7050000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Samsung"
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Apple MacBook Pro 14-inch (2023) with M3 Price in Nepal",
+      "destinationUrl": "https://onlinesaathi.com/apple-macbook-pro-14-inch-2023-with-m3-price-in-nepal",
+      "originalMinor": 21000000,
+      "saleMinor": 19999900,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Apple"
+    },
+    {
+      "sourceId": "midea-nepal",
+      "title": "De-Humidifier 50L",
+      "destinationUrl": "https://midea.com.np/products/dehumidifier",
+      "originalMinor": 6500000,
+      "saleMinor": 6175000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea"
+    },
+    {
+      "sourceId": "midea-nepal",
+      "title": "Floor Standing Inverter AC 2.0 Ton",
+      "destinationUrl": "https://midea.com.np/products/floor-standing-inverter-ac-2-0-ton",
+      "originalMinor": 20000000,
+      "saleMinor": 19000000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea"
+    },
+    {
+      "sourceId": "midea-nepal",
+      "title": "Ductable 1.5 Ton Inverter",
+      "destinationUrl": "https://midea.com.np/products/ductable-1-5-ton-inverter-",
+      "originalMinor": 17000000,
+      "saleMinor": 16150000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea"
+    },
+    {
+      "sourceId": "neo-store",
+      "title": "BOYA BY-M1 PRO II Lavalier Microphone",
+      "destinationUrl": "https://www.neostore.com.np/product/boya-by-m1-pro-ii-lavalier-microphone",
+      "originalMinor": 400000,
+      "saleMinor": 380000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "Boya"
+    },
+    {
+      "sourceId": "neo-store",
+      "title": "Dell 21.5 Inch Full HD Monitor E2222H",
+      "destinationUrl": "https://www.neostore.com.np/product/dell-21-5-inch-full-hd-monitor-e2222h",
+      "originalMinor": 1850000,
+      "saleMinor": 1757500,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Dell"
+    },
+    {
+      "sourceId": "neo-store",
+      "title": "Rapoo XK200 Bluetooth Keyboard",
+      "destinationUrl": "https://www.neostore.com.np/product/rapoo-xk200-bluetooth-keyboard",
+      "originalMinor": 969000,
+      "saleMinor": 556000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Rapoo"
+    },
+    {
+      "sourceId": "caliber-shoes",
+      "title": "AERIS 751 -Navy Sports Shoes For Women -Caliber Shoes Nepal",
+      "destinationUrl": "https://calibershoes.com/product/caliber-navy-sports-shoes-for-women-aeris-755/",
+      "originalMinor": 265000,
+      "saleMinor": 199000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Caliber"
+    },
+    {
+      "sourceId": "caliber-shoes",
+      "title": "AEROKNIT 755 -Grey Sports Shoes For Men -Caliber Shoes Nepal",
+      "destinationUrl": "https://calibershoes.com/product/caliber-grey-sports-shoes-for-men-aeroknit-755/",
+      "originalMinor": 295000,
+      "saleMinor": 199000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Caliber"
+    },
+    {
+      "sourceId": "caliber-shoes",
+      "title": "GLIDE 750 -White Sports Shoes For Women -Caliber Shoes Nepal",
+      "destinationUrl": "https://calibershoes.com/product/caliber-white-sports-shoes-for-women-glide-750/",
+      "originalMinor": 265000,
+      "saleMinor": 199000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Caliber"
+    }
+  ]
+}

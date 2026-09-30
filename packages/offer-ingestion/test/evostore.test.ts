@@ -45,7 +45,7 @@ describe("EvoStore adapter", () => {
       title: "ACTON III",
       productName: "ACTON III",
       destinationUrl: "https://evostore.com.np/acton_iii",
-      category: "OTHER",
+      category: "CONSUMER_ELECTRONICS",
       originalPrice: { currency: "NPR", amountMinor: 4290000 },
       salePrice: { currency: "NPR", amountMinor: 3900000 },
     });

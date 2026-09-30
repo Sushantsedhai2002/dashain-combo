@@ -91,7 +91,9 @@ export function createSafePageFetcher(
     if (
       response.body.length > MAX_BYTES ||
       (response.status === 200 &&
-        !/^text\/html|^application\/xhtml\+xml/i.test(response.contentType))
+        !(url.pathname === "/robots.txt"
+          ? /^text\/plain(?:;|$)/i.test(response.contentType)
+          : /^(?:text\/html|application\/xhtml\+xml)(?:;|$)/i.test(response.contentType)))
     ) {
       throw new Error("Unsupported website response");
     }

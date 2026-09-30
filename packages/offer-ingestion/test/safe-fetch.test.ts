@@ -21,6 +21,20 @@ const source: SourceDefinition = {
 };
 
 describe("safe website fetch", () => {
+  it("allows bounded plain-text robots responses only at the robots path", async () => {
+    const fetchPage = createSafePageFetcher({
+      resolveHostname: async () => ["8.8.8.8"],
+      request: async () => ({
+        status: 200,
+        body: "User-agent: *\nAllow: /",
+        contentType: "text/plain; charset=UTF-8",
+      }),
+    });
+    await expect(fetchPage("https://evostore.com.np/robots.txt", source)).resolves.toMatchObject({
+      status: 200,
+    });
+    await expect(fetchPage("https://evostore.com.np/special-offers", source)).rejects.toThrow();
+  });
   it("rejects private addresses and off-origin URLs before requesting", async () => {
     const request = vi.fn(async () => ({
       status: 200,
