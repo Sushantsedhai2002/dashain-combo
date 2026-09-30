@@ -1,0 +1,81 @@
+import { fileURLToPath } from "node:url";
+
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
+import pg from "pg";
+
+import { runMigrations } from "../../../offer-catalog/src/postgres/migrate.ts";
+import { runIngestionCli } from "../../src/cli/ingest.ts";
+import { createIngestionRuntime } from "../../src/cli/runtime.ts";
+import { runIngestionMigrations } from "../../src/postgres/migrate.ts";
+
+const databaseUrl =
+  process.env.CATALOG_TEST_DATABASE_URL ??
+  "postgresql://dashain:dashain_test_only@127.0.0.1:55432/dashain_offer_catalog_test";
+if (!new URL(databaseUrl).pathname.toLowerCase().includes("test")) {
+  throw new Error("Integration database name must contain test");
+}
+const pool = new pg.Pool({ connectionString: databaseUrl });
+const output: string[] = [];
+const io = {
+  stdout: (message: string) => output.push(message),
+  stderr: (message: string) => output.push(message),
+};
+const html = `<div class="products-list-container"><div class="common-item grey-white"><a href="https://evostore.com.np/speaker"><div class="name"><p>Speaker sale</p></div><div class="price"><p>NPR 4,000<s>NPR 5,000</s></p></div></a></div></div>`;
+
+beforeAll(async () => {
+  await runMigrations({
+    pool,
+    migrationsDirectory: fileURLToPath(
+      new URL("../../../offer-catalog/migrations/", import.meta.url),
+    ),
+  });
+  await runIngestionMigrations(pool);
+});
+
+beforeEach(async () => {
+  output.length = 0;
+  await pool.query("TRUNCATE ingestion_observations, offers");
+});
+
+afterAll(async () => {
+  await pool.end();
+});
+
+describe("ingestion runtime with PostgreSQL", () => {
+  it("publishes an active source offer idempotently across runs", async () => {
+    const runtime = createIngestionRuntime(databaseUrl, io, {
+      fetchPage: async () => ({ status: 200, body: html }),
+    });
+    try {
+      expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
+      expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
+      const result = await pool.query<{ count: string }>(
+        "SELECT count(*)::text AS count FROM offers WHERE source_id = $1",
+        ["evostore"],
+      );
+      expect(result.rows[0]?.count).toBe("1");
+    } finally {
+      await runtime.close();
+    }
+  });
+
+  it("skips a run while another process holds the advisory lock", async () => {
+    const client = await pool.connect();
+    await client.query("SELECT pg_advisory_lock($1)", [1_846_273_913]);
+    const runtime = createIngestionRuntime(databaseUrl, io, {
+      fetchPage: async () => ({ status: 200, body: html }),
+    });
+    try {
+      expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
+      expect(output.join(" ")).toMatch(/another ingestion run/i);
+      const result = await pool.query<{ count: string }>(
+        "SELECT count(*)::text AS count FROM offers",
+      );
+      expect(result.rows[0]?.count).toBe("0");
+    } finally {
+      await runtime.close();
+      await client.query("SELECT pg_advisory_unlock($1)", [1_846_273_913]);
+      client.release();
+    }
+  });
+});
