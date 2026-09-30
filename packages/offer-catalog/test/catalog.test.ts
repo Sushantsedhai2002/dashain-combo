@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  buildOfferCatalog,
   buildOfferLifecycleCatalog,
   buildOfferPublisher,
   type CatalogRepository,
   type LifecycleCatalogRepository,
   type PublishCommand,
+  type SearchCatalogRepository,
+  type SearchCommand,
 } from "../src/catalog.ts";
 import type { Offer } from "../src/contract.ts";
 import { CatalogStorageError } from "../src/postgres/errors.ts";
@@ -49,6 +52,24 @@ class FakeRepository implements CatalogRepository {
   async publish(command: PublishCommand): Promise<Offer> {
     this.commands.push(command);
     return offerFromCommand(command);
+  }
+}
+
+class FakeSearchRepository extends FakeRepository implements SearchCatalogRepository {
+  searchResults: readonly Offer[] = [];
+  readonly searches: SearchCommand[] = [];
+
+  async withdraw(): Promise<Offer | null> {
+    return null;
+  }
+
+  async findVisibleById(): Promise<Offer | null> {
+    return null;
+  }
+
+  async search(command: SearchCommand): Promise<readonly Offer[]> {
+    this.searches.push(command);
+    return this.searchResults;
   }
 }
 
@@ -108,6 +129,92 @@ describe("offer lifecycle catalog", () => {
 
     expect(result.ok).toBe(false);
     expect(lookupCount).toBe(0);
+  });
+});
+
+describe("offer search orchestration", () => {
+  it.each([
+    { sort: "NEWEST" as const },
+    { sort: "EXPIRING_SOON" as const },
+    { sort: "DISCOUNT_DESC" as const },
+    { sort: "PRICE_ASC" as const, currency: "NPR" },
+    { sort: "PRICE_DESC" as const, currency: "NPR" },
+  ])("creates a continuation cursor for $sort", async (query) => {
+    const repository = new FakeSearchRepository();
+    const catalog = buildOfferCatalog(repository, {
+      clock: () => now,
+      idGenerator: () => "550e8400-e29b-41d4-a716-446655440000",
+    });
+    const published = await catalog.publishOffer({
+      ...textOnlyOffer,
+      salePrice: { currency: "NPR", amountMinor: 80_000 },
+      discountPercent: 20,
+    });
+    expect(published.ok).toBe(true);
+    if (!published.ok) return;
+
+    repository.searchResults = [
+      published.value,
+      {
+        ...published.value,
+        id: "40df2a87-7d4f-4479-b140-61c78a536ab9",
+      },
+    ];
+    const page = await catalog.searchVisibleOffers({
+      ...query,
+      limit: 1,
+    });
+
+    expect(page.ok).toBe(true);
+    if (page.ok) {
+      expect(page.value.items).toHaveLength(1);
+      expect(page.value.nextCursor).not.toBeNull();
+    }
+  });
+
+  it("decodes a continuation cursor before searching", async () => {
+    const repository = new FakeSearchRepository();
+    const catalog = buildOfferCatalog(repository, {
+      clock: () => now,
+      idGenerator: () => "550e8400-e29b-41d4-a716-446655440000",
+    });
+    const published = await catalog.publishOffer(textOnlyOffer);
+    expect(published.ok).toBe(true);
+    if (!published.ok) return;
+
+    repository.searchResults = [
+      published.value,
+      {
+        ...published.value,
+        id: "40df2a87-7d4f-4479-b140-61c78a536ab9",
+      },
+    ];
+    const first = await catalog.searchVisibleOffers({ limit: 1 });
+    expect(first.ok).toBe(true);
+    if (!first.ok || first.value.nextCursor === null) return;
+
+    repository.searchResults = [];
+    const second = await catalog.searchVisibleOffers({
+      limit: 1,
+      cursor: first.value.nextCursor,
+    });
+
+    expect(second.ok).toBe(true);
+    expect(repository.searches[1]?.keyset).toEqual({
+      sort: "NEWEST",
+      firstDiscoveredAt: published.value.firstDiscoveredAt,
+      id: published.value.id,
+    });
+  });
+
+  it("rejects an invalid cursor before searching", async () => {
+    const repository = new FakeSearchRepository();
+    const catalog = buildOfferCatalog(repository, { clock: () => now });
+
+    const result = await catalog.searchVisibleOffers({ cursor: "invalid*" });
+
+    expect(result.ok).toBe(false);
+    expect(repository.searches).toEqual([]);
   });
 });
 

@@ -1,6 +1,6 @@
 import type { Pool } from "pg";
 
-import type { LifecycleCatalogRepository, PublishCommand } from "../catalog.ts";
+import type { PublishCommand, SearchCatalogRepository, SearchCommand } from "../catalog.ts";
 import type { Money, Offer, SourceTime } from "../contract.ts";
 import type { NormalizedWithdrawOfferInput } from "../schema.ts";
 import { CatalogStorageError } from "./errors.ts";
@@ -59,7 +59,139 @@ function amount(value: Money | null): number | null {
   return value?.amountMinor ?? null;
 }
 
-export class PostgresOfferRepository implements LifecycleCatalogRepository {
+function escapeLikePattern(value: string): string {
+  return value.replace(/[\\%_]/g, (character) => `\\${character}`);
+}
+
+type SearchSql = Readonly<{
+  text: string;
+  values: unknown[];
+}>;
+
+function buildSearchSql(command: SearchCommand, now: Date): SearchSql {
+  const values: unknown[] = [];
+  const parameter = (value: unknown): string => {
+    values.push(value);
+    return `$${values.length}`;
+  };
+  const clauses = [
+    "withdrawn_at IS NULL",
+    `(validity_starts_at IS NULL OR validity_starts_at <= ${parameter(now)})`,
+    `expires_at > ${parameter(now)}`,
+  ];
+  const query = command.query;
+
+  if (query.text !== null) {
+    const pattern = parameter(`%${escapeLikePattern(query.text)}%`);
+    clauses.push(`(
+      title ILIKE ${pattern} ESCAPE E'\\\\'
+      OR seller_display_name ILIKE ${pattern} ESCAPE E'\\\\'
+      OR category ILIKE ${pattern} ESCAPE E'\\\\'
+      OR COALESCE(product_name, '') ILIKE ${pattern} ESCAPE E'\\\\'
+      OR COALESCE(brand_name, '') ILIKE ${pattern} ESCAPE E'\\\\'
+    )`);
+  }
+
+  if (query.categories.length > 0) {
+    clauses.push(`category = ANY(${parameter([...query.categories])}::text[])`);
+  }
+  if (query.sourceIds.length > 0) {
+    clauses.push(`source_id = ANY(${parameter([...query.sourceIds])}::text[])`);
+  }
+
+  const effectivePrice = "COALESCE(sale_amount_minor, original_amount_minor)";
+  if (query.currency !== null) {
+    clauses.push(`COALESCE(sale_currency, original_currency) = ${parameter(query.currency)}`);
+  }
+
+  let orderBy: string;
+  const keyset = command.keyset;
+  switch (query.sort) {
+    case "NEWEST":
+      orderBy = "first_discovered_at DESC, id DESC";
+      if (keyset !== null) {
+        if (keyset.sort !== "NEWEST") throw new CatalogStorageError();
+        clauses.push(
+          `(first_discovered_at, id) < (${parameter(keyset.firstDiscoveredAt)}, ${parameter(keyset.id)})`,
+        );
+      }
+      break;
+    case "EXPIRING_SOON":
+      orderBy = "expires_at ASC, id ASC";
+      if (keyset !== null) {
+        if (keyset.sort !== "EXPIRING_SOON") throw new CatalogStorageError();
+        clauses.push(
+          `(expires_at, id) > (${parameter(keyset.expiresAt)}, ${parameter(keyset.id)})`,
+        );
+      }
+      break;
+    case "DISCOUNT_DESC":
+      orderBy = "discount_percent DESC NULLS LAST, id DESC";
+      if (keyset !== null) {
+        if (keyset.sort !== "DISCOUNT_DESC") throw new CatalogStorageError();
+        if (keyset.discountPercent === null) {
+          clauses.push(`(discount_percent IS NULL AND id < ${parameter(keyset.id)})`);
+        } else {
+          const discount = parameter(keyset.discountPercent);
+          const id = parameter(keyset.id);
+          clauses.push(`(
+            discount_percent IS NULL
+            OR discount_percent < ${discount}
+            OR (discount_percent = ${discount} AND id < ${id})
+          )`);
+        }
+      }
+      break;
+    case "PRICE_ASC":
+      orderBy = `${effectivePrice} ASC NULLS LAST, id ASC`;
+      if (keyset !== null) {
+        if (keyset.sort !== "PRICE_ASC") throw new CatalogStorageError();
+        if (keyset.amountMinor === null) {
+          clauses.push(`(${effectivePrice} IS NULL AND id > ${parameter(keyset.id)})`);
+        } else {
+          const price = parameter(keyset.amountMinor);
+          const id = parameter(keyset.id);
+          clauses.push(`(
+            ${effectivePrice} IS NULL
+            OR ${effectivePrice} > ${price}
+            OR (${effectivePrice} = ${price} AND id > ${id})
+          )`);
+        }
+      }
+      break;
+    case "PRICE_DESC":
+      orderBy = `${effectivePrice} DESC NULLS LAST, id DESC`;
+      if (keyset !== null) {
+        if (keyset.sort !== "PRICE_DESC") throw new CatalogStorageError();
+        if (keyset.amountMinor === null) {
+          clauses.push(`(${effectivePrice} IS NULL AND id < ${parameter(keyset.id)})`);
+        } else {
+          const price = parameter(keyset.amountMinor);
+          const id = parameter(keyset.id);
+          clauses.push(`(
+            ${effectivePrice} IS NULL
+            OR ${effectivePrice} < ${price}
+            OR (${effectivePrice} = ${price} AND id < ${id})
+          )`);
+        }
+      }
+      break;
+  }
+
+  const limit = parameter(query.limit + 1);
+  return Object.freeze({
+    text: `
+      SELECT ${RETURNING_COLUMNS}
+      FROM offers
+      WHERE ${clauses.join(" AND ")}
+      ORDER BY ${orderBy}
+      LIMIT ${limit}
+    `,
+    values,
+  });
+}
+
+export class PostgresOfferRepository implements SearchCatalogRepository {
   readonly #pool: Pool;
 
   constructor(pool: Pool) {
@@ -224,6 +356,17 @@ export class PostgresOfferRepository implements LifecycleCatalogRepository {
 
       const row = result.rows[0];
       return row === undefined ? null : rowToOffer(row, now);
+    } catch (error) {
+      if (error instanceof CatalogStorageError) throw error;
+      throw new CatalogStorageError();
+    }
+  }
+
+  async search(command: SearchCommand, now: Date): Promise<readonly Offer[]> {
+    try {
+      const query = buildSearchSql(command, now);
+      const result = await this.#pool.query<OfferRow>(query.text, query.values);
+      return Object.freeze(result.rows.map((row) => rowToOffer(row, now)));
     } catch (error) {
       if (error instanceof CatalogStorageError) throw error;
       throw new CatalogStorageError();

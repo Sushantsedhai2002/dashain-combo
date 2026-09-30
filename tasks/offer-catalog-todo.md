@@ -276,14 +276,14 @@
 **Description:** Implement public active-offer search with literal case-insensitive text matching, category/source filters, and keyset pages for `NEWEST` and `EXPIRING_SOON`.
 
 **Acceptance criteria:**
-- [ ] Search matches the five approved fields and treats `%`, `_`, and backslash literally through parameterized SQL.
-- [ ] Category/source filters combine predictably and all queries exclude scheduled, expired, and withdrawn records at the supplied clock instant.
-- [ ] Newest and expiring pages have stable ID tie-breakers, no duplicates across pages, limits from 1–100, and a correct `nextCursor`.
+- [x] Search matches the five approved fields and treats `%`, `_`, and backslash literally through parameterized SQL.
+- [x] Category/source filters combine predictably and all queries exclude scheduled, expired, and withdrawn records at the supplied clock instant.
+- [x] Newest and expiring pages have stable ID tie-breakers, no duplicates across pages, limits from 1–100, and a correct `nextCursor`.
 
 **Verification:**
-- [ ] Observe focused search integration tests fail before implementation.
-- [ ] Run search tests with tied values, hidden offers, special characters, and multi-page fixtures.
-- [ ] Run package typecheck, lint, unit tests, and integration tests.
+- [x] Observe focused search integration tests fail before implementation.
+- [x] Run search tests with tied values, hidden offers, special characters, and multi-page fixtures.
+- [x] Run package typecheck, lint, unit tests, and integration tests.
 
 **Dependencies:** Tasks 9 and 10
 

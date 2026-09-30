@@ -4,16 +4,22 @@ import type {
   CatalogIssue,
   CatalogResult,
   Offer,
+  OfferCatalog,
+  OfferPage,
   PublishOfferInput,
+  SearchOffersQuery,
   WithdrawOfferInput,
 } from "./contract.ts";
+import { decodeCursor, encodeCursor, type OfferCursorKeyset } from "./cursor.ts";
 import { calculateExpiry } from "./lifecycle.ts";
 import { CatalogStorageError } from "./postgres/errors.ts";
 import {
   parseOfferId,
   parsePublishOfferInput,
+  parseSearchOffersQuery,
   parseWithdrawOfferInput,
   type NormalizedPublishOfferInput,
+  type NormalizedSearchOffersQuery,
   type NormalizedWithdrawOfferInput,
 } from "./schema.ts";
 
@@ -31,6 +37,15 @@ export interface CatalogRepository {
 export interface LifecycleCatalogRepository extends CatalogRepository {
   withdraw(input: NormalizedWithdrawOfferInput, withdrawnAt: Date): Promise<Offer | null>;
   findVisibleById(id: string, now: Date): Promise<Offer | null>;
+}
+
+export type SearchCommand = Readonly<{
+  query: NormalizedSearchOffersQuery;
+  keyset: OfferCursorKeyset | null;
+}>;
+
+export interface SearchCatalogRepository extends LifecycleCatalogRepository {
+  search(command: SearchCommand, now: Date): Promise<readonly Offer[]>;
 }
 
 type PublisherOptions = Readonly<{
@@ -93,6 +108,40 @@ function publisherMethod(
   };
 }
 
+function cursorKeyset(offer: Offer, query: NormalizedSearchOffersQuery): OfferCursorKeyset {
+  switch (query.sort) {
+    case "NEWEST":
+      return Object.freeze({
+        sort: query.sort,
+        firstDiscoveredAt: offer.firstDiscoveredAt,
+        id: offer.id,
+      });
+    case "EXPIRING_SOON":
+      return Object.freeze({
+        sort: query.sort,
+        expiresAt: offer.expiresAt,
+        id: offer.id,
+      });
+    case "DISCOUNT_DESC":
+      return Object.freeze({
+        sort: query.sort,
+        discountPercent: offer.discountPercent,
+        id: offer.id,
+      });
+    case "PRICE_ASC":
+    case "PRICE_DESC": {
+      if (query.currency === null) throw new CatalogStorageError();
+      const price = offer.salePrice ?? offer.originalPrice;
+      return Object.freeze({
+        sort: query.sort,
+        currency: query.currency,
+        amountMinor: price?.amountMinor ?? null,
+        id: offer.id,
+      });
+    }
+  }
+}
+
 export function buildOfferPublisher(
   repository: CatalogRepository,
   options: PublisherOptions = {},
@@ -133,6 +182,51 @@ export function buildOfferLifecycleCatalog(
       const now = new Date(clock().getTime());
       const offer = await sanitizeStorage(() => repository.findVisibleById(parsed.value, now));
       return offer === null ? notFound("id") : Object.freeze({ ok: true, value: offer });
+    },
+  });
+}
+
+export function buildOfferCatalog(
+  repository: SearchCatalogRepository,
+  options: PublisherOptions = {},
+): OfferCatalog {
+  const lifecycleCatalog = buildOfferLifecycleCatalog(repository, options);
+  const clock = options.clock ?? (() => new Date());
+
+  return Object.freeze({
+    ...lifecycleCatalog,
+
+    async searchVisibleOffers(input: SearchOffersQuery): Promise<CatalogResult<OfferPage>> {
+      const parsed = parseSearchOffersQuery(input);
+      if (!parsed.ok) return parsed;
+
+      let keyset: OfferCursorKeyset | null = null;
+      if (parsed.value.cursor !== null) {
+        const decoded = decodeCursor(
+          parsed.value.cursor,
+          parsed.value.sort,
+          parsed.value.currency ?? undefined,
+        );
+        if (!decoded.ok) return decoded;
+        keyset = decoded.value;
+      }
+
+      const now = new Date(clock().getTime());
+      const offers = await sanitizeStorage(() =>
+        repository.search(Object.freeze({ query: parsed.value, keyset }), now),
+      );
+      const hasNextPage = offers.length > parsed.value.limit;
+      const items = Object.freeze(offers.slice(0, parsed.value.limit));
+      const lastItem = items.at(-1);
+      const nextCursor =
+        hasNextPage && lastItem !== undefined
+          ? encodeCursor(cursorKeyset(lastItem, parsed.value))
+          : null;
+
+      return Object.freeze({
+        ok: true,
+        value: Object.freeze({ items, nextCursor }),
+      });
     },
   });
 }
