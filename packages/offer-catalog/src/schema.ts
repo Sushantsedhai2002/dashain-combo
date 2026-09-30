@@ -1,7 +1,4 @@
-import {
-  parseSourceRegistry,
-  type SourceDefinition,
-} from "@dashain-offer/source-registry";
+import { parseSourceRegistry, type SourceDefinition } from "@dashain-offer/source-registry";
 import { z } from "zod";
 
 import {
@@ -49,9 +46,7 @@ function isCalendarDate(value: string): boolean {
   const date = new Date(Date.UTC(year, month - 1, day));
 
   return (
-    date.getUTCFullYear() === year &&
-    date.getUTCMonth() === month - 1 &&
-    date.getUTCDate() === day
+    date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day
   );
 }
 
@@ -97,15 +92,9 @@ const PublishOfferSchema = z
       .transform((value) => value ?? null),
     discountLabel: optionalText(500),
     terms: optionalText(5_000),
-    sourcePublishedAt: SourceTimeSchema.nullish().transform(
-      (value) => value ?? null,
-    ),
-    validityStartsAt: InstantSchema.nullish().transform(
-      (value) => value ?? null,
-    ),
-    explicitValidityEnd: SourceTimeSchema.nullish().transform(
-      (value) => value ?? null,
-    ),
+    sourcePublishedAt: SourceTimeSchema.nullish().transform((value) => value ?? null),
+    validityStartsAt: InstantSchema.nullish().transform((value) => value ?? null),
+    explicitValidityEnd: SourceTimeSchema.nullish().transform((value) => value ?? null),
   })
   .strict()
   .superRefine((value, context) => {
@@ -134,6 +123,15 @@ const PublishOfferSchema = z
       });
     }
   });
+
+const WithdrawOfferSchema = z
+  .object({
+    sourceId: z.string().regex(SOURCE_ID_PATTERN),
+    sourceOfferKey: requiredText(200),
+  })
+  .strict();
+
+const OfferIdSchema = z.uuid();
 
 const SearchOffersSchema = z
   .object({
@@ -184,6 +182,11 @@ export type NormalizedPublishOfferInput = Readonly<{
   sourcePublishedAt: SourceTime | null;
   validityStartsAt: string | null;
   explicitValidityEnd: SourceTime | null;
+}>;
+
+export type NormalizedWithdrawOfferInput = Readonly<{
+  sourceId: string;
+  sourceOfferKey: string;
 }>;
 
 export type NormalizedSearchOffersQuery = Readonly<{
@@ -238,9 +241,7 @@ function valid<T>(value: T): CatalogResult<T> {
   return Object.freeze({ ok: true, value });
 }
 
-export function parsePublishOfferInput(
-  input: unknown,
-): CatalogResult<NormalizedPublishOfferInput> {
+export function parsePublishOfferInput(input: unknown): CatalogResult<NormalizedPublishOfferInput> {
   const parsed = PublishOfferSchema.safeParse(input);
   if (!parsed.success) return invalid(issuesFromZod(parsed.error));
 
@@ -279,9 +280,21 @@ export function parsePublishOfferInput(
   return valid(Object.freeze({ ...parsed.data, source }));
 }
 
-export function parseSearchOffersQuery(
+export function parseWithdrawOfferInput(
   input: unknown,
-): CatalogResult<NormalizedSearchOffersQuery> {
+): CatalogResult<NormalizedWithdrawOfferInput> {
+  const parsed = WithdrawOfferSchema.safeParse(input);
+  return parsed.success ? valid(Object.freeze(parsed.data)) : invalid(issuesFromZod(parsed.error));
+}
+
+export function parseOfferId(input: unknown): CatalogResult<string> {
+  const parsed = OfferIdSchema.safeParse(input);
+  return parsed.success
+    ? valid(parsed.data)
+    : invalid(issuesFromZod(parsed.error).map((issue) => ({ ...issue, path: "id" })));
+}
+
+export function parseSearchOffersQuery(input: unknown): CatalogResult<NormalizedSearchOffersQuery> {
   const parsed = SearchOffersSchema.safeParse(input);
   if (!parsed.success) return invalid(issuesFromZod(parsed.error));
 

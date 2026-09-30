@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  buildOfferLifecycleCatalog,
   buildOfferPublisher,
   type CatalogRepository,
+  type LifecycleCatalogRepository,
   type PublishCommand,
 } from "../src/catalog.ts";
 import type { Offer } from "../src/contract.ts";
@@ -49,6 +51,65 @@ class FakeRepository implements CatalogRepository {
     return offerFromCommand(command);
   }
 }
+
+describe("offer lifecycle catalog", () => {
+  it("returns structured not-found failures from lifecycle operations", async () => {
+    const repository: LifecycleCatalogRepository = {
+      publish: async (command) => offerFromCommand(command),
+      withdraw: async () => null,
+      findVisibleById: async () => null,
+    };
+    const catalog = buildOfferLifecycleCatalog(repository, {
+      clock: () => now,
+    });
+
+    await expect(
+      catalog.withdrawOffer({
+        sourceId: "daraz-nepal",
+        sourceOfferKey: "missing",
+      }),
+    ).resolves.toEqual({
+      ok: false,
+      issues: [
+        {
+          code: "OFFER_NOT_FOUND",
+          path: "sourceOfferKey",
+          message: "Offer not found",
+        },
+      ],
+    });
+    await expect(catalog.getVisibleOffer("550e8400-e29b-41d4-a716-446655440000")).resolves.toEqual({
+      ok: false,
+      issues: [
+        {
+          code: "OFFER_NOT_FOUND",
+          path: "id",
+          message: "Offer not found",
+        },
+      ],
+    });
+  });
+
+  it("rejects malformed lookup IDs before storage", async () => {
+    let lookupCount = 0;
+    const repository: LifecycleCatalogRepository = {
+      publish: async (command) => offerFromCommand(command),
+      withdraw: async () => null,
+      findVisibleById: async () => {
+        lookupCount += 1;
+        return null;
+      },
+    };
+    const catalog = buildOfferLifecycleCatalog(repository, {
+      clock: () => now,
+    });
+
+    const result = await catalog.getVisibleOffer("not-a-uuid");
+
+    expect(result.ok).toBe(false);
+    expect(lookupCount).toBe(0);
+  });
+});
 
 describe("offer publisher", () => {
   it("publishes a text-only offer with discovery fallback expiry", async () => {

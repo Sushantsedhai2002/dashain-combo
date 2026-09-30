@@ -221,14 +221,14 @@
 **Description:** Implement idempotent withdrawal and public lookup that intentionally makes missing, scheduled, expired, and withdrawn offers indistinguishable.
 
 **Acceptance criteria:**
-- [ ] Withdrawal records its first withdrawal instant once and repeated calls return the same hidden offer state.
-- [ ] Republishing does not reactivate a withdrawn identity.
-- [ ] Public lookup returns `OFFER_NOT_FOUND` for every hidden state and returns only active offers before exact expiry.
+- [x] Withdrawal records its first withdrawal instant once and repeated calls return the same hidden offer state.
+- [x] Republishing does not reactivate a withdrawn identity.
+- [x] Public lookup returns `OFFER_NOT_FOUND` for every hidden state and returns only active offers before exact expiry.
 
 **Verification:**
-- [ ] Observe withdrawal and visibility tests fail before implementation.
-- [ ] Run focused catalog tests and repository integration boundary tests.
-- [ ] Run package typecheck, lint, unit coverage, and the complete integration suite.
+- [x] Observe withdrawal and visibility tests fail before implementation.
+- [x] Run focused catalog tests and repository integration boundary tests.
+- [x] Run package typecheck, lint, unit coverage, and the complete integration suite.
 
 **Dependencies:** Task 8
 
@@ -242,10 +242,10 @@
 
 ## Checkpoint: Publication lifecycle
 
-- [ ] New, repeated, corrected, concurrent, and withdrawn publication scenarios pass against real PostgreSQL.
-- [ ] Catalog IDs and first discovery remain stable.
-- [ ] Scheduled, expired, and withdrawn offers cannot be retrieved publicly.
-- [ ] No restoration, hard deletion, extraction, or semantic deduplication was added.
+- [x] New, repeated, corrected, concurrent, and withdrawn publication scenarios pass against real PostgreSQL.
+- [x] Catalog IDs and first discovery remain stable.
+- [x] Scheduled, expired, and withdrawn offers cannot be retrieved publicly.
+- [x] No restoration, hard deletion, extraction, or semantic deduplication was added.
 
 ## Phase 4: Discovery queries
 

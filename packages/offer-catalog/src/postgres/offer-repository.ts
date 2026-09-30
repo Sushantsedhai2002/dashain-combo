@@ -1,7 +1,8 @@
 import type { Pool } from "pg";
 
-import type { CatalogRepository, PublishCommand } from "../catalog.ts";
+import type { LifecycleCatalogRepository, PublishCommand } from "../catalog.ts";
 import type { Money, Offer, SourceTime } from "../contract.ts";
+import type { NormalizedWithdrawOfferInput } from "../schema.ts";
 import { CatalogStorageError } from "./errors.ts";
 import { rowToOffer, type OfferRow } from "./row-mapper.ts";
 
@@ -58,7 +59,7 @@ function amount(value: Money | null): number | null {
   return value?.amountMinor ?? null;
 }
 
-export class PostgresOfferRepository implements CatalogRepository {
+export class PostgresOfferRepository implements LifecycleCatalogRepository {
   readonly #pool: Pool;
 
   constructor(pool: Pool) {
@@ -176,6 +177,53 @@ export class PostgresOfferRepository implements CatalogRepository {
       const row = result.rows[0];
       if (row === undefined) throw new CatalogStorageError();
       return rowToOffer(row, now);
+    } catch (error) {
+      if (error instanceof CatalogStorageError) throw error;
+      throw new CatalogStorageError();
+    }
+  }
+
+  async withdraw(input: NormalizedWithdrawOfferInput, withdrawnAt: Date): Promise<Offer | null> {
+    try {
+      const result = await this.#pool.query<OfferRow>(
+        `
+          UPDATE offers
+          SET
+            withdrawn_at = COALESCE(withdrawn_at, $3),
+            updated_at = CASE
+              WHEN withdrawn_at IS NULL THEN $3
+              ELSE updated_at
+            END
+          WHERE source_id = $1 AND source_offer_key = $2
+          RETURNING ${RETURNING_COLUMNS}
+        `,
+        [input.sourceId, input.sourceOfferKey, withdrawnAt],
+      );
+
+      const row = result.rows[0];
+      return row === undefined ? null : rowToOffer(row, withdrawnAt);
+    } catch (error) {
+      if (error instanceof CatalogStorageError) throw error;
+      throw new CatalogStorageError();
+    }
+  }
+
+  async findVisibleById(id: string, now: Date): Promise<Offer | null> {
+    try {
+      const result = await this.#pool.query<OfferRow>(
+        `
+          SELECT ${RETURNING_COLUMNS}
+          FROM offers
+          WHERE id = $1
+            AND withdrawn_at IS NULL
+            AND (validity_starts_at IS NULL OR validity_starts_at <= $2)
+            AND expires_at > $2
+        `,
+        [id, now],
+      );
+
+      const row = result.rows[0];
+      return row === undefined ? null : rowToOffer(row, now);
     } catch (error) {
       if (error instanceof CatalogStorageError) throw error;
       throw new CatalogStorageError();
