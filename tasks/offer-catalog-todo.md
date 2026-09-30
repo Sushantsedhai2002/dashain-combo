@@ -140,14 +140,14 @@
 **Description:** Define the initial offer table and indexes with stable identity, lifecycle timestamps, optional promotion details, and database-level constraints matching the approved contract.
 
 **Acceptance criteria:**
-- [ ] The migration enforces unique `(source_id, source_offer_key)`, required identifiers/text, safe monetary ranges, discount bounds, and valid timestamp relationships where practical.
-- [ ] Indexes support visible source/category filtering and each approved stable sort without adding an unapproved extension.
-- [ ] Integration tests prove valid text-only rows succeed and representative invalid rows fail atomically.
+- [x] The migration enforces unique `(source_id, source_offer_key)`, required identifiers/text, safe monetary ranges, discount bounds, and valid timestamp relationships where practical.
+- [x] Indexes support visible source/category filtering and each approved stable sort without adding an unapproved extension.
+- [x] Integration tests prove valid text-only rows succeed and representative invalid rows fail atomically.
 
 **Verification:**
-- [ ] Apply migrations from an empty database.
-- [ ] Run `pnpm catalog:test:integration -- offer-schema.integration.ts`.
-- [ ] Inspect the migration for secrets, destructive statements, and unparameterized runtime values.
+- [x] Apply migrations from an empty database.
+- [x] Run `pnpm catalog:test:integration -- offer-schema.integration.ts`.
+- [x] Inspect the migration for secrets, destructive statements, and unparameterized runtime values.
 
 **Dependencies:** Task 5
 
@@ -160,10 +160,10 @@
 
 ## Checkpoint: Persistence foundation
 
-- [ ] Empty-database, repeated-run, checksum-mismatch, and concurrent-migrator tests pass.
-- [ ] Default tests still pass with PostgreSQL stopped.
-- [ ] Schema constraints agree with package validation and the approved spec.
-- [ ] Docker image reference is pinned and no credentials or database data are tracked.
+- [x] Empty-database, repeated-run, checksum-mismatch, and concurrent-migrator tests pass.
+- [x] Default tests still pass with PostgreSQL stopped.
+- [x] Schema constraints agree with package validation and the approved spec.
+- [x] Docker image reference is pinned and no production credentials or database data are tracked.
 
 ## Phase 3: Publication and lifecycle operations
 
