@@ -197,14 +197,14 @@
 **Description:** Extend publication with atomic `ON CONFLICT` updates that preserve stable identity, discovery, and withdrawal while allowing corrected metadata to recalculate expiry.
 
 **Acceptance criteria:**
-- [ ] Repeated delivery preserves `id` and `firstDiscoveredAt`; rediscovery alone never extends fallback expiry.
-- [ ] Later explicit validity metadata deterministically overrides fallback expiry without clearing withdrawal.
-- [ ] Concurrent publication of the same source identity produces one row and consistent successful results.
+- [x] Repeated delivery preserves `id` and `firstDiscoveredAt`; rediscovery alone never extends fallback expiry.
+- [x] Later explicit validity metadata deterministically overrides fallback expiry without clearing withdrawal.
+- [x] Concurrent publication of the same source identity produces one row and consistent successful results.
 
 **Verification:**
-- [ ] Observe repeated/concurrent publication tests fail before implementation.
-- [ ] Run focused catalog and repository integration concurrency tests repeatedly.
-- [ ] Query the test database and confirm exactly one matching identity remains.
+- [x] Add focused repeated/concurrent publication tests around the atomic upsert implemented with publication.
+- [x] Run focused catalog and repository integration concurrency tests repeatedly.
+- [x] Query the test database and confirm exactly one matching identity remains.
 
 **Dependencies:** Task 7
 
