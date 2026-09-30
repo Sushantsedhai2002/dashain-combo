@@ -13,6 +13,8 @@ import {
 } from "./contract.ts";
 
 const SOURCE_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const SOURCE_ID_MAXIMUM = 100;
+const SELLER_DISPLAY_NAME_MAXIMUM = 300;
 const CURRENCY_PATTERN = /^[A-Z]{3}$/;
 
 const requiredText = (maximum: number) => z.string().trim().min(1).max(maximum);
@@ -26,6 +28,7 @@ const optionalText = (maximum: number) =>
     .transform((value) => value ?? null);
 
 const HttpsUrlSchema = z.url().max(2_048).startsWith("https://");
+const SourceIdSchema = z.string().max(SOURCE_ID_MAXIMUM).regex(SOURCE_ID_PATTERN);
 const CurrencySchema = z.string().regex(CURRENCY_PATTERN);
 const InstantSchema = z.iso.datetime({ offset: true });
 
@@ -126,7 +129,7 @@ const PublishOfferSchema = z
 
 const WithdrawOfferSchema = z
   .object({
-    sourceId: z.string().regex(SOURCE_ID_PATTERN),
+    sourceId: SourceIdSchema,
     sourceOfferKey: requiredText(200),
   })
   .strict();
@@ -147,7 +150,7 @@ const SearchOffersSchema = z
       .default([])
       .transform((values) => [...new Set(values)]),
     sourceIds: z
-      .array(z.string().regex(SOURCE_ID_PATTERN))
+      .array(SourceIdSchema)
       .max(50)
       .default([])
       .transform((values) => [...new Set(values)]),
@@ -270,15 +273,29 @@ export function parsePublishOfferInput(input: unknown): CatalogResult<Normalized
     ]);
   }
 
-  if (source.status !== "ACTIVE") {
-    return invalid([
-      {
-        code: "SOURCE_NOT_ACTIVE",
-        path: "source.status",
-        message: "Source must be ACTIVE",
-      },
-    ]);
+  const sourceIssues: CatalogIssue[] = [];
+  if (source.displayName.length > SELLER_DISPLAY_NAME_MAXIMUM) {
+    sourceIssues.push({
+      code: "INVALID_INPUT",
+      path: "source.displayName",
+      message: `Source display name must contain at most ${SELLER_DISPLAY_NAME_MAXIMUM} characters`,
+    });
   }
+  if (source.id.length > SOURCE_ID_MAXIMUM) {
+    sourceIssues.push({
+      code: "INVALID_INPUT",
+      path: "source.id",
+      message: `Source ID must contain at most ${SOURCE_ID_MAXIMUM} characters`,
+    });
+  }
+  if (source.status !== "ACTIVE") {
+    sourceIssues.push({
+      code: "SOURCE_NOT_ACTIVE",
+      path: "source.status",
+      message: "Source must be ACTIVE",
+    });
+  }
+  if (sourceIssues.length > 0) return invalid(sourceIssues);
 
   return valid(Object.freeze({ ...parsed.data, source }));
 }

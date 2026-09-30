@@ -1,7 +1,11 @@
 import type { SourceDefinition } from "@dashain-offer/source-registry";
 import { describe, expect, it } from "vitest";
 
-import { parsePublishOfferInput, parseSearchOffersQuery } from "../src/schema.ts";
+import {
+  parsePublishOfferInput,
+  parseSearchOffersQuery,
+  parseWithdrawOfferInput,
+} from "../src/schema.ts";
 
 const activeSource: SourceDefinition = {
   id: "daraz-nepal",
@@ -52,6 +56,22 @@ describe("parsePublishOfferInput", () => {
         explicitValidityEnd: null,
       },
     });
+  });
+
+  it("rejects source metadata that exceeds persistence limits", () => {
+    const result = parsePublishOfferInput({
+      ...validPublishInput,
+      source: {
+        ...activeSource,
+        id: "a".repeat(101),
+        displayName: "a".repeat(301),
+      },
+    });
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.issues.map((issue) => issue.path)).toEqual(["source.displayName", "source.id"]);
+    }
   });
 
   it("rejects publication from an inactive source", () => {
@@ -159,6 +179,15 @@ describe("parseSearchOffersQuery", () => {
     });
   });
 
+  it("rejects source filters that exceed persistence limits", () => {
+    const result = parseSearchOffersQuery({ sourceIds: ["a".repeat(101)] });
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.issues.map((issue) => issue.path)).toEqual(["sourceIds.0"]);
+    }
+  });
+
   it("requires one currency for price sorting", () => {
     const result = parseSearchOffersQuery({ sort: "PRICE_ASC" });
 
@@ -193,6 +222,20 @@ describe("parseSearchOffersQuery", () => {
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.issues.map((issue) => issue.path)).toEqual(["categories.0", "limit"]);
+    }
+  });
+});
+
+describe("parseWithdrawOfferInput", () => {
+  it("rejects a source identifier that exceeds persistence limits", () => {
+    const result = parseWithdrawOfferInput({
+      sourceId: "a".repeat(101),
+      sourceOfferKey: "dashain-sale-2026",
+    });
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.issues.map((issue) => issue.path)).toEqual(["sourceId"]);
     }
   });
 });
