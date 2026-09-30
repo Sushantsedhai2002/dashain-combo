@@ -14,6 +14,7 @@
     "format:check": "prettier --check \"**/*.{json,js,mjs,cjs,ts,tsx,yaml,yml}\"",
     "catalog:db:up": "docker compose -f config/postgres.compose.yml up -d --wait",
     "catalog:db:down": "docker compose -f config/postgres.compose.yml down --volumes",
+    "catalog:migrate": "pnpm --filter @dashain-offer/offer-catalog migrate",
     "catalog:test:integration": "pnpm --filter @dashain-offer/offer-catalog test:integration",
     "sources:check": "pnpm --filter @dashain-offer/source-registry sources:check",
     "sources:validate": "pnpm --filter @dashain-offer/source-registry sources:validate",

@@ -115,14 +115,14 @@
 **Description:** Test-first against real PostgreSQL, implement ordered SQL discovery, SHA-256 checksums, an advisory-lock transaction, migration metadata, and a sanitized CLI.
 
 **Acceptance criteria:**
-- [ ] An empty test database applies ordered migrations once and a second run performs no work.
-- [ ] A changed checksum for an applied migration fails before later migrations run; concurrent migrators serialize safely.
-- [ ] The CLI requires `DATABASE_URL`, uses one transaction client, and never prints credentials or raw driver errors.
+- [x] An empty test database applies ordered migrations once and a second run performs no work.
+- [x] A changed checksum for an applied migration fails before later migrations run; concurrent migrators serialize safely.
+- [x] The CLI requires `DATABASE_URL`, uses one transaction client, and never prints credentials or raw driver errors.
 
 **Verification:**
-- [ ] Observe migration integration tests fail before implementation.
-- [ ] Run `pnpm catalog:test:integration -- migrations.integration.ts` twice.
-- [ ] Run focused CLI tests, package typecheck, and lint.
+- [x] Observe migration integration tests fail before implementation.
+- [x] Run `pnpm catalog:test:integration -- migrations.integration.ts` twice.
+- [x] Run focused CLI tests, package typecheck, and lint.
 
 **Dependencies:** Task 4
 
