@@ -333,14 +333,14 @@
 **Description:** Add package-level contract tests proving consumers see only approved types/factories, expected failures remain structured, and internal libraries or error details never cross the boundary.
 
 **Acceptance criteria:**
-- [ ] Root package exports match the approved module contract and source-registry types compose without raw JSON access.
-- [ ] Zod issues, SQL text, connection strings, driver codes, row objects, and pool/client objects are absent from public results and expected error output.
-- [ ] All public returned arrays and objects meet readonly/immutability expectations without mutating caller input.
+- [x] Root package exports match the approved module contract and source-registry types compose without raw JSON access.
+- [x] Zod issues, SQL text, connection strings, driver codes, row objects, and pool/client objects are absent from public results and expected error output.
+- [x] All public returned arrays and objects meet readonly/immutability expectations without mutating caller input.
 
 **Verification:**
-- [ ] Run `pnpm --filter @dashain-offer/offer-catalog test -- package-contract.test.ts`.
-- [ ] Run focused failure tests with synthetic Zod and PostgreSQL errors.
-- [ ] Run package typecheck, lint, build, and coverage.
+- [x] Run `pnpm --filter @dashain-offer/offer-catalog test -- package-contract.test.ts`.
+- [x] Run focused failure tests with synthetic Zod and PostgreSQL errors.
+- [x] Run package typecheck, lint, build, and coverage.
 
 **Dependencies:** Tasks 3, 9, 10, and 12
 

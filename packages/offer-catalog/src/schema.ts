@@ -234,7 +234,10 @@ function issuesFromZod(error: z.ZodError): readonly CatalogIssue[] {
 }
 
 function invalid<T>(issues: readonly CatalogIssue[]): CatalogResult<T> {
-  return Object.freeze({ ok: false, issues: Object.freeze([...issues]) });
+  return Object.freeze({
+    ok: false,
+    issues: Object.freeze(issues.map((issue) => Object.freeze({ ...issue }))),
+  });
 }
 
 function valid<T>(value: T): CatalogResult<T> {

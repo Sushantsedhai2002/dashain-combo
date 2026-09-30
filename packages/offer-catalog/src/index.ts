@@ -1,3 +1,6 @@
+export { createOfferCatalog } from "./factory.ts";
+export type { CreateOfferCatalogOptions } from "./factory.ts";
+
 export type {
   CatalogIssue,
   CatalogResult,

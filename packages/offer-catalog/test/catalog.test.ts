@@ -260,10 +260,15 @@ describe("offer publisher", () => {
     expect(repository.commands).toEqual([]);
   });
 
-  it("rethrows storage failures without the underlying message", async () => {
+  it("rethrows storage failures without PostgreSQL details", async () => {
+    const driverError = Object.assign(new Error("password=database-secret"), {
+      code: "08006",
+      query: "SELECT * FROM offers",
+      connectionString: "postgresql://user:database-secret@localhost/catalog",
+    });
     const repository: CatalogRepository = {
       publish: async () => {
-        throw new Error("password=database-secret");
+        throw driverError;
       },
     };
     const publisher = buildOfferPublisher(repository, {
