@@ -33,9 +33,12 @@ Expected validation, not-found, and cursor failures are returned as structured `
 
 ## Local PostgreSQL
 
-From the repository root:
+From the repository root, set the migration URL to the disposable database before running the commands.
+
+Bash:
 
 ```bash
+export DATABASE_URL="postgresql://dashain:dashain_test_only@127.0.0.1:55432/dashain_offer_catalog_test"
 pnpm catalog:db:up
 pnpm catalog:migrate
 pnpm catalog:test:integration
@@ -43,9 +46,20 @@ pnpm catalog:test:integration:coverage
 pnpm catalog:db:down
 ```
 
-The disposable service uses the test-only settings in `config/postgres.compose.yml`. Integration safety checks reject a database whose parsed name does not contain `test`. `catalog:db:down` removes the disposable volume.
+PowerShell:
 
-For another database, set `DATABASE_URL` before running `pnpm catalog:migrate`. Migrations are forward-only and checksum protected; never edit a migration after it has been applied.
+```powershell
+$env:DATABASE_URL = "postgresql://dashain:dashain_test_only@127.0.0.1:55432/dashain_offer_catalog_test"
+pnpm catalog:db:up
+pnpm catalog:migrate
+pnpm catalog:test:integration
+pnpm catalog:test:integration:coverage
+pnpm catalog:db:down
+```
+
+The disposable service uses the test-only settings in `config/postgres.compose.yml`. Integration safety checks reject a database whose parsed name does not contain `test`. `catalog:db:down` removes the disposable volume. `CATALOG_TEST_DATABASE_URL` may override the integration-test URL; otherwise the suite uses the disposable URL above.
+
+For another database, set `DATABASE_URL` to that database before running `pnpm catalog:migrate`. Migrations are forward-only and checksum protected; never edit a migration after it has been applied.
 
 ## Verification
 
