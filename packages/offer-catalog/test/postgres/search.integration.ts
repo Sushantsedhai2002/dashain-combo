@@ -55,16 +55,30 @@ describe("visible offer search", () => {
       sourceOfferKey: "other-offer",
       title: "Save 50 percent today",
     });
+    await publishAt("00000000-0000-4000-8000-000000000003", "2026-09-03T00:00:00Z", {
+      ...textOnlyOffer,
+      sourceOfferKey: "backslash-offer",
+      title: "Backslash \\ special",
+    });
 
     const catalog = buildOfferCatalog(new PostgresOfferRepository(pool), {
       clock: () => queryNow,
     });
     const literal = await catalog.searchVisibleOffers({ text: "%_" });
+    const backslash = await catalog.searchVisibleOffers({ text: "\\" });
     const brand = await catalog.searchVisibleOffers({ text: "acm" });
     const product = await catalog.searchVisibleOffers({ text: "PHONE" });
     const seller = await catalog.searchVisibleOffers({ text: "daraz" });
     const category = await catalog.searchVisibleOffers({ text: "general_ret" });
 
+    expect(backslash).toEqual(
+      expect.objectContaining({
+        ok: true,
+        value: expect.objectContaining({
+          items: [expect.objectContaining({ sourceOfferKey: "backslash-offer" })],
+        }),
+      }),
+    );
     for (const result of [literal, brand, product]) {
       expect(result.ok).toBe(true);
       if (result.ok) {
@@ -75,7 +89,7 @@ describe("visible offer search", () => {
     }
     for (const result of [seller, category]) {
       expect(result.ok).toBe(true);
-      if (result.ok) expect(result.value.items).toHaveLength(2);
+      if (result.ok) expect(result.value.items).toHaveLength(3);
     }
   });
 
@@ -101,6 +115,26 @@ describe("visible offer search", () => {
         value: "2026-09-10T06:00:00.000Z",
       },
     });
+    await publishAt("00000000-0000-4000-8000-000000000013", "2026-09-01T00:00:00Z", {
+      ...textOnlyOffer,
+      source: automotiveSource,
+      sourceOfferKey: "scheduled-car",
+      category: "AUTOMOTIVE",
+      validityStartsAt: "2026-09-10T06:00:00.001Z",
+    });
+    await publishAt("00000000-0000-4000-8000-000000000014", "2026-09-01T00:00:00Z", {
+      ...textOnlyOffer,
+      source: automotiveSource,
+      sourceOfferKey: "withdrawn-car",
+      category: "AUTOMOTIVE",
+    });
+    const withdrawal = await buildOfferLifecycleCatalog(new PostgresOfferRepository(pool), {
+      clock: () => queryNow,
+    }).withdrawOffer({
+      sourceId: automotiveSource.id,
+      sourceOfferKey: "withdrawn-car",
+    });
+    expect(withdrawal.ok).toBe(true);
 
     const result = await buildOfferCatalog(new PostgresOfferRepository(pool), {
       clock: () => queryNow,

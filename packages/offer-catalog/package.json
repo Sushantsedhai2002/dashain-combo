@@ -13,7 +13,8 @@
     "migrate": "node src/cli/migrate-entry.mjs",
     "test": "vitest run --root ../.. --config vitest.workspace.ts packages/offer-catalog/test",
     "test:coverage": "vitest run --root ../.. --config vitest.workspace.ts --coverage --coverage.include=packages/offer-catalog/src/*.ts packages/offer-catalog/test",
-    "test:integration": "vitest run --root ../.. --config packages/offer-catalog/vitest.integration.config.ts"
+    "test:integration": "vitest run --root ../.. --config packages/offer-catalog/vitest.integration.config.ts",
+    "test:integration:coverage": "vitest run --root ../.. --config packages/offer-catalog/vitest.integration.config.ts --coverage"
   },
   "dependencies": {
     "@dashain-offer/source-registry": "workspace:*",

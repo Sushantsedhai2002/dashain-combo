@@ -24,11 +24,7 @@ export const OFFER_SORTS = [
 
 export type OfferCategory = (typeof OFFER_CATEGORIES)[number];
 export type OfferSort = (typeof OFFER_SORTS)[number];
-export type OfferLifecycleStatus =
-  | "SCHEDULED"
-  | "ACTIVE"
-  | "EXPIRED"
-  | "WITHDRAWN";
+export type OfferLifecycleStatus = "SCHEDULED" | "ACTIVE" | "EXPIRED" | "WITHDRAWN";
 
 export type Money = Readonly<{
   currency: string;
@@ -108,24 +104,17 @@ export type OfferPage = Readonly<{
 }>;
 
 export type CatalogIssue = Readonly<{
-  code:
-    | "INVALID_INPUT"
-    | "SOURCE_NOT_ACTIVE"
-    | "OFFER_NOT_FOUND"
-    | "CURSOR_INVALID";
+  code: "INVALID_INPUT" | "SOURCE_NOT_ACTIVE" | "OFFER_NOT_FOUND" | "CURSOR_INVALID";
   path: string;
   message: string;
 }>;
 
 export type CatalogResult<T> =
-  | Readonly<{ ok: true; value: T }>
-  | Readonly<{ ok: false; issues: readonly CatalogIssue[] }>;
+  Readonly<{ ok: true; value: T }> | Readonly<{ ok: false; issues: readonly CatalogIssue[] }>;
 
 export interface OfferCatalog {
   publishOffer(input: PublishOfferInput): Promise<CatalogResult<Offer>>;
   withdrawOffer(input: WithdrawOfferInput): Promise<CatalogResult<Offer>>;
   getVisibleOffer(id: string): Promise<CatalogResult<Offer>>;
-  searchVisibleOffers(
-    query: SearchOffersQuery,
-  ): Promise<CatalogResult<OfferPage>>;
+  searchVisibleOffers(query: SearchOffersQuery): Promise<CatalogResult<OfferPage>>;
 }

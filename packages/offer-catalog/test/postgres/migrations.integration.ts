@@ -35,6 +35,17 @@ afterAll(async () => {
 });
 
 describe("runMigrations", () => {
+  it("rejects unnumbered SQL migration files", async () => {
+    const directory = await migrationsDirectory({
+      "create-example.sql": "CREATE TABLE should_not_run (id integer PRIMARY KEY);",
+    });
+
+    await expect(runMigrations({ pool, migrationsDirectory: directory })).rejects.toMatchObject({
+      name: "CatalogMigrationError",
+      code: "MIGRATION_DIRECTORY_INVALID",
+    });
+  });
+
   it("applies ordered migrations once", async () => {
     const directory = await migrationsDirectory({
       "0001-create-example.sql": "CREATE TABLE example (id integer PRIMARY KEY);",
@@ -78,6 +89,40 @@ describe("runMigrations", () => {
       }
     }
 
+    const result = await pool.query<{ exists: string | null }>(
+      "SELECT to_regclass('public.should_not_run')::text AS exists",
+    );
+    expect(result.rows).toEqual([{ exists: null }]);
+  });
+
+  it("rejects a migration removed after application", async () => {
+    const directory = await migrationsDirectory({
+      "0001-create-example.sql": "CREATE TABLE example (id integer PRIMARY KEY);",
+    });
+    await runMigrations({ pool, migrationsDirectory: directory });
+    await rm(join(directory, "0001-create-example.sql"));
+
+    await expect(runMigrations({ pool, migrationsDirectory: directory })).rejects.toMatchObject({
+      name: "CatalogMigrationError",
+      code: "MIGRATION_CHECKSUM_MISMATCH",
+    });
+  });
+
+  it("rejects a newly inserted migration before applied history", async () => {
+    const directory = await migrationsDirectory({
+      "0002-create-example.sql": "CREATE TABLE example (id integer PRIMARY KEY);",
+    });
+    await runMigrations({ pool, migrationsDirectory: directory });
+    await writeFile(
+      join(directory, "0001-too-late.sql"),
+      "CREATE TABLE should_not_run (id integer PRIMARY KEY);",
+      "utf8",
+    );
+
+    await expect(runMigrations({ pool, migrationsDirectory: directory })).rejects.toMatchObject({
+      name: "CatalogMigrationError",
+      code: "MIGRATION_ORDER_INVALID",
+    });
     const result = await pool.query<{ exists: string | null }>(
       "SELECT to_regclass('public.should_not_run')::text AS exists",
     );

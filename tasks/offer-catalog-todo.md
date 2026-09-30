@@ -357,14 +357,14 @@
 **Description:** Finish root/package command wiring, document local operation, run every deterministic and database gate, and verify all approved success criteria without absorbing unrelated source-registry work.
 
 **Acceptance criteria:**
-- [ ] Root/package scripts provide all approved database, migration, test, coverage, typecheck, lint, and build commands while default checks remain service-free.
-- [ ] Unit coverage is at least 80% per executable file, no tests are skipped, and integration tests complete against a fresh disposable PostgreSQL database.
-- [ ] All 12 spec success criteria are traceable to passing tests or an explicit operator verification, with no secrets, stubs, generated database data, or out-of-scope modules in the diff.
+- [x] Root/package scripts provide all approved database, migration, test, coverage, typecheck, lint, and build commands while default checks remain service-free.
+- [x] Unit and PostgreSQL adapter coverage is at least 80% per applicable executable file, no tests are skipped, and integration tests complete against a fresh disposable PostgreSQL database.
+- [x] All 12 spec success criteria are traceable to passing tests or an explicit operator verification, with no secrets, stubs, generated database data, or out-of-scope modules in the diff.
 
 **Verification:**
-- [ ] Run `pnpm install --frozen-lockfile`, `pnpm check`, and `pnpm build`.
-- [ ] Run `pnpm catalog:db:up`, `pnpm catalog:migrate`, `pnpm catalog:test:integration`, then `pnpm catalog:db:down`.
-- [ ] Inspect staged diff, dependency tree, public exports, test timings, and secret scan before review.
+- [x] Run `pnpm install --frozen-lockfile`, `pnpm check`, and `pnpm build`.
+- [x] Run `pnpm catalog:db:up`, `pnpm catalog:migrate`, `pnpm catalog:test:integration`, `pnpm catalog:test:integration:coverage`, then `pnpm catalog:db:down`.
+- [x] Inspect the diff, dependency tree, public exports, test timings, dependency audit, and secret scan before review.
 
 **Dependencies:** Tasks 1–13
 
@@ -379,9 +379,9 @@
 
 ## Final Checkpoint
 
-- [ ] Every success criterion in `SPEC-offer-catalog.md` is demonstrated.
-- [ ] Default checks pass with PostgreSQL stopped.
-- [ ] Real-PostgreSQL migration, concurrency, repository, and search integration tests pass from an empty database.
-- [ ] No external network request occurs during tests.
-- [ ] No unrelated source-registry working-tree change is staged or committed with catalog work.
+- [x] Every success criterion in `SPEC-offer-catalog.md` is demonstrated.
+- [x] Default checks pass with PostgreSQL stopped.
+- [x] Real-PostgreSQL migration, concurrency, repository, and search integration tests pass from an empty database.
+- [x] No external network request occurs during tests.
+- [x] No unrelated source-registry working-tree change is staged or committed with catalog work.
 - [ ] Human reviews and approves the completed module before planning `offer-ingestion`.

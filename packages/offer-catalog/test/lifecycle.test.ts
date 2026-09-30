@@ -1,9 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  calculateExpiry,
-  deriveLifecycleStatus,
-} from "../src/lifecycle.ts";
+import { calculateExpiry, deriveLifecycleStatus } from "../src/lifecycle.ts";
 
 const discoveredAt = new Date("2026-09-01T06:00:00.000Z");
 

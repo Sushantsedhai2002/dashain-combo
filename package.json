@@ -16,6 +16,7 @@
     "catalog:db:down": "docker compose -f config/postgres.compose.yml down --volumes",
     "catalog:migrate": "pnpm --filter @dashain-offer/offer-catalog migrate",
     "catalog:test:integration": "pnpm --filter @dashain-offer/offer-catalog test:integration",
+    "catalog:test:integration:coverage": "pnpm --filter @dashain-offer/offer-catalog test:integration:coverage",
     "sources:check": "pnpm --filter @dashain-offer/source-registry sources:check",
     "sources:validate": "pnpm --filter @dashain-offer/source-registry sources:validate",
     "test": "vitest run --config vitest.workspace.ts --passWithNoTests",

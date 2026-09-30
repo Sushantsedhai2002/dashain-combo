@@ -1,5 +1,8 @@
 export type CatalogMigrationErrorCode =
-  "MIGRATION_CHECKSUM_MISMATCH" | "MIGRATION_DIRECTORY_INVALID" | "MIGRATION_FAILED";
+  | "MIGRATION_CHECKSUM_MISMATCH"
+  | "MIGRATION_DIRECTORY_INVALID"
+  | "MIGRATION_FAILED"
+  | "MIGRATION_ORDER_INVALID";
 
 export class CatalogMigrationError extends Error {
   readonly code: CatalogMigrationErrorCode;

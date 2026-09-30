@@ -31,6 +31,17 @@ function checksum(value: string): string {
 async function loadMigrations(directory: string): Promise<readonly Migration[]> {
   try {
     const entries = await readdir(directory, { withFileTypes: true });
+    const invalidSqlFile = entries.find(
+      (entry) =>
+        entry.isFile() && entry.name.endsWith(".sql") && !MIGRATION_FILE_PATTERN.test(entry.name),
+    );
+    if (invalidSqlFile !== undefined) {
+      throw new CatalogMigrationError(
+        "MIGRATION_DIRECTORY_INVALID",
+        `Catalog migration file name is invalid: ${invalidSqlFile.name}`,
+      );
+    }
+
     const names = entries
       .filter((entry) => entry.isFile() && MIGRATION_FILE_PATTERN.test(entry.name))
       .map((entry) => entry.name)
@@ -72,6 +83,31 @@ export async function runMigrations(input: RunMigrationsInput): Promise<readonly
     const applied = new Map(
       appliedResult.rows.map((migration) => [migration.name, migration.checksum]),
     );
+    const availableNames = new Set(migrations.map((migration) => migration.name));
+    const missingMigration = appliedResult.rows.find(
+      (migration) => !availableNames.has(migration.name),
+    );
+    if (missingMigration !== undefined) {
+      throw new CatalogMigrationError(
+        "MIGRATION_CHECKSUM_MISMATCH",
+        `Applied catalog migration is missing: ${missingMigration.name}`,
+      );
+    }
+
+    const latestAppliedName = appliedResult.rows.at(-1)?.name;
+    const outOfOrderMigration = migrations.find(
+      (migration) =>
+        !applied.has(migration.name) &&
+        latestAppliedName !== undefined &&
+        migration.name < latestAppliedName,
+    );
+    if (outOfOrderMigration !== undefined) {
+      throw new CatalogMigrationError(
+        "MIGRATION_ORDER_INVALID",
+        `Catalog migration cannot be inserted before applied history: ${outOfOrderMigration.name}`,
+      );
+    }
+
     const appliedNow: string[] = [];
 
     for (const migration of migrations) {

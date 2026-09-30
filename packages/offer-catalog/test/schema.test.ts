@@ -1,10 +1,7 @@
 import type { SourceDefinition } from "@dashain-offer/source-registry";
 import { describe, expect, it } from "vitest";
 
-import {
-  parsePublishOfferInput,
-  parseSearchOffersQuery,
-} from "../src/schema.ts";
+import { parsePublishOfferInput, parseSearchOffersQuery } from "../src/schema.ts";
 
 const activeSource: SourceDefinition = {
   id: "daraz-nepal",
@@ -195,10 +192,7 @@ describe("parseSearchOffersQuery", () => {
 
     expect(result.ok).toBe(false);
     if (!result.ok) {
-      expect(result.issues.map((issue) => issue.path)).toEqual([
-        "categories.0",
-        "limit",
-      ]);
+      expect(result.issues.map((issue) => issue.path)).toEqual(["categories.0", "limit"]);
     }
   });
 });

@@ -60,15 +60,11 @@ function instant(value: string): Date {
 }
 
 function sourceTimeStart(value: SourceTime): Date {
-  return value.kind === "INSTANT"
-    ? instant(value.value)
-    : kathmanduMidnight(value.value, 0);
+  return value.kind === "INSTANT" ? instant(value.value) : kathmanduMidnight(value.value, 0);
 }
 
 function explicitExpiry(value: SourceTime): Date {
-  return value.kind === "INSTANT"
-    ? instant(value.value)
-    : kathmanduMidnight(value.value, 1);
+  return value.kind === "INSTANT" ? instant(value.value) : kathmanduMidnight(value.value, 1);
 }
 
 export function calculateExpiry(input: ExpiryInput): Date {
@@ -84,16 +80,11 @@ export function calculateExpiry(input: ExpiryInput): Date {
   return new Date(fallbackStart.getTime() + TWENTY_DAYS_MILLISECONDS);
 }
 
-export function deriveLifecycleStatus(
-  input: LifecycleInput,
-): OfferLifecycleStatus {
+export function deriveLifecycleStatus(input: LifecycleInput): OfferLifecycleStatus {
   if (input.withdrawnAt !== null) return "WITHDRAWN";
 
   const now = input.now.getTime();
-  if (
-    input.validityStartsAt !== null &&
-    now < instant(input.validityStartsAt).getTime()
-  ) {
+  if (input.validityStartsAt !== null && now < instant(input.validityStartsAt).getTime()) {
     return "SCHEDULED";
   }
 
