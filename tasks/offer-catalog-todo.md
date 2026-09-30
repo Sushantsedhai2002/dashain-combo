@@ -90,14 +90,14 @@
 **Description:** Add a pinned official PostgreSQL 17+ Compose service, safe test environment template, separate integration Vitest configuration, and root operator scripts. Keep default tests independent of Docker.
 
 **Acceptance criteria:**
-- [ ] `pnpm catalog:db:up` starts a healthy dedicated test database and `pnpm catalog:db:down` removes it.
-- [ ] Integration setup accepts only a parsed database name containing `test` and rejects unsafe or missing URLs before SQL runs.
-- [ ] Integration files are excluded from default `pnpm test` and execute only through `pnpm catalog:test:integration`.
+- [x] `pnpm catalog:db:up` starts a healthy dedicated test database and `pnpm catalog:db:down` removes it.
+- [x] Integration setup accepts only a parsed database name containing `test` and rejects unsafe or missing URLs before SQL runs.
+- [x] Integration files are excluded from default `pnpm test` and execute only through `pnpm catalog:test:integration`.
 
 **Verification:**
-- [ ] Run the safety tests without Docker and observe unsafe URLs rejected.
-- [ ] Run `pnpm catalog:db:up`, the integration smoke test, and `pnpm catalog:db:down`.
-- [ ] Run default `pnpm test` with PostgreSQL stopped.
+- [x] Run the safety tests without Docker and observe unsafe URLs rejected.
+- [x] Run `pnpm catalog:db:up`, the integration smoke test, and `pnpm catalog:db:down`.
+- [x] Run default `pnpm test` with PostgreSQL stopped.
 
 **Dependencies:** Task 1
 
