@@ -1,7 +1,7 @@
 # Spec: Offer Ingestion
 
 **Module ID:** `offer-ingestion`
-**Status:** Eight website adapters implemented; remaining source assessments recorded
+**Status:** Nine website adapters implemented; remaining source assessments recorded
 **Dependencies:** `source-registry`, `offer-catalog`
 
 ## Objective
@@ -35,8 +35,9 @@ Collect promotions from approved source channels, turn supported evidence into c
 | ITTI | Homepage product sections | Server-delivered `get-all-home-data` query; numeric mark/selling price pair, stock and coming-soon checks; no script execution |
 | Choicemandu | First Special Offers page | `.price-old` / `.price-new`, full title attribute, same-origin product URL and image |
 | Big Digital | Homepage at verified non-www origin | Explicit `.regular-price.on-offer` / `.offer-price`; displayed title and same-origin image |
+| Daraz Nepal | Homepage flash-sale module | Strict JSON first-screen data, explicit original/discount prices, available stock, canonical approved-origin product URLs, and stable item/SKU keys |
 
-All amounts use NPR minor units. Price ranges, malformed currency values, off-origin destinations, and ambiguous cards are skipped. No pagination or product-detail crawl has been added to these listing scopes. [The assessment](docs/ingestion-assessment.md) records all 50 sources and the specific reasons the remaining 42 are not enabled.
+All amounts use NPR minor units. Price ranges, malformed currency values, off-origin destinations, and ambiguous cards are skipped. No pagination or product-detail crawl has been added to these listing scopes. [The assessment](docs/ingestion-assessment.md) records all 50 sources and the specific reasons the remaining 41 are not enabled. Daraz's campaign subdomain is not collected. Neither Daraz nor ITTI scripts are executed. Where these listings omit an explicit end date, the catalog's existing 20-day fallback applies; no campaign end is inferred.
 
 ## Commands and structure
 
@@ -64,8 +65,8 @@ The new package lives in `packages/offer-ingestion`. Source adapters live under 
 
 ## Open decisions
 
-- Access and extraction contracts for the 42 sources not yet enabled.
+- Access and extraction contracts for the 41 sources not yet enabled.
 - Minimum extraction quality required to activate each adapter.
-- Broader validation beyond the 21-offer annotated sample; the intended 100-promotion milestone is not complete.
+- Broader validation beyond the 24-offer annotated sample; the intended 100-promotion milestone is not complete.
 - Collection interval within the VPS resource budget; initial worker default is six hours.
 - Access method for the three Facebook-only channels; they remain unsupported until a permitted, reliable method exists.

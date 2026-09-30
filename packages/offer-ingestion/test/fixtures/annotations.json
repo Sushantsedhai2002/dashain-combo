@@ -3,6 +3,33 @@
   "method": "Selected cards annotated from recorded visible title, link and price evidence. Category and brand are reviewed interpretation. The sample measures field correctness, not full-source recall or ongoing live accuracy.",
   "offers": [
     {
+      "sourceId": "daraz-nepal",
+      "title": "Bare Anatomy Anti Hairfall Shampoo - 250ML",
+      "destinationUrl": "https://www.daraz.com.np/products/bare-anatomy-anti-hairfall-shampoo-250ml-i328335010-s1466008794.html",
+      "originalMinor": 77400,
+      "saleMinor": 67800,
+      "category": "GENERAL_RETAIL",
+      "brandName": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "LUX Soft Rose Body Wash with French Rose & Almond Oil, 245 ml",
+      "destinationUrl": "https://www.daraz.com.np/products/lux-soft-rose-body-wash-with-french-rose-almond-oil-245-ml-i454986640-s2011434712.html",
+      "originalMinor": 22000,
+      "saleMinor": 9900,
+      "category": "GENERAL_RETAIL",
+      "brandName": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "10Kg Digital Weighing Machine l Weighting Machine l Weight Scale| Electronic Kitchen Scale l Sold By Kalika Deals",
+      "destinationUrl": "https://www.daraz.com.np/products/10kg-digital-weighing-machine-l-weighting-machine-l-weight-scale-electronic-kitchen-scale-l-sold-by-kalika-deals-i460398141-s2063172740.html",
+      "originalMinor": 80000,
+      "saleMinor": 53000,
+      "category": "GENERAL_RETAIL",
+      "brandName": null
+    },
+    {
       "sourceId": "evostore",
       "title": "ACTON III",
       "destinationUrl": "https://evostore.com.np/acton_iii",

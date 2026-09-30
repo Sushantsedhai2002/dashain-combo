@@ -1,18 +1,18 @@
 # Ingestion source assessment
 
-All 50 registry entries (including the 49 beyond EvoStore) were assessed on 2026-09-30. Eight adapters are enabled. The remaining 42 require the access or extraction work listed below; they are not represented as working integrations.
+All 50 registry entries (including the 49 beyond EvoStore) were assessed on 2026-09-30. Nine adapters are enabled. The remaining 41 require the access or extraction work listed below; they are not represented as working integrations.
 
 The live robots-aware dry-run found 56 candidates: EvoStore 16, Online Saathi 17, Midea 8, Neo Store 8, Caliber 7. Online Saathi rotates homepage recommendations; its recorded fixture contains 20 candidates. These counts measure extraction yield, not stock availability or discount authenticity.
 
-The expansion live dry-runs found 46 additional candidates: ITTI 43, Choicemandu 2, and Big Digital 1. Network timeouts are possible; a later successful run does not imply continuous availability. Big Digital's existing www channel redirects to the non-www origin, independently verified by the official site's organization schema and added to the registry. No automatic redirect following was introduced.
+The expansion live dry-runs found 53 additional candidates: ITTI 43, Choicemandu 2, Big Digital 1, and Daraz 7. Network timeouts are possible; a later successful run does not imply continuous availability. Big Digital's existing www channel redirects to the non-www origin, independently verified by the official site's organization schema and added to the registry. No automatic redirect following was introduced.
 
-The reproducible evaluation checks 147 fields across 21 reviewed offers. All 147 match. This small recorded sample does not establish full-source recall, false-positive rate, date accuracy, or future live accuracy. Expand the annotated sample before treating the intended 100-promotion validation milestone as complete.
+The reproducible evaluation checks 168 fields across 24 reviewed offers. All 168 match. This small recorded sample does not establish full-source recall, false-positive rate, date accuracy, or future live accuracy. Expand the annotated sample before treating the intended 100-promotion validation milestone as complete.
 
 ## Recorded assessment
 
 | Source | Status | Evidence / next requirement |
 |---|---|---|
-| Daraz Nepal | NEEDS_EXTRACTION_CONTRACT | Homepage campaign links use pages.daraz.com.np, outside the registered website origin; product/price content requires a separately assessed dynamic integration. |
+| Daraz Nepal | ENABLED | Homepage embeds strict first-screen JSON with a named flash-sale module, explicit NPR price pairs and available-stock flags. Full-page fixture, reviewed annotations and live robots-aware dry-run passed (7 candidates). Stable item/SKU keys and approved-origin product links exclude tracking parameters; no campaign subdomain requests or script execution. Missing validity ends use the catalog fallback. |
 | Bhat-Bhateni Super Market | NEEDS_EXTRACTION_CONTRACT | Accessible informational homepage; no machine-readable discounted product cards or current dated promotion listing found. |
 | Big Mart Nepal | ACCESS_BLOCKED | Registered HTTPS URL redirects to HTTP. The ingestion HTTPS boundary forbids following it. |
 | Online Saathi | ENABLED | Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported. |
@@ -64,6 +64,8 @@ The reproducible evaluation checks 147 fields across 21 reviewed offers. All 147
 | Fonepay | NEEDS_EXTRACTION_CONTRACT | Corporate/service page with organization schemas rather than a verified current offer listing. |
 
 Raw normalized observations are in [ingestion-source-assessment.json](./ingestion-source-assessment.json). Recorded card fixtures and sample annotations are in `packages/offer-ingestion/test/fixtures`. `pnpm ingestion:evaluate` reproduces the field report without a network or database.
+
+The expansion includes complete recorded HTML for ITTI, Choicemandu, Big Digital and Daraz. PostgreSQL integration tests verified all nine adapters with 112 recorded offers and stable catalog identities on rediscovery. Separate real-network publication runs inserted all 53 new-source candidates into an isolated disposable PostgreSQL 17 database. Final `pnpm check` passed 227 tests with 94.7% line coverage; ingestion integration coverage passed all six tests with 90.47% lines.
 
 ## Activation gate
 

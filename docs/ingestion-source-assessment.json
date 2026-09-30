@@ -9,10 +9,10 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
-      "listingUrl": null,
-      "liveCandidates": null,
-      "reason": "Homepage campaign links use pages.daraz.com.np, outside the registered website origin; product/price content requires a separately assessed dynamic integration."
+      "status": "ENABLED",
+      "listingUrl": "https://www.daraz.com.np/",
+      "liveCandidates": 7,
+      "reason": "Homepage first-screen JSON exposes a named flash-sale module with explicit NPR price pairs and available-stock flags. Full-page fixture, reviewed annotations and live robots-aware dry-run passed. Product URLs remain on the registered origin; stable item/SKU keys strip tracking. Campaign subdomain excluded; missing validity ends use the catalog fallback."
     },
     {
       "sourceId": "bhat-bhateni",
