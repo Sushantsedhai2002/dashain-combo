@@ -254,14 +254,14 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 **Description:** Add verified records for Daraz Nepal, Bhat-Bhateni, Big Mart Nepal, SalesBerry, SmartDoko, Gyapu, Thulo.com, and Jeevee, substituting inaccessible candidates within the same segment.
 
 **Acceptance criteria:**
-- [ ] Eight unique active general-retail sources pass offline validation.
-- [ ] Each record has first-party evidence and at least one enabled HTTPS channel.
-- [ ] The opt-in live report is reviewed and failures are documented without treating them as authenticity verdicts.
+- [x] Eight unique active general-retail sources pass offline validation.
+- [x] Each record has first-party evidence and at least one enabled HTTPS channel.
+- [x] The opt-in live report is reviewed and failures are documented without treating them as authenticity verdicts.
 
 **Verification:**
-- [ ] Run `pnpm sources:validate`.
-- [ ] Run `pnpm sources:check --live` and inspect all newly added channels.
-- [ ] Manually verify configured evidence URLs are first-party.
+- [x] Run `pnpm sources:validate`.
+- [x] Run `pnpm sources:check --live` and inspect all newly added channels.
+- [x] Manually verify configured evidence URLs are first-party.
 
 **Dependencies:** Task 9
 
@@ -275,14 +275,14 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 **Description:** Add verified records for Hukut, Mudita Store, Oliz Store, EvoStore, Big Digital, ITTI, Neo Store, and CG Digital, using same-segment replacements where necessary.
 
 **Acceptance criteria:**
-- [ ] The registry contains 16 total unique active sources after this batch.
-- [ ] All eight new records include first-party evidence and enabled channels.
-- [ ] No source IDs or canonical channel URLs collide with Task 10 data.
+- [x] The registry contains 16 total unique active sources after this batch.
+- [x] All eight new records include first-party evidence and enabled channels.
+- [x] No source IDs or canonical channel URLs collide with Task 10 data.
 
 **Verification:**
-- [ ] Run `pnpm sources:validate`.
-- [ ] Run the live checker and review the new channels.
-- [ ] Manually verify first-party evidence.
+- [x] Run `pnpm sources:validate`.
+- [x] Run the live checker and review the new channels.
+- [x] Manually verify first-party evidence.
 
 **Dependencies:** Task 10
 
@@ -296,14 +296,14 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 **Description:** Add verified records for Samsung Nepal, Xiaomi Nepal, vivo Nepal, OPPO Nepal, realme Nepal, and LG Nepal, replacing candidates within the same segment when required.
 
 **Acceptance criteria:**
-- [ ] The registry contains 22 total unique active sources.
-- [ ] All six records include first-party evidence and enabled channels.
-- [ ] Validation reports no duplicate identity or channel data.
+- [x] The registry contains 22 total unique active sources.
+- [x] All six records include first-party evidence and enabled channels.
+- [x] Validation reports no duplicate identity or channel data.
 
 **Verification:**
-- [ ] Run offline validation and the opt-in live checker.
-- [ ] Manually verify each evidence URL.
-- [ ] Run package tests after the data update.
+- [x] Run offline validation and the opt-in live checker.
+- [x] Manually verify each evidence URL.
+- [x] Run package tests after the data update.
 
 **Dependencies:** Task 11
 
@@ -317,14 +317,14 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 **Description:** Add verified records for Panasonic Nepal, TCL Nepal, Hisense Nepal, CG Electronics, Baltra Home Appliances, and Himstar, using same-segment replacements where necessary.
 
 **Acceptance criteria:**
-- [ ] The registry contains 28 total unique active sources.
-- [ ] All six records include first-party evidence and enabled channels.
-- [ ] Validation reports no duplicate identity or channel data.
+- [x] The registry contains 28 total unique active sources.
+- [x] All six records include first-party evidence and enabled channels.
+- [x] Validation reports no duplicate identity or channel data.
 
 **Verification:**
-- [ ] Run offline validation and the opt-in live checker.
-- [ ] Manually verify each evidence URL.
-- [ ] Run package tests after the data update.
+- [x] Run offline validation and the opt-in live checker.
+- [x] Manually verify each evidence URL.
+- [x] Run package tests after the data update.
 
 **Dependencies:** Task 12
 
@@ -335,24 +335,24 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 
 ## Checkpoint: First 28 sources
 
-- [ ] Registry has 28 active records across three portfolio groups.
-- [ ] Every record has verified evidence and an enabled channel.
-- [ ] Offline validation, package tests, typecheck, and lint pass.
-- [ ] Replacement decisions are recorded in the change summary.
+- [x] Registry has 28 active records across three portfolio groups.
+- [x] Every record has verified evidence and an enabled channel.
+- [x] Offline validation, package tests, typecheck, and lint pass.
+- [x] Replacement decisions are recorded in the change summary.
 
 ### Task 14: Verify six fashion and lifestyle sources
 
 **Description:** Add verified records for Goldstar Shoes, Caliber Shoes, KTM CTY, Sonam Gear, Dulla, and Shikhar Shoes, replacing candidates within the same segment where necessary.
 
 **Acceptance criteria:**
-- [ ] The registry contains 34 total unique active sources.
-- [ ] All six new records include first-party evidence and enabled channels.
-- [ ] Validation reports no duplicates or malformed records.
+- [x] The registry contains 34 total unique active sources.
+- [x] All six new records include first-party evidence and enabled channels.
+- [x] Validation reports no duplicates or malformed records.
 
 **Verification:**
-- [ ] Run offline validation and the opt-in live checker.
-- [ ] Manually verify each evidence URL.
-- [ ] Run package tests after the data update.
+- [x] Run offline validation and the opt-in live checker.
+- [x] Manually verify each evidence URL.
+- [x] Run package tests after the data update.
 
 **Dependencies:** Task 13
 
@@ -366,14 +366,14 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 **Description:** Add verified records for Hyundai Nepal, Tata Motors Nepal, Kia Nepal, Suzuki Nepal, Toyota Nepal, Honda Nepal, Yamaha Nepal, and Bajaj Nepal, using official Nepal distributors and same-segment replacements where needed.
 
 **Acceptance criteria:**
-- [ ] The registry contains 42 total unique active sources.
-- [ ] Manufacturer/distributor relationships are supported by first-party evidence.
-- [ ] Every source has at least one enabled channel and no canonical URL conflicts.
+- [x] The registry contains 42 total unique active sources.
+- [x] Manufacturer/distributor relationships are supported by first-party evidence.
+- [x] Every source has at least one enabled channel and no canonical URL conflicts.
 
 **Verification:**
-- [ ] Run offline validation and the opt-in live checker.
-- [ ] Manually verify manufacturer or authorized-distributor evidence.
-- [ ] Run package tests after the data update.
+- [x] Run offline validation and the opt-in live checker.
+- [x] Manually verify manufacturer or authorized-distributor evidence.
+- [x] Run package tests after the data update.
 
 **Dependencies:** Task 14
 
@@ -387,14 +387,14 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 **Description:** Add verified records for Buddha Air, Yeti Airlines, Shree Airlines, Foodmandu, Pathao Nepal, eSewa, Khalti, and IME Pay, using same-segment replacements where required.
 
 **Acceptance criteria:**
-- [ ] The registry contains exactly 50 unique active sources.
-- [ ] All eight new records include first-party evidence and enabled channels.
-- [ ] All six approved portfolio groups remain represented.
+- [x] The registry contains exactly 50 unique active sources.
+- [x] All eight new records include first-party evidence and enabled channels.
+- [x] All six approved portfolio groups remain represented.
 
 **Verification:**
-- [ ] Run offline validation and the opt-in live checker.
-- [ ] Manually verify each evidence URL.
-- [ ] Run package tests after the data update.
+- [x] Run offline validation and the opt-in live checker.
+- [x] Manually verify each evidence URL.
+- [x] Run package tests after the data update.
 
 **Dependencies:** Task 15
 
@@ -405,10 +405,10 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 
 ## Checkpoint: Verified 50-source portfolio
 
-- [ ] Exactly 50 sources are active.
-- [ ] Every active source supports Nepal, has first-party evidence, and has an enabled HTTPS channel.
-- [ ] All six portfolio groups are represented.
-- [ ] No credentials, tokens, cookies, selectors, or personal data appear in the registry.
+- [x] Exactly 50 sources are active.
+- [x] Every active source supports Nepal, has first-party evidence, and has an enabled HTTPS channel.
+- [x] All six portfolio groups are represented.
+- [x] No credentials, tokens, cookies, selectors, or personal data appear in the registry.
 
 ## Phase 5: Production contract
 
