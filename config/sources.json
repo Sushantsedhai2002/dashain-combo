@@ -502,5 +502,113 @@
       "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://himstar.com.np/"
     }
+  },
+  {
+    "id": "goldstar-shoes",
+    "displayName": "Goldstar Shoes",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://goldstarshoes.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://goldstarshoes.com/"
+    }
+  },
+  {
+    "id": "caliber-shoes",
+    "displayName": "Caliber Shoes",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://calibershoes.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://calibershoes.com/"
+    }
+  },
+  {
+    "id": "ktm-cty",
+    "displayName": "KTM CTY",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://ktmcty.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://ktmcty.com/"
+    }
+  },
+  {
+    "id": "sonam-gear",
+    "displayName": "Sonam Gear",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://sonamgear.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://sonamgear.com/"
+    }
+  },
+  {
+    "id": "latido-leathers",
+    "displayName": "Latido Leathers",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://latido.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://latido.com.np/"
+    }
+  },
+  {
+    "id": "shikhar-shoes",
+    "displayName": "Shikhar Shoes",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://shikharshoes.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://shikharshoes.com/"
+    }
   }
 ]
