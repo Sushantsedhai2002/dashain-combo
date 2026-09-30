@@ -59,14 +59,14 @@
 **Description:** Test-first, implement strict source-time parsing, Kathmandu final-date conversion, 20-day fallback precedence, and lifecycle status derivation using injected instants.
 
 **Acceptance criteria:**
-- [ ] Explicit instants and Kathmandu dates produce exact expiry boundaries; malformed or impossible dates fail validation.
-- [ ] Source publication fallback takes precedence over first discovery and adds exactly 20 × 24 hours.
-- [ ] Status derivation covers scheduled, active, exact-boundary expired, and withdrawn cases without reading the system clock internally.
+- [x] Explicit instants and Kathmandu dates produce exact expiry boundaries; malformed or impossible dates fail validation.
+- [x] Source publication fallback takes precedence over first discovery and adds exactly 20 × 24 hours.
+- [x] Status derivation covers scheduled, active, exact-boundary expired, and withdrawn cases without reading the system clock internally.
 
 **Verification:**
-- [ ] Observe lifecycle tests fail before implementation.
-- [ ] Run `pnpm --filter @dashain-offer/offer-catalog test -- lifecycle.test.ts`.
-- [ ] Run package typecheck, lint, and coverage.
+- [x] Observe lifecycle tests fail before implementation.
+- [x] Run `pnpm --filter @dashain-offer/offer-catalog test -- lifecycle.test.ts`.
+- [x] Run package typecheck, lint, and coverage.
 
 **Dependencies:** Task 2
 
@@ -78,10 +78,10 @@
 
 ## Checkpoint: Contract and lifecycle
 
-- [ ] Package build, typecheck, lint, unit tests, and per-file coverage pass.
-- [ ] Lifecycle tests prove visibility immediately before and at expiry.
-- [ ] Public exports contain no Zod, `pg`, SQL, or migration internals.
-- [ ] Human reviews the contract before persistence work expands its observable behavior.
+- [x] Package build, typecheck, lint, unit tests, and per-file coverage pass.
+- [x] Lifecycle tests prove visibility immediately before and at expiry.
+- [x] Public exports contain no Zod, `pg`, SQL, or migration internals.
+- [x] Human approved the contract before persistence work expanded its observable behavior.
 
 ## Phase 2: Reproducible persistence foundation
 
