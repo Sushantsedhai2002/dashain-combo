@@ -2,39 +2,33 @@ import { readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 import { parseSourceRegistry } from "@dashain-offer/source-registry";
 import { evaluateExtraction } from "../src/evaluate.ts";
-import { createEvoStoreAdapter } from "../src/adapters/evostore.ts";
-import { createListingAdapter, LISTING_PROFILES } from "../src/adapters/listings.ts";
+import { createWebsiteAdapters } from "../src/adapters/websites.ts";
 import type { CandidateOffer } from "../src/runner.ts";
 import annotations from "./fixtures/annotations.json" with { type: "json" };
 
 describe("recorded extraction evaluation", () => {
-  it("compares normalized fields against reviewed annotations from all five sources", async () => {
+  it("compares normalized fields against reviewed annotations from every supported source", async () => {
     const registry = parseSourceRegistry(
       JSON.parse(await readFile(new URL("../../../config/sources.json", import.meta.url), "utf8")),
     );
     if (!registry.ok) throw new Error("Invalid registry");
     const candidates = new Map<string, readonly CandidateOffer[]>();
-    for (const profile of [{ sourceId: "evostore" }, ...LISTING_PROFILES]) {
-      const source = registry.sources.find((s) => s.id === profile.sourceId);
+    const fetchPage = async (_url: string, source: { id: string }) => ({
+      status: 200,
+      body: await readFile(new URL(`./fixtures/${source.id}.html`, import.meta.url), "utf8"),
+    });
+    for (const adapter of createWebsiteAdapters(fetchPage)) {
+      const source = registry.sources.find((s) => s.id === adapter.sourceId);
       if (!source) throw new Error("Missing source");
-      const body = await readFile(
-        new URL(`./fixtures/${profile.sourceId}.html`, import.meta.url),
-        "utf8",
-      );
-      const fetch = async () => ({ status: 200, body });
-      const adapter =
-        "listingUrl" in profile
-          ? createListingAdapter(profile, fetch)
-          : createEvoStoreAdapter(fetch);
       const result = await adapter.scan(source);
       if (!result.ok) throw new Error("Failed fixture scan");
-      candidates.set(profile.sourceId, result.offers);
+      candidates.set(adapter.sourceId, result.offers);
     }
     expect(evaluateExtraction(annotations.offers, candidates)).toEqual({
-      annotatedOffers: 15,
-      matchedOffers: 15,
-      fieldChecks: 105,
-      fieldMatches: 105,
+      annotatedOffers: annotations.offers.length,
+      matchedOffers: annotations.offers.length,
+      fieldChecks: annotations.offers.length * 7,
+      fieldMatches: annotations.offers.length * 7,
       fieldAccuracy: 1,
       mismatches: [],
     });

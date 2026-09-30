@@ -43,13 +43,16 @@ afterAll(async () => {
 });
 
 describe("ingestion runtime with PostgreSQL", () => {
-  it("publishes all five recorded sources and preserves their identities on a repeated run", async () => {
+  it("publishes all eight recorded sources and preserves their identities on a repeated run", async () => {
     const origins: Readonly<Record<string, string>> = {
       "https://evostore.com.np": "evostore",
       "https://onlinesaathi.com": "online-saathi",
       "https://midea.com.np": "midea-nepal",
       "https://www.neostore.com.np": "neo-store",
       "https://calibershoes.com": "caliber-shoes",
+      "https://itti.com.np": "itti",
+      "https://choicemandu.com": "choicemandu",
+      "https://bigdigital.com.np": "big-digital",
     };
     const runtime = createIngestionRuntime(databaseUrl, io, {
       fetchPage: async (url) => {
@@ -67,8 +70,8 @@ describe("ingestion runtime with PostgreSQL", () => {
       const before = await pool.query<{ id: string; source_id: string; first_discovered_at: Date }>(
         "SELECT id, source_id, first_discovered_at FROM offers ORDER BY id",
       );
-      expect(before.rows).toHaveLength(59);
-      expect(new Set(before.rows.map((row) => row.source_id)).size).toBe(5);
+      expect(before.rows).toHaveLength(105);
+      expect(new Set(before.rows.map((row) => row.source_id)).size).toBe(8);
       expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
       const after = await pool.query(
         "SELECT id, source_id, first_discovered_at FROM offers ORDER BY id",

@@ -23,6 +23,28 @@ type ListingProfile = Readonly<{
 // Cheerio selection API: https://cheerio.js.org/docs/basics/selecting/
 export const LISTING_PROFILES: readonly ListingProfile[] = Object.freeze([
   {
+    sourceId: "choicemandu",
+    listingUrl: "https://choicemandu.com/index.php?route=product/special",
+    cards: ".product-layout",
+    title: "h4 a",
+    link: "h4 a[href]",
+    original: ".price-old",
+    sale: ".price-new",
+    image: ".product-image-container img",
+    fallback: "GENERAL_RETAIL",
+  },
+  {
+    sourceId: "big-digital",
+    listingUrl: "https://bigdigital.com.np/",
+    cards: ".product-card",
+    title: ".product-card-title a",
+    link: ".product-card-title a[href]",
+    original: ".regular-price.on-offer",
+    sale: ".offer-price",
+    image: ".card-img img",
+    fallback: "HOME_APPLIANCES",
+  },
+  {
     sourceId: "online-saathi",
     listingUrl: "https://onlinesaathi.com/",
     cards: ".single-product",

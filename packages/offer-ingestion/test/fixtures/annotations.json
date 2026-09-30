@@ -136,6 +136,60 @@
       "saleMinor": 199000,
       "category": "FASHION_AND_LIFESTYLE",
       "brandName": "Caliber"
+    },
+    {
+      "sourceId": "choicemandu",
+      "title": "पिताको भन्दा उच्च आफ्नो नाम बनाऊ पिताको अपमान होइन अभिमान गरौ- Fathers Day Special Gift",
+      "destinationUrl": "https://choicemandu.com/fathers-day-printed-mug-online",
+      "originalMinor": 55000,
+      "saleMinor": 35000,
+      "category": "GENERAL_RETAIL",
+      "brandName": null
+    },
+    {
+      "sourceId": "choicemandu",
+      "title": "Wooden Processed Ranjana Lipi Ka Kha Ga Wall Clock",
+      "destinationUrl": "https://choicemandu.com/personalized-ranjana-lipi-wall-clock-online",
+      "originalMinor": 276000,
+      "saleMinor": 246000,
+      "category": "GENERAL_RETAIL",
+      "brandName": null
+    },
+    {
+      "sourceId": "big-digital",
+      "title": "Yasuda GARMENT STEAM...",
+      "destinationUrl": "https://bigdigital.com.np/product/ys-331h",
+      "originalMinor": 301000,
+      "saleMinor": 285950,
+      "category": "HOME_APPLIANCES",
+      "brandName": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Asus VivoBook 15 K513EA i5 11th Gen | 8GB RAM | 512GB SSD | 15.6\" FHD display",
+      "destinationUrl": "https://itti.com.np/product/asus-vivobook-15-k513ea-price-nepal",
+      "originalMinor": 10500000,
+      "saleMinor": 8500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus"
+    },
+    {
+      "sourceId": "itti",
+      "title": "Dell Inspiron 16 5620 - i5 1235U | 8GB | 256SSD | Intel UHD | FHD | Office | Silver",
+      "destinationUrl": "https://itti.com.np/product/dell-inspiron-16-i5-price-nepal",
+      "originalMinor": 11340000,
+      "saleMinor": 9000000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Dell"
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo ThinkPad Z13 Gen 1 AMD Ryzen™ 7 PRO 6850U | 16GB RAM | 512GB SSD | 13.3\" WUXGA Display",
+      "destinationUrl": "https://itti.com.np/product/lenovo-thinkpad-z13-price-nepal",
+      "originalMinor": 19900000,
+      "saleMinor": 17512000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo"
     }
   ]
 }

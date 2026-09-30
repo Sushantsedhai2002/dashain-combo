@@ -9,9 +9,10 @@ Authorized scope: assess the remaining 49 sources, add demonstrably reliable ada
 - [x] Wire all five enabled adapters into dry-run, single-run, and recurring ingestion commands.
 - [x] Build the responsive discovery homepage, filters, sorts, cursor pagination, and offer detail pages.
 - [x] Verify deterministic quality gates and browser rendering; document commands and remaining access restrictions.
-- [ ] Enable the remaining 45 sources after completing their specific access/extraction contracts in `docs/ingestion-assessment.md`.
-- [ ] Expand accuracy validation to the intended 100-promotion sample; current sample is 15 offers / 105 fields.
-- [ ] Run PostgreSQL integration tests for the multi-source runtime on an accessible disposable database. This machine's Docker socket points into another user's OrbStack directory; both sandboxed and escalated Docker access failed.
+- [x] Add ITTI, Choicemandu, and Big Digital with recorded full-page fixtures, reviewed annotations, and robots-aware live dry-runs (46 additional candidates).
+- [ ] Enable the remaining 42 sources after completing their specific access/extraction contracts in `docs/ingestion-assessment.md`.
+- [ ] Expand accuracy validation to the intended 100-promotion sample; current sample is 21 offers / 147 fields.
+- [x] Run PostgreSQL integration tests for the multi-source runtime on an accessible disposable database. An isolated PostgreSQL 17 cluster on this Windows machine verified publication of all eight sources (105 offers) and stable catalog identities on rediscovery; integration coverage passed at 90.47% lines.
 
 No registered source is counted as an enabled integration merely because its homepage responds. Social-only channels require an available permitted access method. A failed assessment does not modify the trusted registry.
 

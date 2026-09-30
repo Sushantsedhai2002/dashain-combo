@@ -11,6 +11,31 @@ const registry = parseSourceRegistry(
 if (!registry.ok) throw new Error("Invalid test registry");
 
 describe("recorded source adapters", () => {
+  it.each([
+    [
+      "choicemandu",
+      "https://choicemandu.com/personalized-ranjana-lipi-wall-clock-online",
+      276000,
+      246000,
+    ],
+    ["big-digital", "https://bigdigital.com.np/product/ys-331h", 301000, 285950],
+  ])("supports the newly assessed %s listing", async (id, destinationUrl, original, sale) => {
+    const profile = LISTING_PROFILES.find((entry) => entry.sourceId === id);
+    const source = registry.sources.find((entry) => entry.id === id);
+    expect(profile).toBeDefined();
+    if (!profile || !source) throw new Error("Missing new source adapter");
+    const html = await readFile(new URL(`./fixtures/${id}.html`, import.meta.url), "utf8");
+    const result = await createListingAdapter(profile, async () => ({
+      status: 200,
+      body: html,
+    })).scan(source);
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.offers.find((offer) => offer.destinationUrl === destinationUrl)).toMatchObject({
+      originalPrice: { currency: "NPR", amountMinor: original },
+      salePrice: { currency: "NPR", amountMinor: sale },
+    });
+  });
   for (const profile of LISTING_PROFILES) {
     it(`extracts explicit discounts and stable keys from ${profile.sourceId}`, async () => {
       const source = registry.sources.find((s) => s.id === profile.sourceId);

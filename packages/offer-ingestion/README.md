@@ -1,6 +1,6 @@
 # Offer ingestion
 
-This package collects explicitly discounted products from five public listings: EvoStore, Online Saathi, Midea Nepal, Neo Store, and Caliber Shoes. It uses the validated source registry and publishes normalized offers through `@dashain-offer/offer-catalog`. All 50 sources have an [assessment record](../../docs/ingestion-assessment.md); the remaining 45 are not enabled yet.
+This package collects explicitly discounted products from eight public listings: EvoStore, Online Saathi, Midea Nepal, Neo Store, Caliber Shoes, ITTI, Choicemandu, and Big Digital. It uses the validated source registry and publishes normalized offers through `@dashain-offer/offer-catalog`. All 50 sources have an [assessment record](../../docs/ingestion-assessment.md); the remaining 42 are not enabled yet.
 
 EvoStore's [robots.txt](https://evostore.com.np/robots.txt) disallows the query URLs used for listing pagination. The adapter requests only the first listing page and same-origin product pages when checking whether a previously observed offer was removed. A product is withdrawn only after its page returns `404` or `410` on two probes without an intervening non-removal result. Fetch failures and other response codes never withdraw an offer.
 
@@ -33,5 +33,7 @@ The default `pnpm check` is offline and requires no database. The dry-run makes 
 - The first page yields a subset of EvoStore's specials. Additional pages are excluded because of the site's crawler rules.
 - Title-based category inference covers known product terms and retains source-specific fallbacks for unfamiliar titles.
 - Items without an explicit end date expire according to the catalog's 20-day fallback. Rediscovery does not extend that expiry.
-- The remaining 45 registered sources need the access or extraction work documented in the assessment before activation.
-- The offline evaluation compares 105 fields across 15 reviewed offers. It does not establish full-source recall or future live accuracy.
+- ITTI reads the named homepage product query from server-delivered JSON chunks without executing JavaScript. Only available, non-coming-soon products with a lower selling price are published. Its verified image origin is `https://admin.itti.com.np/storage/`.
+- Choicemandu covers the first Special Offers page. Big Digital covers homepage cards at its verified non-www origin; displayed titles may be truncated by the seller.
+- The remaining 42 registered sources need the access or extraction work documented in the assessment before activation.
+- The offline evaluation compares 147 fields across 21 reviewed offers. It does not establish full-source recall or future live accuracy.

@@ -1,10 +1,12 @@
 # Ingestion source assessment
 
-All 50 registry entries (including the 49 beyond EvoStore) were assessed on 2026-09-30. Five adapters are enabled. The remaining 45 require the access or extraction work listed below; they are not represented as working integrations.
+All 50 registry entries (including the 49 beyond EvoStore) were assessed on 2026-09-30. Eight adapters are enabled. The remaining 42 require the access or extraction work listed below; they are not represented as working integrations.
 
 The live robots-aware dry-run found 56 candidates: EvoStore 16, Online Saathi 17, Midea 8, Neo Store 8, Caliber 7. Online Saathi rotates homepage recommendations; its recorded fixture contains 20 candidates. These counts measure extraction yield, not stock availability or discount authenticity.
 
-The reproducible evaluation checks 105 fields across 15 reviewed offers (three per source). All 105 match. This small recorded sample does not establish full-source recall, false-positive rate, date accuracy, or future live accuracy. Expand the annotated sample before treating the intended 100-promotion validation milestone as complete.
+The expansion live dry-runs found 46 additional candidates: ITTI 43, Choicemandu 2, and Big Digital 1. Network timeouts are possible; a later successful run does not imply continuous availability. Big Digital's existing www channel redirects to the non-www origin, independently verified by the official site's organization schema and added to the registry. No automatic redirect following was introduced.
+
+The reproducible evaluation checks 147 fields across 21 reviewed offers. All 147 match. This small recorded sample does not establish full-source recall, false-positive rate, date accuracy, or future live accuracy. Expand the annotated sample before treating the intended 100-promotion validation milestone as complete.
 
 ## Recorded assessment
 
@@ -16,14 +18,14 @@ The reproducible evaluation checks 105 fields across 15 reviewed offers (three p
 | Online Saathi | ENABLED | Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported. |
 | Hamrobazar | ACCESS_BLOCKED | Bounded homepage and robots requests timed out; classifieds also need a policy for promotion evidence versus ordinary asking prices. |
 | Muncha | NEEDS_EXTRACTION_CONTRACT | Accessible general shopping content but no verified two-price promotion-card contract found in the homepage. |
-| Choicemandu | ACCESS_BLOCKED | Homepage request timed out within the 12-second assessment limit. |
+| Choicemandu | ENABLED | A later robots-aware request succeeded. First Special Offers page exposes explicit original/sale price pairs; full-page fixture, annotations, and live dry-run passed (2 candidates). |
 | Jeevee | NEEDS_EXTRACTION_CONTRACT | Homepage exposes Next.js section configuration; product promotion data requires a separately verified dynamic data contract. |
 | Hukut | NEEDS_EXTRACTION_CONTRACT | Homepage contains a client-rendered application shell rather than stable priced product cards. |
 | Mudita Store | ACCESS_BLOCKED | Homepage exceeded the 2 MB boundary; a smaller permitted listing or structured endpoint must be assessed. |
 | Oliz Store | ACCESS_BLOCKED | Homepage returned HTTP 403. No access-control bypass attempted. |
 | EvoStore | ENABLED | Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported. |
-| Big Digital | ACCESS_BLOCKED | Registered www origin redirects to the non-www origin, which is not yet in the approved website channel list. |
-| ITTI | NEEDS_EXTRACTION_CONTRACT | Homepage is an application shell with product CSS and client data; no tested visible two-price listing contract yet. |
+| Big Digital | ENABLED | Verified non-www origin added explicitly to the registry. Homepage original/offer price cards, full-page fixture, annotations, and live dry-run passed (1 candidate); seller titles may be truncated. |
+| ITTI | ENABLED | Named homepage query decoded from JSON Flight chunks, with explicit mark/selling prices and stock checks; full-page fixture, annotations, and live dry-run passed (43 candidates). |
 | Neo Store | ENABLED | Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported. |
 | CG Digital | NEEDS_EXTRACTION_CONTRACT | Homepage is a client application shell without reliable discounted product cards. |
 | Samsung Nepal | SOCIAL_ONLY | No enabled website channel. A permitted reliable Facebook access method has not been configured. |

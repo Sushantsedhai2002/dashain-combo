@@ -10,7 +10,7 @@
 - Offers without an explicit validity end expire 20 days after source publication, falling back to first discovery when source publication is unavailable; rediscovery does not extend expiry.
 - Users leave the platform to complete purchases with the original seller.
 - Only the VPS and domain should incur mandatory costs; prefer free and open-source dependencies.
-- Email watchlists are part of the intended MVP.
+- Email watchlists and alerts are deferred at the user's request; the current priority is source coverage.
 - Monetization, on-site purchasing, and universal social-media coverage are out of scope.
 
 ## Modules

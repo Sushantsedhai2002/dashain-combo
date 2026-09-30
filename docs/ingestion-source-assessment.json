@@ -81,10 +81,10 @@
       "homepageHttp": null,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "ACCESS_BLOCKED",
-      "listingUrl": null,
-      "liveCandidates": null,
-      "reason": "Homepage request timed out within the 12-second assessment limit."
+      "status": "ENABLED",
+      "listingUrl": "https://choicemandu.com/index.php?route=product/special",
+      "liveCandidates": 2,
+      "reason": "Later request succeeded after an initial timeout; first Special Offers listing has explicit original/sale price pairs. Full-page fixture, reviewed annotations and live robots-aware dry-run passed."
     },
     {
       "sourceId": "jeevee",
@@ -153,10 +153,10 @@
       "homepageHttp": 301,
       "robotsHttp": 301,
       "redirectLocation": "https://bigdigital.com.np/",
-      "status": "ACCESS_BLOCKED",
-      "listingUrl": null,
-      "liveCandidates": null,
-      "reason": "Registered www origin redirects to the non-www origin, which is not yet in the approved website channel list."
+      "status": "ENABLED",
+      "listingUrl": "https://bigdigital.com.np/",
+      "liveCandidates": 1,
+      "reason": "Official non-www origin independently verified through organization schema and explicitly added to registry. Homepage explicit regular/offer price cards, full-page fixture, reviewed annotation and live robots-aware dry-run passed."
     },
     {
       "sourceId": "itti",
@@ -165,10 +165,10 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
-      "listingUrl": null,
-      "liveCandidates": null,
-      "reason": "Homepage is an application shell with product CSS and client data; no tested visible two-price listing contract yet."
+      "status": "ENABLED",
+      "listingUrl": "https://itti.com.np/",
+      "liveCandidates": 43,
+      "reason": "Named homepage product query decoded from server-delivered JSON chunks without script execution; explicit numeric mark/selling prices, stock checks, full-page fixture and reviewed annotations; live robots-aware dry-run passed."
     },
     {
       "sourceId": "neo-store",

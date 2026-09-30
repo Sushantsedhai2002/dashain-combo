@@ -3,8 +3,8 @@ import { readFile } from "node:fs/promises";
 import pg from "pg";
 
 import { createOfferCatalog } from "@dashain-offer/offer-catalog";
-import { createEvoStoreAdapter, type PageFetcher } from "../adapters/evostore.ts";
-import { createListingAdapter, LISTING_PROFILES } from "../adapters/listings.ts";
+import type { PageFetcher } from "../adapters/evostore.ts";
+import { createWebsiteAdapters } from "../adapters/websites.ts";
 import { createRobotsAwareFetcher } from "../http/robots.ts";
 import { checkOfferPresence, createSafePageFetcher } from "../http/safe-fetch.ts";
 import { PostgresObservationStore } from "../postgres/observation-store.ts";
@@ -27,10 +27,7 @@ export function createIngestionRuntime(
 }> {
   const fetchPage = options.fetchPage ?? createSafePageFetcher();
   const createAdapters = (guardedFetch: PageFetcher) =>
-    [
-      createEvoStoreAdapter(guardedFetch),
-      ...LISTING_PROFILES.map((profile) => createListingAdapter(profile, guardedFetch)),
-    ].filter(
+    createWebsiteAdapters(guardedFetch).filter(
       (adapter) => options.sourceIds === undefined || options.sourceIds.includes(adapter.sourceId),
     );
   const dryRunAdapters = createAdapters(createRobotsAwareFetcher(fetchPage));
