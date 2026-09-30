@@ -154,6 +154,97 @@ describe("visible offer search", () => {
     expect(new Set(collected).size).toBe(ids.length);
   });
 
+  it("paginates discounts descending with null values last", async () => {
+    const offers = [
+      ["00000000-0000-4000-8000-000000000041", "discount-30-a", 30],
+      ["00000000-0000-4000-8000-000000000042", "discount-30-b", 30],
+      ["00000000-0000-4000-8000-000000000043", "discount-10", 10],
+      ["00000000-0000-4000-8000-000000000044", "discount-none", null],
+    ] as const;
+    for (const [id, sourceOfferKey, discountPercent] of offers) {
+      await publishAt(id, "2026-09-01T00:00:00Z", {
+        ...textOnlyOffer,
+        sourceOfferKey,
+        discountPercent,
+      });
+    }
+
+    const catalog = buildOfferCatalog(new PostgresOfferRepository(pool), {
+      clock: () => queryNow,
+    });
+    const collected: string[] = [];
+    let cursor: string | null = null;
+    do {
+      const page = await catalog.searchVisibleOffers({
+        sort: "DISCOUNT_DESC",
+        limit: 2,
+        cursor,
+      });
+      expect(page.ok).toBe(true);
+      if (!page.ok) return;
+      collected.push(...page.value.items.map((offer) => offer.sourceOfferKey));
+      cursor = page.value.nextCursor;
+    } while (cursor !== null);
+
+    expect(collected).toEqual(["discount-30-b", "discount-30-a", "discount-10", "discount-none"]);
+  });
+
+  it.each([
+    {
+      sort: "PRICE_ASC" as const,
+      expected: ["price-500-a", "price-500-b", "price-1000", "price-none"],
+    },
+    {
+      sort: "PRICE_DESC" as const,
+      expected: ["price-1000", "price-500-b", "price-500-a", "price-none"],
+    },
+  ])("paginates $sort within one currency with null values last", async ({ sort, expected }) => {
+    await publishAt("00000000-0000-4000-8000-000000000051", "2026-09-01T00:00:00Z", {
+      ...textOnlyOffer,
+      sourceOfferKey: "price-500-a",
+      salePrice: { currency: "NPR", amountMinor: 500 },
+    });
+    await publishAt("00000000-0000-4000-8000-000000000052", "2026-09-01T00:00:00Z", {
+      ...textOnlyOffer,
+      sourceOfferKey: "price-1000",
+      originalPrice: { currency: "NPR", amountMinor: 1_000 },
+    });
+    await publishAt("00000000-0000-4000-8000-000000000053", "2026-09-01T00:00:00Z", {
+      ...textOnlyOffer,
+      sourceOfferKey: "price-500-b",
+      salePrice: { currency: "NPR", amountMinor: 500 },
+    });
+    await publishAt("00000000-0000-4000-8000-000000000054", "2026-09-01T00:00:00Z", {
+      ...textOnlyOffer,
+      sourceOfferKey: "price-none",
+    });
+    await publishAt("00000000-0000-4000-8000-000000000055", "2026-09-01T00:00:00Z", {
+      ...textOnlyOffer,
+      sourceOfferKey: "price-usd",
+      salePrice: { currency: "USD", amountMinor: 100 },
+    });
+
+    const catalog = buildOfferCatalog(new PostgresOfferRepository(pool), {
+      clock: () => queryNow,
+    });
+    const collected: string[] = [];
+    let cursor: string | null = null;
+    do {
+      const page = await catalog.searchVisibleOffers({
+        sort,
+        currency: "NPR",
+        limit: 2,
+        cursor,
+      });
+      expect(page.ok).toBe(true);
+      if (!page.ok) return;
+      collected.push(...page.value.items.map((offer) => offer.sourceOfferKey));
+      cursor = page.value.nextCursor;
+    } while (cursor !== null);
+
+    expect(collected).toEqual(expected);
+  });
+
   it("orders expiring offers by expiry and stable ID", async () => {
     await publishAt("00000000-0000-4000-8000-000000000031", "2026-09-01T00:00:00Z", {
       ...textOnlyOffer,

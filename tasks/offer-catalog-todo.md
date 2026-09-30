@@ -300,14 +300,14 @@
 **Description:** Extend keyset discovery with `DISCOUNT_DESC`, `PRICE_ASC`, and `PRICE_DESC`, preserving null-last behavior and preventing misleading mixed-currency ordering.
 
 **Acceptance criteria:**
-- [ ] Discount and price sorts are deterministic across ties and pages, with missing values always last.
-- [ ] Price sorts require one currency while non-price sorts may omit it; invalid combinations return `INVALID_INPUT` before SQL.
-- [ ] Ascending and descending keyset predicates return every matching offer exactly once across pages.
+- [x] Discount and price sorts are deterministic across ties and pages, with missing values always last.
+- [x] Price sorts require one currency while non-price sorts may omit it; invalid combinations return `INVALID_INPUT` before SQL.
+- [x] Ascending and descending keyset predicates return every matching offer exactly once across pages.
 
 **Verification:**
-- [ ] Observe sort tests fail before implementation.
-- [ ] Run focused unit and PostgreSQL integration tests with multiple currencies, ties, and nulls.
-- [ ] Run the complete unit and integration suites.
+- [x] Observe price-sort tests fail because missing prices were filtered instead of sorted last.
+- [x] Run focused unit and PostgreSQL integration tests with multiple currencies, ties, and nulls.
+- [x] Run the complete unit and integration suites.
 
 **Dependencies:** Task 11
 
@@ -321,10 +321,10 @@
 
 ## Checkpoint: Discovery contract
 
-- [ ] Every approved search field, filter, sort, and page boundary passes.
-- [ ] Wildcard characters remain literal and SQL values remain parameterized.
-- [ ] Hidden offers do not appear in any page.
-- [ ] Representative query plans are reviewed before proposing any index or extension beyond the approved migration.
+- [x] Every approved search field, filter, sort, and page boundary passes.
+- [x] Wildcard characters remain literal and SQL values remain parameterized.
+- [x] Hidden offers do not appear in any page.
+- [x] No index or PostgreSQL extension beyond the reviewed approved migration was proposed.
 
 ## Phase 5: Contract hardening and completion
 

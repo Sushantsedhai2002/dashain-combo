@@ -101,7 +101,10 @@ function buildSearchSql(command: SearchCommand, now: Date): SearchSql {
 
   const effectivePrice = "COALESCE(sale_amount_minor, original_amount_minor)";
   if (query.currency !== null) {
-    clauses.push(`COALESCE(sale_currency, original_currency) = ${parameter(query.currency)}`);
+    clauses.push(`(
+      ${effectivePrice} IS NULL
+      OR COALESCE(sale_currency, original_currency) = ${parameter(query.currency)}
+    )`);
   }
 
   let orderBy: string;
