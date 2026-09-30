@@ -754,5 +754,149 @@
       "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://www.bajajauto.com/en-np"
     }
+  },
+  {
+    "id": "buddha-air",
+    "displayName": "Buddha Air",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["travel-delivery-payments"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.buddhaair.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.buddhaair.com/"
+    }
+  },
+  {
+    "id": "yeti-airlines",
+    "displayName": "Yeti Airlines",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["travel-delivery-payments"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://yetiairlines.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://yetiairlines.com/"
+    }
+  },
+  {
+    "id": "shree-airlines",
+    "displayName": "Shree Airlines",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["travel-delivery-payments"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.shreeairlines.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.shreeairlines.com/"
+    }
+  },
+  {
+    "id": "foodmandu",
+    "displayName": "Foodmandu",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["travel-delivery-payments"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://foodmandu.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://foodmandu.com/"
+    }
+  },
+  {
+    "id": "pathao-nepal",
+    "displayName": "Pathao Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["travel-delivery-payments"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://pathao.com/np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://pathao.com/np/"
+    }
+  },
+  {
+    "id": "esewa",
+    "displayName": "eSewa",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["travel-delivery-payments"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://esewa.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://esewa.com.np/"
+    }
+  },
+  {
+    "id": "khalti",
+    "displayName": "Khalti by IME",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["travel-delivery-payments"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://khalti.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://khalti.com/"
+    }
+  },
+  {
+    "id": "fonepay",
+    "displayName": "Fonepay",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["travel-delivery-payments"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://fonepay.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://fonepay.com/"
+    }
   }
 ]
