@@ -417,14 +417,14 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 **Description:** Add a contract test for the real registry and wire offline source validation into the root quality gate. This final slice makes all source-registry success criteria executable.
 
 **Acceptance criteria:**
-- [ ] Contract tests fail unless production data has exactly 50 valid active sources across all six portfolio groups.
-- [ ] Root `pnpm check` runs format, lint, typecheck, deterministic tests, coverage, build, and offline registry validation without network access.
-- [ ] Public exports and CLI behavior match the approved spec, with at least 80% changed-line coverage and no skipped tests or suppressions.
+- [x] Contract tests fail unless production data has exactly 50 valid active sources across all six portfolio groups.
+- [x] Root `pnpm check` runs format, lint, typecheck, deterministic tests, coverage, build, and offline registry validation without network access.
+- [x] Public exports and CLI behavior match the approved spec, with at least 80% changed-line coverage and no skipped tests or suppressions.
 
 **Verification:**
-- [ ] Run `pnpm sources:validate`.
-- [ ] Run `pnpm --filter @dashain-offer/source-registry test:coverage`.
-- [ ] Run `pnpm check` and `pnpm build` from a clean install.
+- [x] Run `pnpm sources:validate`.
+- [x] Run `pnpm --filter @dashain-offer/source-registry test:coverage`.
+- [x] Run `pnpm check` and `pnpm build` from a frozen-lockfile install.
 
 **Dependencies:** Tasks 6, 7, 8, and 16
 
@@ -438,9 +438,9 @@ For Tasks 10–16, first-party evidence must be recorded for every active source
 
 ## Final Checkpoint
 
-- [ ] All 10 success criteria in `SPEC-source-registry.md` are demonstrated.
-- [ ] `pnpm install --frozen-lockfile`, `pnpm check`, and `pnpm build` succeed.
-- [ ] Default checks perform no external network requests.
-- [ ] Live checker is opt-in and does not mutate registry data.
-- [ ] Git diff contains no secrets, generated build output, or out-of-scope modules.
+- [x] All 10 success criteria in `SPEC-source-registry.md` are demonstrated.
+- [x] `pnpm install --frozen-lockfile`, `pnpm check`, and `pnpm build` succeed.
+- [x] Default checks perform no external network requests.
+- [x] Live checker is opt-in and does not mutate registry data.
+- [x] Git diff contains no secrets, generated build output, or out-of-scope modules.
 - [ ] Human reviews the completed module before planning `offer-catalog`.
