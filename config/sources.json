@@ -20,7 +20,7 @@
   {
     "id": "bhat-bhateni",
     "displayName": "Bhat-Bhateni Super Market",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["general-retail"],
     "channels": [
@@ -74,7 +74,7 @@
   {
     "id": "hamrobazar",
     "displayName": "Hamrobazar",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["general-retail"],
     "channels": [
@@ -164,7 +164,7 @@
   {
     "id": "mudita-store",
     "displayName": "Mudita Store",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["electronics-retail"],
     "channels": [
@@ -277,7 +277,7 @@
   {
     "id": "cg-digital",
     "displayName": "CG Digital",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["electronics-retail"],
     "channels": [
@@ -295,7 +295,7 @@
   {
     "id": "samsung-nepal",
     "displayName": "Samsung Nepal",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["consumer-electronics-appliances"],
     "channels": [
@@ -547,7 +547,7 @@
   {
     "id": "ktm-cty",
     "displayName": "KTM CTY",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["fashion-lifestyle"],
     "channels": [
@@ -565,7 +565,7 @@
   {
     "id": "sonam-gear",
     "displayName": "Sonam Gear",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["fashion-lifestyle"],
     "channels": [
@@ -601,7 +601,7 @@
   {
     "id": "shikhar-shoes",
     "displayName": "Shikhar Shoes",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["fashion-lifestyle"],
     "channels": [
@@ -619,7 +619,7 @@
   {
     "id": "hyundai-nepal",
     "displayName": "Hyundai Nepal",
-    "status": "ACTIVE",
+    "status": "RETIRED",
     "supportedMarkets": ["NP"],
     "marketSegments": ["automotive"],
     "channels": [
@@ -879,10 +879,15 @@
         "kind": "WEBSITE",
         "url": "https://khalti.com/",
         "isEnabled": true
+      },
+      {
+        "kind": "WEBSITE",
+        "url": "https://blog.khalti.com/",
+        "isEnabled": true
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "verifiedAt": "2026-09-30T12:05:00Z",
       "evidenceUrl": "https://khalti.com/"
     }
   },
@@ -902,6 +907,168 @@
     "verification": {
       "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://fonepay.com/"
+    }
+  },
+  {
+    "id": "nagmani",
+    "displayName": "Nagmani International",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://nagmani.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:30:00Z",
+      "evidenceUrl": "https://nagmani.com.np/"
+    }
+  },
+  {
+    "id": "gadget-house-nepal",
+    "displayName": "Gadget House Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://gadgethousenepal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:30:00Z",
+      "evidenceUrl": "https://gadgethousenepal.com/"
+    }
+  },
+  {
+    "id": "khudra",
+    "displayName": "Khudra Online Shopping",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.khudra.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:30:00Z",
+      "evidenceUrl": "https://www.khudra.com.np/"
+    }
+  },
+  {
+    "id": "aadima-nepal",
+    "displayName": "Aadima Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://aadimanepal.com/collections/sale",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:30:00Z",
+      "evidenceUrl": "https://aadimanepal.com/collections/sale"
+    }
+  },
+  {
+    "id": "shoes4less-nepal",
+    "displayName": "Shoes4Less Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://shoes4lessnepal.com/collections/sale",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:30:00Z",
+      "evidenceUrl": "https://shoes4lessnepal.com/collections/sale"
+    }
+  },
+  {
+    "id": "ekjor",
+    "displayName": "Ekjor",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.ekjor.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:30:00Z",
+      "evidenceUrl": "https://www.ekjor.com/"
+    }
+  },
+  {
+    "id": "ishop-nepal",
+    "displayName": "iShop Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://ishop.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:50:00Z",
+      "evidenceUrl": "https://ishop.com.np/"
+    }
+  },
+  {
+    "id": "moto-world-nepal",
+    "displayName": "Moto World Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://motoworldnepal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:50:00Z",
+      "evidenceUrl": "https://motoworldnepal.com/"
+    }
+  },
+  {
+    "id": "yantra-nepal",
+    "displayName": "Yantra Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://yantranepal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T11:50:00Z",
+      "evidenceUrl": "https://yantranepal.com/"
     }
   }
 ]

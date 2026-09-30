@@ -7,6 +7,7 @@ import pg from "pg";
 import { runMigrations } from "../../../offer-catalog/src/postgres/migrate.ts";
 import { runIngestionCli } from "../../src/cli/ingest.ts";
 import { createIngestionRuntime } from "../../src/cli/runtime.ts";
+import { createWebsiteAdapters } from "../../src/adapters/websites.ts";
 import { runIngestionMigrations } from "../../src/postgres/migrate.ts";
 
 const databaseUrl =
@@ -43,45 +44,55 @@ afterAll(async () => {
 });
 
 describe("ingestion runtime with PostgreSQL", () => {
-  it("publishes all nine recorded sources and preserves their identities on a repeated run", async () => {
-    const origins: Readonly<Record<string, string>> = {
-      "https://evostore.com.np": "evostore",
-      "https://onlinesaathi.com": "online-saathi",
-      "https://midea.com.np": "midea-nepal",
-      "https://www.neostore.com.np": "neo-store",
-      "https://calibershoes.com": "caliber-shoes",
-      "https://itti.com.np": "itti",
-      "https://choicemandu.com": "choicemandu",
-      "https://bigdigital.com.np": "big-digital",
-      "https://www.daraz.com.np": "daraz-nepal",
-    };
-    const runtime = createIngestionRuntime(databaseUrl, io, {
-      fetchPage: async (url) => {
-        if (url.endsWith("/robots.txt")) return { status: 200, body: "User-agent: *\nAllow: /" };
-        const id = origins[new URL(url).origin];
-        if (id === undefined) throw new Error("Unexpected fixture origin");
-        return {
-          status: 200,
-          body: await readFile(new URL(`../fixtures/${id}.html`, import.meta.url), "utf8"),
-        };
-      },
-    });
-    try {
-      expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
-      const before = await pool.query<{ id: string; source_id: string; first_discovered_at: Date }>(
-        "SELECT id, source_id, first_discovered_at FROM offers ORDER BY id",
+  const campaignIds = ["fonepay", "yamaha-nepal", "khalti"];
+  const priceSourceIds = createWebsiteAdapters(async () => ({ status: 503, body: "" }))
+    .map((a) => a.sourceId)
+    .filter((id) => !campaignIds.includes(id));
+  // Real crawl spacing is retained. Each group verifies both publication and rediscovery
+  // within the existing timeout, without overlapping database resets.
+  it.each([
+    { name: "priced listings", sourceIds: priceSourceIds, offerCount: 281 },
+    { name: "Fonepay campaigns", sourceIds: ["fonepay"], offerCount: 4 },
+    { name: "Yamaha and Khalti campaigns", sourceIds: ["yamaha-nepal", "khalti"], offerCount: 4 },
+  ])(
+    "publishes $name and preserves identities on rediscovery",
+    async ({ sourceIds, offerCount }) => {
+      const pages: Readonly<Record<string, string>> = JSON.parse(
+        await readFile(new URL("../fixtures/pages.json", import.meta.url), "utf8"),
       );
-      expect(before.rows).toHaveLength(112);
-      expect(new Set(before.rows.map((row) => row.source_id)).size).toBe(9);
-      expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
-      const after = await pool.query(
-        "SELECT id, source_id, first_discovered_at FROM offers ORDER BY id",
-      );
-      expect(after.rows).toEqual(before.rows);
-    } finally {
-      await runtime.close();
-    }
-  });
+      const runtime = createIngestionRuntime(databaseUrl, io, {
+        sourceIds,
+        fetchPage: async (url, source) => {
+          if (url.endsWith("/robots.txt")) return { status: 200, body: "User-agent: *\nAllow: /" };
+          const id = source.id;
+          return {
+            status: 200,
+            body: await readFile(
+              new URL(`../fixtures/${pages[url] ?? `${id}.html`}`, import.meta.url),
+              "utf8",
+            ),
+          };
+        },
+      });
+      try {
+        expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
+        const before = await pool.query<{
+          id: string;
+          source_id: string;
+          first_discovered_at: Date;
+        }>("SELECT id, source_id, first_discovered_at FROM offers ORDER BY id");
+        expect(before.rows).toHaveLength(offerCount);
+        expect(new Set(before.rows.map((row) => row.source_id)).size).toBe(sourceIds.length);
+        expect(await runIngestionCli([], runtime.dependencies)).toBe(0);
+        const after = await pool.query(
+          "SELECT id, source_id, first_discovered_at FROM offers ORDER BY id",
+        );
+        expect(after.rows).toEqual(before.rows);
+      } finally {
+        await runtime.close();
+      }
+    },
+  );
   it("publishes an active source offer idempotently across runs", async () => {
     const runtime = createIngestionRuntime(databaseUrl, io, {
       fetchPage: async (url) => ({

@@ -16,12 +16,116 @@ type ListingProfile = Readonly<{
   removeFromSale?: string;
   image: string;
   fallback: OfferCategory;
+  fixedCategory?: OfferCategory;
   brand?: string;
+  brandSelector?: string;
   summary?: string;
 }>;
 // Selectors verified against recorded public HTML on 2026-09-30.
 // Cheerio selection API: https://cheerio.js.org/docs/basics/selecting/
 export const LISTING_PROFILES: readonly ListingProfile[] = Object.freeze([
+  {
+    sourceId: "ishop-nepal",
+    listingUrl: "https://ishop.com.np/",
+    cards: ".product-miniature",
+    title: ".product-title a",
+    link: ".product-title a[href]",
+    original: ".regular-price",
+    sale: ".product-price-and-shipping .price",
+    image: ".product-thumbnail img",
+    fallback: "GENERAL_RETAIL",
+  },
+  {
+    sourceId: "moto-world-nepal",
+    listingUrl: "https://motoworldnepal.com/",
+    cards: ".stm-product-inner",
+    title: "h5 a",
+    link: "h5 a[href]",
+    original: ".price del .amount",
+    sale: ".price ins .amount",
+    image: ".product_thumbnail img",
+    fallback: "AUTOMOTIVE",
+    fixedCategory: "AUTOMOTIVE",
+  },
+  {
+    sourceId: "yantra-nepal",
+    listingUrl: "https://yantranepal.com/",
+    cards: ".type-product",
+    title: ".product_title a",
+    link: ".product_title a[href]",
+    original: ".price del .amount",
+    sale: ".price ins .amount",
+    image: ".elementor-widget-image img",
+    fallback: "CONSUMER_ELECTRONICS",
+  },
+  {
+    sourceId: "nagmani",
+    listingUrl: "https://nagmani.com.np/",
+    cards: ".product-item",
+    title: ".product-item-name a",
+    link: ".product-item-name a[href]",
+    original: ".old-price .price",
+    sale: ".special-price .price",
+    image: ".product-image-photo",
+    fallback: "COMPUTERS_AND_ACCESSORIES",
+  },
+  {
+    sourceId: "gadget-house-nepal",
+    listingUrl: "https://gadgethousenepal.com/",
+    cards: ".product-grid-item",
+    title: ".wd-entities-title",
+    link: ".wd-entities-title a[href]",
+    original: ".price del .amount",
+    sale: ".price ins .amount",
+    image: ".product-image-link img",
+    fallback: "CONSUMER_ELECTRONICS",
+  },
+  {
+    sourceId: "khudra",
+    listingUrl: "https://www.khudra.com.np/",
+    cards: ".product-item__inner",
+    title: ".product-item__title a",
+    link: ".product-item__title a[href]",
+    original: ".prodcut-price del",
+    sale: ".prodcut-price ins",
+    image: "img.thumbnail",
+    fallback: "GENERAL_RETAIL",
+  },
+  {
+    sourceId: "aadima-nepal",
+    listingUrl: "https://aadimanepal.com/collections/sale",
+    cards: ".card--product",
+    title: ".card__title a",
+    link: ".card__title a[href]",
+    original: ".price__was .js-value",
+    sale: ".price__current .js-value",
+    image: ".card__main-image",
+    fallback: "FASHION_AND_LIFESTYLE",
+    brandSelector: ".card__vendor",
+  },
+  {
+    sourceId: "shoes4less-nepal",
+    listingUrl: "https://shoes4lessnepal.com/collections/sale",
+    cards: ".collection__page-product",
+    title: ".prod-title",
+    link: ".product-info a[href]",
+    original: ".price__sale s.price-item--regular",
+    sale: ".price__sale .price-item--sale",
+    image: "img",
+    fallback: "FASHION_AND_LIFESTYLE",
+  },
+  {
+    sourceId: "ekjor",
+    listingUrl: "https://www.ekjor.com/",
+    cards: "a.col-span-1",
+    title: "span.line-clamp-2",
+    link: "",
+    original: "del",
+    sale: "span.text-blue-700",
+    image: "img",
+    fallback: "FASHION_AND_LIFESTYLE",
+  },
+
   {
     sourceId: "choicemandu",
     listingUrl: "https://choicemandu.com/index.php?route=product/special",
@@ -148,7 +252,11 @@ export function createListingAdapter(
         const title = (titleElement.attr("title") ?? titleElement.text())
           .trim()
           .replace(/\s+/g, " ");
-        const url = approvedUrl(card.find(profile.link).first().attr("href"), origin, true);
+        const url = approvedUrl(
+          (profile.link ? card.find(profile.link).first() : card).attr("href"),
+          origin,
+          true,
+        );
         const original = parseNprPrice(card.find(profile.original).first().text());
         const price = card.find(profile.sale).first().clone();
         if (profile.removeFromSale) price.find(profile.removeFromSale).remove();
@@ -169,8 +277,16 @@ export function createListingAdapter(
         offers.push({
           sourceOfferKey: `${profile.sourceId}:${createHash("sha256").update(new URL(url).pathname).digest("hex")}`,
           title,
-          productName: title,
-          ...inferProductDetails(title, profile.fallback, profile.brand ?? null),
+          productName: title.length <= 200 ? title : null,
+          ...inferProductDetails(
+            title,
+            profile.fallback,
+            profile.brand ??
+              (profile.brandSelector
+                ? card.find(profile.brandSelector).first().text().split("|")[0]?.trim() || null
+                : null),
+          ),
+          ...(profile.fixedCategory ? { category: profile.fixedCategory } : {}),
           destinationUrl: url,
           imageUrl: approvedUrl(img.attr("data-src") ?? img.attr("src"), origin, false),
           summary: profile.summary

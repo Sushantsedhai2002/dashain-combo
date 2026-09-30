@@ -4,6 +4,8 @@ import { parseSourceRegistry } from "@dashain-offer/source-registry";
 import { evaluateExtraction } from "../src/evaluate.ts";
 import { createWebsiteAdapters } from "../src/adapters/websites.ts";
 import type { CandidateOffer } from "../src/runner.ts";
+import pages from "./fixtures/pages.json" with { type: "json" };
+const fixturePages: Readonly<Record<string, string>> = pages;
 import annotations from "./fixtures/annotations.json" with { type: "json" };
 
 describe("recorded extraction evaluation", () => {
@@ -13,9 +15,12 @@ describe("recorded extraction evaluation", () => {
     );
     if (!registry.ok) throw new Error("Invalid registry");
     const candidates = new Map<string, readonly CandidateOffer[]>();
-    const fetchPage = async (_url: string, source: { id: string }) => ({
+    const fetchPage = async (url: string, source: { id: string }) => ({
       status: 200,
-      body: await readFile(new URL(`./fixtures/${source.id}.html`, import.meta.url), "utf8"),
+      body: await readFile(
+        new URL(`./fixtures/${fixturePages[url] ?? `${source.id}.html`}`, import.meta.url),
+        "utf8",
+      ),
     });
     for (const adapter of createWebsiteAdapters(fetchPage)) {
       const source = registry.sources.find((s) => s.id === adapter.sourceId);
@@ -24,12 +29,17 @@ describe("recorded extraction evaluation", () => {
       if (!result.ok) throw new Error("Failed fixture scan");
       candidates.set(adapter.sourceId, result.offers);
     }
-    expect(evaluateExtraction(annotations.offers, candidates)).toEqual({
+    expect(annotations.offers.length).toBeGreaterThanOrEqual(100);
+    const report = evaluateExtraction(annotations.offers, candidates, annotations.negatives);
+    expect(report.fieldMatches).toBe(report.fieldChecks);
+    expect(report.fieldChecks).toBeGreaterThanOrEqual(1000);
+    expect(new Set(annotations.offers.map((o) => o.sourceId)).size).toBe(candidates.size);
+    expect(report).toMatchObject({
       annotatedOffers: annotations.offers.length,
       matchedOffers: annotations.offers.length,
-      fieldChecks: annotations.offers.length * 7,
-      fieldMatches: annotations.offers.length * 7,
       fieldAccuracy: 1,
+      negativeChecks: annotations.negatives.length,
+      falsePositives: 0,
       mismatches: [],
     });
   });
@@ -38,7 +48,7 @@ describe("recorded extraction evaluation", () => {
     if (!expected) throw new Error("Missing annotation");
     expect(evaluateExtraction([expected], new Map())).toMatchObject({
       matchedOffers: 0,
-      fieldChecks: 7,
+      fieldChecks: 10,
       fieldMatches: 0,
       fieldAccuracy: 0,
     });
@@ -50,7 +60,7 @@ describe("recorded extraction evaluation", () => {
     };
     const report = evaluateExtraction([expected], new Map([[expected.sourceId, [actual]]]));
     expect(report.mismatches.length).toBeGreaterThan(0);
-    expect(report.fieldMatches).toBe(2);
+    expect(report.fieldMatches).toBe(5);
     expect(evaluateExtraction([], new Map()).fieldAccuracy).toBe(0);
   });
 });

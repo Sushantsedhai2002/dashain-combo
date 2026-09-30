@@ -1,34 +1,7 @@
 {
   "recordedAt": "2026-09-30",
-  "method": "Selected cards annotated from recorded visible title, link and price evidence. Category and brand are reviewed interpretation. The sample measures field correctness, not full-source recall or ongoing live accuracy.",
+  "method": "Independent review of raw recorded listing titles, URLs, original/sale price text and stock flags; prices transcribed from raw evidence, categories and brands reviewed against titles. Distinct source/URL identities. Missing campaign dates and terms explicitly checked as null. Not a claim of ongoing live accuracy or full-site recall.",
   "offers": [
-    {
-      "sourceId": "daraz-nepal",
-      "title": "Bare Anatomy Anti Hairfall Shampoo - 250ML",
-      "destinationUrl": "https://www.daraz.com.np/products/bare-anatomy-anti-hairfall-shampoo-250ml-i328335010-s1466008794.html",
-      "originalMinor": 77400,
-      "saleMinor": 67800,
-      "category": "GENERAL_RETAIL",
-      "brandName": null
-    },
-    {
-      "sourceId": "daraz-nepal",
-      "title": "LUX Soft Rose Body Wash with French Rose & Almond Oil, 245 ml",
-      "destinationUrl": "https://www.daraz.com.np/products/lux-soft-rose-body-wash-with-french-rose-almond-oil-245-ml-i454986640-s2011434712.html",
-      "originalMinor": 22000,
-      "saleMinor": 9900,
-      "category": "GENERAL_RETAIL",
-      "brandName": null
-    },
-    {
-      "sourceId": "daraz-nepal",
-      "title": "10Kg Digital Weighing Machine l Weighting Machine l Weight Scale| Electronic Kitchen Scale l Sold By Kalika Deals",
-      "destinationUrl": "https://www.daraz.com.np/products/10kg-digital-weighing-machine-l-weighting-machine-l-weight-scale-electronic-kitchen-scale-l-sold-by-kalika-deals-i460398141-s2063172740.html",
-      "originalMinor": 80000,
-      "saleMinor": 53000,
-      "category": "GENERAL_RETAIL",
-      "brandName": null
-    },
     {
       "sourceId": "evostore",
       "title": "ACTON III",
@@ -36,7 +9,10 @@
       "originalMinor": 4290000,
       "saleMinor": 3900000,
       "category": "CONSUMER_ELECTRONICS",
-      "brandName": null
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "evostore",
@@ -45,7 +21,118 @@
       "originalMinor": 3700000,
       "saleMinor": 2990000,
       "category": "CONSUMER_ELECTRONICS",
-      "brandName": "Beats"
+      "brandName": "Beats",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Beats Solo 4 Wireless",
+      "destinationUrl": "https://evostore.com.np/beats-solo-4-wireless",
+      "originalMinor": 3710000,
+      "saleMinor": 2750000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "Beats",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Beats Studio Pro Wireless",
+      "destinationUrl": "https://evostore.com.np/beats-studio-pro-wireless",
+      "originalMinor": 5980000,
+      "saleMinor": 4500000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "Beats",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Belkin BoostCharge Pro 3-in-1 Wireless Charger with Official MagSafe Charging 15W",
+      "destinationUrl": "https://evostore.com.np/Belkin-BoostCharge-Pro-3-in-1-Wireless-Charger",
+      "originalMinor": 2850000,
+      "saleMinor": 1500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Belkin",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Belkin Gold-Plated High-Speed HDMI Cable with Ethernet - 5m",
+      "destinationUrl": "https://evostore.com.np/Belkin-Gold-Plated-High-Speed-HDMI-Cable-with-Ethernet-2M",
+      "originalMinor": 250000,
+      "saleMinor": 200000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Belkin",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Belkin RockStar Lightning Audio + Charge",
+      "destinationUrl": "https://evostore.com.np/Belkin-RockStar-Lightning-Audio-Charge",
+      "originalMinor": 790000,
+      "saleMinor": 350000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Belkin",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Belkin USB-C TO Ethernet Adapter with 60W PD",
+      "destinationUrl": "https://evostore.com.np/Belkin-USB-C-TO-Ethernet-Adapter-with-60W-PD",
+      "originalMinor": 390000,
+      "saleMinor": 350000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Belkin",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Belkin USB-C TO HDMI 2.1 ADAPTER",
+      "destinationUrl": "https://evostore.com.np/Belkin-USB-C-TO-HDMI-2.1-ADAPTER",
+      "originalMinor": 690000,
+      "saleMinor": 590000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Belkin",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "Belkin USB-C TO HDMI 2.1 CABLE",
+      "destinationUrl": "https://evostore.com.np/USB-C-TO-HDMI-2.1-CABLE-(2M)",
+      "originalMinor": 750000,
+      "saleMinor": 590000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Belkin",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "DJI Lito 1 Fly More Combo with RC-N3 Remote",
+      "destinationUrl": "https://evostore.com.np/dji-lito-1-fly-more-combo-with-rc-n3-remote",
+      "originalMinor": 7650000,
+      "saleMinor": 7410000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "DJI",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "evostore",
@@ -54,7 +141,58 @@
       "originalMinor": 8000000,
       "saleMinor": 7740000,
       "category": "CONSUMER_ELECTRONICS",
-      "brandName": "DJI"
+      "brandName": "DJI",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "DJI Mini 5 Pro with RC 2 - Fly More Combo",
+      "destinationUrl": "https://evostore.com.np/dji-mini-5pro-with-rc2-fly-more-combo",
+      "originalMinor": 18700000,
+      "saleMinor": 18400000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "DJI",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "DJI Neo 2 Fly More Combo",
+      "destinationUrl": "https://evostore.com.np/dji-neo-2-fly-more-combo",
+      "originalMinor": 6700000,
+      "saleMinor": 6500000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "DJI",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "DJI Neo Fly More Combo",
+      "destinationUrl": "https://evostore.com.np/dji-neo-fly-more-combo",
+      "originalMinor": 5500000,
+      "saleMinor": 5310000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "DJI",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "evostore",
+      "title": "DJI Osmo Action 6 Adventure Combo",
+      "destinationUrl": "https://evostore.com.np/dji-osmo-action6-adventure-combo",
+      "originalMinor": 8880000,
+      "saleMinor": 8300000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "DJI",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "online-saathi",
@@ -63,7 +201,58 @@
       "originalMinor": 2449900,
       "saleMinor": 2399900,
       "category": "MOBILE_AND_TABLETS",
-      "brandName": "Samsung"
+      "brandName": "Samsung",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Symphony Siesta 45 With 45-Litre Tank Capacity Air Cooler - (White)",
+      "destinationUrl": "https://onlinesaathi.com/symphony-siesta-45-with-45-litre-tank-capacity-air-cooler---white",
+      "originalMinor": 2369000,
+      "saleMinor": 2250600,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Symphony",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Coffee- Sream Sofa",
+      "destinationUrl": "https://onlinesaathi.com/coffee--sream-sofa",
+      "originalMinor": 6800000,
+      "saleMinor": 6120000,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Dell Inspiron 5515 R7",
+      "destinationUrl": "https://onlinesaathi.com/dell-inspiron-5515-r7",
+      "originalMinor": 10100000,
+      "saleMinor": 10009900,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Dell",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Panasonic 193 ltrs NR-A192MFANP Direct Cool Refrigerator",
+      "destinationUrl": "https://onlinesaathi.com/panasonic-193-ltrs-nr-a192mfanp-direct-cool-refrigerator",
+      "originalMinor": 3447000,
+      "saleMinor": 3102300,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Panasonic",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "online-saathi",
@@ -72,7 +261,22 @@
       "originalMinor": 8249000,
       "saleMinor": 7050000,
       "category": "HOME_APPLIANCES",
-      "brandName": "Samsung"
+      "brandName": "Samsung",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "iPhone 16 Pro Max",
+      "destinationUrl": "https://onlinesaathi.com/iphone-16-pro-max",
+      "originalMinor": 20790000,
+      "saleMinor": 19700000,
+      "category": "MOBILE_AND_TABLETS",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "online-saathi",
@@ -81,7 +285,154 @@
       "originalMinor": 21000000,
       "saleMinor": 19999900,
       "category": "COMPUTERS_AND_ACCESSORIES",
-      "brandName": "Apple"
+      "brandName": "Apple",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "SAMSUNG 43 Inch 4K Smart TV - UA43CU7700",
+      "destinationUrl": "https://onlinesaathi.com/samsung-43-inch-4k-smart-tv---ua43cu7700",
+      "originalMinor": 7499000,
+      "saleMinor": 6120000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "Samsung",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Redmi Note 13 4G (8+256GB)",
+      "destinationUrl": "https://onlinesaathi.com/redmi-note-13-4g-8256gb",
+      "originalMinor": 2799900,
+      "saleMinor": 2599900,
+      "category": "MOBILE_AND_TABLETS",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Samsung WW81J54E0BX/TL Front Loading Washing Machine With EcoBubble- 8 KG",
+      "destinationUrl": "https://onlinesaathi.com/samsung-ww81j54e0bxtl-front-loading-washing-machine-with-ecobubble--8-kg",
+      "originalMinor": 9399000,
+      "saleMinor": 7950000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Samsung",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Navy Blue Ladies Poncho",
+      "destinationUrl": "https://onlinesaathi.com/navy-blue-ladies-poncho",
+      "originalMinor": 125000,
+      "saleMinor": 100000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Gatsby Gel Styling STRONG HOLD 150g",
+      "destinationUrl": "https://onlinesaathi.com/gatsby-gel-styling-strong-hold-150g",
+      "originalMinor": 26000,
+      "saleMinor": 24700,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "STEEL-HANDLE -SOFA",
+      "destinationUrl": "https://onlinesaathi.com/steel-handle--sofa",
+      "originalMinor": 6700000,
+      "saleMinor": 5500000,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Semi bridal set",
+      "destinationUrl": "https://onlinesaathi.com/semi-bridal-set",
+      "originalMinor": 250000,
+      "saleMinor": 239900,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Rodium stone neckless",
+      "destinationUrl": "https://onlinesaathi.com/rodium-stone--neckless",
+      "originalMinor": 400000,
+      "saleMinor": 389900,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Oppo A16 (OPPO CPH2269)",
+      "destinationUrl": "https://onlinesaathi.com/oppo-a16-oppo-cph2269",
+      "originalMinor": 2299500,
+      "saleMinor": 2299000,
+      "category": "MOBILE_AND_TABLETS",
+      "brandName": "Oppo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Samsung Galaxy Z Flip 3",
+      "destinationUrl": "https://onlinesaathi.com/samsung-galaxy-z-flip-3",
+      "originalMinor": 12499900,
+      "saleMinor": 8999900,
+      "category": "MOBILE_AND_TABLETS",
+      "brandName": "Samsung",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Baltra Bc-122 Fast 1.8L Electric Kettle - (Chrome)",
+      "destinationUrl": "https://onlinesaathi.com/baltra-bc-122-fast-18l-electric-kettle---chrome",
+      "originalMinor": 137500,
+      "saleMinor": 130000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Baltra",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "online-saathi",
+      "title": "Mi Smart Air Fryer 3.5L",
+      "destinationUrl": "https://onlinesaathi.com/mi-smart-air-fryer-35l",
+      "originalMinor": 2300500,
+      "saleMinor": 2300000,
+      "category": "HOME_APPLIANCES",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "midea-nepal",
@@ -90,7 +441,10 @@
       "originalMinor": 6500000,
       "saleMinor": 6175000,
       "category": "HOME_APPLIANCES",
-      "brandName": "Midea"
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "midea-nepal",
@@ -99,7 +453,70 @@
       "originalMinor": 20000000,
       "saleMinor": 19000000,
       "category": "HOME_APPLIANCES",
-      "brandName": "Midea"
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "midea-nepal",
+      "title": "Floor Standing Inverter AC 4.0 Ton",
+      "destinationUrl": "https://midea.com.np/products/floor-standing-inverter-ac-4-0-ton",
+      "originalMinor": 31000000,
+      "saleMinor": 29450000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "midea-nepal",
+      "title": "Ceiling Floor Inverter 2.0 Ton",
+      "destinationUrl": "https://midea.com.np/products/ceiling-floor-convertible-2-0-ton-",
+      "originalMinor": 16500000,
+      "saleMinor": 15675000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "midea-nepal",
+      "title": "Ceiling Cassette 1.5 Ton Inverter",
+      "destinationUrl": "https://midea.com.np/products/ceiling-cassette-1-5-ton-inverter-",
+      "originalMinor": 15800000,
+      "saleMinor": 15010000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "midea-nepal",
+      "title": "Ceiling Cassette 2.0 Ton Inverter",
+      "destinationUrl": "https://midea.com.np/products/midea-ceiling-cassette-2-0-ton-inverter-",
+      "originalMinor": 17500000,
+      "saleMinor": 16625000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "midea-nepal",
+      "title": "Ductable 1.0 Ton Inverter",
+      "destinationUrl": "https://midea.com.np/products/ductable-1-0-ton-inverter-",
+      "originalMinor": 12500000,
+      "saleMinor": 11875000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "midea-nepal",
@@ -108,7 +525,10 @@
       "originalMinor": 17000000,
       "saleMinor": 16150000,
       "category": "HOME_APPLIANCES",
-      "brandName": "Midea"
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "neo-store",
@@ -117,7 +537,10 @@
       "originalMinor": 400000,
       "saleMinor": 380000,
       "category": "CONSUMER_ELECTRONICS",
-      "brandName": "Boya"
+      "brandName": "Boya",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "neo-store",
@@ -126,7 +549,34 @@
       "originalMinor": 1850000,
       "saleMinor": 1757500,
       "category": "COMPUTERS_AND_ACCESSORIES",
-      "brandName": "Dell"
+      "brandName": "Dell",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "neo-store",
+      "title": "Imperion Mech 10 LED Mechanical USB Gaming keyboard KG-M10R",
+      "destinationUrl": "https://www.neostore.com.np/product/imperion-mech-10-led-mechanical-usb-gaming-keyboard-kg-m10r",
+      "originalMinor": 690000,
+      "saleMinor": 294000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Imperion",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "neo-store",
+      "title": "Logitech G213 Prodigy Gaming Keyboard with RGB & Anti-Ghosting",
+      "destinationUrl": "https://www.neostore.com.np/product/logitech-g213-prodigy-gaming-keyboard-with-rgb-anti-ghosting-",
+      "originalMinor": 999000,
+      "saleMinor": 899000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Logitech",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "neo-store",
@@ -135,7 +585,46 @@
       "originalMinor": 969000,
       "saleMinor": 556000,
       "category": "COMPUTERS_AND_ACCESSORIES",
-      "brandName": "Rapoo"
+      "brandName": "Rapoo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "neo-store",
+      "title": "Rapoo XK100 Bluetooth Keyboard",
+      "destinationUrl": "https://www.neostore.com.np/product/rapoo-xk100-bluetooth-keyboard",
+      "originalMinor": 449000,
+      "saleMinor": 230500,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Rapoo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "neo-store",
+      "title": "Neo RGB Gaming Mouse Pad",
+      "destinationUrl": "https://www.neostore.com.np/product/neo-rgb-gaming-mouse-pad",
+      "originalMinor": 300000,
+      "saleMinor": 239000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "neo-store",
+      "title": "Poooli Pocket Photo Thermal Printer with 1 Roll Thermal Paper",
+      "destinationUrl": "https://www.neostore.com.np/product/poooli-pocket-photo-thermal-printer-with-1-roll-thermal-paper",
+      "originalMinor": 670000,
+      "saleMinor": 490000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Poooli",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "caliber-shoes",
@@ -144,7 +633,34 @@
       "originalMinor": 265000,
       "saleMinor": 199000,
       "category": "FASHION_AND_LIFESTYLE",
-      "brandName": "Caliber"
+      "brandName": "Caliber",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "caliber-shoes",
+      "title": "AERIS 751 -Light Grey Sports Shoes For Women -Caliber Shoes Nepal",
+      "destinationUrl": "https://calibershoes.com/product/caliber-light-grey-sports-shoes-for-women-aeris-755/",
+      "originalMinor": 265000,
+      "saleMinor": 199000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Caliber",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "caliber-shoes",
+      "title": "AERIS 751 -White Sports Shoes For Women -Caliber Shoes Nepal",
+      "destinationUrl": "https://calibershoes.com/product/caliber-white-sports-shoes-for-women-aeris-755/",
+      "originalMinor": 265000,
+      "saleMinor": 199000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Caliber",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "caliber-shoes",
@@ -153,7 +669,34 @@
       "originalMinor": 295000,
       "saleMinor": 199000,
       "category": "FASHION_AND_LIFESTYLE",
-      "brandName": "Caliber"
+      "brandName": "Caliber",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "caliber-shoes",
+      "title": "AEROKNIT 755 -Light Grey Sports Shoes For Men -Caliber Shoes Nepal",
+      "destinationUrl": "https://calibershoes.com/product/caliber-light-grey-sports-shoes-for-men-aeroknit-755/",
+      "originalMinor": 295000,
+      "saleMinor": 199000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Caliber",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "caliber-shoes",
+      "title": "AEROKNIT 755 – Black Sports Shoes For Men -Caliber Shoes Nepal",
+      "destinationUrl": "https://calibershoes.com/product/caliber-sports-shoes-for-men-aeroknit-755/",
+      "originalMinor": 295000,
+      "saleMinor": 199000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Caliber",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "caliber-shoes",
@@ -162,7 +705,10 @@
       "originalMinor": 265000,
       "saleMinor": 199000,
       "category": "FASHION_AND_LIFESTYLE",
-      "brandName": "Caliber"
+      "brandName": "Caliber",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "choicemandu",
@@ -171,7 +717,10 @@
       "originalMinor": 55000,
       "saleMinor": 35000,
       "category": "GENERAL_RETAIL",
-      "brandName": null
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "choicemandu",
@@ -180,7 +729,10 @@
       "originalMinor": 276000,
       "saleMinor": 246000,
       "category": "GENERAL_RETAIL",
-      "brandName": null
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "big-digital",
@@ -189,7 +741,10 @@
       "originalMinor": 301000,
       "saleMinor": 285950,
       "category": "HOME_APPLIANCES",
-      "brandName": null
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "itti",
@@ -198,7 +753,10 @@
       "originalMinor": 10500000,
       "saleMinor": 8500000,
       "category": "COMPUTERS_AND_ACCESSORIES",
-      "brandName": "Asus"
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "itti",
@@ -207,7 +765,10 @@
       "originalMinor": 11340000,
       "saleMinor": 9000000,
       "category": "COMPUTERS_AND_ACCESSORIES",
-      "brandName": "Dell"
+      "brandName": "Dell",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     },
     {
       "sourceId": "itti",
@@ -216,7 +777,958 @@
       "originalMinor": 19900000,
       "saleMinor": 17512000,
       "category": "COMPUTERS_AND_ACCESSORIES",
-      "brandName": "Lenovo"
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "HP Omen 16 2021 i7 11800H 8 Core / RTX 3050Ti / 16GB RAM / 512GGB SSD / 16.1\" FHD 60Hz display",
+      "destinationUrl": "https://itti.com.np/product/hp-omen-16-2022-price-nepal",
+      "originalMinor": 16000000,
+      "saleMinor": 13300000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "HP",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo IdeaPad 5 Pro 16ARH7 Ryzen 7 6800HS | 16GB RAM | 1TB SSD | Nvidia RTX 3050ti | 16\" 2.5K (2880x1800) display",
+      "destinationUrl": "https://itti.com.np/product/lenovo-ideapad-5-pro-price-nepal",
+      "originalMinor": 16500000,
+      "saleMinor": 13500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Dell XPS 15 9500 i7 10TH GEN | 16GB RAM | 1TB SSD | GTX 1650ti | 15.6\" FHD",
+      "destinationUrl": "https://itti.com.np/product/dell-xps-15-price-nepal",
+      "originalMinor": 26500000,
+      "saleMinor": 24500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Dell",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo ThinkCentre Neo 50t Gen 5 Intel® Core™ i5-14400 | 8GB RAM | 512GB SSD | 3 year Warranty | 18.5'' Monitor",
+      "destinationUrl": "https://itti.com.np/product/lenovo-thinkcentre-neo-50s-desktop-intel-core-i5-14400-price-nepal",
+      "originalMinor": 14890000,
+      "saleMinor": 13996600,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Dell Tower ECT1250 Desktop – Intel Core i5-14400 | 8GB DDR5 RAM | 512GB NVMe SSD",
+      "destinationUrl": "https://itti.com.np/product/dell-ect1250-core-i5-14400-8gb-512gb-desktop-price-nepal",
+      "originalMinor": 13650000,
+      "saleMinor": 12500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Dell",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Logitech G331 Gaming Headset Black/Red - Stereo Over Ear Headphones With Mic (Wired)",
+      "destinationUrl": "https://itti.com.np/product/logitech-g331-wired-gaming-headset-price-nepal",
+      "originalMinor": 950000,
+      "saleMinor": 807500,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "Logitech",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Nitro VG271U Gaming Monitor 27\" WQHD LED 144Hz 1ms",
+      "destinationUrl": "https://itti.com.np/product/acer-nitro-vg271u-gaming-monitor-price-nepal",
+      "originalMinor": 7400000,
+      "saleMinor": 7030000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Asus TUF VG249Q1R Gaming Monitor – 24\" FHD IPS display, 165Hz refresh rate, 1ms response time",
+      "destinationUrl": "https://itti.com.np/product/asus-tuf-vg249q1r-gaming-monitor-price-nepal",
+      "originalMinor": 5300000,
+      "saleMinor": 5100000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer XG270HU Gaming Monitor 27\" WQHD 144Hz refresh rate 1ms response time",
+      "destinationUrl": "https://itti.com.np/product/acer-xg270hu-gaming-monitor-price-nepal",
+      "originalMinor": 7000000,
+      "saleMinor": 5800000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Rapoo V500 Pro Mechanical Gaming RGB Keyboard - Individual Backlit Keys, Spill Resistant",
+      "destinationUrl": "https://itti.com.np/product/rapoo-v500-pro-rgb-mechanical-gaming-keyboard-price-nepal",
+      "originalMinor": 600000,
+      "saleMinor": 550000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Rapoo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo USB Type-C 7-in-1 Hub",
+      "destinationUrl": "https://itti.com.np/product/lenovo-usb-type-c-7-in-1-hub",
+      "originalMinor": 1020000,
+      "saleMinor": 765000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo Legion M600 Wireless Gaming Mouse (Stingray)",
+      "destinationUrl": "https://itti.com.np/product/lenovo-legion-m600-wireless-gaming-mouse-price-nepal",
+      "originalMinor": 1250000,
+      "saleMinor": 875000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Huntkey RRB2413 Monitor - 23.8 Inch IPS Display, Full-HD Resolution, 5ms Response Time",
+      "destinationUrl": "https://itti.com.np/product/huntkey-rrb2413-monitor-price-nepal",
+      "originalMinor": 2400000,
+      "saleMinor": 1920000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "CHOETECH 9-in-1 USB-C HUB With 4K HDMI, 100W PD POWER (HUB-M15)",
+      "destinationUrl": "https://itti.com.np/product/choetech-9-in-1-usb-c-hub-with-4k-hdmi-100w-pd-power-hub-m15",
+      "originalMinor": 850000,
+      "saleMinor": 722500,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "MSI Optix G241VC 23.6\" Display | FHD (1920 x 1080) Resolution | 75Hz Refresh Rate | Curvature | 1 Year Warranty",
+      "destinationUrl": "https://itti.com.np/product/msi-optix-g241vc-236-display-fhd-1920-x-1080-resolution-75hz-refresh-rate-curvature-1-year-warranty",
+      "originalMinor": 2600000,
+      "saleMinor": 2210000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "MSI",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo IdeaPad Slim 3 15ARP10 (AMD Ryzen 5 40 Processor | 8GB RAM | 256GB SSD | 15.3\" (WUXGA, 1920 x 1200) IPS Display | AMD Radeon 680M Graphics Card | Wi-Fi 6 & BT 5.3 | Windows 11 | 1 Year Warranty | Luna Grey)",
+      "destinationUrl": "https://itti.com.np/product/lenovo-slim-3-15amn8-ryzen-5-40-price-nepal",
+      "originalMinor": 9200000,
+      "saleMinor": 8500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Nitro V16 AI 2026 AMD Ryzen 7 350 Processor | RTX 5060 8GB GPU | 16GB RAM | 1TB SSD | 16″ WUXGA 180Hz Display | 1 Years Warranty",
+      "destinationUrl": "https://itti.com.np/product/acer-nitro-v16-ai-2026-ryzen-7-350-rtx-5060-8gb-gaming-laptop-price-nepal",
+      "originalMinor": 26500000,
+      "saleMinor": 23100000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo Legion 5 15IRX10 Gaming Laptop - Intel® Core™ i9-14900HX | RTX 5070 8GB | 16GB RAM | 1TB SSD | 15.1\" WQXGA OLED 165Hz | Windows 11 Home | Eclipse Black",
+      "destinationUrl": "https://itti.com.np/product/lenovo-legion-5-15irx10-gaming-laptop-intel-core-i9-14900hx-rtx-5070-8gb-16gb-ram-1tb-ssd-151-wqxga-oled-165hz-windows-11-home-eclipse-black",
+      "originalMinor": 36900000,
+      "saleMinor": 34100000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Dell XPS 13 2026 - Intel Core 5 320 Processor | 8GB RAM | 512GB SSD | 13.4″ 2.5K (2560 x 1600) Touch Display | 1 Year Warranty",
+      "destinationUrl": "https://itti.com.np/product/dell-xps-13-2026-intel-core-5-320-8gb-512gb-price-nepal",
+      "originalMinor": 20490000,
+      "saleMinor": 15900000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Dell",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Predator Helios Neo 16S AI 2025 | Intel Core Ultra 7 255HX | 3 Year Warranty | RTX 5060 | 16GB RAM | 512GB SSD | 16\" OLED WQXGA 240Hz Display",
+      "destinationUrl": "https://itti.com.np/product/acer-predator-helios-neo-16s-2025-price-nepal-rtx-5060",
+      "originalMinor": 32590000,
+      "saleMinor": 28500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "HP Victus 15-FA2021NIA Gaming Laptop – Intel® Core™ i7-13620H | RTX 3050 6GB | 16GB RAM | 512GB SSD | 15.6\" FHD 144Hz | Windows 11",
+      "destinationUrl": "https://itti.com.np/product/hp-victus-15-fa2021nia-i7-13620h-rtx-3050-price-nepal",
+      "originalMinor": 18500000,
+      "saleMinor": 16900000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "HP",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo LOQ 15ARP10E Gaming Laptop | AMD Ryzen 7 170 | 16GB DDR5 | 512GB SSD | RTX 3050 6GB GDDR6 | Windows 11 Home | 1 Year Warranty",
+      "destinationUrl": "https://itti.com.np/product/lenovo-loq-15arp10e-ryzen-7-170-rtx-3050-price-nepal",
+      "originalMinor": 19000000,
+      "saleMinor": 16800000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Aspire C24A-GRPL All-in-One Desktop - Intel Core Ultra 5 120U | 8GB RAM | 512GB SSD | 23.5\" FHD | 1 Year Warranty",
+      "destinationUrl": "https://itti.com.np/product/acer-aspire-c24a-grpl-core-ultra-5-all-in-one-desktop-price-nepal",
+      "originalMinor": 15270000,
+      "saleMinor": 13000000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Asus Zenbook 14 UM3406KA - Ryzen AI 7 350 | 16GB RAM | 1TB SSD | Radeon Graphics | 14\" 3K (2880 x 1800) OLED Display | 2 Years Warranty",
+      "destinationUrl": "https://itti.com.np/product/asus-zenbook-14-um3406ka-price-nepal",
+      "originalMinor": 27990000,
+      "saleMinor": 24500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "ASUS ROG Strix G18 G814PP | Ryzen 9 8940HX | 16GB RAM | 1TB NVMe SSD | 18.0'' WQXGA 240Hz Display | NVIDIA RTX 5070 | Windows 11 | ROG Backpack | Headset | Mouse | Off Black | 2 Year Int'l Warranty | 1 Year Perfect Warranty",
+      "destinationUrl": "https://itti.com.np/product/asus-rog-strix-g18-g814pp-price-nepal-ryzen-9-8940hx-rtx-5070",
+      "originalMinor": 42490000,
+      "saleMinor": 39500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Asus ROG Xbox Ally (2025) RC73YA | Ryzen Z2 Processor | AMD Radeon Graphics | 7” inch 120Hz Gorilla Glass DXC Display | 16GB LPDDR5 RAM | 512GB SSD | Windows 11 | Portable Gaming Handheld PC | White | 1 Year warranty",
+      "destinationUrl": "https://itti.com.np/product/asus-rog-xbox-ally-2025-price-nepal",
+      "originalMinor": 13890000,
+      "saleMinor": 12700000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Asus ROG Xbox Ally X (2025) RC73XA | Ryzen Z2 Extreme Processor | AMD Radeon Graphics | 7” inch 120Hz Gorilla Glass DXC Display | DDR5 24GB RAM | 1TB SSD | Windows 11 | Portable Gaming Handheld PC | Black | 1 Year warranty",
+      "destinationUrl": "https://itti.com.np/product/asus-rog-xbox-ally-x-2025-price-nepal",
+      "originalMinor": 19890000,
+      "saleMinor": 18895500,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Lenovo LOQ 15 2025 Gaming Laptop Intel Core i7 14700HX | 1 Years Warranty | RTX 5060 | 16GB RAM | 512GB SSD | 15.6\" FHD (1920x1080) 144Hz display",
+      "destinationUrl": "https://itti.com.np/product/lenovo-loq-gaming-laptop-i7-5060-price-nepal",
+      "originalMinor": 26900000,
+      "saleMinor": 24500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Lenovo",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "HP 15 AI Notebook PC – Intel Core™ Ultra 5 225U | 8GB DDR5 RAM | 512GB SSD | 15.6\" FHD IPS Touch Display | Intel Graphics | Windows 11",
+      "destinationUrl": "https://itti.com.np/product/hp-15-ai-core-ultra-5-225u-8gb-512gb-touch-price-nepal",
+      "originalMinor": 12000000,
+      "saleMinor": 10900000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "HP",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "ASUS ROG Zephyrus G16 GU605CP Gaming Laptop (2026) - Intel Core Ultra 9 285H | RTX 5070 8GB | 16GB RAM | 1TB SSD | 16\" WQXGA OLED 240Hz | Eclipse Gray",
+      "destinationUrl": "https://itti.com.np/product/asus-rog-zephyrus-g16-gu605cp-core-ultra-9-285h-rtx-5070-price-nepal",
+      "originalMinor": 41000000,
+      "saleMinor": 40500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Predator Orion 3000 Gaming Desktop | Intel Core Ultra 7 265F | 32GB DDR5 | 512GB M.2 PCIe Gen4 SSD | RTX 5070 12GB GDDR7 | 3 Years Warranty",
+      "destinationUrl": "https://itti.com.np/product/acer-predator-orion-3000-gaming-desktop-price-nepal-intel-core-ultra-7-265f--rtx-5070",
+      "originalMinor": 53100000,
+      "saleMinor": 48852000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Predator Gaming Chair X",
+      "destinationUrl": "https://itti.com.np/product/acer-predator-gaming-chair-x-price-nepal",
+      "originalMinor": 5600000,
+      "saleMinor": 5040000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "ASUS VIVOBOOK X515JA i7 10TH GEN | 8GB RAM | 512GB SSD | BACKLIGHT KEYBOARD 15.6\" FHD",
+      "destinationUrl": "https://itti.com.np/product/asus-vivibook-x415-ja-i7-price-nepal",
+      "originalMinor": 9500000,
+      "saleMinor": 8500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Swift Edge 14 AI SFE14-51T-95WF Intel Core Ultra 9 288V Processor | 2 Year Warranty | 32GB Onboard LPDDR5X RAM | 1TB NVMe SSD | 14\" 2.8K 120Hz OLED Touch | Windows 11 Home",
+      "destinationUrl": "https://itti.com.np/product/acer-swift-edge-14-ai-sfe14-51t-95wf-price-nepal",
+      "originalMinor": 35000000,
+      "saleMinor": 33250000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Predator Orion 7000 Gaming Desktop | Intel Core Ultra 9 285K | RTX 5090 32GB GDDR7 | 64GB DDR5 | 1TB SSD | 3 Years Warranty",
+      "destinationUrl": "https://itti.com.np/product/acer-predator-orion-7000-gaming-desktop-price-nepal-intel-core-ultra-9-285k-rtx-5090",
+      "originalMinor": 150000000,
+      "saleMinor": 138000000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "ASUS ROG Strix G18 G815LP | Intel Core ULTRA 9 275HX | 16 GB RAM | 1TB NVMe SSD | 18.0'' WQXGA 240Hz Display | NVIDIA RTX 5070 | Windows 11| ROG Backpack | Mouse | Volt Green | 2 Year Int'l Warranty | 1 Year Perfect Warranty",
+      "destinationUrl": "https://itti.com.np/product/asus-rog-g18-g815lp-price-nepal-core-ultra-9-275hx-rtx-5070",
+      "originalMinor": 55400000,
+      "saleMinor": 52000000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "ASUS ROG Strix G16 G614FM | Ryzen 9 9955HX | 16GB RAM | 1TB NVMe SSD | 16.0'' WQXGA 240Hz Display | NVIDIA RTX 5060 | Windows 11| ROG Backpack | Mouse | Eclipse Gray | 2 Year Int'l Warranty | 1 Year Perfect Warrant",
+      "destinationUrl": "https://itti.com.np/product/asus-rog-strix-g16-g614fm-price-nepal-ryzen-9-9955hx-16gb-ram-1tb-ssd-240hz-display-rtx-5060-windows-11",
+      "originalMinor": 41890000,
+      "saleMinor": 38500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "HP OmniBook 5 16 Laptop – AMD Ryzen AI 7 350 | 16GB LPDDR5x | 512GB SSD | 16″ WUXGA | Windows 11 | Backlight Keyboard",
+      "destinationUrl": "https://itti.com.np/product/hp-omnibook-5-16-ryzen-ai-7-350-price-nepal",
+      "originalMinor": 15500000,
+      "saleMinor": 12700000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "HP",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Predator Helios Neo 16S AI 2025 | Intel Core Ultra 9 275HX | 3 Year Warranty | RTX 5070 | 16GB RAM | 1TB SSD | 16\" OLED WQXGA 240Hz Display",
+      "destinationUrl": "https://itti.com.np/product/acer-predator-helios-neo-16s-2025-price-nepal-rtx-5070",
+      "originalMinor": 36890000,
+      "saleMinor": 32500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "ASUS Zenbook 14 OLED UM3406KA Laptop - AMD Ryzen™ AI 7 350 | 32GB RAM | 1TB SSD | 14\" WUXGA OLED | Windows 11 Home | Jade Black",
+      "destinationUrl": "https://itti.com.np/product/asus-zenbook-14-oled-um3406ka-ws79t-ryzen-ai-7-350-price-nepal",
+      "originalMinor": 23890000,
+      "saleMinor": 23000000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "itti",
+      "title": "Acer Aspire 14 AI A14-52MT Intel Core Ultra 7 256V Series 2 Processor | 16GB RAM | 1TB SSD Storage | 14\" (WUXGA, 1920 x 1200) IPS LCD Display | Intel Arc 140V Graphics | Backlit Keyboard | 1 Year Warranty",
+      "destinationUrl": "https://itti.com.np/product/acer-aspire-ai-a14-52mt-core-ultra-7-256v-price-nepal",
+      "originalMinor": 17000000,
+      "saleMinor": 16300000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "Bare Anatomy Anti Hairfall Shampoo - 250ML",
+      "destinationUrl": "https://www.daraz.com.np/products/bare-anatomy-anti-hairfall-shampoo-250ml-i328335010-s1466008794.html",
+      "originalMinor": 77400,
+      "saleMinor": 67800,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "LUX Soft Rose Body Wash with French Rose & Almond Oil, 245 ml",
+      "destinationUrl": "https://www.daraz.com.np/products/lux-soft-rose-body-wash-with-french-rose-almond-oil-245-ml-i454986640-s2011434712.html",
+      "originalMinor": 22000,
+      "saleMinor": 9900,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "10Kg Digital Weighing Machine l Weighting Machine l Weight Scale| Electronic Kitchen Scale l Sold By Kalika Deals",
+      "destinationUrl": "https://www.daraz.com.np/products/10kg-digital-weighing-machine-l-weighting-machine-l-weight-scale-electronic-kitchen-scale-l-sold-by-kalika-deals-i460398141-s2063172740.html",
+      "originalMinor": 80000,
+      "saleMinor": 53000,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "Bhalo Nawam Child Nutri Food | Healthy Food For Kids | Organic Baby Food For 6+ Months | Baby Sattu Food for Babies Kids | Baby Lito 800G",
+      "destinationUrl": "https://www.daraz.com.np/products/bhalo-nawam-child-nutri-food-healthy-food-for-kids-organic-baby-food-for-6-months-baby-sattu-food-for-babies-kids-baby-lito-800g-i498707937-s2232160743.html",
+      "originalMinor": 59500,
+      "saleMinor": 56200,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "LAO GAN MA Tao Huabi Chilli Sauce With Chicken 280gm | Chinese Achar | Chilli Oil | Chicken Achar",
+      "destinationUrl": "https://www.daraz.com.np/products/lao-gan-ma-tao-huabi-chilli-sauce-with-chicken-280gm-chinese-achar-chilli-oil-chicken-achar-i367301146-s1627125891.html",
+      "originalMinor": 45000,
+      "saleMinor": 39900,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "Chemist At Play Exfoliating Body Wash 236ml | Removes Tan, Fights Body Acne, Strawberry Skin | 4% (Salicylic Acid, Vitamin E & Lactic Acid) | Gentle Exfoliating Shower Gel For Women & Men",
+      "destinationUrl": "https://www.daraz.com.np/products/chemist-at-play-exfoliating-body-wash-236ml-removes-tan-fights-body-acne-strawberry-skin-4-salicylic-acid-vitamin-e-lactic-acid-gentle-exfoliating-shower-gel-for-women-men-i347036895-s1522859368.html",
+      "originalMinor": 63900,
+      "saleMinor": 59100,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "daraz-nepal",
+      "title": "Minimalist SPF 50 PA++++ Sunscreen | No White Cast and Contains Multi Vitamins for Reducing Photoaging | 50 gm",
+      "destinationUrl": "https://www.daraz.com.np/products/minimalist-spf-50-pa-sunscreen-no-white-cast-and-contains-multi-vitamins-for-reducing-photoaging-50-gm-i502135336-s2248318265.html",
+      "originalMinor": 63900,
+      "saleMinor": 60400,
+      "category": "GENERAL_RETAIL",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "nagmani",
+      "title": "ASUS Vivobook Go E1504 - Ryzen 5 40 RAM | 15.6\" FHD Display | 8GB | 256GB SSD | Fingerprint | Windows 11 | Backpack | Mouse | Cool Silver | 2 Yrs Int'l Warranty | 1 year Perfect Warranty",
+      "destinationUrl": "https://nagmani.com.np/asus-vivobook-go-e1504-ryzen-5-40-15-fhd-display-8gb-256gb-ssd-fingerprint-windows-11-price-in-nepal",
+      "originalMinor": 12590000,
+      "saleMinor": 12290000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "nagmani",
+      "title": "ASUS Vivobook Go E1404 - Ryzen 5 40 | 14\" FHD Display | 8GB | 256GB SSD | Magic Numpad | Windows 11 | Backpack | Mouse | Cool Silver | Grey Green | Mixed Black | 2 Yrs Int'l Warranty | 1 year Perfect Warranty",
+      "destinationUrl": "https://nagmani.com.np/asus-vivobook-go-e1404-ryzen-5-40-14-fhd-display-8gb-256gb-ssd-magic-numpad-windows-11-price-in-nepal",
+      "originalMinor": 12590000,
+      "saleMinor": 12290000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "gadget-house-nepal",
+      "title": "Razer Kraken X Ultralight Gaming Headset 7.1 surround sound",
+      "destinationUrl": "https://gadgethousenepal.com/product/razer-kraken-x-ultralight-gaming-headset-7-1-surround-sound/",
+      "originalMinor": 790000,
+      "saleMinor": 549900,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "gadget-house-nepal",
+      "title": "Xiaomi Mi 24 inch Monitor 1C, BHR4510GL, 23.8 inch, 60 Hz Desktop Full HD – Black",
+      "destinationUrl": "https://gadgethousenepal.com/product/xiaomi-mi-24-inch-monitor-1c-bhr4510gl-23-8-inch-60-hz-desktop-full-hd-black/",
+      "originalMinor": 2499900,
+      "saleMinor": 1699900,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Xiaomi",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "khudra",
+      "title": "Intex IT-1902 LED Monitor – 19\" I...",
+      "destinationUrl": "https://www.khudra.com.np/product/intex-it-1902-led-monitor-19-obobr",
+      "originalMinor": 550000,
+      "saleMinor": 369900,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "khudra",
+      "title": "SanDisk 1 TB SSD Portable",
+      "destinationUrl": "https://www.khudra.com.np/product/sandisk-1-tb-ssd-portable-uvvhi",
+      "originalMinor": 2400000,
+      "saleMinor": 2350000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "aadima-nepal",
+      "title": "Adidas Golf Company Five-Panel Trucker Hat",
+      "destinationUrl": "https://aadimanepal.com/products/adidas-golf-company-five-panel-trucker-hat",
+      "originalMinor": 600000,
+      "saleMinor": 540000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Adidas",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "aadima-nepal",
+      "title": "Reebok Classic Leather Sneakers",
+      "destinationUrl": "https://aadimanepal.com/products/reebok-classic-leather-sneakers",
+      "originalMinor": 2200000,
+      "saleMinor": 1749000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Reebok",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "shoes4less-nepal",
+      "title": "LM Flats",
+      "destinationUrl": "https://shoes4lessnepal.com/collections/sale/products/lm-close-shoes-ss-1551",
+      "originalMinor": 249000,
+      "saleMinor": 99000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "ekjor",
+      "title": "Spring Breathable Sports Running Shoes for Men's Fashion Trend Casual Men's Shoes",
+      "destinationUrl": "https://www.ekjor.com/product/spring-breathable-sports-running-shoes-for-men's-fashion-trend-casual-men's-shoes-6a04a7027224566ebe51f13e",
+      "originalMinor": 385000,
+      "saleMinor": 350000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "ekjor",
+      "title": "Men's Leather Shoes Men Loafers Mens Slip-on Outdoor Flats Monk Shoes",
+      "destinationUrl": "https://www.ekjor.com/product/men's-leather-shoes-men-loafers-mens-slip-on-outdoor-flats-monk-shoes--69fb062203fa51cbdd51b4a4",
+      "originalMinor": 599900,
+      "saleMinor": 499900,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "oliz-store",
+      "title": "DJI Osmo Action 6 Adventure Combo",
+      "destinationUrl": "https://www.olizstore.com/product/dji-osmo-action-6-adventure-combo-price-in-nepal",
+      "originalMinor": 8880000,
+      "saleMinor": 8350000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "DJI",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null,
+      "imageUrl": "https://cdn2.blanxer.com/uploads/682feff88c633f25b4c7ce32/product_image-dji-osmo-action-6-2111.webp"
+    },
+    {
+      "sourceId": "fonepay",
+      "title": "Travel Home This Dashain-Tihar — Get Cashback on Every Flight Booking with 'Super Yatra' 2083",
+      "destinationUrl": "https://fonepay.com/blogs/travel-home-this-dashain-tihar-get-cashback-on-every-flight-booking-with-super-yatra-2083",
+      "originalMinor": null,
+      "saleMinor": null,
+      "category": "PAYMENTS_AND_FINANCE",
+      "brandName": null,
+      "sourcePublishedAt": {
+        "kind": "KATHMANDU_DATE",
+        "value": "2026-09-28"
+      },
+      "explicitValidityEnd": {
+        "kind": "KATHMANDU_DATE",
+        "value": "2026-11-16"
+      },
+      "terms": "The campaign runs from September 28, 2026 to November 16, 2026 (\"Campaign Period\"). Open to all users who book domestic flights via Fonepay Bills in their mobile banking app during the Campaign Period. Only bookings made using the promo code YATRA83 are eligible for cashback. The promo code cab be entered in any variation — lowercase, spacing, or other variations will also qualify. New users receive Rs. 500 cashback on their first eligible flight booking. Existing users receive Rs. 200 cashback on an eligible flight booking. Cashback is limited to one claim per user during the Campaign Period. Cashback will be credited to the user's initiating bank account within 30 minutes of a successful transaction. Cashback is non-transferable and cannot be exchanged for other rewards or credited in cash. By accepting the cashback, participants consent to Fonepay featuring their name on Fonepay's official website and social media for future promotional purposes, if selected. Fonepay reserves the right to amend, extend, suspend, or cancel the campaign or its terms at any time, with notice posted on Fonepay's official channels. Cashback offers under this campaign cannot be combined with other ongoing promotions unless explicitly stated. By participating, users agree to be bound by these Terms and Conditions. Fonepay shall not be liable for delays or failures caused by events beyond its reasonable control, including natural disasters, strikes, epidemics, or other force majeure events. These Terms and Conditions are governed by the laws of Nepal. Make this Dashain-Tihar the one where you don't have to say, \"I couldn't make it.\" Book your flight through Fonepay Bills, use promo code YATRA83. For queries, contact 01-5970044, Toll-Free 1660-01-34244, or email [email protected]."
+    },
+    {
+      "sourceId": "ishop-nepal",
+      "title": "Pink Color Women's Net Gown",
+      "destinationUrl": "https://ishop.com.np/gown/112-peach-colour-attire-design-women-s-net-semi-stitched-gown.html",
+      "originalMinor": 420000,
+      "saleMinor": 294000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "ishop-nepal",
+      "title": "WE0097: Elegant Lehenga...",
+      "destinationUrl": "https://ishop.com.np/lehenga/142-elegant-lehenga-party-wear.html",
+      "originalMinor": 850000,
+      "saleMinor": 680000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "moto-world-nepal",
+      "title": "AXOR X CROSS X1 Neon Yellow Blue Dual Sport Helmet",
+      "destinationUrl": "https://motoworldnepal.com/shop/axor-x-cross-x1-neon-yellow-blue-dual-sport-helmet/",
+      "originalMinor": 1959000,
+      "saleMinor": 1760000,
+      "category": "AUTOMOTIVE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "moto-world-nepal",
+      "title": "MT Blade 2 SV Vitality A5 White Red Full Face Motorcycle Helmet",
+      "destinationUrl": "https://motoworldnepal.com/shop/mt-blade-2-sv-vitality-a5-white-red-full-face-motorcycle-helmet/",
+      "originalMinor": 1360000,
+      "saleMinor": 1200000,
+      "category": "AUTOMOTIVE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "yantra-nepal",
+      "title": "Asus Vivobook Go 15 E1504FA | AMD Ryzen 5 7520U Processor, 16GB LPDDR5, 512GB M.2 NVMe™ PCIe® SSD, 15.6-inch FHD (1920 x 1080) 16:9 Anti-Glare Display, AMD Radeon™ 610M Graphics, Windows 11 Home, 42WHrs Battery, HD Camera with Privacy Shutter (Mixed Black, 1.63KGs)",
+      "destinationUrl": "https://yantranepal.com/asus-vivobook-go-15-e1504fa-price-in-nepal/",
+      "originalMinor": 13800000,
+      "saleMinor": 11000000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "yantra-nepal",
+      "title": "ASUS Vivobook Go 15 E1504F | AMD Ryzen™ 5 7520U / 40 Series Processor, 8GB LPDDR5 RAM, 512GB M.2 NVMe™ PCIe® SSD, 15.6-inch FHD (1920 x 1080) Anti-Glare Display, AMD Radeon™ Graphics, Wi-Fi 6E & Bluetooth 5.3, Magic NumPad, HD Webcam with Privacy Shutter, US MIL-STD 810H (Mixed Black, 1.63 KGs)",
+      "destinationUrl": "https://yantranepal.com/asus-vivobook-go-15-e1504f-price-in-nepal/",
+      "originalMinor": 12200000,
+      "saleMinor": 9500000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Asus",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "yamaha-nepal",
+      "title": "Yamaha Changa Chet Jitko Naya Upgrade",
+      "destinationUrl": "https://www.maw2wheelers.com/yamaha-changa-chet-jitko-naya-upgrade/",
+      "originalMinor": null,
+      "saleMinor": null,
+      "category": "AUTOMOTIVE",
+      "brandName": "Yamaha",
+      "sourcePublishedAt": {
+        "kind": "KATHMANDU_DATE",
+        "value": "2026-09-15"
+      },
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "khalti",
+      "title": "Topup ma iPhone 18 pro",
+      "destinationUrl": "https://blog.khalti.com/home/topup-ma-iphone-18-pro/",
+      "originalMinor": null,
+      "saleMinor": null,
+      "category": "PAYMENTS_AND_FINANCE",
+      "brandName": null,
+      "sourcePublishedAt": {
+        "kind": "KATHMANDU_DATE",
+        "value": "2026-09-23"
+      },
+      "explicitValidityEnd": null,
+      "terms": "Terms and Conditions: The Topup Ma iPhone 18 Pro campaign is valid from Ashoj 2 to Kartik 17. Participants must make a minimum Rs. 50 mobile top-up through the dedicated Topup Ma iPhone 18 Pro service available under Featured Services on the Khalti App. KYC verification is compulsory for participation. Users can participate multiple times during the campaign period. Each successful eligible transaction gives the participant a chance to win the grand prize. More eligible top-ups give the participant more chances to win. 25 KP will be awarded on every successful eligible top-up. Failed, cancelled, reversed, refunded, or otherwise ineligible transactions will not qualify. The grand prize is one brand-new iPhone 18 Pro. The winner will be selected from eligible participants according to Khalti’s campaign mechanism. Winner announcement and prize distribution will be subject to Khalti’s verification process. The winner must complete the required verification and claim process within the specified period. 25% TDS applicable to the prize shall be borne by the winner. Khalti reserves the right to modify the campaign terms and conditions at its discretion. In case of any dispute, Khalti’s decision shall be final and binding."
+    },
+    {
+      "sourceId": "khalti",
+      "title": "Khalti Garyo Aauda Free Paryo, Khalti Paryo Petrol Paryo",
+      "destinationUrl": "https://blog.khalti.com/featured/khalti-garyo-aauda-free-paryo-khalti-paryo-petrol-paryo/",
+      "originalMinor": null,
+      "saleMinor": null,
+      "category": "PAYMENTS_AND_FINANCE",
+      "brandName": null,
+      "sourcePublishedAt": {
+        "kind": "KATHMANDU_DATE",
+        "value": "2026-09-10"
+      },
+      "explicitValidityEnd": null,
+      "terms": "Driver T&Cs: The campaign is valid from 25th Bhadra to 25th Mangsir 2083. The offer is applicable to inDrive drivers receiving eligible ride fares through Khalti. Drivers must receive at least 5 eligible inDrive ride fares through Khalti within a single day to qualify for that day’s lucky draw. Only successfully completed inDrive rides paid through Khalti will be counted. Eligible drivers will be automatically entered into the daily lucky draw. No separate registration is required. 10 lucky drivers will be selected every day, and each winner will receive 5 litres of petrol worth Rs. 1,000. A driver can qualify for the lucky draw on multiple days during the campaign period. Cancelled, failed, refunded, reversed, or otherwise ineligible transactions will not be counted. Winners will be selected through a random lucky draw and announced through Khalti’s official communication channels. Khalti reserves the right to verify transactions and disqualify participants involved in fraudulent, suspicious, or abusive activity. Khalti reserves the right to modify, extend, suspend, or terminate the campaign with prior notice. All decisions made by Khalti regarding the campaign and winner selection shall be considered final. Other terms and conditions may apply. Passenger T&Cs: The campaign is valid from 25th Bhadra to 25th Mangsir 2083. The offer is applicable to inDrive passengers who pay eligible ride fares through Khalti. Every successfully completed inDrive ride paid through Khalti will automatically qualify the passenger for that day’s lucky draw. No separate registration or sign-up is required to participate. 10 lucky passengers will be selected every day, and each winner will receive Rs. 200 Khalti Balance. A passenger can qualify for the lucky draw through multiple eligible ride payments during the campaign period. Only successful and eligible ride payments made through Khalti will be considered. Cancelled, failed, refunded, reversed, or otherwise ineligible transactions will not be counted. Winners will be selected through a random lucky draw and announced through Khalti’s official communication channels. Khalti reserves the right to verify transactions and disqualify participants involved in fraudulent, suspicious, or abusive activity. Khalti reserves the right to modify, extend, suspend, or terminate the campaign with prior notice. All decisions made by Khalti regarding the campaign and winner selection shall be considered final. Other terms and conditions may apply."
+    }
+  ],
+  "negatives": [
+    {
+      "sourceId": "online-saathi",
+      "destinationUrl": "https://onlinesaathi.com/hifuture-go-pro2-stainless-steel-classy-smartwatch",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "online-saathi",
+      "destinationUrl": "https://onlinesaathi.com/hifuture-aix-lite-smartwatch",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "online-saathi",
+      "destinationUrl": "https://onlinesaathi.com/dell-latitude-7300-i5-8th",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "online-saathi",
+      "destinationUrl": "https://onlinesaathi.com/cmf-by-nothing-buds-pro-2-with-50-db-anc---near-me",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "neo-store",
+      "destinationUrl": "https://www.neostore.com.np/product/logitech-computer-usb-headset-h390",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "neo-store",
+      "destinationUrl": "https://www.neostore.com.np/product/logitech-h110-pc-stereo-headset",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "choicemandu",
+      "destinationUrl": "https://choicemandu.com/handmade-travel-bags-price-in-nepal",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "choicemandu",
+      "destinationUrl": "https://choicemandu.com/custom-chocolate-bar-for-fathers-day",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "choicemandu",
+      "destinationUrl": "https://choicemandu.com/friends-you-are-my-lobster",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "choicemandu",
+      "destinationUrl": "https://choicemandu.com/wooden-stand-ceramic-pot",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "big-digital",
+      "destinationUrl": "https://bigdigital.com.np/category/heater",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "big-digital",
+      "destinationUrl": "https://bigdigital.com.np/category/ig0020",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "big-digital",
+      "destinationUrl": "https://bigdigital.com.np/category/vacuum-cleaner",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "big-digital",
+      "destinationUrl": "https://bigdigital.com.np/category/air-conditioners",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "itti",
+      "destinationUrl": "https://itti.com.np/product/ugreen-hitune-h5-true-wireless-earbuds-ultra-long-playtime-price-nepal",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "itti",
+      "destinationUrl": "https://itti.com.np/product/dell-27-monitor-s2725h-dell-price-nepal",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "itti",
+      "destinationUrl": "https://itti.com.np/product/poweredge-t160-tower-server",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
+    },
+    {
+      "sourceId": "itti",
+      "destinationUrl": "https://itti.com.np/product/black-shark-watch-price-nepal-x-smartwatch",
+      "reason": "Unavailable product or missing/invalid original and sale price pair"
     }
   ]
 }

@@ -10,11 +10,17 @@ if (!registry.ok) throw new Error("Invalid source registry");
 const annotations = JSON.parse(
   await readFile(new URL("../../test/fixtures/annotations.json", import.meta.url), "utf8"),
 );
+const pages = JSON.parse(
+  await readFile(new URL("../../test/fixtures/pages.json", import.meta.url), "utf8"),
+);
 const candidates = new Map();
 const candidateCounts = {};
-const fetchPage = async (_url, source) => ({
+const fetchPage = async (url, source) => ({
   status: 200,
-  body: await readFile(new URL(`../../test/fixtures/${source.id}.html`, import.meta.url), "utf8"),
+  body: await readFile(
+    new URL(`../../test/fixtures/${pages[url] ?? `${source.id}.html`}`, import.meta.url),
+    "utf8",
+  ),
 });
 for (const adapter of createWebsiteAdapters(fetchPage)) {
   const source = registry.sources.find((entry) => entry.id === adapter.sourceId);
@@ -23,7 +29,7 @@ for (const adapter of createWebsiteAdapters(fetchPage)) {
   candidates.set(adapter.sourceId, result.offers);
   candidateCounts[adapter.sourceId] = result.offers.length;
 }
-const report = evaluateExtraction(annotations.offers, candidates);
+const report = evaluateExtraction(annotations.offers, candidates, annotations.negatives);
 console.log(
   JSON.stringify(
     { recordedAt: annotations.recordedAt, scope: annotations.method, candidateCounts, ...report },
@@ -31,4 +37,4 @@ console.log(
     2,
   ),
 );
-process.exitCode = report.mismatches.length ? 1 : 0;
+process.exitCode = report.mismatches.length || report.annotatedOffers < 100 ? 1 : 0;

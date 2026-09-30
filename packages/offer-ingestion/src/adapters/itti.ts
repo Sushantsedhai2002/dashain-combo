@@ -113,7 +113,7 @@ export function createIttiAdapter(fetchPage: PageFetcher): SourceAdapter {
             !isRecord(product.price) ||
             typeof product.name !== "string" ||
             typeof product.slug !== "string" ||
-            !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.slug) ||
+            !/^[a-z0-9]+(?:-+[a-z0-9]+)*$/.test(product.slug) ||
             product.slug.length > 300 ||
             product.price.in_stock !== true ||
             product.coming_soon !== 0 ||
