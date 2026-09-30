@@ -142,5 +142,149 @@
       "verifiedAt": "2026-09-30T09:30:00+05:45",
       "evidenceUrl": "https://jeevee.com/"
     }
+  },
+  {
+    "id": "hukut",
+    "displayName": "Hukut",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://hukut.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "evidenceUrl": "https://hukut.com/"
+    }
+  },
+  {
+    "id": "mudita-store",
+    "displayName": "Mudita Store",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://mudita.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "evidenceUrl": "https://mudita.com.np/"
+    }
+  },
+  {
+    "id": "oliz-store",
+    "displayName": "Oliz Store",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.olizstore.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "evidenceUrl": "https://www.olizstore.com/"
+    }
+  },
+  {
+    "id": "evostore",
+    "displayName": "EvoStore",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://evostore.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "evidenceUrl": "https://evostore.com.np/"
+    }
+  },
+  {
+    "id": "big-digital",
+    "displayName": "Big Digital",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.bigdigital.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "evidenceUrl": "https://www.bigdigital.com.np/"
+    }
+  },
+  {
+    "id": "itti",
+    "displayName": "ITTI",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://itti.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "evidenceUrl": "https://itti.com.np/"
+    }
+  },
+  {
+    "id": "neo-store",
+    "displayName": "Neo Store",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.neostore.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "evidenceUrl": "https://www.neostore.com.np/"
+    }
+  },
+  {
+    "id": "cg-digital",
+    "displayName": "CG Digital",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://cgdigital.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "evidenceUrl": "https://cgdigital.com.np/"
+    }
   }
 ]
