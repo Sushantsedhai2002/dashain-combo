@@ -610,5 +610,149 @@
       "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://shikharshoes.com/"
     }
+  },
+  {
+    "id": "hyundai-nepal",
+    "displayName": "Hyundai Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://laxmihyundai.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://laxmihyundai.com/about"
+    }
+  },
+  {
+    "id": "tata-motors-nepal",
+    "displayName": "Tata Motors Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.tatamotors.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.tatamotors.com.np/about-us"
+    }
+  },
+  {
+    "id": "kia-nepal",
+    "displayName": "Kia Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://kia.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://kia.com.np/"
+    }
+  },
+  {
+    "id": "suzuki-nepal",
+    "displayName": "Suzuki Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://suzuki.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://suzuki.com.np/about"
+    }
+  },
+  {
+    "id": "toyota-nepal",
+    "displayName": "Toyota Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.toyota.com.np/en.html",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.toyota.com.np/en.html"
+    }
+  },
+  {
+    "id": "honda-nepal",
+    "displayName": "Honda Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://honda.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://honda.com.np/about-us/"
+    }
+  },
+  {
+    "id": "yamaha-nepal",
+    "displayName": "Yamaha Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.maw2wheelers.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.maw2wheelers.com/about-us/"
+    }
+  },
+  {
+    "id": "bajaj-nepal",
+    "displayName": "Bajaj Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["automotive"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.bajajauto.com/en-np",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.bajajauto.com/en-np"
+    }
   }
 ]
