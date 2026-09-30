@@ -13,7 +13,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://www.daraz.com.np/"
     }
   },
@@ -31,7 +31,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://bbsm.com.np/"
     }
   },
@@ -49,7 +49,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://bigmart.com.np/"
     }
   },
@@ -67,7 +67,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://onlinesaathi.com/"
     }
   },
@@ -85,7 +85,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://hamrobazaar.com/"
     }
   },
@@ -103,7 +103,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://www.muncha.com/"
     }
   },
@@ -121,7 +121,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://choicemandu.com/"
     }
   },
@@ -139,7 +139,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://jeevee.com/"
     }
   },
@@ -157,7 +157,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://hukut.com/"
     }
   },
@@ -175,7 +175,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://mudita.com.np/"
     }
   },
@@ -193,7 +193,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://www.olizstore.com/"
     }
   },
@@ -211,7 +211,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://evostore.com.np/"
     }
   },
@@ -229,7 +229,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://www.bigdigital.com.np/"
     }
   },
@@ -247,7 +247,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://itti.com.np/"
     }
   },
@@ -265,7 +265,7 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://www.neostore.com.np/"
     }
   },
@@ -283,8 +283,116 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T10:00:00+05:45",
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://cgdigital.com.np/"
+    }
+  },
+  {
+    "id": "samsung-nepal",
+    "displayName": "Samsung Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "FACEBOOK",
+        "url": "https://www.facebook.com/samsungnepal/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.facebook.com/samsungnepal/"
+    }
+  },
+  {
+    "id": "xiaomi-nepal",
+    "displayName": "Xiaomi Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.mi.com/np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.mi.com/np/"
+    }
+  },
+  {
+    "id": "vivo-nepal",
+    "displayName": "vivo Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.vivo.com/np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.vivo.com/np/"
+    }
+  },
+  {
+    "id": "oppo-nepal",
+    "displayName": "OPPO Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.oppo.com/np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.oppo.com/np/"
+    }
+  },
+  {
+    "id": "realme-nepal",
+    "displayName": "realme Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.realme.com/np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.realme.com/np/"
+    }
+  },
+  {
+    "id": "lg-nepal",
+    "displayName": "LG Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.lg.com/np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.lg.com/np/"
     }
   }
 ]
