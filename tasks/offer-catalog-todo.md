@@ -254,14 +254,14 @@
 **Description:** Test-first, encode and decode sort-specific keysets as versioned base64url cursors with complete private-schema validation and structured invalid-cursor results.
 
 **Acceptance criteria:**
-- [ ] Every approved sort round-trips its complete keyset, including null markers and ID tie-breaker.
-- [ ] Malformed base64, invalid JSON, unknown versions, wrong sort shapes, unsafe values, and trailing fields return `CURSOR_INVALID` without throwing implementation errors.
-- [ ] Cursor implementation types are not exported publicly.
+- [x] Every approved sort round-trips its complete keyset, including null markers and ID tie-breaker.
+- [x] Malformed base64, invalid JSON, unknown versions, wrong sort shapes, unsafe values, and trailing fields return `CURSOR_INVALID` without throwing implementation errors.
+- [x] Cursor implementation types are not exported publicly.
 
 **Verification:**
-- [ ] Observe cursor tests fail before implementation.
-- [ ] Run `pnpm --filter @dashain-offer/offer-catalog test -- cursor.test.ts`.
-- [ ] Run package typecheck, lint, and coverage.
+- [x] Observe cursor tests fail before implementation.
+- [x] Run `pnpm --filter @dashain-offer/offer-catalog test -- cursor.test.ts`.
+- [x] Run package typecheck, lint, and coverage.
 
 **Dependencies:** Task 2
 
