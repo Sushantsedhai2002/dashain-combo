@@ -35,14 +35,14 @@
 **Description:** Test-first, define controlled categories, lifecycle status, money, source-time variants, offer inputs/outputs, result issues, search queries, and package-boundary validation. Keep schema-library objects private.
 
 **Acceptance criteria:**
-- [ ] Public readonly types represent the approved semantic model and accept active `SourceDefinition` values only.
-- [ ] Invalid IDs, URLs, dates, currencies, money, discounts, source status, text lengths, filters, limits, and price-sort currency combinations return ordered structured issues.
-- [ ] Text-only offers are valid while unknown fields and unsupported enum values are rejected.
+- [x] Public readonly types represent the approved semantic model and accept active `SourceDefinition` values only.
+- [x] Invalid IDs, URLs, dates, currencies, money, discounts, source status, text lengths, filters, limits, and price-sort currency combinations return ordered structured issues.
+- [x] Text-only offers are valid while unknown fields and unsupported enum values are rejected.
 
 **Verification:**
-- [ ] Observe focused schema/contract tests fail before implementation.
-- [ ] Run `pnpm --filter @dashain-offer/offer-catalog test -- schema.test.ts`.
-- [ ] Run package typecheck and lint.
+- [x] Observe focused schema/contract tests fail before implementation.
+- [x] Run `pnpm --filter @dashain-offer/offer-catalog test -- schema.test.ts`.
+- [x] Run package typecheck and lint.
 
 **Dependencies:** Task 1
 
