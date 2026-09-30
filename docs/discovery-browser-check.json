@@ -1,0 +1,49 @@
+{
+  "browser": "Chromium headless shell 153 (Playwright)",
+  "javascriptEnabled": false,
+  "viewportChecks": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "cards": 24,
+      "columns": "288px",
+      "unlabeledInputs": 0
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "cards": 24,
+      "columns": "226px 226px",
+      "unlabeledInputs": 0
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "cards": 24,
+      "columns": "354px 354px",
+      "unlabeledInputs": 0
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "cards": 24,
+      "columns": "322.656px 322.672px 322.656px",
+      "unlabeledInputs": 0
+    }
+  ],
+  "filtered": {
+    "titles": [
+      "Samsung RT37M5535SL 345Ltr 5 In 1 Convertible Double Door Refrigerator -Silver",
+      "Samsung WW81J54E0BX/TL Front Loading Washing Machine With EcoBubble- 8 KG"
+    ],
+    "selectedSort": "PRICE_ASC",
+    "checked": 2
+  },
+  "detailMetrics": {
+    "heading": "Samsung RT37M5535SL 345Ltr 5 In 1 Convertible Double Door Refrigerator -Silver",
+    "seller": "https://onlinesaathi.com/samsung-rt37m5535sl-345ltr-5-in-1-convertible-double-door-refrigerator--silver",
+    "rel": "noopener noreferrer"
+  },
+  "firstFocus": "Skip to offers",
+  "runtimeErrors": []
+}

@@ -1,0 +1,102 @@
+import type { Money, Offer, OfferPage } from "@dashain-offer/offer-catalog";
+import { CATEGORIES, SORTS, type SourceOption } from "./query.ts";
+
+export function escapeHtml(value: string): string {
+  return value.replace(
+    /[&<>"']/g,
+    (character) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character] ?? "",
+  );
+}
+function safeUrl(value: string | null): string | null {
+  if (value === null) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && !url.username && !url.password
+      ? escapeHtml(url.href)
+      : null;
+  } catch {
+    return null;
+  }
+}
+function money(value: Money | null): string {
+  return value === null
+    ? "See seller for price"
+    : escapeHtml(
+        new Intl.NumberFormat("en-NP", {
+          style: "currency",
+          currency: value.currency,
+          currencyDisplay: "code",
+          maximumFractionDigits: 2,
+        }).format(value.amountMinor / 100),
+      );
+}
+function date(instant: string): string {
+  return escapeHtml(
+    new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Kathmandu",
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }).format(new Date(instant)),
+  );
+}
+function image(offer: Offer, detail = false): string {
+  const url = safeUrl(offer.imageUrl);
+  return `<div class="product-image">${url === null ? '<span class="image-placeholder" aria-hidden="true">↗</span>' : `<img src="${url}" alt="${escapeHtml(offer.productName ?? offer.title)}" ${detail ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" referrerpolicy="no-referrer" width="480" height="360">`}${offer.discountPercent === null ? "" : `<span class="discount">${offer.discountPercent === 0 ? "Sale" : `${offer.discountPercent}% off`}</span>`}</div>`;
+}
+export function layout(title: string, content: string): string {
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Discover current offers from trusted Nepal retailers. Compare deals and shop directly with the seller."><title>${escapeHtml(title)} · Dashain Offer Radar</title><link rel="stylesheet" href="/assets/style.css"></head><body><a class="skip-link" href="#main">Skip to offers</a><header><div class="shell header-inner"><a class="brand" href="/" aria-label="Dashain Offer Radar home"><span class="brand-symbol" aria-hidden="true">✳</span><span>Dashain<span class="brand-sub">OFFER RADAR</span></span></a><span class="header-note">Good finds. Trusted sources.</span><a class="header-link" href="/#offers">Explore offers ↗</a></div></header>${content}<footer class="shell"><span>Dashain Offer Radar</span><p>Discover here. Shop with the original seller.<br>Prices and availability can change. Confirm the offer before buying.</p><span>Made for Nepal · English</span></footer></body></html>`;
+}
+function card(offer: Offer): string {
+  return `<li class="offer-card">${image(offer)}<div class="card-body"><p class="seller">${escapeHtml(offer.sellerDisplayName)} <span>· ${escapeHtml(CATEGORIES[offer.category])}</span></p><h3><a href="/offers/${encodeURIComponent(offer.id)}">${escapeHtml(offer.title)}</a></h3><p class="prices"><strong>${money(offer.salePrice)}</strong>${offer.originalPrice === null ? "" : ` <s>${money(offer.originalPrice)}</s>`}</p><div class="card-bottom"><span>${offer.explicitValidityEnd === null ? "Listed until" : "Ends"} ${date(new Date(Date.parse(offer.expiresAt) - 1).toISOString())}</span><a aria-label="Details for ${escapeHtml(offer.title)}" href="/offers/${encodeURIComponent(offer.id)}">View offer ↗</a></div></div></li>`;
+}
+function filterForm(params: URLSearchParams, sources: readonly SourceOption[]): string {
+  const selectedCategories = params.getAll("category");
+  const selectedSources = params.getAll("source");
+  return `<form class="filter-form" action="/" method="get"><div class="search-field"><label for="q">What are you looking for?</label><div class="search-control"><input id="q" name="q" type="search" maxlength="200" value="${escapeHtml(params.get("q") ?? "")}" placeholder="Try headphones, shoes, a fridge…"><button type="submit">Search ↗</button></div></div><div class="filter-body"><details class="category-filter"${selectedCategories.length ? " open" : ""}><summary>Categories${selectedCategories.length ? ` (${selectedCategories.length})` : ""}</summary><fieldset><legend class="sr-only">Filter by category</legend>${Object.entries(
+    CATEGORIES,
+  )
+    .map(
+      ([value, label]) =>
+        `<label class="check-option"><input type="checkbox" name="category" value="${value}"${selectedCategories.includes(value) ? " checked" : ""}><span>${escapeHtml(label)}</span></label>`,
+    )
+    .join(
+      "",
+    )}</fieldset></details><details${selectedSources.length ? " open" : ""}><summary>Trusted sources${selectedSources.length ? ` (${selectedSources.length})` : ""}</summary><fieldset class="sources"><legend class="sr-only">Filter by source</legend>${sources.map((source) => `<label class="check-option"><input type="checkbox" name="source" value="${escapeHtml(source.id)}"${selectedSources.includes(source.id) ? " checked" : ""}><span>${escapeHtml(source.displayName)}</span></label>`).join("")}</fieldset></details><label class="sort-label" for="sort">Sort offers</label><select id="sort" name="sort">${Object.entries(
+    SORTS,
+  )
+    .map(
+      ([value, label]) =>
+        `<option value="${value}"${(params.get("sort") ?? "NEWEST") === value ? " selected" : ""}>${escapeHtml(label)}</option>`,
+    )
+    .join(
+      "",
+    )}</select><div class="filter-actions"><button type="submit">Apply filters</button><a href="/">Clear all</a></div></div></form>`;
+}
+export function renderHome(
+  page: OfferPage,
+  params: URLSearchParams,
+  sources: readonly SourceOption[],
+): string {
+  const filtered = [...params.keys()].some((key) => key !== "cursor" && key !== "sort");
+  const next = new URLSearchParams(params);
+  if (page.nextCursor !== null) next.set("cursor", page.nextCursor);
+  return layout(
+    "Discover offers",
+    `<main id="main" tabindex="-1" class="shell"><section class="intro"><div><p class="eyebrow">NEPAL'S OFFER DIRECTORY</p><h1>A little more joy.<br>A little less to spend.</h1><p class="intro-copy">Find current deals from trusted stores, all in one place.</p></div><div class="intro-aside"><span class="intro-mark" aria-hidden="true">✳</span><p>Explore something<br>worth bringing home.</p></div></section><div class="discovery-layout">${filterForm(params, sources)}<section id="offers" class="results" aria-labelledby="results-heading"><div class="results-heading"><div><p class="eyebrow">${filtered ? "YOUR SEARCH" : "FRESH FINDS"}</p><h2 id="results-heading">${filtered ? "Matching offers" : "Explore the latest"}</h2></div><span>${page.items.length} ${page.items.length === 1 ? "offer" : "offers"} on this page</span></div>${page.items.length === 0 ? `<div class="empty" role="status"><span aria-hidden="true">✳</span><h3>No offers found</h3><p>Try a different search or clear your filters.<br>Fresh offers appear as stores publish them.</p><a class="button" href="/">Explore all offers</a></div>` : `<ul class="offer-grid">${page.items.map(card).join("")}</ul>`}${page.nextCursor === null ? "" : `<nav class="pagination" aria-label="Offer pages"><a class="button" href="/?${escapeHtml(next.toString())}">More offers →</a></nav>`}</section></div></main>`,
+  );
+}
+export function renderDetail(offer: Offer): string {
+  const destination = safeUrl(offer.destinationUrl);
+  return layout(
+    offer.title,
+    `<main id="main" tabindex="-1" class="shell detail"><a class="back-link" href="/">← All offers</a><article class="detail-grid">${image(offer, true)}<div class="detail-copy"><p class="eyebrow">${escapeHtml(CATEGORIES[offer.category])}</p><p class="seller">${escapeHtml(offer.sellerDisplayName)}</p><h1>${escapeHtml(offer.title)}</h1>${offer.summary === null ? "" : `<p class="detail-summary">${escapeHtml(offer.summary)}</p>`}<p class="prices"><strong>${money(offer.salePrice)}</strong>${offer.originalPrice === null ? "" : ` <s>${money(offer.originalPrice)}</s>`}</p>${offer.discountLabel === null ? "" : `<p>${escapeHtml(offer.discountLabel)}</p>`}${destination === null ? "" : `<a class="button seller-button" href="${destination}" target="_blank" rel="noopener noreferrer">Visit ${escapeHtml(offer.sellerDisplayName)} ↗<span class="sr-only"> (opens in a new tab)</span></a>`}<p class="purchase-note">You'll complete your purchase with the seller.</p><dl class="offer-facts">${offer.brandName === null ? "" : `<div><dt>Brand</dt><dd>${escapeHtml(offer.brandName)}</dd></div>`}<div><dt>${offer.explicitValidityEnd === null ? "Listed until" : "Offer ends"}</dt><dd>${date(new Date(Date.parse(offer.expiresAt) - 1).toISOString())} · Nepal time</dd></div><div><dt>First spotted</dt><dd>${date(offer.firstDiscoveredAt)}</dd></div></dl>${offer.explicitValidityEnd === null ? '<p class="expiry-note">The seller has not provided an end date. This listing uses our automatic expiry policy.</p>' : ""}${offer.terms === null ? "" : `<section class="terms"><h2>Offer terms</h2><p>${escapeHtml(offer.terms)}</p></section>`}</div></article></main>`,
+  );
+}
+export function renderMessage(title: string, message: string): string {
+  return layout(
+    title,
+    `<main id="main" tabindex="-1" class="shell message"><p class="eyebrow">DASHAIN OFFER RADAR</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(message)}</p><a class="button" href="/">Back to offers</a></main>`,
+  );
+}
