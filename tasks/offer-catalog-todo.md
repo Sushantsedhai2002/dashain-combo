@@ -10,14 +10,14 @@
 **Description:** Add the private workspace package with strict TypeScript and focused test scripts. Pin the approved PostgreSQL driver, declarations, Zod, and source-registry workspace dependency without exposing implementation internals.
 
 **Acceptance criteria:**
-- [ ] `@dashain-offer/offer-catalog` is discovered by pnpm and uses `pg@8.23.0`, `@types/pg@8.23.1`, and `zod@4.6.5`.
-- [ ] The package compiles under the root strict TypeScript settings and has a deliberately narrow `src/index.ts`.
-- [ ] A smoke test proves package resolution and focused Vitest execution.
+- [x] `@dashain-offer/offer-catalog` is discovered by pnpm and uses `pg@8.23.0`, `@types/pg@8.23.1`, and `zod@4.6.5`.
+- [x] The package compiles under the root strict TypeScript settings and has a deliberately narrow `src/index.ts`.
+- [x] A smoke test proves package resolution and focused Vitest execution.
 
 **Verification:**
-- [ ] Run `pnpm install` and inspect the lockfile diff for only approved dependencies.
-- [ ] Run `pnpm --filter @dashain-offer/offer-catalog typecheck`.
-- [ ] Run `pnpm --filter @dashain-offer/offer-catalog test` and `pnpm build`.
+- [x] Run `pnpm install` and inspect the lockfile diff for only approved dependencies.
+- [x] Run `pnpm --filter @dashain-offer/offer-catalog typecheck`.
+- [x] Run `pnpm --filter @dashain-offer/offer-catalog test` and `pnpm build`.
 
 **Dependencies:** None
 
