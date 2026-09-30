@@ -16,7 +16,7 @@
     "sources:validate": "pnpm --filter @dashain-offer/source-registry sources:validate",
     "test": "vitest run --config vitest.workspace.ts --passWithNoTests",
     "test:coverage": "vitest run --config vitest.workspace.ts --coverage --passWithNoTests",
-    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test"
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm test:coverage && pnpm build && pnpm sources:validate"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "8.71.0",
