@@ -1,7 +1,7 @@
 # Spec: Offer Ingestion
 
 **Module ID:** `offer-ingestion`
-**Status:** Nine website adapters implemented; remaining source assessments recorded
+**Status:** 22 website adapters implemented; 135-promotion evaluation complete; 28 active sources remain unsupported
 **Dependencies:** `source-registry`, `offer-catalog`
 
 ## Objective
@@ -36,8 +36,14 @@ Collect promotions from approved source channels, turn supported evidence into c
 | Choicemandu | First Special Offers page | `.price-old` / `.price-new`, full title attribute, same-origin product URL and image |
 | Big Digital | Homepage at verified non-www origin | Explicit `.regular-price.on-offer` / `.offer-price`; displayed title and same-origin image |
 | Daraz Nepal | Homepage flash-sale module | Strict JSON first-screen data, explicit original/discount prices, available stock, canonical approved-origin product URLs, and stable item/SKU keys |
+| Nagmani, Gadget House Nepal, Khudra, Ekjor, iShop Nepal, Moto World Nepal, Yantra Nepal | Homepage product cards | Explicit original/sale-price pairs; approved-origin product links, title/category/brand evidence; Moto World retains automotive classification |
+| Aadima Nepal, Shoes4Less Nepal | First Sale collection | Explicit original/current-price pairs; Aadima retains displayed vendor brands |
+| Oliz Store | Homepage product JSON | Strict available, active, non-variant products with unambiguous original/sale prices; no script execution |
+| Fonepay | First dated blog listing and up to eight details | Explicit cashback/discount evidence, source publication date, supported Gregorian end wording and terms; prices remain unknown |
+| Yamaha Nepal | Dated homepage promotional news | Festive campaign plus explicit prize evidence and source publication date; end remains unknown |
+| Khalti | First official-blog trending module and up to three details | Dated promotion evidence and heading-based terms; verified blog origin; Bikram Sambat wording retained without an invented conversion |
 
-All amounts use NPR minor units. Price ranges, malformed currency values, off-origin destinations, and ambiguous cards are skipped. No pagination or product-detail crawl has been added to these listing scopes. [The assessment](docs/ingestion-assessment.md) records all 50 sources and the specific reasons the remaining 41 are not enabled. Daraz's campaign subdomain is not collected. Neither Daraz nor ITTI scripts are executed. Where these listings omit an explicit end date, the catalog's existing 20-day fallback applies; no campaign end is inferred.
+All amounts use NPR minor units. Price ranges, malformed currency values, off-origin destinations, and ambiguous cards are skipped. No pagination has been added. Campaign details are bounded as listed above; any required detail failure fails the complete scan. [The assessment](docs/ingestion-assessment.md) records 50 active sources, nine retired replacements and the reasons the remaining 28 are not enabled. Daraz's campaign subdomain is not collected. Neither Daraz nor ITTI scripts are executed. Where these listings omit an explicit end date, the catalog's existing 20-day fallback applies; no unsupported campaign end is inferred. Khalti dates expressed in Bikram Sambat remain in source terms, so fallback expiry can be earlier than the actual campaign end.
 
 ## Commands and structure
 
@@ -63,10 +69,12 @@ The new package lives in `packages/offer-ingestion`. Source adapters live under 
 - Bounded requests reject internal addresses, redirects, oversized bodies, and timeouts.
 - `pnpm check` passes offline. A manual opt-in run reports live collection output before publishing to PostgreSQL.
 
+The recorded evaluation checks 135 distinct promotions across every supported adapter, with 1,351 matching fields and 18 reviewed negative examples excluded. It checks required title, URL, price, category, brand and currency fields plus explicitly annotated dates, terms, images or discount labels. Missing offers, duplicate/conflicting annotations, duplicate extraction identities, wrong fields and known false positives fail. `pnpm ingestion:evaluate` also requires at least 100 reviewed promotions.
+
 ## Open decisions
 
-- Access and extraction contracts for the 41 sources not yet enabled.
-- Minimum extraction quality required to activate each adapter.
-- Broader validation beyond the 24-offer annotated sample; the intended 100-promotion milestone is not complete.
+- Access and extraction contracts or verified comparable replacements for the 28 active sources not yet enabled.
+- Broader validation beyond the 135-promotion recorded sample, including full-site recall and ongoing live accuracy.
+- Verified Bikram Sambat campaign-date conversion and broader multilingual campaign evidence.
 - Collection interval within the VPS resource budget; initial worker default is six hours.
-- Access method for the three Facebook-only channels; they remain unsupported until a permitted, reliable method exists.
+- Access method for the two active Facebook-only channels; they remain unsupported until a permitted, reliable method exists.

@@ -1,6 +1,6 @@
 {
   "assessedAt": "2026-09-30",
-  "method": "Bounded anonymous HTTPS requests, manual redirect handling, robots inspection, and recorded-HTML review. Reachability is not extraction validation. Unsupported means not safely enabled yet, not inherently impossible.",
+  "method": "Original observations retained, followed by a fresh recheck using production bounded anonymous HTTPS and robots-aware requests. Extraction activation additionally requires recorded fixtures, independent annotations, regression tests and live robots-aware scans. Reachability alone does not imply supported extraction.",
   "sources": [
     {
       "sourceId": "daraz-nepal",
@@ -12,7 +12,14 @@
       "status": "ENABLED",
       "listingUrl": "https://www.daraz.com.np/",
       "liveCandidates": 7,
-      "reason": "Homepage first-screen JSON exposes a named flash-sale module with explicit NPR price pairs and available-stock flags. Full-page fixture, reviewed annotations and live robots-aware dry-run passed. Product URLs remain on the registered origin; stable item/SKU keys strip tracking. Campaign subdomain excluded; missing validity ends use the catalog fallback."
+      "reason": "Homepage first-screen JSON exposes a named flash-sale module with explicit NPR price pairs and available-stock flags. Full-page fixture, reviewed annotations and live robots-aware dry-run passed. Product URLs remain on the registered origin; stable item/SKU keys strip tracking. Campaign subdomain excluded; missing validity ends use the catalog fallback.",
+      "latestReachability": {
+        "id": "daraz-nepal",
+        "url": "https://www.daraz.com.np/",
+        "status": 200,
+        "bytes": 414670
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "bhat-bhateni",
@@ -21,10 +28,18 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Accessible informational homepage; no machine-readable discounted product cards or current dated promotion listing found."
+      "reason": "Accessible informational homepage; no machine-readable discounted product cards or current dated promotion listing found. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "bhat-bhateni",
+        "url": "https://bbsm.com.np/",
+        "status": 200,
+        "bytes": 73214
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "ishop-nepal"
     },
     {
       "sourceId": "big-mart-nepal",
@@ -36,7 +51,12 @@
       "status": "ACCESS_BLOCKED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Registered HTTPS URL redirects to HTTP. The ingestion HTTPS boundary forbids following it."
+      "reason": "Registered HTTPS URL redirects to HTTP. The ingestion HTTPS boundary forbids following it.",
+      "latestReachability": {
+        "id": "big-mart-nepal",
+        "error": "Robots policy unavailable"
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "online-saathi",
@@ -48,7 +68,14 @@
       "status": "ENABLED",
       "listingUrl": "https://onlinesaathi.com/",
       "liveCandidates": 17,
-      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported."
+      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported.",
+      "latestReachability": {
+        "id": "online-saathi",
+        "url": "https://onlinesaathi.com/",
+        "status": 200,
+        "bytes": 896640
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "hamrobazar",
@@ -57,10 +84,18 @@
       "homepageHttp": null,
       "robotsHttp": null,
       "redirectLocation": null,
-      "status": "ACCESS_BLOCKED",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Bounded homepage and robots requests timed out; classifieds also need a policy for promotion evidence versus ordinary asking prices."
+      "reason": "Bounded homepage and robots requests timed out; classifieds also need a policy for promotion evidence versus ordinary asking prices. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "hamrobazar",
+        "url": "https://hamrobazaar.com/",
+        "status": 200,
+        "bytes": 1149850
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "khudra"
     },
     {
       "sourceId": "muncha",
@@ -72,7 +107,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Accessible general shopping content but no verified two-price promotion-card contract found in the homepage."
+      "reason": "Accessible general shopping content but no verified two-price promotion-card contract found in the homepage.",
+      "latestReachability": {
+        "id": "muncha",
+        "url": "https://www.muncha.com/",
+        "status": 200,
+        "bytes": 134470
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "choicemandu",
@@ -84,7 +126,14 @@
       "status": "ENABLED",
       "listingUrl": "https://choicemandu.com/index.php?route=product/special",
       "liveCandidates": 2,
-      "reason": "Later request succeeded after an initial timeout; first Special Offers listing has explicit original/sale price pairs. Full-page fixture, reviewed annotations and live robots-aware dry-run passed."
+      "reason": "Later request succeeded after an initial timeout; first Special Offers listing has explicit original/sale price pairs. Full-page fixture, reviewed annotations and live robots-aware dry-run passed.",
+      "latestReachability": {
+        "id": "choicemandu",
+        "url": "https://choicemandu.com/",
+        "status": 200,
+        "bytes": 344852
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "jeevee",
@@ -96,7 +145,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Homepage exposes Next.js section configuration; product promotion data requires a separately verified dynamic data contract."
+      "reason": "Homepage exposes Next.js section configuration; product promotion data requires a separately verified dynamic data contract.",
+      "latestReachability": {
+        "id": "jeevee",
+        "url": "https://jeevee.com/",
+        "status": 200,
+        "bytes": 151490
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "hukut",
@@ -108,7 +164,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Homepage contains a client-rendered application shell rather than stable priced product cards."
+      "reason": "Homepage contains a client-rendered application shell rather than stable priced product cards.",
+      "latestReachability": {
+        "id": "hukut",
+        "url": "https://hukut.com/",
+        "status": 200,
+        "bytes": 142675
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "mudita-store",
@@ -117,10 +180,16 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "ACCESS_BLOCKED",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Homepage exceeded the 2 MB boundary; a smaller permitted listing or structured endpoint must be assessed."
+      "reason": "Homepage exceeded the 2 MB boundary; a smaller permitted listing or structured endpoint must be assessed. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "mudita-store",
+        "error": "The operation was aborted"
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "nagmani"
     },
     {
       "sourceId": "oliz-store",
@@ -129,10 +198,18 @@
       "homepageHttp": 403,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "ACCESS_BLOCKED",
-      "listingUrl": null,
-      "liveCandidates": null,
-      "reason": "Homepage returned HTTP 403. No access-control bypass attempted."
+      "status": "ENABLED",
+      "listingUrl": "https://www.olizstore.com/",
+      "liveCandidates": 1,
+      "reason": "Verified homepage __NEXT_DATA__ products. JSON only; explicit lower price and compare-at pair, Active/in_stock flags, and unambiguous non-variant pricing. Live robots-aware scan yielded 1 candidate.",
+      "latestReachability": {
+        "id": "oliz-store",
+        "url": "https://www.olizstore.com/",
+        "status": 200,
+        "bytes": 378618
+      },
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true
     },
     {
       "sourceId": "evostore",
@@ -142,9 +219,16 @@
       "robotsHttp": 200,
       "redirectLocation": null,
       "status": "ENABLED",
-      "listingUrl": "https://evostore.com.np/special-offers",
+      "listingUrl": "https://evostore.com.np/",
       "liveCandidates": 16,
-      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported."
+      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported.",
+      "latestReachability": {
+        "id": "evostore",
+        "url": "https://evostore.com.np/",
+        "status": 200,
+        "bytes": 131681
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "big-digital",
@@ -156,7 +240,12 @@
       "status": "ENABLED",
       "listingUrl": "https://bigdigital.com.np/",
       "liveCandidates": 1,
-      "reason": "Official non-www origin independently verified through organization schema and explicitly added to registry. Homepage explicit regular/offer price cards, full-page fixture, reviewed annotation and live robots-aware dry-run passed."
+      "reason": "Official non-www origin independently verified through organization schema and explicitly added to registry. Homepage explicit regular/offer price cards, full-page fixture, reviewed annotation and live robots-aware dry-run passed.",
+      "latestReachability": {
+        "id": "big-digital",
+        "error": "Robots policy unavailable"
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "itti",
@@ -168,7 +257,14 @@
       "status": "ENABLED",
       "listingUrl": "https://itti.com.np/",
       "liveCandidates": 43,
-      "reason": "Named homepage product query decoded from server-delivered JSON chunks without script execution; explicit numeric mark/selling prices, stock checks, full-page fixture and reviewed annotations; live robots-aware dry-run passed."
+      "reason": "Named homepage product query decoded from server-delivered JSON chunks without script execution; explicit numeric mark/selling prices, stock checks, full-page fixture and reviewed annotations; live robots-aware dry-run passed.",
+      "latestReachability": {
+        "id": "itti",
+        "url": "https://itti.com.np/",
+        "status": 200,
+        "bytes": 923469
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "neo-store",
@@ -180,7 +276,14 @@
       "status": "ENABLED",
       "listingUrl": "https://www.neostore.com.np/product-category/weekly-deals",
       "liveCandidates": 8,
-      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported."
+      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported.",
+      "latestReachability": {
+        "id": "neo-store",
+        "url": "https://www.neostore.com.np/",
+        "status": 200,
+        "bytes": 586011
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "cg-digital",
@@ -189,10 +292,18 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Homepage is a client application shell without reliable discounted product cards."
+      "reason": "Homepage is a client application shell without reliable discounted product cards. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "cg-digital",
+        "url": "https://cgdigital.com.np/",
+        "status": 200,
+        "bytes": 19458
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "gadget-house-nepal"
     },
     {
       "sourceId": "samsung-nepal",
@@ -201,10 +312,16 @@
       "homepageHttp": null,
       "robotsHttp": null,
       "redirectLocation": null,
-      "status": "SOCIAL_ONLY",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "No enabled website channel. A permitted reliable Facebook access method has not been configured."
+      "reason": "No enabled website channel. A permitted reliable Facebook access method has not been configured. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "samsung-nepal",
+        "error": "SOCIAL_ONLY"
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "yantra-nepal"
     },
     {
       "sourceId": "xiaomi-nepal",
@@ -216,7 +333,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Nepal brand landing page and WebPage schema; no reliable original/sale-price pair found."
+      "reason": "Nepal brand landing page and WebPage schema; no reliable original/sale-price pair found.",
+      "latestReachability": {
+        "id": "xiaomi-nepal",
+        "url": "https://www.mi.com/np/",
+        "status": 200,
+        "bytes": 202695
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "vivo-nepal",
@@ -228,7 +352,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Brand product landing page without verified promotion-price or dated offer extraction."
+      "reason": "Brand product landing page without verified promotion-price or dated offer extraction.",
+      "latestReachability": {
+        "id": "vivo-nepal",
+        "url": "https://www.vivo.com/np/",
+        "status": 200,
+        "bytes": 78033
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "oppo-nepal",
@@ -240,7 +371,12 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Brand product landing page without verified promotion-price or dated offer extraction."
+      "reason": "Brand product landing page without verified promotion-price or dated offer extraction.",
+      "latestReachability": {
+        "id": "oppo-nepal",
+        "error": "Unsupported website response"
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "realme-nepal",
@@ -252,7 +388,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Brand/product landing schema does not establish a current promotion-price pair."
+      "reason": "Brand/product landing schema does not establish a current promotion-price pair.",
+      "latestReachability": {
+        "id": "realme-nepal",
+        "url": "https://www.realme.com/np/",
+        "status": 200,
+        "bytes": 209813
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "lg-nepal",
@@ -264,7 +407,14 @@
       "status": "ACCESS_BLOCKED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Registered Nepal URL redirects to HTTP; no automatic redirect followed."
+      "reason": "Registered Nepal URL redirects to HTTP; no automatic redirect followed.",
+      "latestReachability": {
+        "id": "lg-nepal",
+        "url": "https://www.lg.com/np/",
+        "status": 301,
+        "bytes": 0
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "panasonic-nepal",
@@ -276,7 +426,12 @@
       "status": "SOCIAL_ONLY",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "No enabled website channel. A permitted reliable Facebook access method has not been configured."
+      "reason": "No enabled website channel. A permitted reliable Facebook access method has not been configured.",
+      "latestReachability": {
+        "id": "panasonic-nepal",
+        "error": "SOCIAL_ONLY"
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "tcl-nepal",
@@ -288,7 +443,12 @@
       "status": "SOCIAL_ONLY",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "No enabled website channel. A permitted reliable Facebook access method has not been configured."
+      "reason": "No enabled website channel. A permitted reliable Facebook access method has not been configured.",
+      "latestReachability": {
+        "id": "tcl-nepal",
+        "error": "SOCIAL_ONLY"
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "midea-nepal",
@@ -300,7 +460,14 @@
       "status": "ENABLED",
       "listingUrl": "https://midea.com.np/",
       "liveCandidates": 8,
-      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported."
+      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported.",
+      "latestReachability": {
+        "id": "midea-nepal",
+        "url": "https://midea.com.np/",
+        "status": 200,
+        "bytes": 102372
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "cg-electronics",
@@ -312,7 +479,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Corporate/catalogue site; Online Sales link is not itself evidence of a specific promotion."
+      "reason": "Corporate/catalogue site; Online Sales link is not itself evidence of a specific promotion.",
+      "latestReachability": {
+        "id": "cg-electronics",
+        "url": "https://cgelectronics.com.np/",
+        "status": 200,
+        "bytes": 111379
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "godrej-nepal",
@@ -324,7 +498,12 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Nepal landing page is a client shell; no verified promotion extraction contract."
+      "reason": "Nepal landing page is a client shell; no verified promotion extraction contract.",
+      "latestReachability": {
+        "id": "godrej-nepal",
+        "error": "Unsupported website response"
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "himstar",
@@ -336,7 +515,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Offer URLs are accessible but content includes client templates and banners; current offer dates/terms are not reliably extractable."
+      "reason": "Offer URLs are accessible but content includes client templates and banners; current offer dates/terms are not reliably extractable.",
+      "latestReachability": {
+        "id": "himstar",
+        "url": "https://himstar.com.np/",
+        "status": 200,
+        "bytes": 638572
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "goldstar-shoes",
@@ -348,7 +534,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Public Offers category explicitly reports no matching products; ordinary shoe prices are not promotion evidence."
+      "reason": "Public Offers category explicitly reports no matching products; ordinary shoe prices are not promotion evidence.",
+      "latestReachability": {
+        "id": "goldstar-shoes",
+        "url": "https://goldstarshoes.com/",
+        "status": 200,
+        "bytes": 431331
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "caliber-shoes",
@@ -360,7 +553,14 @@
       "status": "ENABLED",
       "listingUrl": "https://calibershoes.com/shop/?stock_status=onsale",
       "liveCandidates": 7,
-      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported."
+      "reason": "Recorded price-card fixtures and a live robots-aware dry-run passed; only the configured listing scope is supported.",
+      "latestReachability": {
+        "id": "caliber-shoes",
+        "url": "https://calibershoes.com/",
+        "status": 200,
+        "bytes": 602611
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "ktm-cty",
@@ -369,10 +569,18 @@
       "homepageHttp": 406,
       "robotsHttp": 404,
       "redirectLocation": null,
-      "status": "ACCESS_BLOCKED",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Homepage returned HTTP 406; robots.txt returned 404. No alternate-access bypass attempted."
+      "reason": "Homepage returned HTTP 406; robots.txt returned 404. No alternate-access bypass attempted. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "ktm-cty",
+        "url": "https://ktmcty.com/",
+        "status": 406,
+        "bytes": 0
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "aadima-nepal"
     },
     {
       "sourceId": "sonam-gear",
@@ -381,10 +589,18 @@
       "homepageHttp": 200,
       "robotsHttp": 404,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Public Sale listing reports zero products. Ordinary products are not automatically treated as sales."
+      "reason": "Public Sale listing reports zero products. Ordinary products are not automatically treated as sales. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "sonam-gear",
+        "url": "https://sonamgear.com/",
+        "status": 200,
+        "bytes": 88453
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "shoes4less-nepal"
     },
     {
       "sourceId": "latido-leathers",
@@ -396,7 +612,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "No explicit original/sale-price pair or current dated campaign found in accessible homepage."
+      "reason": "No explicit original/sale-price pair or current dated campaign found in accessible homepage.",
+      "latestReachability": {
+        "id": "latido-leathers",
+        "url": "https://latido.com.np/",
+        "status": 200,
+        "bytes": 31233
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "shikhar-shoes",
@@ -405,10 +628,18 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Accessible brand page without a verified structured current-discount contract."
+      "reason": "Accessible brand page without a verified structured current-discount contract. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "shikhar-shoes",
+        "url": "https://shikharshoes.com/",
+        "status": 200,
+        "bytes": 46577
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "ekjor"
     },
     {
       "sourceId": "hyundai-nepal",
@@ -417,10 +648,18 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
+      "status": "RETIRED",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Special Offers page lists a 2080 campaign. Publication needs an explicit current validity/publication signal rather than rediscovering old content."
+      "reason": "Special Offers page lists a 2080 campaign. Publication needs an explicit current validity/publication signal rather than rediscovering old content. Retired with user authorization; replacement verified within the same market segment.",
+      "latestReachability": {
+        "id": "hyundai-nepal",
+        "url": "https://laxmihyundai.com/",
+        "status": 200,
+        "bytes": 166573
+      },
+      "registryStatus": "RETIRED",
+      "replacedBy": "moto-world-nepal"
     },
     {
       "sourceId": "tata-motors-nepal",
@@ -432,7 +671,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Vehicle information and social embeds; no reliable current dated campaign or price-discount pair found."
+      "reason": "Vehicle information and social embeds; no reliable current dated campaign or price-discount pair found.",
+      "latestReachability": {
+        "id": "tata-motors-nepal",
+        "url": "https://www.tatamotors.com.np/",
+        "status": 200,
+        "bytes": 189923
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "kia-nepal",
@@ -444,7 +690,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Accessible vehicle/dealer catalogue; no verified current promotion structure."
+      "reason": "Accessible vehicle/dealer catalogue; no verified current promotion structure.",
+      "latestReachability": {
+        "id": "kia-nepal",
+        "url": "https://kia.com.np/",
+        "status": 200,
+        "bytes": 1493248
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "suzuki-nepal",
@@ -456,7 +709,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Vehicle/dealer catalogue; no verified current promotion structure."
+      "reason": "Vehicle/dealer catalogue; no verified current promotion structure.",
+      "latestReachability": {
+        "id": "suzuki-nepal",
+        "url": "https://suzuki.com.np/",
+        "status": 200,
+        "bytes": 107196
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "toyota-nepal",
@@ -468,7 +728,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Vehicle catalogue and organization schema; no reliable current discounted-offer structure found."
+      "reason": "Vehicle catalogue and organization schema; no reliable current discounted-offer structure found.",
+      "latestReachability": {
+        "id": "toyota-nepal",
+        "url": "https://www.toyota.com.np/en.html",
+        "status": 200,
+        "bytes": 343042
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "honda-nepal",
@@ -480,7 +747,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Recent Offers listing is image-led with no extractable current price/date/terms contract."
+      "reason": "Official Honda Cars Offer detail explicitly expires 7 May 2022. Recent Offers is image-led; a reliable current dated extraction contract or comparable replacement is needed.",
+      "latestReachability": {
+        "id": "honda-nepal",
+        "url": "https://honda.com.np/",
+        "status": 200,
+        "bytes": 60962
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "yamaha-nepal",
@@ -489,10 +763,18 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
-      "listingUrl": null,
-      "liveCandidates": null,
-      "reason": "A public festive prize campaign is readable, but verified publication/end dates are needed before automatically presenting it as current."
+      "status": "ENABLED",
+      "listingUrl": "https://www.maw2wheelers.com/",
+      "liveCandidates": 1,
+      "reason": "Dated homepage news card has both festive campaign and prize evidence. Source publication date 2026-09-15 is retained; no end date invented. Live scan yielded 1 candidate.",
+      "latestReachability": {
+        "id": "yamaha-nepal",
+        "url": "https://www.maw2wheelers.com/",
+        "status": 200,
+        "bytes": 1280336
+      },
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true
     },
     {
       "sourceId": "bajaj-nepal",
@@ -504,7 +786,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Nepal vehicle catalogue with ordinary product information; no verified current promotion contract."
+      "reason": "Nepal vehicle catalogue with ordinary product information; no verified current promotion contract.",
+      "latestReachability": {
+        "id": "bajaj-nepal",
+        "url": "https://www.bajajauto.com/en-np",
+        "status": 200,
+        "bytes": 130606
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "buddha-air",
@@ -516,7 +805,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Booking and destination content; routine fares are not promotions without discount evidence."
+      "reason": "Booking and destination content; routine fares are not promotions without discount evidence.",
+      "latestReachability": {
+        "id": "buddha-air",
+        "url": "https://www.buddhaair.com/",
+        "status": 200,
+        "bytes": 835610
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "yeti-airlines",
@@ -528,7 +824,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Booking and general airline content; no verified current promotion extraction contract."
+      "reason": "Official Travel Card article has explicit discounted benefits but sidebar articles all display collection-day dates, which are not reliable publication evidence. Needs a verified publication/end signal and prepaid membership terms handling.",
+      "latestReachability": {
+        "id": "yeti-airlines",
+        "url": "https://yetiairlines.com/",
+        "status": 200,
+        "bytes": 175411
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "shree-airlines",
@@ -540,7 +843,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Booking/general airline content; no verified current promotion extraction contract."
+      "reason": "Booking/general airline content; no verified current promotion extraction contract.",
+      "latestReachability": {
+        "id": "shree-airlines",
+        "url": "https://www.shreeairlines.com/",
+        "status": 200,
+        "bytes": 207165
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "foodmandu",
@@ -552,7 +862,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Client restaurant/order content requires an assessed data interface and location context for promotion validity."
+      "reason": "Client restaurant/order content requires an assessed data interface and location context for promotion validity.",
+      "latestReachability": {
+        "id": "foodmandu",
+        "url": "https://foodmandu.com/",
+        "status": 200,
+        "bytes": 63307
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "pathao-nepal",
@@ -564,7 +881,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Corporate service landing page; no verified current promotion listing."
+      "reason": "Official Promotions archive is accessible and dated; most recent true discounted campaign is Sep 1, 2026. Needs a detail-page contract and verified multilingual terms/end dates before activation.",
+      "latestReachability": {
+        "id": "pathao-nepal",
+        "url": "https://pathao.com/np/",
+        "status": 200,
+        "bytes": 70008
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "esewa",
@@ -576,7 +900,14 @@
       "status": "NEEDS_EXTRACTION_CONTRACT",
       "listingUrl": null,
       "liveCandidates": null,
-      "reason": "Client application shell; promotion information needs an assessed public source interface."
+      "reason": "Client application shell; promotion information needs an assessed public source interface.",
+      "latestReachability": {
+        "id": "esewa",
+        "url": "https://esewa.com.np/",
+        "status": 200,
+        "bytes": 6934
+      },
+      "registryStatus": "ACTIVE"
     },
     {
       "sourceId": "khalti",
@@ -585,10 +916,18 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
-      "listingUrl": null,
-      "liveCandidates": null,
-      "reason": "Offer links lead to blog.khalti.com outside the registered website origin and include historical posts; origin approval and freshness checks needed."
+      "status": "ENABLED",
+      "listingUrl": "https://blog.khalti.com/",
+      "liveCandidates": 3,
+      "reason": "Official khalti.com links to blog.khalti.com, added as an explicitly verified channel. First trending module and up to three dated detail pages; promotion evidence and heading-based terms retained. Live scan yielded 3 candidates. Bikram Sambat dates remain in terms, without guessing a Gregorian conversion.",
+      "latestReachability": {
+        "id": "khalti",
+        "url": "https://khalti.com/",
+        "status": 200,
+        "bytes": 68431
+      },
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true
     },
     {
       "sourceId": "fonepay",
@@ -597,10 +936,162 @@
       "homepageHttp": 200,
       "robotsHttp": 200,
       "redirectLocation": null,
-      "status": "NEEDS_EXTRACTION_CONTRACT",
-      "listingUrl": null,
-      "liveCandidates": null,
-      "reason": "Corporate/service page with organization schemas rather than a verified current offer listing."
+      "status": "ENABLED",
+      "listingUrl": "https://fonepay.com/blogs",
+      "liveCandidates": 4,
+      "reason": "First dated blog page plus up to eight same-origin detail pages. Explicit cashback/discount evidence, source publication dates, Gregorian end dates and terms; historical campaigns retain original dates. Live scan yielded 4 candidates.",
+      "latestReachability": {
+        "id": "fonepay",
+        "url": "https://fonepay.com/",
+        "status": 200,
+        "bytes": 33844
+      },
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true
+    },
+    {
+      "sourceId": "nagmani",
+      "displayName": "Nagmani International",
+      "website": "https://nagmani.com.np/",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://nagmani.com.np/",
+      "liveCandidates": 10,
+      "reason": "Verified Nepal computer/electronics retailer; explicit old-price and special-price pairs on homepage cards.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "mudita-store"
+    },
+    {
+      "sourceId": "gadget-house-nepal",
+      "displayName": "Gadget House Nepal",
+      "website": "https://gadgethousenepal.com/",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://gadgethousenepal.com/",
+      "liveCandidates": 4,
+      "reason": "Verified Nepal electronics retailer; WooCommerce original/sale price pairs on homepage cards.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "cg-digital"
+    },
+    {
+      "sourceId": "khudra",
+      "displayName": "Khudra Online Shopping",
+      "website": "https://www.khudra.com.np/",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://www.khudra.com.np/",
+      "liveCandidates": 8,
+      "reason": "Verified Nepal general retailer; explicit crossed-out original and sale prices on homepage cards.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "hamrobazar"
+    },
+    {
+      "sourceId": "aadima-nepal",
+      "displayName": "Aadima Nepal",
+      "website": "https://aadimanepal.com/collections/sale",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://aadimanepal.com/collections/sale",
+      "liveCandidates": 46,
+      "reason": "Verified Nepal fashion retailer; first Sale collection, explicit original/current prices and displayed vendor brand.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "ktm-cty"
+    },
+    {
+      "sourceId": "shoes4less-nepal",
+      "displayName": "Shoes4Less Nepal",
+      "website": "https://shoes4lessnepal.com/collections/sale",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://shoes4lessnepal.com/collections/sale",
+      "liveCandidates": 1,
+      "reason": "Verified Nepal footwear retailer; first Sale collection and explicit original/sale prices.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "sonam-gear"
+    },
+    {
+      "sourceId": "ekjor",
+      "displayName": "Ekjor",
+      "website": "https://www.ekjor.com/",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://www.ekjor.com/",
+      "liveCandidates": 27,
+      "reason": "Verified Nepal footwear retailer; homepage product-card original/sale prices. Off-origin product images omitted.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "shikhar-shoes"
+    },
+    {
+      "sourceId": "ishop-nepal",
+      "displayName": "iShop Nepal",
+      "website": "https://ishop.com.np/",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://ishop.com.np/",
+      "liveCandidates": 31,
+      "reason": "Verified Nepal general retailer; homepage price cards expose explicit original/sale prices and canonical product links.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "bhat-bhateni"
+    },
+    {
+      "sourceId": "moto-world-nepal",
+      "displayName": "Moto World Nepal",
+      "website": "https://motoworldnepal.com/",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://motoworldnepal.com/",
+      "liveCandidates": 12,
+      "reason": "Verified Nepal motorcycle gear/accessories retailer; WooCommerce original/sale pairs. Automotive category is fixed by the source; unapproved CDN images omitted.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "hyundai-nepal"
+    },
+    {
+      "sourceId": "yantra-nepal",
+      "displayName": "Yantra Nepal",
+      "website": "https://yantranepal.com/",
+      "homepageHttp": 200,
+      "robotsHttp": null,
+      "redirectLocation": null,
+      "status": "ENABLED",
+      "listingUrl": "https://yantranepal.com/",
+      "liveCandidates": 30,
+      "reason": "Verified Nepal electronics/appliance retailer; original/sale price pairs on homepage cards.",
+      "registryStatus": "ACTIVE",
+      "liveRobotsAwareScanPassed": true,
+      "replaces": "samsung-nepal"
     }
-  ]
+  ],
+  "coverage": {
+    "activeSources": 50,
+    "enabledAdapters": 22,
+    "unsupportedActiveSources": 28,
+    "retiredReplacedSources": 9,
+    "annotationSample": 135,
+    "fieldChecks": 1351,
+    "negativeChecks": 18
+  }
 }
