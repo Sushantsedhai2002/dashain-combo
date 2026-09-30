@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 import { runCheckLiveCli } from "./check-live.ts";
+import { requestWithPinnedAddresses } from "./pinned-https-request.mjs";
 import { isPublicIpAddress } from "./public-ip.mjs";
 
 const invocationDirectory = process.env.INIT_CWD ?? process.cwd();
@@ -15,7 +16,7 @@ process.exitCode = await runCheckLiveCli(
     stderr: (message) => process.stderr.write(message),
   },
   {
-    request: (url, options) => fetch(url, options),
+    request: requestWithPinnedAddresses,
     resolveHostname: async (hostname) => {
       const addresses = await lookup(hostname, { all: true });
       return addresses.map(({ address }) => address);

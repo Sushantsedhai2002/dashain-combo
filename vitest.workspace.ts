@@ -6,7 +6,8 @@ export default defineConfig({
     include: ["packages/*/test/**/*.test.{ts,mjs}"],
     passWithNoTests: true,
     coverage: {
-      include: ["packages/*/src/**/*.ts"],
+      include: ["packages/*/src/**/*.{ts,mjs}"],
+      exclude: ["packages/*/src/cli/*-entry.mjs"],
       thresholds: { lines: 80, perFile: true },
     },
   },

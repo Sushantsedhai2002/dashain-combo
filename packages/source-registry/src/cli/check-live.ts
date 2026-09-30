@@ -14,6 +14,7 @@ type RequestOptions = Readonly<{
   method: "HEAD";
   redirect: "manual";
   signal: unknown;
+  addresses: readonly string[];
 }>;
 
 export type LiveCheckDependencies = Readonly<{
@@ -113,6 +114,7 @@ async function performTargetCheck(
       method: "HEAD",
       redirect: "manual",
       signal,
+      addresses,
     });
     return { ...target, category: "REACHABLE", status: response.status };
   } catch {

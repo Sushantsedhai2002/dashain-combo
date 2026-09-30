@@ -90,7 +90,11 @@ describe("checkLiveChannels", () => {
       },
     ]);
     expect(request).toHaveBeenCalledTimes(3);
-    expect(request.mock.calls[0]?.[1]).toMatchObject({ method: "HEAD", redirect: "manual" });
+    expect(request.mock.calls[0]?.[1]).toMatchObject({
+      method: "HEAD",
+      redirect: "manual",
+      addresses: ["8.8.8.8"],
+    });
   });
 
   it("never exceeds the configured concurrency", async () => {
