@@ -384,4 +384,4 @@
 - [x] Real-PostgreSQL migration, concurrency, repository, and search integration tests pass from an empty database.
 - [x] No external network request occurs during tests.
 - [x] No unrelated source-registry working-tree change is staged or committed with catalog work.
-- [ ] Human reviews and approves the completed module before planning `offer-ingestion`.
+- [x] Human reviews and approves the completed module before planning `offer-ingestion`.
