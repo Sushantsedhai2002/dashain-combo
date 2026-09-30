@@ -1,0 +1,146 @@
+[
+  {
+    "id": "daraz-nepal",
+    "displayName": "Daraz Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.daraz.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "evidenceUrl": "https://www.daraz.com.np/"
+    }
+  },
+  {
+    "id": "bhat-bhateni",
+    "displayName": "Bhat-Bhateni Super Market",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://bbsm.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "evidenceUrl": "https://bbsm.com.np/"
+    }
+  },
+  {
+    "id": "big-mart-nepal",
+    "displayName": "Big Mart Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://bigmart.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "evidenceUrl": "https://bigmart.com.np/"
+    }
+  },
+  {
+    "id": "online-saathi",
+    "displayName": "Online Saathi",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://onlinesaathi.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "evidenceUrl": "https://onlinesaathi.com/"
+    }
+  },
+  {
+    "id": "hamrobazar",
+    "displayName": "Hamrobazar",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://hamrobazaar.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "evidenceUrl": "https://hamrobazaar.com/"
+    }
+  },
+  {
+    "id": "muncha",
+    "displayName": "Muncha",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.muncha.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "evidenceUrl": "https://www.muncha.com/"
+    }
+  },
+  {
+    "id": "choicemandu",
+    "displayName": "Choicemandu",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://choicemandu.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "evidenceUrl": "https://choicemandu.com/"
+    }
+  },
+  {
+    "id": "jeevee",
+    "displayName": "Jeevee",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://jeevee.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T09:30:00+05:45",
+      "evidenceUrl": "https://jeevee.com/"
+    }
+  }
+]
