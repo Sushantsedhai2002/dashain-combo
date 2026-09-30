@@ -1,0 +1,29 @@
+{
+  "name": "@dashain-offer/offer-catalog",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit --project tsconfig.json",
+    "typecheck": "tsc --noEmit --project tsconfig.json",
+    "lint": "eslint src test",
+    "migrate": "node src/cli/migrate-entry.mjs",
+    "test": "vitest run --root ../.. --config vitest.workspace.ts packages/offer-catalog/test",
+    "test:coverage": "vitest run --root ../.. --config vitest.workspace.ts --coverage --coverage.include=packages/offer-catalog/src/*.ts packages/offer-catalog/test",
+    "test:integration": "vitest run --root ../.. --config packages/offer-catalog/vitest.integration.config.ts",
+    "test:integration:coverage": "vitest run --root ../.. --config packages/offer-catalog/vitest.integration.config.ts --coverage"
+  },
+  "dependencies": {
+    "@dashain-offer/source-registry": "workspace:*",
+    "pg": "8.23.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/pg": "8.23.1",
+    "typescript": "7.0.2",
+    "vitest": "5.0.2"
+  }
+}

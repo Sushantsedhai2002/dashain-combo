@@ -1,0 +1,16 @@
+services:
+  catalog-postgres:
+    image: postgres:17.6-alpine
+    environment:
+      POSTGRES_DB: dashain_offer_catalog_test
+      POSTGRES_USER: dashain
+      POSTGRES_PASSWORD: dashain_test_only
+    ports:
+      - "127.0.0.1:55432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dashain -d dashain_offer_catalog_test"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    tmpfs:
+      - /var/lib/postgresql/data

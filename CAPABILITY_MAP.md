@@ -7,6 +7,7 @@
 - Fifty trusted sources across multiple Nepal market categories.
 - Collection and publication are automatic, without manual review.
 - Offers remain visible through `23:59:59` on their final validity date in `Asia/Kathmandu` and expire immediately afterward.
+- Offers without an explicit validity end expire 20 days after source publication, falling back to first discovery when source publication is unavailable; rediscovery does not extend expiry.
 - Users leave the platform to complete purchases with the original seller.
 - Only the VPS and domain should incur mandatory costs; prefer free and open-source dependencies.
 - Email watchlists are part of the intended MVP.
@@ -30,7 +31,6 @@
 
 ## Unresolved cross-module decisions
 
-- Fallback lifecycle for offers with no trustworthy validity end date
 - Minimum extraction confidence required for automatic publication
 - Collection frequency within the VPS resource budget
 - Exact social-media access methods permitted by each platform
