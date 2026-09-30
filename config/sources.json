@@ -394,5 +394,113 @@
       "verifiedAt": "2026-09-30T00:00:00+05:45",
       "evidenceUrl": "https://www.lg.com/np/"
     }
+  },
+  {
+    "id": "panasonic-nepal",
+    "displayName": "Panasonic Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "FACEBOOK",
+        "url": "https://www.facebook.com/panasonic.nepal/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.facebook.com/panasonic.nepal/"
+    }
+  },
+  {
+    "id": "tcl-nepal",
+    "displayName": "TCL Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "FACEBOOK",
+        "url": "https://www.facebook.com/TCLNepal/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.tcl.com/np/en"
+    }
+  },
+  {
+    "id": "midea-nepal",
+    "displayName": "Midea Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://midea.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://midea.com.np/"
+    }
+  },
+  {
+    "id": "cg-electronics",
+    "displayName": "CG Electronics",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://cgelectronics.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://cgelectronics.com.np/"
+    }
+  },
+  {
+    "id": "godrej-nepal",
+    "displayName": "Godrej Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.godrej.com/np",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://www.godrej.com/np"
+    }
+  },
+  {
+    "id": "himstar",
+    "displayName": "Himstar",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://himstar.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-09-30T00:00:00+05:45",
+      "evidenceUrl": "https://himstar.com.np/"
+    }
   }
 ]
