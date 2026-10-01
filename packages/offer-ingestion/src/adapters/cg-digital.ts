@@ -9,6 +9,24 @@ export const LG_CAMPAIGN_URL =
   "https://cgdigital.com.np/offers/lg-dashain-tihar-offer-83/index.html";
 // A reviewed season label, not a general BS-to-AD conversion.
 const CAMPAIGN_KEY = "lg-dashain-tihar-2083";
+function productImage(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" &&
+      url.origin === new URL(LG_CAMPAIGN_URL).origin &&
+      !url.username &&
+      !url.password &&
+      url.pathname.startsWith("/api/images/products/") &&
+      url.pathname.length > "/api/images/products/".length &&
+      !url.search &&
+      !url.hash
+      ? url.href
+      : null;
+  } catch {
+    return null;
+  }
+}
 export function extractLgCampaign(
   html: string,
   fetchedAt: string,
@@ -20,6 +38,7 @@ export function extractLgCampaign(
   const hash = createHash("sha256").update(html).digest("hex");
   const offers: CandidateOffer[] = [];
   const structuredPrices = new Map<string, Set<number>>();
+  const structuredImages = new Map<string, Set<string>>();
   $("script[type='application/ld+json']").each((_index, script) => {
     try {
       const value: unknown = JSON.parse($(script).text());
@@ -49,6 +68,12 @@ export function extractLgCampaign(
         const prices = structuredPrices.get(product.model) ?? new Set<number>();
         prices.add(price);
         structuredPrices.set(product.model, prices);
+        const image = "image" in product ? productImage(product.image) : null;
+        if (image !== null) {
+          const images = structuredImages.get(product.model) ?? new Set<string>();
+          images.add(image);
+          structuredImages.set(product.model, images);
+        }
       }
     } catch {
       /* The visible table remains the primary evidence when JSON is malformed. */
@@ -100,6 +125,8 @@ export function extractLgCampaign(
     if (sale === null || sale <= 0 || original === null || original < sale) return;
     const otherPrices = structuredPrices.get(model);
     if (otherPrices && [...otherPrices].some((price) => price !== sale)) return;
+    const images = structuredImages.get(model);
+    const imageUrl = images?.size === 1 ? (images.values().next().value ?? null) : null;
     const rule = giftRules.find((entry) => entry.type.test(type));
     const giftText = rule
       ? $("li")
@@ -197,6 +224,7 @@ export function extractLgCampaign(
       productName: title,
       brandName: "LG",
       category: "HOME_APPLIANCES",
+      imageUrl,
       destinationUrl: destination.href,
       originalPrice: { currency: "NPR", amountMinor: original },
       salePrice: { currency: "NPR", amountMinor: sale },

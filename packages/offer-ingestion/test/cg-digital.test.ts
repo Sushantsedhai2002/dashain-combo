@@ -20,6 +20,9 @@ describe("CG Digital campaign evidence", () => {
     expect(offers).toHaveLength(19);
     const front = offers.find((o) => o.sourceOfferKey.endsWith(":FX1450S5B.APBP"))!;
     expect(front.salePrice?.amountMinor).toBe(10779000);
+    expect(front.imageUrl).toBe(
+      "https://cgdigital.com.np/api/images/products/GdSvQt_1787642622-FX1450S5B.APBP.jpg",
+    );
     expect(front.discovery?.components.at(-1)).toMatchObject({
       quantity: 6,
       unit: "kg",
@@ -62,6 +65,16 @@ describe("CG Digital campaign evidence", () => {
         now,
       ),
     ).toEqual([]);
+  });
+  it("ignores image URLs outside CG Digital's product-image path", () => {
+    const changed = html.replace(
+      "https://cgdigital.com.np/api/images/products/GdSvQt_1787642622-FX1450S5B.APBP.jpg",
+      "https://attacker.test/product.jpg",
+    );
+    expect(
+      extractLgCampaign(changed, now)?.find((o) => o.sourceOfferKey.endsWith(":FX1450S5B.APBP"))
+        ?.imageUrl,
+    ).toBeNull();
   });
   it("does not retain a removed benefit just because the campaign is HTTP 200", () => {
     const changed = html.replaceAll(
