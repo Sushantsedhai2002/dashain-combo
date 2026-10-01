@@ -8,3 +8,4 @@ pnpm-lock.yaml
 # Raw recorded public API response bodies retain their provenance hashes.
 packages/offer-ingestion/test/fixtures/shofy-?.json
 packages/offer-ingestion/test/fixtures/sara-?.json
+packages/offer-ingestion/test/fixtures/makkuse-0.json

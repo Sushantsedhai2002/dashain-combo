@@ -2,6 +2,145 @@
   {
     "discovery": {
       "product": {
+        "key": "1548175752",
+        "gtin": null,
+        "model": "Makkusé Ashirbaad Pack",
+        "variant": "60 pieces: 20 regular / 20 coffee / 20 chewy Pustakari",
+        "attributes": {
+          "sku": "12376453054",
+          "sellerId": "900156015986"
+        }
+      },
+      "reasons": [
+        "EXPLICIT_PRODUCT_DASHAIN_2083",
+        "PUBLIC_NAMED_SELLER_PRICE_PAIR",
+        "DETAIL_SINGLE_SKU_AND_SELLER_CORROBORATION"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "makkuse-dashain-2083",
+        "title": "Makkusé Dashain packs 2083",
+        "endsAt": null,
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": null,
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://www.daraz.com.np/makkus%C3%A9-124624095/?ajax=true&sort=newest",
+        "publishedAt": null,
+        "dateCalendar": "UNKNOWN",
+        "originalDateText": null
+      },
+      "evidence": [
+        {
+          "url": "https://www.daraz.com.np/makkus%C3%A9-124624095/?ajax=true&sort=newest",
+          "path": "reviewed public brand JSON listing, exact product record",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Makkusé Dashain Ashirbaad Pack 2083; seller Makkuse 900156015986; single SKU 12376453054; NPR 1439, original NPR 1599; in stock",
+          "fetchedAt": "2026-10-01T20:04:01.060Z",
+          "contentHash": "08c4047dbfce882c6491c84d9663c672fbd4c4a2b3f017921c379010190ba7f1",
+          "extractorVersion": "makkuse-daraz-v1"
+        },
+        {
+          "url": "https://www.daraz.com.np/products/makkuse-dashain-ashirbaad-pack-2083-i1548175752-s12376453054.html",
+          "path": "visible title and literal product/skuBase/primaryKey/skuInfos JSON",
+          "fields": [
+            "product",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "Makkusé Dashain Ashirbaad Pack 2083; matching seller 900156015986 and only SKU 12376453054; no options; purchase enabled; THREE FLAVOURS.ONE BIG DASHAIN FEELING Make this Dashain a little sweeter with a collection of Makkusé favourites. The Aashirbaad Pack brings together three Pustakari flavours, making it perfect for sharing with family and loved ones.It includes our newly launched Chewy Pustakari as well.Includes:20 pcs Regular Pustakari - Traditional taste of Nepal20 pcs Coffee Pustakari - Rich aroma with a delightful twist 20 pcs Chewy Pustakari - Chewy, Rich, Sweet, Pure, Irresistible",
+          "fetchedAt": "2026-10-01T20:04:01.060Z",
+          "contentHash": "9c3ce056301c2f349d57203e1cbed9f4fd213475403473f1bb7d5b1b753b1cbd",
+          "extractorVersion": "makkuse-daraz-v1"
+        }
+      ],
+      "merchant": "Makkuse",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "piece",
+          "quantity": 20,
+          "description": "Regular Pustakari"
+        },
+        {
+          "role": "MAIN_ITEM",
+          "unit": "piece",
+          "quantity": 20,
+          "description": "Coffee Pustakari"
+        },
+        {
+          "role": "MAIN_ITEM",
+          "unit": "piece",
+          "quantity": 20,
+          "description": "Chewy Pustakari"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T20:04:01.060Z",
+      "priceObservedAt": "2026-10-01T20:04:01.060Z"
+    },
+    "relevance": 0,
+    "id": "ed568924-2e98-4d9e-a1ce-ba6fcde92553",
+    "sourceId": "makkuse-daraz",
+    "sourceOfferKey": "makkuse-dashain-2083:12376453054",
+    "sellerDisplayName": "Makkuse on Daraz",
+    "title": "Makkusé Dashain Ashirbaad Pack 2083",
+    "summary": null,
+    "productName": "Makkusé Dashain Ashirbaad Pack 2083",
+    "brandName": "Makkusé",
+    "category": "FOOD_AND_DELIVERY",
+    "imageUrl": null,
+    "destinationUrl": "https://www.daraz.com.np/products/makkuse-dashain-ashirbaad-pack-2083-i1548175752-s12376453054.html",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 159900
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 143900
+    },
+    "discountPercent": 10,
+    "discountLabel": null,
+    "terms": "Makkuse seller ID 900156015986 on Daraz. Exact single SKU 12376453054; 20 regular, 20 coffee and 20 chewy Pustakari pieces. Public brand listing supplies the observed original/sale prices; product data independently confirms seller/SKU, no selectable options and enabled purchase. Delivery, coins, payment vouchers and rewards are excluded.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T20:04:04.693Z",
+    "expiresAt": "2026-10-21T20:04:04.693Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T20:04:04.693Z",
+    "updatedAt": "2026-10-01T20:04:04.693Z"
+  },
+  {
+    "discovery": {
+      "product": {
         "key": "1075",
         "gtin": null,
         "model": "Sara Black Salt",

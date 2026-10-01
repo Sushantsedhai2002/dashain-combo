@@ -1,23 +1,24 @@
 {
-  "checkedAt": "2026-10-01T19:56:40.343Z",
+  "checkedAt": "2026-10-01T20:04:04.715Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 19,
+    "sellers": 20,
     "categories": 7,
-    "offers": 1172
+    "offers": 1173
   },
   "remaining": {
-    "sellers": 1,
+    "sellers": 0,
     "categories": 0,
     "offers": 0
   },
-  "achieved": false,
+  "achieved": true,
   "conflictingProducts": 0,
   "bySeller": {
+    "makkuse": 1,
     "sara-worldwide": 1,
     "s3-tech": 3,
     "mypower": 3,
@@ -39,7 +40,7 @@
     "cg-digital": 78
   },
   "byCategory": {
-    "FOOD_AND_DELIVERY": 1,
+    "FOOD_AND_DELIVERY": 2,
     "COMPUTERS_AND_ACCESSORIES": 375,
     "CONSUMER_ELECTRONICS": 91,
     "FASHION_AND_LIFESTYLE": 110,
@@ -177,6 +178,13 @@
     },
     {
       "sourceId": "sara-worldwide",
+      "status": "PARTIAL",
+      "published": 1,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "makkuse-daraz",
       "status": "PARTIAL",
       "published": 1,
       "withdrawn": 0,

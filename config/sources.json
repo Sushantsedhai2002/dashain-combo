@@ -1620,5 +1620,30 @@
     },
     "campaignEntryPoints": ["https://sthree.tech/"],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "makkuse-daraz",
+    "displayName": "Makkuse on Daraz",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.daraz.com.np/makkus%C3%A9-124624095/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T20:01:26.518103+00:00",
+      "evidenceUrl": "https://www.daraz.com.np/makkus%C3%A9-124624095/?ajax=true&sort=newest"
+    },
+    "campaignEntryPoints": [
+      "https://www.daraz.com.np/products/makkuse-dashain-ashirbaad-pack-2083-i1548175752-s12376453054.html"
+    ],
+    "publicEvidenceFeeds": [
+      "https://www.daraz.com.np/makkus%C3%A9-124624095/?ajax=true&sort=newest"
+    ],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01T19:57:33.731621+00:00",
+  "reviewedAt": "2026-10-01T20:05:28.154430+00:00",
   "target": {
     "sellers": 20,
     "categories": 5,
@@ -246,6 +246,14 @@
       "status": "SELLER_UNVERIFIED",
       "note": "Three newly created 2026 Dashain gift boxes show explicit original/sale pairs and stock. Vendor ID 321 lacks seller-name evidence; platform terms describe an intermediary marketplace, so neither SmartDoko nor Makkuse is assumed to be the independent seller.",
       "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "makkuse-daraz",
+      "url": "https://www.daraz.com.np/makkus%C3%A9-124624095/?ajax=true&sort=newest",
+      "reviewedAt": "2026-10-01T20:05:28.154430+00:00",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Robots-permitted public brand JSON explicitly names independent seller Makkuse, seller ID 900156015986, and current Dashain 2083 product 1548175752. Original NPR 1599 and sale NPR 1439 match exact single SKU 12376453054. Product detail literal JSON independently confirms seller/SKU, no options, enabled purchase and 20 pieces each of regular/coffee/chewy Pustakari. Bounded two-request partial collector; platform itself is not a counted seller. Production-safe live refresh and PostgreSQL publication/rediscovery passed.",
+      "countsTowardCoverage": true
     }
   ]
 }

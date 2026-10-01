@@ -1,3 +1,4 @@
+import { createMakkuseAdapter } from "./makkuse-daraz.ts";
 import { createSaraAdapter } from "./sara-worldwide.ts";
 import { createS3TechAdapter } from "./s3-tech.ts";
 import { createCgDigitalAdapter } from "./cg-digital.ts";
@@ -51,6 +52,7 @@ export function createWebsiteAdapters(
     createMypowerAdapter(fetchPage, clock),
     createS3TechAdapter(fetchPage, clock),
     createSaraAdapter(fetchPage, clock),
+    createMakkuseAdapter(fetchPage, clock),
     ...DATED_CAMPAIGNS.map((profile) => createDatedCampaignAdapter(profile, fetchPage, clock)),
     createEvoStoreAdapter(fetchPage),
     createIttiAdapter(fetchPage),

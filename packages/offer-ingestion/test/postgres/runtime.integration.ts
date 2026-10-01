@@ -67,6 +67,7 @@ describe("ingestion runtime with PostgreSQL", () => {
     "mypower",
     "s3-tech",
     "sara-worldwide",
+    "makkuse-daraz",
   ];
   const priceSourceIds = createWebsiteAdapters(async () => ({ status: 503, body: "" }))
     .map((a) => a.sourceId)
@@ -86,6 +87,7 @@ describe("ingestion runtime with PostgreSQL", () => {
     { name: "Mask Queen available variants", sourceIds: ["mask-queen-nepal"], offerCount: 61 },
     { name: "MyPower dated bundle SKUs", sourceIds: ["mypower"], offerCount: 3 },
     { name: "Sara observed automatic cart discount", sourceIds: ["sara-worldwide"], offerCount: 1 },
+    { name: "Makkuse named seller exact SKU", sourceIds: ["makkuse-daraz"], offerCount: 1 },
     { name: "S3 TECH exact Dashain products", sourceIds: ["s3-tech"], offerCount: 3 },
     { name: "Sugandha Griha dated product", sourceIds: ["sugandha-griha"], offerCount: 1 },
     { name: "Giftmandu priced Dashain products", sourceIds: ["giftmandu"], offerCount: 4 },

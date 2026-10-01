@@ -116,5 +116,7 @@
   "https://saraworldwide.com.np/": "sara-0.html",
   "https://saraworldwide.com.np/wp-json/wc/store/v1/products/1075": "sara-1.json",
   "https://saraworldwide.com.np/wp-json/wc/store/v1/cart": "sara-2.json",
-  "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item": "sara-3.json"
+  "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item": "sara-3.json",
+  "https://www.daraz.com.np/makkus%C3%A9-124624095/?ajax=true&sort=newest": "makkuse-0.json",
+  "https://www.daraz.com.np/products/makkuse-dashain-ashirbaad-pack-2083-i1548175752-s12376453054.html": "makkuse-1.html"
 }
