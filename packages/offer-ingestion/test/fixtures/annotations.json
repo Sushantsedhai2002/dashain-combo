@@ -1,6 +1,6 @@
 {
-  "recordedAt": "2026-09-30",
-  "method": "Independent review of raw recorded listing titles, URLs, original/sale price text and stock flags; prices transcribed from raw evidence, categories and brands reviewed against titles. Distinct source/URL identities. Missing campaign dates and terms explicitly checked as null. Not a claim of ongoing live accuracy or full-site recall.",
+  "recordedAt": "2026-10-01",
+  "method": "Independent review of raw recorded listing titles, URLs, original/sale price text and stock flags; prices transcribed from raw evidence, categories and brands reviewed against titles. Distinct source/URL identities. Missing campaign dates and terms explicitly checked as null. Not a claim of ongoing live accuracy or full-site recall. New current campaign collectors additionally checked against dated source configurations and product badges; SB pages retain a recorded DOM projection with original response hashes.",
   "offers": [
     {
       "sourceId": "evostore",
@@ -1646,6 +1646,72 @@
       "saleMinor": 4159000,
       "category": "HOME_APPLIANCES",
       "brandName": "LG"
+    },
+    {
+      "sourceId": "it-monster",
+      "title": "Acer Aspire Lite 14 (AL14-45P-R9NR) Ryzen 3-5400U | 8GB RAM | 512GB SSD | AMD Radeon Graphics | 14\" WUXGA IPS SlimBezel| Win11 | 1 Years Warranty",
+      "destinationUrl": "https://itmonster.com.np/product/acer-aspire-lite-14-al14-45p-r9nr-ryzen-3-5400u-8gb-ram-512gb-ssd-amd-radeon-graphics-14-wuxga-ips-slimbezel-display-windows-11-light-silver-1-years-warranty",
+      "originalMinor": 8599000,
+      "saleMinor": 7599000,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer"
+    },
+    {
+      "sourceId": "maxell",
+      "title": "Acer Aspire 5 A514-54H Core Ultra 5 125H, 16GB RAM, 512GB SSD, 14\" WUXGA Laptop",
+      "destinationUrl": "https://maxell.com.np/product/acer-aspire-5-a514-54h-core-ultra-5-125h-16gb-ram-512gb-ssd-14-wuxga-laptop",
+      "originalMinor": 12900000,
+      "saleMinor": 12199900,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer"
+    },
+    {
+      "sourceId": "proud-nepal",
+      "title": "Elista ELS-TWS 801 True Wireless Earbuds",
+      "destinationUrl": "https://proudnepal.com.np/products/elista-els-tws-801-true-wireless-earbuds",
+      "originalMinor": 260000,
+      "saleMinor": 150000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": null
+    },
+    {
+      "sourceId": "sb-furniture",
+      "title": "Timbur Coffee Table CF90 - Lindberg Oak",
+      "destinationUrl": "https://sbfurniturenepal.com/shop/dashain-sale-2083-10442/19215559-timbur-coffee-table-cf90-lindberg-oak-1522",
+      "originalMinor": 2340000,
+      "saleMinor": 1755000,
+      "category": "HOME_AND_FURNITURE",
+      "brandName": "SB Furniture"
+    },
+    {
+      "sourceId": "sukumart",
+      "title": "Magcubic HY320 Projector | Android 11 | 1080P | 390ANSI | WIFI6 | Bluetooth | 180\u00b0 | 150 inch Screen",
+      "destinationUrl": "https://www.sukumart.com/product/magcubic-hy320-projector-android-11-1080p-390ansi-wifi6-bluetooth-180-150-inch-screen/",
+      "originalMinor": 1300000,
+      "saleMinor": 1199000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": null
+    },
+    {
+      "sourceId": "infotechs-nepal",
+      "title": "Dell 15 Pro Essential (AMD Ryzen 7 7730U Processor | 16GB RAM | 512GB SSD | AMD Radeon Graphics | 15.6\u2033 FHD IPS Touch 120Hz Display)",
+      "destinationUrl": "https://infotechsnepal.com.np/product/dell-15-pro-essential-amd-ryzen-7-7730u-processor-16gb-ram-512gb-ssd-amd-radeon-graphics-15-6-inch/",
+      "originalMinor": 12900000,
+      "saleMinor": 10999900,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Dell"
+    },
+    {
+      "sourceId": "wild-yak-gear",
+      "title": "Women Base Layer | Color: Red | Size: L",
+      "destinationUrl": "https://wildyakgear.com/product/women-base-layer/?attribute_pa_colors=red&attribute_pa_size=large",
+      "originalMinor": 392500,
+      "saleMinor": 235500,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Wild Yak",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     }
   ],
   "negatives": [

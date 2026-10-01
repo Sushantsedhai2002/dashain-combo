@@ -5,7 +5,11 @@ import {
   type OfferDiscovery,
   type OfferType,
 } from "./discovery.ts";
-import { parseSourceRegistry, type SourceDefinition } from "@dashain-offer/source-registry";
+import {
+  parseSourceRegistry,
+  isRegisteredSocialPost,
+  type SourceDefinition,
+} from "@dashain-offer/source-registry";
 import { z } from "zod";
 
 import {
@@ -146,8 +150,8 @@ const OfferIdSchema = z.uuid();
 
 const SearchOffersSchema = z
   .object({
-    model: requiredText(200).optional(),
-    variant: requiredText(200).optional(),
+    model: requiredText(2000).optional(),
+    variant: requiredText(2000).optional(),
     scope: z.enum(["ALL", "DASHAIN"]).default("ALL"),
     season: z.number().int().min(2000).max(2200).optional(),
     brands: z.array(requiredText(200)).max(50).default([]),
@@ -332,7 +336,16 @@ export function parsePublishOfferInput(input: unknown): CatalogResult<Normalized
           new URL(channel.url).origin === new URL(url).origin,
       );
     if (
-      discovery.evidence.some((evidence) => !approved(evidence.url)) ||
+      discovery.evidence.some(
+        (evidence) =>
+          !approved(evidence.url) ||
+          (evidence.socialPost &&
+            !isRegisteredSocialPost(
+              source,
+              evidence.socialPost.accountUrl,
+              evidence.socialPost.url,
+            )),
+      ) ||
       (discovery.campaign && !approved(discovery.campaign.evidenceUrl))
     )
       sourceIssues.push({

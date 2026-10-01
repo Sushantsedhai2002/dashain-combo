@@ -17,6 +17,9 @@ describe("offer-catalog public package contract", () => {
       "parseBudgetIntent",
       "isCurrentDashainDiscount",
       "DASHAIN_PRODUCT_TYPES",
+      "COVERAGE_TARGET",
+      "measureCoverage",
+      "readCoverage",
     ]);
   });
 

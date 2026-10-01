@@ -33,7 +33,30 @@ export function extractLgCampaign(
 ): readonly CandidateOffer[] | null {
   const $ = load(html);
   const heading = $("h1").first().text().replace(/\s+/g, " ").trim();
-  if (!/LG.*Dashain.*Tihar.*2083/i.test(heading) || $("table.table-wm tbody tr").length === 0)
+  if (!/LG.*Dashain.*Tihar.*2083/i.test(heading)) return null;
+  const tableProfiles = [
+    { selector: "table.table-tv", heading: /^LG LED TV Dashain Tihar Offer Prices$/i },
+    { selector: "table.table-wm", heading: /^LG Washing Machine Dashain Tihar Offer Prices$/i },
+    { selector: "table.table-ref", heading: /^LG Refrigerator Dashain Tihar Offer Price$/i },
+    { selector: "table.table-ac", heading: /^LG Air Conditioner Dashain Tihar Offer Prices$/i },
+    { selector: "table.table-mwo", heading: /^LG Microwave Oven Dashain Tihar Offer Prices$/i },
+  ];
+  // A partial/changed campaign table must not withdraw previously collected products.
+  if (
+    tableProfiles.some((profile) => {
+      const table = $(profile.selector);
+      return (
+        table.length !== 1 ||
+        !table.find("tbody tr").length ||
+        table
+          .find("th")
+          .map((_i, cell) => $(cell).text().trim())
+          .get()
+          .join("|") !== "Type|Product Name|Model Number|MRP|Offer Price" ||
+        !profile.heading.test(table.prevAll("h3,h2").first().text().trim())
+      );
+    })
+  )
     return null;
   const hash = createHash("sha256").update(html).digest("hex");
   const offers: CandidateOffer[] = [];
@@ -99,139 +122,146 @@ export function extractLgCampaign(
       phrase: /free\s*2\s*kg\s*surf excel/i,
     },
   ];
-  $("table.table-wm tbody tr").each((_index, row) => {
-    const cells = $(row).find("td");
-    if (cells.length !== 5) return;
-    const type = cells.eq(0).text().trim();
-    const title = cells.eq(1).text().trim().replace(/\s+/g, " ");
-    const model = cells.eq(2).text().trim();
-    const href = cells.eq(1).find("a").attr("href");
-    if (!href || !model || !title) return;
-    let destination: URL;
-    try {
-      destination = new URL(href, LG_CAMPAIGN_URL);
-    } catch {
-      return;
-    }
-    if (
-      destination.origin !== new URL(LG_CAMPAIGN_URL).origin ||
-      destination.username ||
-      destination.password ||
-      !destination.pathname.startsWith("/api/product-")
-    )
-      return;
-    const original = parseNprPrice(`NPR ${cells.eq(3).text().trim()}`);
-    const sale = parseNprPrice(`NPR ${cells.eq(4).text().trim()}`);
-    if (sale === null || sale <= 0 || original === null || original < sale) return;
-    const otherPrices = structuredPrices.get(model);
-    if (otherPrices && [...otherPrices].some((price) => price !== sale)) return;
-    const images = structuredImages.get(model);
-    const imageUrl = images?.size === 1 ? (images.values().next().value ?? null) : null;
-    const rule = giftRules.find((entry) => entry.type.test(type));
-    const giftText = rule
-      ? $("li")
-          .filter(
-            (_i, li) =>
-              $(li).find(`a[href='#${rule.anchor}']`).length > 0 && rule.phrase.test($(li).text()),
-          )
-          .first()
-          .text()
-          .trim()
-          .replace(/\s+/g, " ")
-      : "";
-    // Washer/dryer and ambiguous category eligibility receive no inferred gift.
-    const hasGift = giftText.length > 0;
-    const productKey = destination.pathname;
-    const excerpt = cells.text().replace(/\s+/g, " ").trim();
-    const discovery: OfferDiscovery = {
-      offerType: hasGift ? "GIFT_WITH_PURCHASE" : "PRODUCT_DISCOUNT",
-      qualification: "QUALIFIED",
-      ruleVersion: "campaign-v1",
-      reasons: ["EXPLICIT_CAMPAIGN_TABLE", ...(hasGift ? ["CATEGORY_GIFT_RULE"] : [])],
-      campaign: {
-        key: CAMPAIGN_KEY,
-        title: heading,
-        festivals: ["DASHAIN", "TIHAR"],
-        seasonAD: 2026,
-        seasonBS: "2083",
-        publishedAt: null,
-        startsAt: null,
-        endsAt: null,
-        originalDateText: "Limited time only; contact CG Digital for exact expiry",
-        dateCalendar: "UNKNOWN",
-        evidenceUrl: LG_CAMPAIGN_URL,
-        membership: "EXPLICIT_PRODUCT",
-      },
-      product: { key: productKey, model, variant: model, gtin: null, attributes: { type } },
-      merchant: "CG Digital",
-      availability: "UNKNOWN",
-      lastVerifiedAt: fetchedAt,
-      priceObservedAt: fetchedAt,
-      components: [
-        { description: title, quantity: 1, unit: "item", role: "MAIN_ITEM" },
-        ...(hasGift && rule
-          ? [
-              {
-                description: "Surf Excel detergent",
-                quantity: rule.quantity,
-                unit: "kg",
-                role: "GIFT" as const,
-              },
-            ]
-          : []),
-      ],
-      benefits:
-        hasGift && rule
-          ? [
-              {
-                type: "GIFT_WITH_PURCHASE",
-                description: `${rule.quantity} kg Surf Excel detergent`,
-                status: "CONDITIONAL",
-                amountMinor: null,
-                percent: null,
-                capMinor: null,
-                eligibleProductKeys: [productKey],
-                conditions:
-                  "Gifts may vary by product and stock availability; confirm with CG Digital.",
-              },
-            ]
-          : [],
-      eligibility: { ...UNKNOWN_ELIGIBILITY },
-      evidence: [
-        {
-          url: LG_CAMPAIGN_URL,
-          fetchedAt,
-          contentHash: hash,
-          excerpt: `${heading}; ${excerpt}; ${giftText}`.slice(0, 2000),
-          path: `table.table-wm model=${model}`,
-          extractorVersion: "cg-lg-v1",
-          fields: [
-            "offerType",
-            "campaign",
-            "membership",
-            "product",
-            "salePrice",
-            "originalPrice",
-            "components",
-            ...(hasGift ? ["benefits"] : []),
-          ],
+  $(tableProfiles.map((profile) => `${profile.selector} tbody tr`).join(",")).each(
+    (_index, row) => {
+      const cells = $(row).find("td");
+      if (cells.length !== 5) return;
+      const type = cells.eq(0).text().trim();
+      const title = cells.eq(1).text().trim().replace(/\s+/g, " ");
+      const model = cells.eq(2).text().trim();
+      // The FAQ excludes 32-inch TVs despite a priced campaign row. Fail closed.
+      if ($(row).closest("table").hasClass("table-tv") && /^32\s*Inch\b/i.test(title)) return;
+      const href = cells.eq(1).find("a").attr("href");
+      if (!href || !model || !title) return;
+      let destination: URL;
+      try {
+        destination = new URL(href, LG_CAMPAIGN_URL);
+      } catch {
+        return;
+      }
+      if (
+        destination.origin !== new URL(LG_CAMPAIGN_URL).origin ||
+        destination.username ||
+        destination.password ||
+        !destination.pathname.startsWith("/api/product-")
+      )
+        return;
+      const original = parseNprPrice(`NPR ${cells.eq(3).text().trim()}`);
+      const sale = parseNprPrice(`NPR ${cells.eq(4).text().trim()}`);
+      if (sale === null || sale <= 0 || original === null || original <= sale) return;
+      const otherPrices = structuredPrices.get(model);
+      if (otherPrices && [...otherPrices].some((price) => price !== sale)) return;
+      const images = structuredImages.get(model);
+      const imageUrl = images?.size === 1 ? (images.values().next().value ?? null) : null;
+      const rule = giftRules.find((entry) => entry.type.test(type));
+      const giftText = rule
+        ? $("li")
+            .filter(
+              (_i, li) =>
+                $(li).find(`a[href='#${rule.anchor}']`).length > 0 &&
+                rule.phrase.test($(li).text()),
+            )
+            .first()
+            .text()
+            .trim()
+            .replace(/\s+/g, " ")
+        : "";
+      // Washer/dryer and ambiguous category eligibility receive no inferred gift.
+      const hasGift = giftText.length > 0;
+      const productKey = destination.pathname;
+      const excerpt = cells.text().replace(/\s+/g, " ").trim();
+      const discovery: OfferDiscovery = {
+        offerType: hasGift ? "GIFT_WITH_PURCHASE" : "PRODUCT_DISCOUNT",
+        qualification: "QUALIFIED",
+        ruleVersion: "dashain-price-v2",
+        reasons: ["EXPLICIT_CAMPAIGN_TABLE", ...(hasGift ? ["CATEGORY_GIFT_RULE"] : [])],
+        campaign: {
+          key: CAMPAIGN_KEY,
+          title: heading,
+          festivals: ["DASHAIN", "TIHAR"],
+          seasonAD: 2026,
+          seasonBS: "2083",
+          publishedAt: null,
+          startsAt: null,
+          endsAt: null,
+          originalDateText: "Limited time only; contact CG Digital for exact expiry",
+          dateCalendar: "UNKNOWN",
+          evidenceUrl: LG_CAMPAIGN_URL,
+          membership: "EXPLICIT_PRODUCT",
         },
-      ],
-    };
-    offers.push({
-      sourceOfferKey: `${CAMPAIGN_KEY}:${model}`,
-      title: `LG ${title}`,
-      productName: title,
-      brandName: "LG",
-      category: "HOME_APPLIANCES",
-      imageUrl,
-      destinationUrl: destination.href,
-      originalPrice: { currency: "NPR", amountMinor: original },
-      salePrice: { currency: "NPR", amountMinor: sale },
-      discountPercent: Math.round(((original - sale) / original) * 100),
-      discovery,
-    });
-  });
+        product: { key: productKey, model, variant: model, gtin: null, attributes: { type } },
+        merchant: "CG Digital",
+        availability: "UNKNOWN",
+        lastVerifiedAt: fetchedAt,
+        priceObservedAt: fetchedAt,
+        components: [
+          { description: title, quantity: 1, unit: "item", role: "MAIN_ITEM" },
+          ...(hasGift && rule
+            ? [
+                {
+                  description: "Surf Excel detergent",
+                  quantity: rule.quantity,
+                  unit: "kg",
+                  role: "GIFT" as const,
+                },
+              ]
+            : []),
+        ],
+        benefits:
+          hasGift && rule
+            ? [
+                {
+                  type: "GIFT_WITH_PURCHASE",
+                  description: `${rule.quantity} kg Surf Excel detergent`,
+                  status: "CONDITIONAL",
+                  amountMinor: null,
+                  percent: null,
+                  capMinor: null,
+                  eligibleProductKeys: [productKey],
+                  conditions:
+                    "Gifts may vary by product and stock availability; confirm with CG Digital.",
+                },
+              ]
+            : [],
+        eligibility: { ...UNKNOWN_ELIGIBILITY },
+        evidence: [
+          {
+            url: LG_CAMPAIGN_URL,
+            fetchedAt,
+            contentHash: hash,
+            excerpt: `${heading}; ${excerpt}; ${giftText}`.slice(0, 2000),
+            path: `table.${$(row).closest("table").attr("class")} model=${model}`,
+            extractorVersion: "cg-lg-v2",
+            fields: [
+              "offerType",
+              "campaign",
+              "membership",
+              "product",
+              "salePrice",
+              "originalPrice",
+              "components",
+              ...(hasGift ? ["benefits"] : []),
+            ],
+          },
+        ],
+      };
+      offers.push({
+        sourceOfferKey: `${CAMPAIGN_KEY}:${model}`,
+        title: `LG ${title}`,
+        productName: title,
+        brandName: "LG",
+        category: $(row).closest("table").hasClass("table-tv")
+          ? "CONSUMER_ELECTRONICS"
+          : "HOME_APPLIANCES",
+        imageUrl,
+        destinationUrl: destination.href,
+        originalPrice: { currency: "NPR", amountMinor: original },
+        salePrice: { currency: "NPR", amountMinor: sale },
+        discountPercent: Math.round(((original - sale) / original) * 100),
+        discovery,
+      });
+    },
+  );
   // Duplicate model rows with conflicting prices must not publish either claim.
   return offers.filter(
     (offer) => offers.filter((other) => other.sourceOfferKey === offer.sourceOfferKey).length === 1,

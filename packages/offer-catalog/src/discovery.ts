@@ -107,6 +107,7 @@ export const DiscoverySchema = z
             path: text,
             extractorVersion: text,
             fields: z.array(text).min(1),
+            socialPost: z.object({ accountUrl: url, url }).strict().optional(),
           })
           .strict(),
       )

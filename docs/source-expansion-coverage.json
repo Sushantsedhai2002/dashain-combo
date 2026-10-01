@@ -1,0 +1,97 @@
+{
+  "checkedAt": "2026-10-01T17:00:44.475Z",
+  "target": {
+    "sellers": 20,
+    "categories": 5,
+    "offers": 500
+  },
+  "actual": {
+    "sellers": 8,
+    "categories": 6,
+    "offers": 526
+  },
+  "remaining": {
+    "sellers": 12,
+    "categories": 0,
+    "offers": 0
+  },
+  "achieved": false,
+  "conflictingProducts": 0,
+  "bySeller": {
+    "proud-nepal": 8,
+    "maxell": 20,
+    "wild-yak-gear": 40,
+    "infotechs-nepal": 123,
+    "sukumart": 24,
+    "sb-furniture": 210,
+    "it-monster": 23,
+    "cg-digital": 78
+  },
+  "byCategory": {
+    "COMPUTERS_AND_ACCESSORIES": 169,
+    "CONSUMER_ELECTRONICS": 40,
+    "FASHION_AND_LIFESTYLE": 40,
+    "MOBILE_AND_TABLETS": 2,
+    "HOME_AND_FURNITURE": 210,
+    "HOME_APPLIANCES": 65
+  },
+  "validationDatabase": "Disposable isolated test database; original local catalog remains stopped and untouched.",
+  "publicationRuns": [
+    {
+      "sourceId": "cg-digital",
+      "status": "COMPLETE",
+      "published": 78,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "it-monster",
+      "status": "COMPLETE",
+      "published": 24,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "sb-furniture",
+      "status": "COMPLETE",
+      "published": 210,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "sukumart",
+      "status": "COMPLETE",
+      "published": 24,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "infotechs-nepal",
+      "status": "PARTIAL",
+      "published": 124,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "wild-yak-gear",
+      "status": "PARTIAL",
+      "published": 40,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "maxell",
+      "status": "COMPLETE",
+      "published": 84,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "proud-nepal",
+      "status": "COMPLETE",
+      "published": 8,
+      "withdrawn": 0,
+      "skipped": 0
+    }
+  ]
+}

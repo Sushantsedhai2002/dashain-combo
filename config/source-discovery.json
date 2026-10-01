@@ -1,0 +1,155 @@
+{
+  "reviewedAt": "2026-10-01T16:57:19.990904Z",
+  "target": {
+    "sellers": 20,
+    "categories": 5,
+    "offers": 500
+  },
+  "countingRule": "Only fresh currently published discounted products from reviewed independent seller identities count. Candidate URLs, old seasons, scheduled offers, unselected variants and prize/coupon announcements do not count.",
+  "candidates": [
+    {
+      "sourceId": "wild-yak-gear",
+      "url": "https://wildyakgear.com/",
+      "reviewedAt": "2026-10-01T16:57:19.990904Z",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Current DASHAIN SALE 2083 section explicitly links four products. Public WooCommerce variation records expose 40 exact color/size choices; visible parent prices agree with each variant, and links select the evidenced choices.",
+      "countsTowardCoverage": true
+    },
+    {
+      "sourceId": "sara-worldwide",
+      "url": "https://saraworldwide.com.np/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "CURRENT_CAMPAIGN",
+      "note": "Dated 2026 sitewide 10% cart discount; product categories do not expose product cards. Need public product prices and checkout-discount evidence.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "max-international",
+      "url": "https://maxnepal.com.np/dashain-tihar-festive-offers/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "FETCH_FAILED",
+      "note": "Official indexed 2083 campaign; robots/page fetch timed out, so working refresh remains unverified.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "online-it",
+      "url": "https://onlineit.com.np/dashain-tihar-offer/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "FETCH_FAILED",
+      "note": "Official indexed 2083 priced campaign; production fetch timeout.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "book-shop-nepal",
+      "url": "https://bookshopnepal.com/collections/dashain-sale",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "SEASON_UNVERIFIED",
+      "note": "280 listed books and explicit sale membership; no campaign year/date established.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "sabko-phone",
+      "url": "https://sabkophone.com/category/blogs/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "CURRENT_CAMPAIGN",
+      "note": "Dated 2083 campaign offers up to 10% on selected refurbished phones; selected exact product membership and before/after price pairs missing.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "sun-traders",
+      "url": "https://suntraders.com.np/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "SCHEDULED",
+      "note": "Current 2083 campaign drops begin October 11; generic hot deals cannot be counted as active Dashain products.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "made-in-nepal-stores",
+      "url": "https://www.madeinnepalstores.com/festivals",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "SCHEDULED",
+      "note": "Dashain discounts begin October 11, 2026; exclude scheduled campaigns from active target.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "bananatechi",
+      "url": "https://bananatechi.com/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "MEMBERSHIP_UNVERIFIED",
+      "note": "Dashain banner mentions selected laptops; homepage discounted accessories do not establish campaign membership.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "nikodeal",
+      "url": "https://nikodeal.com/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "MEMBERSHIP_UNVERIFIED",
+      "note": "Current phone prize campaigns; generic flash prices cannot establish product-discount campaign membership.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "onin",
+      "url": "https://onin.com.np/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "PRICE_EVIDENCE_CONFLICT",
+      "note": "Current 2083 campaign page reachable; cards display a higher current price and a lower crossed-out reference price. Do not reverse prices based on a percent badge. Exact variants and product-detail price evidence still required.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "infotechs-nepal",
+      "url": "https://infotechsnepal.com.np/dashain-offer/",
+      "reviewedAt": "2026-10-01T16:57:19.990904Z",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Current campaign established using explicit Dashain page, banner upload path 2026/09 and page update 2026-09-30. Root and three explicitly linked Dashain collections yield 124 deduplicated price pairs across nine pages.",
+      "countsTowardCoverage": true
+    },
+    {
+      "sourceId": "shishyastra",
+      "url": "https://shishyastra.com/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "NO_ELIGIBLE_STOCK",
+      "note": "Observed product records have zero stock; vendors cannot count toward available-offer coverage.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "gentlewoman-clothing",
+      "url": "https://gentlewomanclothing.wixsite.com/gentlewomanclothing/shop-now",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "SEASON_UNVERIFIED",
+      "note": "Dashain sale products visible; current-season campaign evidence missing.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "shoes4less",
+      "url": "https://shoes4lessnepal.com/",
+      "reviewedAt": "2026-10-01T16:10:37.214Z",
+      "status": "SEASON_UNVERIFIED",
+      "note": "Dashain sale banner; copyright alone does not establish current campaign year.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "quality-computer",
+      "url": "https://qualitycomputer.com.np/",
+      "reviewedAt": "2026-10-01T16:57:19.990904Z",
+      "status": "PRODUCT_EVIDENCE_UNVERIFIED",
+      "note": "First-party site reachable with sale products, but current Dashain product membership not established.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "sonam-gear",
+      "url": "https://sonamgear.com/",
+      "reviewedAt": "2026-10-01T16:57:19.990904Z",
+      "status": "PRODUCT_EVIDENCE_UNVERIFIED",
+      "note": "First-party site reachable; dated current Dashain product membership not established.",
+      "countsTowardCoverage": false
+    },
+    {
+      "sourceId": "goldstar-shoes",
+      "url": "https://goldstarshoes.com/",
+      "reviewedAt": "2026-10-01T16:57:19.990904Z",
+      "status": "PRODUCT_EVIDENCE_UNVERIFIED",
+      "note": "First-party site reachable; no current Dashain product price pairs established.",
+      "countsTowardCoverage": false
+    }
+  ]
+}

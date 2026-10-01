@@ -2,7 +2,7 @@ import type { OfferCategory } from "@dashain-offer/offer-catalog";
 
 export function parseNprPrice(text: string): number | null {
   const match =
-    /^(?:NPR|Nrs\.?|Rs\.?|₨)\s*((?:\d{1,3}(?:,\d{3})+|\d{1,2}(?:,\d{2})+,\d{3}|\d+))(?:\.(\d{1,2}))?$/i.exec(
+    /^(?:NPR|Nrs\.?|Rs\.?|₨|रु\.?|रू\.?)\s*((?:\d{1,3}(?:,\d{3})+|\d{1,2}(?:,\d{2})+,\d{3}|\d+))(?:\.(\d{1,2}))?$/i.exec(
       text.trim(),
     );
   if (match === null) return null;
@@ -56,7 +56,7 @@ const CATEGORY_RULES: readonly Readonly<{ category: OfferCategory; pattern: RegE
   {
     category: "COMPUTERS_AND_ACCESSORIES",
     pattern:
-      /\b(?:macbook|imac|laptop|notebook|desktop|thinkpad|ideapad|vivobook|zenbook|inspiron|monitor|keyboard|mouse|ssd|usb|adapter|charger|charging|hdmi|lightning|printer|gaming\s+(?:t500|pc))\b/i,
+      /\b(?:macbook|imac|laptop|notebook|desktop|thinkpad|ideapad|vivobook|zenbook|inspiron|monitor|keyboard|mouse|ssd|usb|adapter|charger|charging|hdmi|lightning|printer|geforce|gpu|graphics\s+card|gaming\s+(?:t500|pc))\b/i,
   },
   {
     category: "HOME_APPLIANCES",
@@ -64,14 +64,14 @@ const CATEGORY_RULES: readonly Readonly<{ category: OfferCategory; pattern: RegE
       /\b(?:refrigerator|fridge|washing|washer|dryer|dishwasher|microwave|oven|cooker|air\s*(?:conditioner|cooler|fryer)|de-?humidifier|water\s*(?:heater|purifier)|vacuum|freezer|induction|blender|kettle|fan)\b/i,
   },
   {
+    category: "CONSUMER_ELECTRONICS",
+    pattern:
+      /\b(?:speakers?|headphones?|headsets?|earphones?|earbuds?|airpods|microphone|soundbar|television|tv|projector|camera|watch|smartwatch|marshall|acton|stanmore|woburn|emberton|kilburn|willen|beats|dji)\b/i,
+  },
+  {
     category: "FASHION_AND_LIFESTYLE",
     pattern:
       /\b(?:shoe|shoes|sneaker|sneakers|sandal|sandals|boot|boots|slipper|jacket|shirt|pants|gown|lehenga|kurta|saree|leather|caliber|poncho|bridal|necklace|neckless)\b/i,
-  },
-  {
-    category: "CONSUMER_ELECTRONICS",
-    pattern:
-      /\b(?:speakers?|headphones?|headsets?|earphones?|earbuds?|airpods|microphone|soundbar|television|tv|camera|watch|marshall|acton|stanmore|woburn|emberton|kilburn|willen|beats|dji)\b/i,
   },
 ];
 export function inferProductDetails(

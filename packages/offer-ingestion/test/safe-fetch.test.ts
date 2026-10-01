@@ -21,6 +21,24 @@ const source: SourceDefinition = {
 };
 
 describe("safe website fetch", () => {
+  it("accepts JSON only at explicitly registered merchant feed URLs", async () => {
+    const feedUrl = "https://evostore.com.np/social-promotions.json";
+    const fetchPage = createSafePageFetcher({
+      resolveHostname: async () => ["8.8.8.8"],
+      request: async () => ({
+        status: 200,
+        body: "{}",
+        contentType: "application/json; charset=utf-8",
+      }),
+    });
+    await expect(
+      fetchPage(feedUrl, { ...source, socialPromotionFeeds: [feedUrl] }),
+    ).resolves.toMatchObject({ status: 200 });
+    await expect(fetchPage(feedUrl, source)).rejects.toThrow();
+    await expect(
+      fetchPage(feedUrl + "?other=1", { ...source, socialPromotionFeeds: [feedUrl] }),
+    ).rejects.toThrow();
+  });
   it("allows bounded plain-text robots responses only at the robots path", async () => {
     const fetchPage = createSafePageFetcher({
       resolveHostname: async () => ["8.8.8.8"],
@@ -75,7 +93,7 @@ describe("safe website fetch", () => {
   it("rejects oversized or non-HTML success responses", async () => {
     const fetchPage = createSafePageFetcher({
       resolveHostname: async () => ["8.8.8.8"],
-      request: async () => ({ status: 200, body: "x".repeat(2_000_001), contentType: "text/html" }),
+      request: async () => ({ status: 200, body: "x".repeat(3_000_001), contentType: "text/html" }),
     });
     await expect(fetchPage("https://evostore.com.np/special-offers", source)).rejects.toThrow();
     const nonHtml = createSafePageFetcher({

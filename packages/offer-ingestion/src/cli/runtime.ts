@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import pg from "pg";
 
 import { createOfferCatalog } from "@dashain-offer/offer-catalog";
+import { parseSourceRegistry, type SourceDefinition } from "@dashain-offer/source-registry";
 import type { PageFetcher } from "../adapters/evostore.ts";
 import { createWebsiteAdapters } from "../adapters/websites.ts";
 import { createRobotsAwareFetcher } from "../http/robots.ts";
@@ -30,19 +31,28 @@ export function createIngestionRuntime(
   close(): Promise<void>;
 }> {
   const fetchPage = options.fetchPage ?? createSafePageFetcher();
+  let registeredSources: readonly SourceDefinition[] = [];
   const createAdapters = (guardedFetch: PageFetcher) =>
-    createWebsiteAdapters(guardedFetch).filter(
+    createWebsiteAdapters(guardedFetch, registeredSources).filter(
       (adapter) => options.sourceIds === undefined || options.sourceIds.includes(adapter.sourceId),
     );
-  const dryRunAdapters = createAdapters(createRobotsAwareFetcher(fetchPage));
   let pool: pg.Pool | null = null;
   let catalog: ReturnType<typeof createOfferCatalog> | null = null;
 
   const dependencies: IngestionCliDependencies = {
-    supportedSourceIds: dryRunAdapters.map((adapter) => adapter.sourceId),
-    readRegistry: () => readFile(REGISTRY_URL, "utf8"),
+    get supportedSourceIds() {
+      return createAdapters(fetchPage).map((adapter) => adapter.sourceId);
+    },
+    readRegistry: async () => {
+      const text = await readFile(REGISTRY_URL, "utf8");
+      const registry = parseSourceRegistry(JSON.parse(text));
+      registeredSources = registry.ok ? registry.sources : [];
+      return text;
+    },
     scan: async (source) =>
-      dryRunAdapters.find((adapter) => adapter.sourceId === source.id)?.scan(source) ?? {
+      createAdapters(createRobotsAwareFetcher(fetchPage))
+        .find((adapter) => adapter.sourceId === source.id)
+        ?.scan(source) ?? {
         ok: false,
         reason: "UNSUPPORTED_SOURCE",
       },

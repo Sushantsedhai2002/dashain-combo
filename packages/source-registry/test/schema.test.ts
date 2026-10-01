@@ -144,6 +144,7 @@ describe("public source types", () => {
         channels: readonly SourceChannel[];
         verification: VerificationEvidence | null;
         campaignEntryPoints?: readonly string[] | undefined;
+        socialPromotionFeeds?: readonly string[] | undefined;
         capabilities?:
           readonly ("CAMPAIGN" | "PRODUCT" | "DOCUMENT" | "REVALIDATION")[] | undefined;
       }>

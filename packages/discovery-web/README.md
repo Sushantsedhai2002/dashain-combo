@@ -12,6 +12,20 @@ pnpm web:dev
 
 Open `http://127.0.0.1:3000`. `HOST` defaults to `127.0.0.1`; `PORT` defaults to `3000`. The commands use environment variables already exported by the shell; they do not automatically load `.env` files. `pnpm web:start` uses the same server entry point. Deploy behind your existing HTTPS reverse proxy when preparing production.
 
+For everyday localhost browsing, use the persistent local database rather than the disposable test database:
+
+```sh
+docker compose -p dashain-local -f config/postgres.local.compose.yml up -d --wait
+export DATABASE_URL=postgresql://dashain:dashain_local_only@127.0.0.1:55433/dashain_offer_catalog_local
+pnpm catalog:migrate
+pnpm ingestion:once
+pnpm web:dev
+```
+
+In a second terminal, export the same `DATABASE_URL` and run `pnpm ingestion:worker` to refresh sources on their schedule. After adapter changes, run `pnpm ingestion:once` again; `--dry-run` never publishes. The local database uses a named volume and survives container restarts. Its credentials are for localhost development only. Avoid `down --volumes` when preserving local offers.
+
+The public website always shows current Dashain product discounts. `scope=ALL` is rejected; older general promotions remain available to internal catalog callers. Listings, direct detail URLs and comparisons require an exact product, evidenced current-season campaign membership, positive NPR offer price below the seller reference price, fresh price/evidence verification within 48 hours, and valid lifecycle. Discounted products with gifts remain eligible; coupons, prize draws, cashback-only promotions and explicitly out-of-stock products do not. Unknown stock is labelled unknown. Most adapters, including Yamaha and the generic Daraz flash-sale collector, still need campaign evidence before their offers appear. A fresh publishing scan is required after collector changes; a dry-run never updates the catalog.
+
 For example, in a POSIX shell with a disposable local database:
 
 ```sh

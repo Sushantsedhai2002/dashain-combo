@@ -10,6 +10,16 @@ Build a **trusted-source deal radar** that automatically monitors an allowlist o
 
 The English-language homepage supports casual discovery, while search and email watchlists help shoppers find deals for planned purchases and encourage repeat visits. Social offers are included where reliable access is technically and legally possible; the product does not promise universal social-media coverage.
 
+## Starting category and purchase-intent amendment — 2026-10-01
+
+The starting coverage includes appliances, phones, and automobiles (cars, motorcycles, and scooters). Automobile discovery must include exchange/trade-in, financing, cash discounts, insurance or servicing benefits, accessories, and prize campaigns, even without a reduced purchase price. These are coverage requirements, not a claim that all source adapters already support them.
+
+Search starts with the product or vehicle the shopper wants to buy. An optional exchange intent records the vehicle/device they already own separately from the target purchase. Offers must retain eligible models or categories, participating dealers and locations, accepted trade-ins, condition and valuation requirements, financing terms, deadlines, and source evidence where stated. Unknown conditions remain unknown. Trade-in valuation and an additional exchange bonus are separate amounts; prize amounts are never guaranteed savings.
+
+Campaign announcements with unresolved model eligibility must remain distinguishable from verified product matches. Current nonfestival promotions remain discoverable in All offers. Coverage is measured by correctly matched current campaign products and useful purchase searches rather than a fixed source count.
+
+Adapter/schema changes require a fresh publishing ingestion against the same database used by the website, after catalog migrations when required. A dry-run only checks collection. The recurring worker must keep verification current: the Dashain feed currently excludes records whose last verification is more than 48 hours old. Ingestion cannot supply missing campaign qualification or exchange fields unless the adapter extracts them.
+
 ## Key Assumptions to Validate
 
 - [ ] **The 50-source portfolio produces enough useful offers.** Run collection against the candidate portfolio and measure how many current, distinct offers are found each week.

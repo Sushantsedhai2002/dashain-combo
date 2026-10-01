@@ -22,7 +22,11 @@ const fetchPage = async (url, source) => ({
     "utf8",
   ),
 });
-for (const adapter of createWebsiteAdapters(fetchPage)) {
+for (const adapter of createWebsiteAdapters(
+  fetchPage,
+  [],
+  () => new Date("2026-10-01T07:00:00Z"),
+)) {
   const source = registry.sources.find((entry) => entry.id === adapter.sourceId);
   const result = await adapter.scan(source);
   if (!result.ok) throw new Error(`Recorded scan failed: ${adapter.sourceId}`);

@@ -14,6 +14,7 @@ export const CATEGORIES: Readonly<Record<OfferCategory, string>> = Object.freeze
   COMPUTERS_AND_ACCESSORIES: "Computers & accessories",
   CONSUMER_ELECTRONICS: "Electronics",
   HOME_APPLIANCES: "Home appliances",
+  HOME_AND_FURNITURE: "Home & furniture",
   FASHION_AND_LIFESTYLE: "Fashion & lifestyle",
   AUTOMOTIVE: "Automotive",
   TRAVEL: "Travel",

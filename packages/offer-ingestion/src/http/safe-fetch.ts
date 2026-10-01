@@ -7,7 +7,8 @@ import type { Presence } from "../runner.ts";
 import { requestPinned, type TransportResult } from "./pinned-request.ts";
 
 const TIMEOUT_MS = 10_000;
-const MAX_BYTES = 2_000_000;
+// Recorded SB Furniture campaign pages are about 2.2 MB. Keep a bounded 3 MB ceiling.
+const MAX_BYTES = 3_000_000;
 const blocked = new BlockList();
 
 for (const [network, prefix] of [
@@ -93,7 +94,9 @@ export function createSafePageFetcher(
       (response.status === 200 &&
         !(url.pathname === "/robots.txt"
           ? /^text\/plain(?:;|$)/i.test(response.contentType)
-          : /^(?:text\/html|application\/xhtml\+xml)(?:;|$)/i.test(response.contentType)))
+          : source.socialPromotionFeeds?.includes(url.href)
+            ? /^application\/json(?:;|$)/i.test(response.contentType)
+            : /^(?:text\/html|application\/xhtml\+xml)(?:;|$)/i.test(response.contentType)))
     ) {
       throw new Error("Unsupported website response");
     }

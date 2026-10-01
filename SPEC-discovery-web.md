@@ -9,7 +9,7 @@ This amendment supersedes conflicting earlier scope below.
 
 - Shareable query fields add scope (ALL/DASHAIN), brand, type, min/max NPR budget and known stock. Text queries default to RELEVANCE; explicit sorting is preserved. Parsed budget intent is displayed in the editable maximum-price control.
 - Cards and detail pages expose model, campaign, component quantities, guaranteed/conditional/chance benefits, verification date, stock uncertainty, evidence links and applicable conditions. Automatic listing cutoffs are not represented as stated offer deadlines.
-- DASHAIN empty states explicitly say no verified current matches and link to `?scope=ALL`. Set DEFAULT_OFFER_SCOPE=DASHAIN only after migrating and publishing the verified pilot; compatibility default is ALL until that rollout step.
+- The public site enforces DASHAIN discounted-product eligibility for listings, details and comparisons. ALL is internal compatibility scope only; public requests cannot use it. Empty states link to clearing filters. Discounted products with gifts remain eligible; unsupported benefit-only promotions are excluded.
 
 ## Objective and acceptance criteria
 

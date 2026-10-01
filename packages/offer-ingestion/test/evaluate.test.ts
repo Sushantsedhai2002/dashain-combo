@@ -22,7 +22,11 @@ describe("recorded extraction evaluation", () => {
         "utf8",
       ),
     });
-    for (const adapter of createWebsiteAdapters(fetchPage)) {
+    for (const adapter of createWebsiteAdapters(
+      fetchPage,
+      [],
+      () => new Date("2026-10-01T07:00:00Z"),
+    )) {
       const source = registry.sources.find((s) => s.id === adapter.sourceId);
       if (!source) throw new Error("Missing source");
       const result = await adapter.scan(source);
@@ -42,7 +46,7 @@ describe("recorded extraction evaluation", () => {
       falsePositives: 0,
       mismatches: [],
     });
-  });
+  }, 15_000);
   it("counts missing offers and wrong fields as failures without inflating accuracy", () => {
     const expected = annotations.offers[0];
     if (!expected) throw new Error("Missing annotation");

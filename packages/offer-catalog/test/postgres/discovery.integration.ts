@@ -37,6 +37,36 @@ async function publish(key: string, overrides = {}) {
   if (!result.ok) throw new Error("publish failed");
   return result.value;
 }
+it("stores furniture prices and compares complete long variant identities", async () => {
+  const variant =
+    "Acer Nitro 16S AI | Ryzen AI 7 350 | 16GB DDR5 | 1TB SSD | RTX 5070 Ti 12GB | 16 inch WQXGA 180Hz | Windows 11 | Warranty "
+      .repeat(3)
+      .trim();
+  const d = discovery();
+  const product = await publish("furniture-long-variant", {
+    category: "HOME_AND_FURNITURE",
+    discovery: discovery({ product: { ...d.product!, variant } }),
+  });
+  const result = await catalog.searchVisibleOffers({
+    scope: "DASHAIN",
+    model: d.product!.model,
+    variant,
+    categories: ["HOME_AND_FURNITURE"],
+  });
+  expect(result.ok && result.value.items.map((o) => o.id)).toEqual([product.id]);
+  expect(
+    await catalog.searchVisibleOffers({
+      scope: "DASHAIN",
+      model: d.product!.model,
+      variant: variant.slice(0, 200),
+    }),
+  ).toMatchObject({ ok: true, value: { items: [] } });
+  const history = await pool.query(
+    "SELECT amount_minor, reference_amount_minor FROM offer_price_observations WHERE offer_id = $1",
+    [product.id],
+  );
+  expect(history.rows).toEqual([{ amount_minor: "5000000", reference_amount_minor: "6000000" }]);
+});
 it("round trips combos and isolates old, generic, quarantined and stale records", async () => {
   const product = await publish("current");
   await publish("generic", { discovery: null });

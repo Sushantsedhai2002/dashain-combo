@@ -1,0 +1,17 @@
+{
+  "target": {
+    "sellers": 20,
+    "categories": 5,
+    "offers": 500
+  },
+  "sellerIdentities": {
+    "cg-digital": "cg-digital",
+    "it-monster": "it-monster",
+    "maxell": "maxell",
+    "proud-nepal": "proud-nepal",
+    "sb-furniture": "sb-furniture",
+    "sukumart": "sukumart",
+    "infotechs-nepal": "infotechs-nepal",
+    "wild-yak-gear": "wild-yak-gear"
+  }
+}

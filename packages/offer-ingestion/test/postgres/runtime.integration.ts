@@ -48,13 +48,30 @@ afterAll(async () => {
 
 describe("ingestion runtime with PostgreSQL", () => {
   const campaignIds = ["fonepay", "yamaha-nepal", "khalti"];
+  const expandedSourceIds = [
+    "it-monster",
+    "maxell",
+    "proud-nepal",
+    "sb-furniture",
+    "sukumart",
+    "infotechs-nepal",
+    "wild-yak-gear",
+  ];
   const priceSourceIds = createWebsiteAdapters(async () => ({ status: 503, body: "" }))
     .map((a) => a.sourceId)
-    .filter((id) => !campaignIds.includes(id));
+    .filter((id) => !campaignIds.includes(id) && !expandedSourceIds.includes(id));
   // Real crawl spacing is retained. Each group verifies both publication and rediscovery
-  // within the existing timeout, without overlapping database resets.
+  // without overlapping database resets. The nine-page collector needs a scoped 30s budget.
   it.each([
-    { name: "priced listings", sourceIds: priceSourceIds, offerCount: 300 },
+    { name: "priced listings", sourceIds: priceSourceIds, offerCount: 359 },
+    {
+      name: "new dated campaign showcases",
+      sourceIds: ["it-monster", "maxell", "proud-nepal", "infotechs-nepal"],
+      offerCount: 240,
+    },
+    { name: "SB Furniture paginated collection", sourceIds: ["sb-furniture"], offerCount: 210 },
+    { name: "Wild Yak selected variants", sourceIds: ["wild-yak-gear"], offerCount: 40 },
+    { name: "Sukumart paginated collection", sourceIds: ["sukumart"], offerCount: 24 },
     { name: "Fonepay campaigns", sourceIds: ["fonepay"], offerCount: 4 },
     { name: "Yamaha and Khalti campaigns", sourceIds: ["yamaha-nepal", "khalti"], offerCount: 4 },
   ])(
@@ -95,6 +112,7 @@ describe("ingestion runtime with PostgreSQL", () => {
         await runtime.close();
       }
     },
+    30_000,
   );
   it("publishes an active source offer idempotently across runs", async () => {
     const runtime = createIngestionRuntime(databaseUrl, io, {

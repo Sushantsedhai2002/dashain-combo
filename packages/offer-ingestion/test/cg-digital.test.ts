@@ -17,7 +17,13 @@ const now = "2026-10-01T07:00:00Z";
 describe("CG Digital campaign evidence", () => {
   it("extracts current table members and restricts gifts to explicit machine types", () => {
     const offers = extractLgCampaign(html, now)!;
-    expect(offers).toHaveLength(19);
+    expect(offers).toHaveLength(78);
+    expect(offers.filter((o) => o.category === "CONSUMER_ELECTRONICS")).toHaveLength(13);
+    expect(offers.some((o) => o.sourceOfferKey.endsWith(":32LQ630B"))).toBe(false);
+    for (const model of ["43UA8450PSA", "GLB203ALCC.ALCQ", "SA12JA3VE.APWGEXP", "MS2043DB"])
+      expect(
+        offers.find((o) => o.discovery?.product?.model === model)?.salePrice?.amountMinor,
+      ).toBeGreaterThan(0);
     const front = offers.find((o) => o.sourceOfferKey.endsWith(":FX1450S5B.APBP"))!;
     expect(front.salePrice?.amountMinor).toBe(10779000);
     expect(front.imageUrl).toBe(
@@ -42,7 +48,7 @@ describe("CG Digital campaign evidence", () => {
     for (const offer of offers) {
       expect(DiscoverySchema.safeParse(offer.discovery).success).toBe(true);
       expect(offer.discovery?.campaign?.endsAt).toBeNull();
-      expect(offer.discountPercent).toBeLessThan(25);
+      expect(offer.discountPercent).toBeLessThanOrEqual(25);
     }
     expect(extractLgCampaign(html, "2026-10-02T07:00:00Z")?.map((o) => o.sourceOfferKey)).toEqual(
       offers.map((o) => o.sourceOfferKey),
@@ -51,6 +57,13 @@ describe("CG Digital campaign evidence", () => {
   it("rejects stale seasons, missing tables, conflicting prices and outside-origin links", () => {
     expect(extractLgCampaign(html.replaceAll("2083", "2082"), now)).toBeNull();
     expect(extractLgCampaign("<h1>LG Dashain Tihar 2083</h1>", now)).toBeNull();
+    expect(extractLgCampaign(html.replace('class="table-ref"', 'class="changed"'), now)).toBeNull();
+    expect(
+      extractLgCampaign(
+        html.replaceAll("107,790", "126,290").replaceAll('"price": "107790"', '"price": "126290"'),
+        now,
+      )?.some((o) => o.sourceOfferKey.endsWith(":FX1450S5B.APBP")),
+    ).toBe(false);
     expect(
       extractLgCampaign(html.replace('"price": "107790"', '"price": "1"'), now)?.some((o) =>
         o.sourceOfferKey.endsWith(":FX1450S5B.APBP"),

@@ -1,4 +1,5 @@
 export type ChannelKind = "WEBSITE" | "FACEBOOK" | "INSTAGRAM" | "TIKTOK";
+export { isRegisteredSocialPost } from "./social-post.ts";
 
 export type SourceStatus = "CANDIDATE" | "ACTIVE" | "PAUSED" | "RETIRED";
 
@@ -22,6 +23,7 @@ export type SourceDefinition = Readonly<{
   channels: readonly SourceChannel[];
   verification: VerificationEvidence | null;
   campaignEntryPoints?: readonly string[] | undefined;
+  socialPromotionFeeds?: readonly string[] | undefined;
   capabilities?: readonly ("CAMPAIGN" | "PRODUCT" | "DOCUMENT" | "REVALIDATION")[] | undefined;
 }>;
 

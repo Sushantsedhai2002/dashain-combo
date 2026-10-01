@@ -12,6 +12,9 @@ describe("@dashain-offer/offer-catalog", () => {
       "parseBudgetIntent",
       "isCurrentDashainDiscount",
       "DASHAIN_PRODUCT_TYPES",
+      "COVERAGE_TARGET",
+      "measureCoverage",
+      "readCoverage",
     ]);
   });
 });

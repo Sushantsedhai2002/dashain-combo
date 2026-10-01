@@ -57,3 +57,9 @@ _Avoid_: Source segment, arbitrary tag
 A **campaign instance** is a source's evidenced promotion for a specific season. Festival keywords alone do not establish membership. A **product variant** uses a source product key, exact model and variant attributes. A **combo** is either a priced bundle with explicit components, a product with an applicable gift/service, or separately eligible payment promotions whose combination is expressly permitted.
 
 **Qualification** is a versioned rule result, supported by field-level source evidence. Unclassified legacy records remain in All offers; quarantined records remain nonpublic. Current Dashain requires qualified membership, the current AD season, valid lifecycle and recent verification. A new season uses a new campaign identity. Verification never extends fallback expiry. Unknown delivery, stock, expiry and combination permission remain unknown.
+
+## Public discounted-product policy
+
+The public site enforces current Dashain campaign membership plus exact product identity and evidenced positive NPR offer price below seller reference price. Fresh price observation and evidence are required within 48 hours. Gift/bundle/service benefits may accompany a discounted product; standalone coupons, cashback and prize draws are excluded. Explicit out-of-stock products are hidden; unknown stock remains unknown. This policy applies to detail and comparison routes as well as listings. Internal ALL catalog queries retain legacy data.
+
+Official merchant social-promotion feeds may attest structured product prices and registered social-post links. Feed fetch time never substitutes for merchant price verification time. Direct social APIs and OCR remain separate access/extraction work.

@@ -80,7 +80,7 @@ function discoveryDetails(offer: Offer, full = false): string {
           .map((condition) => `<p>${escapeHtml(condition ?? "")}</p>`)
           .join(
             "",
-          )}${d.evidence.map((evidence) => `<p><a href="${safeUrl(evidence.url) ?? "#"}" target="_blank" rel="noopener noreferrer">Original offer evidence ↗</a></p>`).join("")}`
+          )}${d.evidence.map((evidence) => `<p><a href="${safeUrl(evidence.url) ?? "#"}" target="_blank" rel="noopener noreferrer">Original offer evidence ↗</a></p>${evidence.socialPost ? `<p><a href="${safeUrl(evidence.socialPost.url) ?? "#"}" target="_blank" rel="noopener noreferrer">Merchant-linked social promotion ↗</a></p>` : ""}`).join("")}`
       : ""
   }</div>`;
 }

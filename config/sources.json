@@ -1072,5 +1072,364 @@
       "verifiedAt": "2026-09-30T11:50:00Z",
       "evidenceUrl": "https://yantranepal.com/"
     }
+  },
+  {
+    "id": "it-monster",
+    "displayName": "IT Monster",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://itmonster.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T15:51:49.240Z",
+      "evidenceUrl": "https://itmonster.com.np/dashain-offers"
+    },
+    "campaignEntryPoints": ["https://itmonster.com.np/dashain-offers"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "maxell",
+    "displayName": "Maxell",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://maxell.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T15:51:49.241Z",
+      "evidenceUrl": "https://maxell.com.np/dashain-tihar-offer"
+    },
+    "campaignEntryPoints": [
+      "https://maxell.com.np/dashain-tihar-offer",
+      "https://maxell.com.np/category/dashain-offer"
+    ],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "proud-nepal",
+    "displayName": "Proud Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://proudnepal.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T15:51:49.241Z",
+      "evidenceUrl": "https://proudnepal.com.np/offers/dashian-tihar-offer"
+    },
+    "campaignEntryPoints": ["https://proudnepal.com.np/offers/dashian-tihar-offer"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "sb-furniture",
+    "displayName": "SB Furniture Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://sbfurniturenepal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T15:59:25.850Z",
+      "evidenceUrl": "https://sbfurniturenepal.com/shop/category/dashain-sale-2083-10442"
+    },
+    "campaignEntryPoints": ["https://sbfurniturenepal.com/shop/category/dashain-sale-2083-10442"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "sukumart",
+    "displayName": "Sukumart",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.sukumart.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T16:07:48.478Z",
+      "evidenceUrl": "https://www.sukumart.com/?v=4cc62c62baa2"
+    },
+    "campaignEntryPoints": [
+      "https://www.sukumart.com/?v=4cc62c62baa2",
+      "https://www.sukumart.com/product-category/offer/dashain-offer/?orderby=date&v=4cc62c62baa2"
+    ],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "wild-yak-gear",
+    "displayName": "Wild Yak Gear",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://wildyakgear.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T16:56:05.606Z",
+      "evidenceUrl": "https://wildyakgear.com/"
+    },
+    "campaignEntryPoints": ["https://wildyakgear.com/"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "sara-worldwide",
+    "displayName": "Sara Worldwide",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://saraworldwide.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://saraworldwide.com.np/"]
+  },
+  {
+    "id": "max-international",
+    "displayName": "Max International",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://maxnepal.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://maxnepal.com.np/dashain-tihar-festive-offers/"]
+  },
+  {
+    "id": "online-it",
+    "displayName": "Online IT",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://onlineit.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://onlineit.com.np/dashain-tihar-offer/"]
+  },
+  {
+    "id": "book-shop-nepal",
+    "displayName": "The Book Shop Nepal",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://bookshopnepal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://bookshopnepal.com/collections/dashain-sale"]
+  },
+  {
+    "id": "sabko-phone",
+    "displayName": "Sabko Phone",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://sabkophone.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://sabkophone.com/category/blogs/"]
+  },
+  {
+    "id": "sun-traders",
+    "displayName": "Sun Traders",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://suntraders.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://suntraders.com.np/"]
+  },
+  {
+    "id": "made-in-nepal-stores",
+    "displayName": "Made In Nepal Stores",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.madeinnepalstores.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://www.madeinnepalstores.com/festivals"]
+  },
+  {
+    "id": "bananatechi",
+    "displayName": "Bananatechi",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://bananatechi.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://bananatechi.com/"]
+  },
+  {
+    "id": "nikodeal",
+    "displayName": "NikoDeal",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://nikodeal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://nikodeal.com/"]
+  },
+  {
+    "id": "onin",
+    "displayName": "ONIN",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://onin.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://onin.com.np/"]
+  },
+  {
+    "id": "infotechs-nepal",
+    "displayName": "InfoTechs Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["electronics-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://infotechsnepal.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T16:28:07.646Z",
+      "evidenceUrl": "https://infotechsnepal.com.np/dashain-offer/"
+    },
+    "campaignEntryPoints": [
+      "https://infotechsnepal.com.np/dashain-offer/",
+      "https://infotechsnepal.com.np/offers/laptop-delas/",
+      "https://infotechsnepal.com.np/offers/monitor-deals/",
+      "https://infotechsnepal.com.np/offers/accessories-deal/"
+    ],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "shishyastra",
+    "displayName": "Shishyastra",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://shishyastra.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://shishyastra.com/"]
+  },
+  {
+    "id": "gentlewoman-clothing",
+    "displayName": "Gentlewoman Clothing",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://gentlewomanclothing.wixsite.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://gentlewomanclothing.wixsite.com/gentlewomanclothing/shop-now"]
+  },
+  {
+    "id": "shoes4less",
+    "displayName": "Shoes4Less",
+    "status": "CANDIDATE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://shoes4lessnepal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": null,
+    "campaignEntryPoints": ["https://shoes4lessnepal.com/"]
   }
 ]
