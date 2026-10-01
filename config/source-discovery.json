@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01T18:33:43.588756Z",
+  "reviewedAt": "2026-10-01T18:57:49.105141Z",
   "target": {
     "sellers": 20,
     "categories": 5,
@@ -193,11 +193,11 @@
     },
     {
       "sourceId": "giftmandu",
-      "url": "https://www.giftmandu.com/dashain",
-      "status": "PRODUCT_EVIDENCE_UNVERIFIED",
-      "note": "Current 2083 products exist, but reviewed product shows only full price and conditional extra discount on two-plus hampers. Collection redirects resolve to /dashain without trailing slash. Need actual discounted original/sale price pair; coupon alone does not count.",
-      "countsTowardCoverage": false,
-      "reviewedAt": "2026-10-01T18:22:28.066420Z"
+      "url": "https://www.giftmandu.com/occasions/dashain/dashain-offers/",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Explicit 2083 homepage scene with literal current 2026 Nepal-date schedule. Four discounted simple decor products in first Dashain Offers page have matching detail prices, SKU/cart identities, public BCData JSON and JSON-LD stock. No conditional hamper discount applied; variable designs retained as terms. Bounded partial scan.",
+      "countsTowardCoverage": true,
+      "reviewedAt": "2026-10-01T18:57:49.105141Z"
     },
     {
       "sourceId": "aroan-nepal",

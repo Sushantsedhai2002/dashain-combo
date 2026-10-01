@@ -1524,5 +1524,28 @@
     },
     "campaignEntryPoints": ["https://maakebeautynepal.com/"],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "giftmandu",
+    "displayName": "Giftmandu",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.giftmandu.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T18:52:06.213233Z",
+      "evidenceUrl": "https://www.giftmandu.com/"
+    },
+    "campaignEntryPoints": [
+      "https://www.giftmandu.com/",
+      "https://www.giftmandu.com/occasions/dashain/dashain-offers/"
+    ],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   }
 ]

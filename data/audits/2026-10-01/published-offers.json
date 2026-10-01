@@ -2,6 +2,558 @@
   {
     "discovery": {
       "product": {
+        "key": "44561",
+        "gtin": null,
+        "model": "SP-7857",
+        "variant": "Divine Ganesh Ji  Acrylic Frame",
+        "attributes": {
+          "sku": "SP-7857"
+        }
+      },
+      "reasons": [
+        "DATED_DASHAIN_SCENE_SCHEDULE",
+        "EXPLICIT_DASHAIN_COLLECTION_MEMBER",
+        "DETAIL_VISIBLE_JSON_PRICES_AND_STOCK_AGREE"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "giftmandu-dashain-2026",
+        "title": "Giftmandu Dashain Gifts 2083",
+        "endsAt": "2026-10-16T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": "2026-09-26T18:15:00.000Z",
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://www.giftmandu.com/",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "{ scene:'dashain',   start:NPT(2026, 9, 27), end:NPT(2026,10, 17) }"
+      },
+      "evidence": [
+        {
+          "url": "https://www.giftmandu.com/",
+          "path": "COPY_DAS; SCENES.dashain; CALENDAR literal NPT schedule",
+          "fields": [
+            "campaign"
+          ],
+          "excerpt": "Dashain Gifts 2083; active literal scene schedule { scene:'dashain',   start:NPT(2026, 9, 27), end:NPT(2026,10, 17) }",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "11686f5aabbc2d775a89b53d55ff29d0f0eb319259d5a4ad0986351a2063be43",
+          "extractorVersion": "giftmandu-v1"
+        },
+        {
+          "url": "https://www.giftmandu.com/occasions/dashain/dashain-offers/",
+          "path": "productGrid exact card and cart identity",
+          "fields": [
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Dashain Offers; Divine Ganesh Ji  Acrylic Frame; original NPR 1500; sale NPR 1275; product 44561",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "f28939266d43c05c06eb4ae1357cffd3733d079a00e21ada81e156a5999bf051",
+          "extractorVersion": "giftmandu-v1"
+        },
+        {
+          "url": "https://www.giftmandu.com/divine-ganesh-ji-acrylic-frame",
+          "path": "productView prices; simple form; BCData JSON; matching JSON-LD",
+          "fields": [
+            "product",
+            "originalPrice",
+            "salePrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "Divine Ganesh Ji  Acrylic Frame; SKU SP-7857; original NPR 1500; sale NPR 1275; in stock; Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "0427404bdda2c672cebb8955ab9a1499b0fc2d69c8530a53ebc39bcd33234f7f",
+          "extractorVersion": "giftmandu-v1"
+        }
+      ],
+      "merchant": "Giftmandu",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Divine Ganesh Ji  Acrylic Frame"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T18:57:02.872Z",
+      "priceObservedAt": "2026-10-01T18:57:02.872Z"
+    },
+    "relevance": 0,
+    "id": "26392af1-ef8f-489c-8d9a-2be8f3cce79a",
+    "sourceId": "giftmandu",
+    "sourceOfferKey": "giftmandu-dashain-2026:44561",
+    "sellerDisplayName": "Giftmandu",
+    "title": "Divine Ganesh Ji  Acrylic Frame",
+    "summary": null,
+    "productName": "Divine Ganesh Ji  Acrylic Frame",
+    "brandName": null,
+    "category": "HOME_AND_FURNITURE",
+    "imageUrl": null,
+    "destinationUrl": "https://www.giftmandu.com/divine-ganesh-ji-acrylic-frame",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 150000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 127500
+    },
+    "discountPercent": 15,
+    "discountLabel": null,
+    "terms": "Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T18:57:13.074Z",
+    "expiresAt": "2026-10-21T18:57:13.074Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T18:57:13.074Z",
+    "updatedAt": "2026-10-01T18:57:13.074Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "46791",
+        "gtin": null,
+        "model": "SP-10656",
+        "variant": "Golden Lord Buddha Statue Wall Hanging Frame - 11 Inch",
+        "attributes": {
+          "sku": "SP-10656"
+        }
+      },
+      "reasons": [
+        "DATED_DASHAIN_SCENE_SCHEDULE",
+        "EXPLICIT_DASHAIN_COLLECTION_MEMBER",
+        "DETAIL_VISIBLE_JSON_PRICES_AND_STOCK_AGREE"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "giftmandu-dashain-2026",
+        "title": "Giftmandu Dashain Gifts 2083",
+        "endsAt": "2026-10-16T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": "2026-09-26T18:15:00.000Z",
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://www.giftmandu.com/",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "{ scene:'dashain',   start:NPT(2026, 9, 27), end:NPT(2026,10, 17) }"
+      },
+      "evidence": [
+        {
+          "url": "https://www.giftmandu.com/",
+          "path": "COPY_DAS; SCENES.dashain; CALENDAR literal NPT schedule",
+          "fields": [
+            "campaign"
+          ],
+          "excerpt": "Dashain Gifts 2083; active literal scene schedule { scene:'dashain',   start:NPT(2026, 9, 27), end:NPT(2026,10, 17) }",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "11686f5aabbc2d775a89b53d55ff29d0f0eb319259d5a4ad0986351a2063be43",
+          "extractorVersion": "giftmandu-v1"
+        },
+        {
+          "url": "https://www.giftmandu.com/occasions/dashain/dashain-offers/",
+          "path": "productGrid exact card and cart identity",
+          "fields": [
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Dashain Offers; Golden Lord Buddha Statue Wall Hanging Frame - 11 Inch; original NPR 950; sale NPR 807; product 46791",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "f28939266d43c05c06eb4ae1357cffd3733d079a00e21ada81e156a5999bf051",
+          "extractorVersion": "giftmandu-v1"
+        },
+        {
+          "url": "https://www.giftmandu.com/golden-lord-buddha-statue-wall-hanging-frame-11-inch",
+          "path": "productView prices; simple form; BCData JSON; matching JSON-LD",
+          "fields": [
+            "product",
+            "originalPrice",
+            "salePrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "Golden Lord Buddha Statue Wall Hanging Frame - 11 Inch; SKU SP-10656; original NPR 950; sale NPR 807; in stock; Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "a8083866b213d722f5c93a09dd8bcd8bd63f4b94ea62422a77ee9fa7c5d51ca6",
+          "extractorVersion": "giftmandu-v1"
+        }
+      ],
+      "merchant": "Giftmandu",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Golden Lord Buddha Statue Wall Hanging Frame - 11 Inch"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T18:57:02.872Z",
+      "priceObservedAt": "2026-10-01T18:57:02.872Z"
+    },
+    "relevance": 0,
+    "id": "1c8bf9cc-981e-47bf-913f-540a93d50cdd",
+    "sourceId": "giftmandu",
+    "sourceOfferKey": "giftmandu-dashain-2026:46791",
+    "sellerDisplayName": "Giftmandu",
+    "title": "Golden Lord Buddha Statue Wall Hanging Frame - 11 Inch",
+    "summary": null,
+    "productName": "Golden Lord Buddha Statue Wall Hanging Frame - 11 Inch",
+    "brandName": null,
+    "category": "HOME_AND_FURNITURE",
+    "imageUrl": null,
+    "destinationUrl": "https://www.giftmandu.com/golden-lord-buddha-statue-wall-hanging-frame-11-inch",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 95000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 80700
+    },
+    "discountPercent": 15,
+    "discountLabel": null,
+    "terms": "Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T18:57:13.071Z",
+    "expiresAt": "2026-10-21T18:57:13.071Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T18:57:13.071Z",
+    "updatedAt": "2026-10-01T18:57:13.071Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "46797",
+        "gtin": null,
+        "model": "SP-10654",
+        "variant": "Shri Ganeshay Namah - Ganesh Statue",
+        "attributes": {
+          "sku": "SP-10654"
+        }
+      },
+      "reasons": [
+        "DATED_DASHAIN_SCENE_SCHEDULE",
+        "EXPLICIT_DASHAIN_COLLECTION_MEMBER",
+        "DETAIL_VISIBLE_JSON_PRICES_AND_STOCK_AGREE"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "giftmandu-dashain-2026",
+        "title": "Giftmandu Dashain Gifts 2083",
+        "endsAt": "2026-10-16T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": "2026-09-26T18:15:00.000Z",
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://www.giftmandu.com/",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "{ scene:'dashain',   start:NPT(2026, 9, 27), end:NPT(2026,10, 17) }"
+      },
+      "evidence": [
+        {
+          "url": "https://www.giftmandu.com/",
+          "path": "COPY_DAS; SCENES.dashain; CALENDAR literal NPT schedule",
+          "fields": [
+            "campaign"
+          ],
+          "excerpt": "Dashain Gifts 2083; active literal scene schedule { scene:'dashain',   start:NPT(2026, 9, 27), end:NPT(2026,10, 17) }",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "11686f5aabbc2d775a89b53d55ff29d0f0eb319259d5a4ad0986351a2063be43",
+          "extractorVersion": "giftmandu-v1"
+        },
+        {
+          "url": "https://www.giftmandu.com/occasions/dashain/dashain-offers/",
+          "path": "productGrid exact card and cart identity",
+          "fields": [
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Dashain Offers; Shri Ganeshay Namah - Ganesh Statue; original NPR 990; sale NPR 841; product 46797",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "f28939266d43c05c06eb4ae1357cffd3733d079a00e21ada81e156a5999bf051",
+          "extractorVersion": "giftmandu-v1"
+        },
+        {
+          "url": "https://www.giftmandu.com/shri-ganeshay-namah-ganesh-statue",
+          "path": "productView prices; simple form; BCData JSON; matching JSON-LD",
+          "fields": [
+            "product",
+            "originalPrice",
+            "salePrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "Shri Ganeshay Namah - Ganesh Statue; SKU SP-10654; original NPR 990; sale NPR 841; in stock; Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "626960ce726123ebcac6f2079e3245ee98fc24a64a4788a4b0c63dc7a25a220a",
+          "extractorVersion": "giftmandu-v1"
+        }
+      ],
+      "merchant": "Giftmandu",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Shri Ganeshay Namah - Ganesh Statue"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T18:57:02.872Z",
+      "priceObservedAt": "2026-10-01T18:57:02.872Z"
+    },
+    "relevance": 0,
+    "id": "9c49d5c8-6ec1-4aad-a933-e1d9b90d8f78",
+    "sourceId": "giftmandu",
+    "sourceOfferKey": "giftmandu-dashain-2026:46797",
+    "sellerDisplayName": "Giftmandu",
+    "title": "Shri Ganeshay Namah - Ganesh Statue",
+    "summary": null,
+    "productName": "Shri Ganeshay Namah - Ganesh Statue",
+    "brandName": null,
+    "category": "HOME_AND_FURNITURE",
+    "imageUrl": null,
+    "destinationUrl": "https://www.giftmandu.com/shri-ganeshay-namah-ganesh-statue",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 99000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 84100
+    },
+    "discountPercent": 15,
+    "discountLabel": null,
+    "terms": "Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T18:57:13.067Z",
+    "expiresAt": "2026-10-21T18:57:13.067Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T18:57:13.067Z",
+    "updatedAt": "2026-10-01T18:57:13.067Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "46799",
+        "gtin": null,
+        "model": "SP-10657",
+        "variant": "Golden Lord Ganesha Statue",
+        "attributes": {
+          "sku": "SP-10657"
+        }
+      },
+      "reasons": [
+        "DATED_DASHAIN_SCENE_SCHEDULE",
+        "EXPLICIT_DASHAIN_COLLECTION_MEMBER",
+        "DETAIL_VISIBLE_JSON_PRICES_AND_STOCK_AGREE"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "giftmandu-dashain-2026",
+        "title": "Giftmandu Dashain Gifts 2083",
+        "endsAt": "2026-10-16T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": "2026-09-26T18:15:00.000Z",
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://www.giftmandu.com/",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "{ scene:'dashain',   start:NPT(2026, 9, 27), end:NPT(2026,10, 17) }"
+      },
+      "evidence": [
+        {
+          "url": "https://www.giftmandu.com/",
+          "path": "COPY_DAS; SCENES.dashain; CALENDAR literal NPT schedule",
+          "fields": [
+            "campaign"
+          ],
+          "excerpt": "Dashain Gifts 2083; active literal scene schedule { scene:'dashain',   start:NPT(2026, 9, 27), end:NPT(2026,10, 17) }",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "11686f5aabbc2d775a89b53d55ff29d0f0eb319259d5a4ad0986351a2063be43",
+          "extractorVersion": "giftmandu-v1"
+        },
+        {
+          "url": "https://www.giftmandu.com/occasions/dashain/dashain-offers/",
+          "path": "productGrid exact card and cart identity",
+          "fields": [
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Dashain Offers; Golden Lord Ganesha Statue; original NPR 850; sale NPR 722; product 46799",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "f28939266d43c05c06eb4ae1357cffd3733d079a00e21ada81e156a5999bf051",
+          "extractorVersion": "giftmandu-v1"
+        },
+        {
+          "url": "https://www.giftmandu.com/golden-lord-ganesha-statue",
+          "path": "productView prices; simple form; BCData JSON; matching JSON-LD",
+          "fields": [
+            "product",
+            "originalPrice",
+            "salePrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "Golden Lord Ganesha Statue; SKU SP-10657; original NPR 850; sale NPR 722; in stock; Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.",
+          "fetchedAt": "2026-10-01T18:57:02.872Z",
+          "contentHash": "0008fbfc022034cbda0f1c81582b7de119f5ab0f5f02c26f96956dd545877b6f",
+          "extractorVersion": "giftmandu-v1"
+        }
+      ],
+      "merchant": "Giftmandu",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Golden Lord Ganesha Statue"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T18:57:02.872Z",
+      "priceObservedAt": "2026-10-01T18:57:02.872Z"
+    },
+    "relevance": 0,
+    "id": "d6d275ef-2842-47be-81da-6e01f94e3393",
+    "sourceId": "giftmandu",
+    "sourceOfferKey": "giftmandu-dashain-2026:46799",
+    "sellerDisplayName": "Giftmandu",
+    "title": "Golden Lord Ganesha Statue",
+    "summary": null,
+    "productName": "Golden Lord Ganesha Statue",
+    "brandName": null,
+    "category": "HOME_AND_FURNITURE",
+    "imageUrl": null,
+    "destinationUrl": "https://www.giftmandu.com/golden-lord-ganesha-statue",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 85000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 72200
+    },
+    "discountPercent": 15,
+    "discountLabel": null,
+    "terms": "Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T18:57:13.050Z",
+    "expiresAt": "2026-10-21T18:57:13.050Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T18:57:13.050Z",
+    "updatedAt": "2026-10-01T18:57:13.050Z"
+  },
+  {
+    "discovery": {
+      "product": {
         "key": "28",
         "gtin": null,
         "model": "Maake Beauty Mascara 1",

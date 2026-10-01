@@ -1,23 +1,24 @@
 {
-  "checkedAt": "2026-10-01T18:32:08.030Z",
+  "checkedAt": "2026-10-01T18:57:13.080Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 14,
+    "sellers": 15,
     "categories": 6,
-    "offers": 1160
+    "offers": 1164
   },
   "remaining": {
-    "sellers": 6,
+    "sellers": 5,
     "categories": 0,
     "offers": 0
   },
   "achieved": false,
   "conflictingProducts": 0,
   "bySeller": {
+    "giftmandu": 4,
     "maake-beauty-nepal": 3,
     "mask-queen-nepal": 66,
     "proud-nepal": 8,
@@ -34,12 +35,12 @@
     "cg-digital": 78
   },
   "byCategory": {
+    "HOME_AND_FURNITURE": 214,
     "FASHION_AND_LIFESTYLE": 109,
     "COMPUTERS_AND_ACCESSORIES": 373,
     "CONSUMER_ELECTRONICS": 87,
     "HOME_APPLIANCES": 362,
-    "MOBILE_AND_TABLETS": 19,
-    "HOME_AND_FURNITURE": 210
+    "MOBILE_AND_TABLETS": 19
   },
   "validationDatabase": "Disposable isolated test database; original local catalog remains stopped and untouched.",
   "publicationRuns": [
@@ -138,6 +139,13 @@
       "sourceId": "maake-beauty-nepal",
       "status": "PARTIAL",
       "published": 3,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "giftmandu",
+      "status": "PARTIAL",
+      "published": 4,
       "withdrawn": 0,
       "skipped": 0
     }
