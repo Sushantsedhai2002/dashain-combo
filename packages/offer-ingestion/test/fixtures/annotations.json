@@ -1712,6 +1712,33 @@
       "sourcePublishedAt": null,
       "explicitValidityEnd": null,
       "terms": null
+    },
+    {
+      "sourceId": "ac-ghar",
+      "title": "Midea 2.0 Ton Xtreme Plus Inverter Air Conditioner (Black)",
+      "destinationUrl": "https://www.acghar.com/product/midea-2-ton-xtreme-plus-inverter-air-conditioner",
+      "originalMinor": 14500000,
+      "saleMinor": 13050000,
+      "category": "HOME_APPLIANCES",
+      "brandName": "Midea",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
+    },
+    {
+      "sourceId": "mudita-store",
+      "title": "Acer Aspire Lite 15 AL15-36P (Intel Core 3 N350 Processor | 8GB DDR4 RAM | 128GB SSD | 15.6\" (FHD, 1920 x 1080) TN Display | Intel Graphics | Windows 11 | 1 Year Warranty | Silver)",
+      "destinationUrl": "https://mudita.com.np/acer-aspire-lite-15-core-3-n350-price-nepal.html",
+      "originalMinor": 8000000,
+      "saleMinor": 6899900,
+      "category": "COMPUTERS_AND_ACCESSORIES",
+      "brandName": "Acer",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": {
+        "kind": "INSTANT",
+        "value": "2026-10-17T00:00:00.000Z"
+      },
+      "terms": null
     }
   ],
   "negatives": [

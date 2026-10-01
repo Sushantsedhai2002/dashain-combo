@@ -21,6 +21,27 @@ const source: SourceDefinition = {
 };
 
 describe("safe website fetch", () => {
+  it("uses a bounded registered timeout and rejects invalid values before transport", async () => {
+    const request = vi.fn(async () => ({
+      status: 200,
+      body: "<html></html>",
+      contentType: "text/html",
+    }));
+    const fetch = createSafePageFetcher({ resolveHostname: async () => ["8.8.8.8"], request });
+    await fetch("https://evostore.com.np/", { ...source, requestTimeoutMs: 30_000 });
+    expect(request).toHaveBeenLastCalledWith(
+      "https://evostore.com.np/",
+      ["8.8.8.8"],
+      30_000,
+      3_000_000,
+    );
+    request.mockClear();
+    for (const requestTimeoutMs of [NaN, Infinity, 999, 30_001, 10_000.5])
+      await expect(
+        fetch("https://evostore.com.np/", { ...source, requestTimeoutMs }),
+      ).rejects.toThrow("Invalid website request timeout");
+    expect(request).not.toHaveBeenCalled();
+  });
   it("accepts JSON only at explicitly registered merchant feed URLs", async () => {
     const feedUrl = "https://evostore.com.np/social-promotions.json";
     const fetchPage = createSafePageFetcher({

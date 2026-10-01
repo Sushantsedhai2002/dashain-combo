@@ -29,6 +29,15 @@ const validSource = {
 };
 
 describe("SourceDefinitionSchema", () => {
+  it("accepts only bounded per-source request timeouts", () => {
+    expect(
+      SourceDefinitionSchema.safeParse({ ...validSource, requestTimeoutMs: 30_000 }).success,
+    ).toBe(true);
+    for (const requestTimeoutMs of [0, 999, 30_001, 1.5, "30000", null])
+      expect(SourceDefinitionSchema.safeParse({ ...validSource, requestTimeoutMs }).success).toBe(
+        false,
+      );
+  });
   it("parses the approved source shape into deeply readonly data", () => {
     const source = SourceDefinitionSchema.parse(validSource);
 
@@ -143,6 +152,7 @@ describe("public source types", () => {
         marketSegments: readonly string[];
         channels: readonly SourceChannel[];
         verification: VerificationEvidence | null;
+        requestTimeoutMs?: number | undefined;
         campaignEntryPoints?: readonly string[] | undefined;
         socialPromotionFeeds?: readonly string[] | undefined;
         capabilities?:

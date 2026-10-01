@@ -84,11 +84,14 @@ export function createSafePageFetcher(
     ) {
       throw new Error("URL outside approved website origin");
     }
+    const timeoutMs = source.requestTimeoutMs ?? TIMEOUT_MS;
+    if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1_000 || timeoutMs > 30_000)
+      throw new Error("Invalid website request timeout");
     const addresses = await dependencies.resolveHostname(url.hostname);
     if (addresses.length === 0 || addresses.some((address) => !isPublicIpAddress(address))) {
       throw new Error("Unsafe website address");
     }
-    const response = await dependencies.request(url.href, addresses, TIMEOUT_MS, MAX_BYTES);
+    const response = await dependencies.request(url.href, addresses, timeoutMs, MAX_BYTES);
     if (
       response.body.length > MAX_BYTES ||
       (response.status === 200 &&

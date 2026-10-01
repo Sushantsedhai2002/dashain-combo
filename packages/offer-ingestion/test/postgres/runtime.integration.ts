@@ -56,6 +56,8 @@ describe("ingestion runtime with PostgreSQL", () => {
     "sukumart",
     "infotechs-nepal",
     "wild-yak-gear",
+    "ac-ghar",
+    "mudita-store",
   ];
   const priceSourceIds = createWebsiteAdapters(async () => ({ status: 503, body: "" }))
     .map((a) => a.sourceId)
@@ -70,6 +72,8 @@ describe("ingestion runtime with PostgreSQL", () => {
       offerCount: 240,
     },
     { name: "SB Furniture paginated collection", sourceIds: ["sb-furniture"], offerCount: 210 },
+    { name: "Mudita dated Dashain section", sourceIds: ["mudita-store"], offerCount: 233 },
+    { name: "AC Ghar festive models", sourceIds: ["ac-ghar"], offerCount: 6 },
     { name: "Wild Yak selected variants", sourceIds: ["wild-yak-gear"], offerCount: 40 },
     { name: "Sukumart paginated collection", sourceIds: ["sukumart"], offerCount: 24 },
     { name: "Fonepay campaigns", sourceIds: ["fonepay"], offerCount: 4 },

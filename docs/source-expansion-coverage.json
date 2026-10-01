@@ -1,17 +1,17 @@
 {
-  "checkedAt": "2026-10-01T17:00:44.475Z",
+  "checkedAt": "2026-10-01T17:34:35.040Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 8,
+    "sellers": 10,
     "categories": 6,
-    "offers": 526
+    "offers": 765
   },
   "remaining": {
-    "sellers": 12,
+    "sellers": 10,
     "categories": 0,
     "offers": 0
   },
@@ -20,6 +20,8 @@
   "bySeller": {
     "proud-nepal": 8,
     "maxell": 20,
+    "mudita-store": 233,
+    "ac-ghar": 6,
     "wild-yak-gear": 40,
     "infotechs-nepal": 123,
     "sukumart": 24,
@@ -28,12 +30,12 @@
     "cg-digital": 78
   },
   "byCategory": {
-    "COMPUTERS_AND_ACCESSORIES": 169,
-    "CONSUMER_ELECTRONICS": 40,
+    "COMPUTERS_AND_ACCESSORIES": 371,
+    "CONSUMER_ELECTRONICS": 46,
+    "HOME_APPLIANCES": 81,
+    "MOBILE_AND_TABLETS": 17,
     "FASHION_AND_LIFESTYLE": 40,
-    "MOBILE_AND_TABLETS": 2,
-    "HOME_AND_FURNITURE": 210,
-    "HOME_APPLIANCES": 65
+    "HOME_AND_FURNITURE": 210
   },
   "validationDatabase": "Disposable isolated test database; original local catalog remains stopped and untouched.",
   "publicationRuns": [
@@ -76,6 +78,20 @@
       "sourceId": "wild-yak-gear",
       "status": "PARTIAL",
       "published": 40,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "ac-ghar",
+      "status": "PARTIAL",
+      "published": 6,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "mudita-store",
+      "status": "PARTIAL",
+      "published": 233,
       "withdrawn": 0,
       "skipped": 0
     },

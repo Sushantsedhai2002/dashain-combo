@@ -32,6 +32,7 @@ export const SourceDefinitionSchema = z
     channels: z.array(SourceChannelSchema).readonly(),
     verification: VerificationEvidenceSchema.nullable(),
     campaignEntryPoints: z.array(httpsUrl).max(20).readonly().optional(),
+    requestTimeoutMs: z.number().int().min(1_000).max(30_000).optional(),
     socialPromotionFeeds: z.array(httpsUrl).max(5).readonly().optional(),
     capabilities: z
       .array(z.enum(["CAMPAIGN", "PRODUCT", "DOCUMENT", "REVALIDATION"]))

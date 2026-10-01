@@ -22,6 +22,7 @@ export type SourceDefinition = Readonly<{
   marketSegments: readonly string[];
   channels: readonly SourceChannel[];
   verification: VerificationEvidence | null;
+  requestTimeoutMs?: number | undefined;
   campaignEntryPoints?: readonly string[] | undefined;
   socialPromotionFeeds?: readonly string[] | undefined;
   capabilities?: readonly ("CAMPAIGN" | "PRODUCT" | "DOCUMENT" | "REVALIDATION")[] | undefined;
