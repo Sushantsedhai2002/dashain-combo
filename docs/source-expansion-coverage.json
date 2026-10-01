@@ -1,23 +1,24 @@
 {
-  "checkedAt": "2026-10-01T18:18:54.885Z",
+  "checkedAt": "2026-10-01T18:32:08.030Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 13,
+    "sellers": 14,
     "categories": 6,
-    "offers": 1157
+    "offers": 1160
   },
   "remaining": {
-    "sellers": 7,
+    "sellers": 6,
     "categories": 0,
     "offers": 0
   },
   "achieved": false,
   "conflictingProducts": 0,
   "bySeller": {
+    "maake-beauty-nepal": 3,
     "mask-queen-nepal": 66,
     "proud-nepal": 8,
     "maxell": 20,
@@ -33,7 +34,7 @@
     "cg-digital": 78
   },
   "byCategory": {
-    "FASHION_AND_LIFESTYLE": 106,
+    "FASHION_AND_LIFESTYLE": 109,
     "COMPUTERS_AND_ACCESSORIES": 373,
     "CONSUMER_ELECTRONICS": 87,
     "HOME_APPLIANCES": 362,
@@ -130,6 +131,13 @@
       "sourceId": "mask-queen-nepal",
       "status": "PARTIAL",
       "published": 66,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "maake-beauty-nepal",
+      "status": "PARTIAL",
+      "published": 3,
       "withdrawn": 0,
       "skipped": 0
     }

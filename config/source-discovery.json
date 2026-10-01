@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01T18:22:28.066420Z",
+  "reviewedAt": "2026-10-01T18:33:43.588756Z",
   "target": {
     "sellers": 20,
     "categories": 5,
@@ -186,10 +186,10 @@
     {
       "sourceId": "maake-beauty-nepal",
       "url": "https://maakebeautynepal.com/",
-      "status": "CURRENT_CAMPAIGN",
-      "note": "First-party sitewide Dashain/Tihar 10% coupon promotion has explicit 2026-11-12 deadline and NPR 500 minimum. Exact observed product price pairs are available. Still reviewing campaign/product eligibility and checkout conditions; coupon discounts must not be generated as observed sale prices.",
-      "countsTowardCoverage": false,
-      "reviewedAt": "2026-10-01T18:22:28.066420Z"
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Dated active sitewide promotion ends 2026-11-12. Three simple product detail pages explicitly display DASHAIN10 and independent original/sale price pairs matching homepage. Only those observed product prices are published; conditional 10% checkout coupon and NPR 500 minimum remain separate benefit facts, with unknown combinability. Products requiring unresolved shade/variant choices are omitted.",
+      "countsTowardCoverage": true,
+      "reviewedAt": "2026-10-01T18:33:43.588756Z"
     },
     {
       "sourceId": "giftmandu",

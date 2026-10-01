@@ -2,6 +2,444 @@
   {
     "discovery": {
       "product": {
+        "key": "28",
+        "gtin": null,
+        "model": "Maake Beauty Mascara 1",
+        "variant": "Maake Beauty Mascara 1",
+        "attributes": {}
+      },
+      "reasons": [
+        "DATED_DASHAIN_SITEWIDE_PROMOTION",
+        "EXPLICIT_PRODUCT_DASHAIN_OFFER",
+        "OBSERVED_PRODUCT_DISCOUNT_INDEPENDENT_OF_COUPON",
+        "VISIBLE_HOME_AND_DETAIL_PRICES_AGREE"
+      ],
+      "benefits": [
+        {
+          "type": "COUPON",
+          "status": "CONDITIONAL",
+          "percent": 10,
+          "capMinor": null,
+          "conditions": "DASHAIN10 code; order minimum NPR 500; combination rules unknown; not applied to observed price",
+          "amountMinor": null,
+          "description": "DASHAIN10: conditional 10% checkout discount",
+          "eligibleProductKeys": [
+            "28"
+          ]
+        }
+      ],
+      "campaign": {
+        "key": "maake-dashain-2026",
+        "title": "Maake Beauty Dashain/Tihar 2026",
+        "endsAt": "2026-11-12T06:16:00.000Z",
+        "seasonAD": 2026,
+        "seasonBS": null,
+        "startsAt": null,
+        "festivals": [
+          "DASHAIN",
+          "TIHAR"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://maakebeautynepal.com/",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "2026-11-12T12:01:00+05:45"
+      },
+      "evidence": [
+        {
+          "url": "https://maakebeautynepal.com/",
+          "path": "dated flashSaleTimer JSON; simple product card",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "salePrice",
+            "originalPrice"
+          ],
+          "excerpt": "DASHAIN & TIHAR Special; Sale is Live; deadline 2026-11-12T12:01:00+05:45; Maake Beauty Mascara 1; NPR 299; reference NPR 439",
+          "fetchedAt": "2026-10-01T18:32:04.632Z",
+          "contentHash": "93e6bd610203c8f6585ed20bd3ecc071adeb128eaf3d5d52f5b58ce808f68207",
+          "extractorVersion": "maake-v1"
+        },
+        {
+          "url": "https://maakebeautynepal.com/product/maake-beauty-mascara-1",
+          "path": "productPage JSON arguments; simple product/cart identity; displayed price/MRP; explicit product DASHAIN10 offer",
+          "fields": [
+            "membership",
+            "product",
+            "salePrice",
+            "originalPrice",
+            "components",
+            "benefits",
+            "eligibility"
+          ],
+          "excerpt": "Maake Beauty Mascara 1; NPR 299; reference NPR 439; DASHAIN AND TIHAR — Shop for Rs. 500.00 & Get FLAT 10% OFF; Displayed product sale price; DASHAIN10 advertises a conditional 10% checkout discount on orders of at least NPR 500. Coupon savings are not applied to this observed price; combination rules are unknown.",
+          "fetchedAt": "2026-10-01T18:32:04.632Z",
+          "contentHash": "19ea2d5d0144665996b27afc484d32ede9e6b27c9bf48e1e7f9138dd42630faa",
+          "extractorVersion": "maake-v1"
+        }
+      ],
+      "merchant": "Maake Beauty Nepal",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Maake Beauty Mascara 1"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T18:32:04.632Z",
+      "priceObservedAt": "2026-10-01T18:32:04.632Z"
+    },
+    "relevance": 0,
+    "id": "ab696898-880f-4fda-a27e-58bb15be8600",
+    "sourceId": "maake-beauty-nepal",
+    "sourceOfferKey": "maake-dashain-2026:28",
+    "sellerDisplayName": "Maake Beauty Nepal",
+    "title": "Maake Beauty Mascara 1",
+    "summary": null,
+    "productName": "Maake Beauty Mascara 1",
+    "brandName": "Maake Beauty",
+    "category": "FASHION_AND_LIFESTYLE",
+    "imageUrl": null,
+    "destinationUrl": "https://maakebeautynepal.com/product/maake-beauty-mascara-1",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 43900
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 29900
+    },
+    "discountPercent": 32,
+    "discountLabel": null,
+    "terms": "Displayed product sale price; DASHAIN10 advertises a conditional 10% checkout discount on orders of at least NPR 500. Coupon savings are not applied to this observed price; combination rules are unknown.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": {
+      "kind": "INSTANT",
+      "value": "2026-11-12T06:16:00.000Z"
+    },
+    "firstDiscoveredAt": "2026-10-01T18:32:08.024Z",
+    "expiresAt": "2026-11-12T06:16:00.000Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T18:32:08.024Z",
+    "updatedAt": "2026-10-01T18:32:08.024Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "26",
+        "gtin": null,
+        "model": "Maake Beauty Kajal",
+        "variant": "Maake Beauty Kajal",
+        "attributes": {}
+      },
+      "reasons": [
+        "DATED_DASHAIN_SITEWIDE_PROMOTION",
+        "EXPLICIT_PRODUCT_DASHAIN_OFFER",
+        "OBSERVED_PRODUCT_DISCOUNT_INDEPENDENT_OF_COUPON",
+        "VISIBLE_HOME_AND_DETAIL_PRICES_AGREE"
+      ],
+      "benefits": [
+        {
+          "type": "COUPON",
+          "status": "CONDITIONAL",
+          "percent": 10,
+          "capMinor": null,
+          "conditions": "DASHAIN10 code; order minimum NPR 500; combination rules unknown; not applied to observed price",
+          "amountMinor": null,
+          "description": "DASHAIN10: conditional 10% checkout discount",
+          "eligibleProductKeys": [
+            "26"
+          ]
+        }
+      ],
+      "campaign": {
+        "key": "maake-dashain-2026",
+        "title": "Maake Beauty Dashain/Tihar 2026",
+        "endsAt": "2026-11-12T06:16:00.000Z",
+        "seasonAD": 2026,
+        "seasonBS": null,
+        "startsAt": null,
+        "festivals": [
+          "DASHAIN",
+          "TIHAR"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://maakebeautynepal.com/",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "2026-11-12T12:01:00+05:45"
+      },
+      "evidence": [
+        {
+          "url": "https://maakebeautynepal.com/",
+          "path": "dated flashSaleTimer JSON; simple product card",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "salePrice",
+            "originalPrice"
+          ],
+          "excerpt": "DASHAIN & TIHAR Special; Sale is Live; deadline 2026-11-12T12:01:00+05:45; Maake Beauty Kajal; NPR 222; reference NPR 399",
+          "fetchedAt": "2026-10-01T18:32:04.632Z",
+          "contentHash": "93e6bd610203c8f6585ed20bd3ecc071adeb128eaf3d5d52f5b58ce808f68207",
+          "extractorVersion": "maake-v1"
+        },
+        {
+          "url": "https://maakebeautynepal.com/product/maake-beauty-kajal",
+          "path": "productPage JSON arguments; simple product/cart identity; displayed price/MRP; explicit product DASHAIN10 offer",
+          "fields": [
+            "membership",
+            "product",
+            "salePrice",
+            "originalPrice",
+            "components",
+            "benefits",
+            "eligibility"
+          ],
+          "excerpt": "Maake Beauty Kajal; NPR 222; reference NPR 399; DASHAIN AND TIHAR — Shop for Rs. 500.00 & Get FLAT 10% OFF; Displayed product sale price; DASHAIN10 advertises a conditional 10% checkout discount on orders of at least NPR 500. Coupon savings are not applied to this observed price; combination rules are unknown.",
+          "fetchedAt": "2026-10-01T18:32:04.632Z",
+          "contentHash": "30acc04e434aea04513110bf3d4d2d92db37edc182360b617700b27f2f6057be",
+          "extractorVersion": "maake-v1"
+        }
+      ],
+      "merchant": "Maake Beauty Nepal",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Maake Beauty Kajal"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T18:32:04.632Z",
+      "priceObservedAt": "2026-10-01T18:32:04.632Z"
+    },
+    "relevance": 0,
+    "id": "8ddeb569-c6f3-455c-b774-14dadd2ee38a",
+    "sourceId": "maake-beauty-nepal",
+    "sourceOfferKey": "maake-dashain-2026:26",
+    "sellerDisplayName": "Maake Beauty Nepal",
+    "title": "Maake Beauty Kajal",
+    "summary": null,
+    "productName": "Maake Beauty Kajal",
+    "brandName": "Maake Beauty",
+    "category": "FASHION_AND_LIFESTYLE",
+    "imageUrl": null,
+    "destinationUrl": "https://maakebeautynepal.com/product/maake-beauty-kajal",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 39900
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 22200
+    },
+    "discountPercent": 44,
+    "discountLabel": null,
+    "terms": "Displayed product sale price; DASHAIN10 advertises a conditional 10% checkout discount on orders of at least NPR 500. Coupon savings are not applied to this observed price; combination rules are unknown.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": {
+      "kind": "INSTANT",
+      "value": "2026-11-12T06:16:00.000Z"
+    },
+    "firstDiscoveredAt": "2026-10-01T18:32:08.018Z",
+    "expiresAt": "2026-11-12T06:16:00.000Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T18:32:08.018Z",
+    "updatedAt": "2026-10-01T18:32:08.018Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "27",
+        "gtin": null,
+        "model": "Maake Beauty Eyeliner",
+        "variant": "Maake Beauty Eyeliner",
+        "attributes": {}
+      },
+      "reasons": [
+        "DATED_DASHAIN_SITEWIDE_PROMOTION",
+        "EXPLICIT_PRODUCT_DASHAIN_OFFER",
+        "OBSERVED_PRODUCT_DISCOUNT_INDEPENDENT_OF_COUPON",
+        "VISIBLE_HOME_AND_DETAIL_PRICES_AGREE"
+      ],
+      "benefits": [
+        {
+          "type": "COUPON",
+          "status": "CONDITIONAL",
+          "percent": 10,
+          "capMinor": null,
+          "conditions": "DASHAIN10 code; order minimum NPR 500; combination rules unknown; not applied to observed price",
+          "amountMinor": null,
+          "description": "DASHAIN10: conditional 10% checkout discount",
+          "eligibleProductKeys": [
+            "27"
+          ]
+        }
+      ],
+      "campaign": {
+        "key": "maake-dashain-2026",
+        "title": "Maake Beauty Dashain/Tihar 2026",
+        "endsAt": "2026-11-12T06:16:00.000Z",
+        "seasonAD": 2026,
+        "seasonBS": null,
+        "startsAt": null,
+        "festivals": [
+          "DASHAIN",
+          "TIHAR"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://maakebeautynepal.com/",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "2026-11-12T12:01:00+05:45"
+      },
+      "evidence": [
+        {
+          "url": "https://maakebeautynepal.com/",
+          "path": "dated flashSaleTimer JSON; simple product card",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "salePrice",
+            "originalPrice"
+          ],
+          "excerpt": "DASHAIN & TIHAR Special; Sale is Live; deadline 2026-11-12T12:01:00+05:45; Maake Beauty Eyeliner; NPR 329; reference NPR 429",
+          "fetchedAt": "2026-10-01T18:32:04.632Z",
+          "contentHash": "93e6bd610203c8f6585ed20bd3ecc071adeb128eaf3d5d52f5b58ce808f68207",
+          "extractorVersion": "maake-v1"
+        },
+        {
+          "url": "https://maakebeautynepal.com/product/maake-beauty-eyeliner",
+          "path": "productPage JSON arguments; simple product/cart identity; displayed price/MRP; explicit product DASHAIN10 offer",
+          "fields": [
+            "membership",
+            "product",
+            "salePrice",
+            "originalPrice",
+            "components",
+            "benefits",
+            "eligibility"
+          ],
+          "excerpt": "Maake Beauty Eyeliner; NPR 329; reference NPR 429; DASHAIN AND TIHAR — Shop for Rs. 500.00 & Get FLAT 10% OFF; Displayed product sale price; DASHAIN10 advertises a conditional 10% checkout discount on orders of at least NPR 500. Coupon savings are not applied to this observed price; combination rules are unknown.",
+          "fetchedAt": "2026-10-01T18:32:04.632Z",
+          "contentHash": "3e1ba6dd7c09fcf7ab7cb9c9c34faf5ce6c76164a7b4b1c62479c5c169a955a5",
+          "extractorVersion": "maake-v1"
+        }
+      ],
+      "merchant": "Maake Beauty Nepal",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Maake Beauty Eyeliner"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T18:32:04.632Z",
+      "priceObservedAt": "2026-10-01T18:32:04.632Z"
+    },
+    "relevance": 0,
+    "id": "80c34012-8921-45c1-a8fd-89153bdc09ed",
+    "sourceId": "maake-beauty-nepal",
+    "sourceOfferKey": "maake-dashain-2026:27",
+    "sellerDisplayName": "Maake Beauty Nepal",
+    "title": "Maake Beauty Eyeliner",
+    "summary": null,
+    "productName": "Maake Beauty Eyeliner",
+    "brandName": "Maake Beauty",
+    "category": "FASHION_AND_LIFESTYLE",
+    "imageUrl": null,
+    "destinationUrl": "https://maakebeautynepal.com/product/maake-beauty-eyeliner",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 42900
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 32900
+    },
+    "discountPercent": 23,
+    "discountLabel": null,
+    "terms": "Displayed product sale price; DASHAIN10 advertises a conditional 10% checkout discount on orders of at least NPR 500. Coupon savings are not applied to this observed price; combination rules are unknown.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": {
+      "kind": "INSTANT",
+      "value": "2026-11-12T06:16:00.000Z"
+    },
+    "firstDiscoveredAt": "2026-10-01T18:32:07.993Z",
+    "expiresAt": "2026-11-12T06:16:00.000Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T18:32:07.993Z",
+    "updatedAt": "2026-10-01T18:32:07.993Z"
+  },
+  {
+    "discovery": {
+      "product": {
         "key": "54429414457660",
         "gtin": null,
         "model": "Cute Cartoon Nail Art Color Mixing Palette",

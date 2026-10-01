@@ -1778,6 +1778,21 @@
         "value": "2026-10-10T18:14:59.999Z"
       },
       "terms": "Online sale only; sale items have no refund, return or exchange."
+    },
+    {
+      "sourceId": "maake-beauty-nepal",
+      "title": "Maake Beauty Eyeliner",
+      "destinationUrl": "https://maakebeautynepal.com/product/maake-beauty-eyeliner",
+      "originalMinor": 42900,
+      "saleMinor": 32900,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Maake Beauty",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": {
+        "kind": "INSTANT",
+        "value": "2026-11-12T06:16:00.000Z"
+      },
+      "terms": "Displayed product sale price; DASHAIN10 advertises a conditional 10% checkout discount on orders of at least NPR 500. Coupon savings are not applied to this observed price; combination rules are unknown."
     }
   ],
   "negatives": [

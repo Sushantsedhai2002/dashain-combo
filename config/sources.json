@@ -1504,5 +1504,25 @@
       "https://maskqueenprofessional.com/collections/dashain-online-sale"
     ],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "maake-beauty-nepal",
+    "displayName": "Maake Beauty Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://maakebeautynepal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T18:29:18.926Z",
+      "evidenceUrl": "https://maakebeautynepal.com/"
+    },
+    "campaignEntryPoints": ["https://maakebeautynepal.com/"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   }
 ]
