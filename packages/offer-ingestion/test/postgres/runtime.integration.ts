@@ -58,12 +58,13 @@ describe("ingestion runtime with PostgreSQL", () => {
     "wild-yak-gear",
     "ac-ghar",
     "mudita-store",
+    "sabko-phone",
   ];
   const priceSourceIds = createWebsiteAdapters(async () => ({ status: 503, body: "" }))
     .map((a) => a.sourceId)
     .filter((id) => !campaignIds.includes(id) && !expandedSourceIds.includes(id));
   // Real crawl spacing is retained. Each group verifies both publication and rediscovery
-  // without overlapping database resets. The nine-page collector needs a scoped 30s budget.
+  // without overlapping database resets. The complete multi-page collectors need a scoped 60s budget.
   it.each([
     { name: "priced listings", sourceIds: priceSourceIds, offerCount: 359 },
     {
@@ -72,6 +73,7 @@ describe("ingestion runtime with PostgreSQL", () => {
       offerCount: 240,
     },
     { name: "SB Furniture paginated collection", sourceIds: ["sb-furniture"], offerCount: 210 },
+    { name: "Sabko exact refurbished units", sourceIds: ["sabko-phone"], offerCount: 2 },
     { name: "Mudita dated Dashain section", sourceIds: ["mudita-store"], offerCount: 233 },
     { name: "AC Ghar festive models", sourceIds: ["ac-ghar"], offerCount: 6 },
     { name: "Wild Yak selected variants", sourceIds: ["wild-yak-gear"], offerCount: 40 },
@@ -116,7 +118,7 @@ describe("ingestion runtime with PostgreSQL", () => {
         await runtime.close();
       }
     },
-    30_000,
+    60_000,
   );
   it("publishes an active source offer idempotently across runs", async () => {
     const runtime = createIngestionRuntime(databaseUrl, io, {

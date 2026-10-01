@@ -15,13 +15,13 @@
 
 ## Modules
 
-| Module ID | Responsibility | Depends on |
-|---|---|---|
-| `source-registry` | Define, verify, and configure trusted identities, approved campaign entry points and collection capabilities | — |
-| `offer-catalog` | Canonical offer model, storage, lifecycle, categories, search, and query interfaces | `source-registry` |
-| `offer-ingestion` | Schedule collection, extract and normalize promotions, deduplicate, and publish automatically | `source-registry`, `offer-catalog` |
-| `discovery-web` | Responsive homepage, search, filters, offer presentation, and outbound links | `offer-catalog` |
-| `watchlists` | Verified-email subscriptions, offer matching, and notifications | `offer-catalog` |
+| Module ID         | Responsibility                                                                                               | Depends on                         |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------- |
+| `source-registry` | Define, verify, and configure trusted identities, approved campaign entry points and collection capabilities | —                                  |
+| `offer-catalog`   | Canonical offer model, storage, lifecycle, categories, search, and query interfaces                          | `source-registry`                  |
+| `offer-ingestion` | Schedule collection, extract and normalize promotions, deduplicate, and publish automatically                | `source-registry`, `offer-catalog` |
+| `discovery-web`   | Responsive homepage, search, filters, offer presentation, and outbound links                                 | `offer-catalog`                    |
+| `watchlists`      | Verified-email subscriptions, offer matching, and notifications                                              | `offer-catalog`                    |
 
 ## Build order
 
@@ -42,4 +42,4 @@ CG Digital retains its original identity and is active after a successful produc
 
 ## Discounted-product and social-feed implementation
 
-The public website now enforces fresh evidenced Dashain product discounts across listings, details and comparisons. CG Digital collection covers five reviewed product price tables (78 products in the saved fixture and fresh live dry-run). Merchant-provided structured social-promotion feeds are supported by the registry and worker, with exact registered account attribution, explicit product prices, merchant verification timestamps and partial-channel removal protection. Collectors now include IT Monster, Maxell, Proud Nepal, SB Furniture, Sukumart, InfoTechs Nepal, Wild Yak Gear, AC Ghar and Mudita Store. No real merchant feed has yet been configured; direct social APIs and OCR remain expansion work. The full expansion target is still unmet; see docs/source-expansion-coverage.json and config/source-discovery.json.
+The public website now enforces fresh evidenced Dashain product discounts across listings, details and comparisons. CG Digital collection covers five reviewed product price tables (78 products in the saved fixture and fresh live dry-run). Merchant-provided structured social-promotion feeds are supported by the registry and worker, with exact registered account attribution, explicit product prices, merchant verification timestamps and partial-channel removal protection. Collectors now include IT Monster, Maxell, Proud Nepal, SB Furniture, Sukumart, InfoTechs Nepal, Wild Yak Gear, AC Ghar, Mudita Store and Sabko Phone. No real merchant feed has yet been configured; direct social APIs and OCR remain expansion work. The full expansion target is still unmet; see docs/source-expansion-coverage.json and config/source-discovery.json.

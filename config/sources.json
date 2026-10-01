@@ -1269,7 +1269,7 @@
   {
     "id": "sabko-phone",
     "displayName": "Sabko Phone",
-    "status": "CANDIDATE",
+    "status": "ACTIVE",
     "supportedMarkets": ["NP"],
     "marketSegments": ["electronics-retail"],
     "channels": [
@@ -1279,8 +1279,15 @@
         "isEnabled": true
       }
     ],
-    "verification": null,
-    "campaignEntryPoints": ["https://sabkophone.com/category/blogs/"]
+    "verification": {
+      "verifiedAt": "2026-10-01T17:52:07.371Z",
+      "evidenceUrl": "https://sabkophone.com/sabko-phone-dashain-offer-2083/"
+    },
+    "campaignEntryPoints": [
+      "https://sabkophone.com/sabko-phone-dashain-offer-2083/",
+      "https://sabkophone.com/shop/"
+    ],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   },
   {
     "id": "sun-traders",
