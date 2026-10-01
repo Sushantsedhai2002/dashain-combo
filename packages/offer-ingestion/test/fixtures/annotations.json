@@ -1763,6 +1763,21 @@
       "sourcePublishedAt": null,
       "explicitValidityEnd": null,
       "terms": null
+    },
+    {
+      "sourceId": "mask-queen-nepal",
+      "title": "15 Pcs Nail Art Brush Set | White-15PC",
+      "destinationUrl": "https://maskqueenprofessional.com/products/15-piece-set-hook-line-pen-nylon-hair-plastic-rod-multi-functional-combination-manicure-brush-painting-brush-painting-tool?variant=47964543091004",
+      "originalMinor": 25000,
+      "saleMinor": 15000,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": "Mask Queen Nepal",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": {
+        "kind": "INSTANT",
+        "value": "2026-10-10T18:14:59.999Z"
+      },
+      "terms": "Online sale only; sale items have no refund, return or exchange."
     }
   ],
   "negatives": [

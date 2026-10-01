@@ -1481,5 +1481,28 @@
     },
     "campaignEntryPoints": ["https://dealayo.com/dashain-offer-2082.html"],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "mask-queen-nepal",
+    "displayName": "Mask Queen Nepal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://maskqueenprofessional.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T18:16:41.771Z",
+      "evidenceUrl": "https://maskqueenprofessional.com/pages/dashain-sale-2026-new"
+    },
+    "campaignEntryPoints": [
+      "https://maskqueenprofessional.com/pages/dashain-sale-2026-new",
+      "https://maskqueenprofessional.com/collections/dashain-online-sale"
+    ],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   }
 ]

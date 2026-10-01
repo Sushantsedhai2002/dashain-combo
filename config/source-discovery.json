@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01T18:11:07.536225Z",
+  "reviewedAt": "2026-10-01T18:22:28.066420Z",
   "target": {
     "sellers": 20,
     "categories": 5,
@@ -20,7 +20,7 @@
       "url": "https://saraworldwide.com.np/",
       "reviewedAt": "2026-10-01T16:10:37.214Z",
       "status": "CURRENT_CAMPAIGN",
-      "note": "Dated 2026 sitewide 10% cart discount; product categories do not expose product cards. Need public product prices and checkout-discount evidence.",
+      "note": "Dated 2026 sitewide 10% cart discount. Public Store API read-only research lists products but only full prices. Robots disallows add-to-cart URLs. Need merchant-provided discounted price/cart evidence and working refresh; no 10% sale prices derived.",
       "countsTowardCoverage": false
     },
     {
@@ -174,6 +174,46 @@
       "status": "COLLECTOR_IMPLEMENTED",
       "note": "First-party collection explicitly says Dashain Offer 2083 despite retaining the old 2082 URL. All 17 pages and 387 unique member identities checked; 324 exact discounted directly listed products have visible/structured price agreement. Undiscounted or unselected variants are omitted. Seller reviewed as Dealayo Pvt Ltd, not the brands it stocks.",
       "countsTowardCoverage": true
+    },
+    {
+      "sourceId": "mask-queen-nepal",
+      "url": "https://maskqueenprofessional.com/pages/dashain-sale-2026-new",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Dated Sep 15\u2013Oct 10, 2026 campaign explicitly links Dashain collection. Bounded first-page pilot checks 20 cards and eight products with uniform observed original/sale prices; exact variant selectors, JSON records and NPR JSON-LD agree. Recorded fixture has 61 available variants; live refresh has 66. From-prices and unavailable variants are omitted. Scan remains partial. Sorted URL disallowed by robots; crawlable unsorted collection used.",
+      "countsTowardCoverage": true,
+      "reviewedAt": "2026-10-01T18:22:28.066420Z"
+    },
+    {
+      "sourceId": "maake-beauty-nepal",
+      "url": "https://maakebeautynepal.com/",
+      "status": "CURRENT_CAMPAIGN",
+      "note": "First-party sitewide Dashain/Tihar 10% coupon promotion has explicit 2026-11-12 deadline and NPR 500 minimum. Exact observed product price pairs are available. Still reviewing campaign/product eligibility and checkout conditions; coupon discounts must not be generated as observed sale prices.",
+      "countsTowardCoverage": false,
+      "reviewedAt": "2026-10-01T18:22:28.066420Z"
+    },
+    {
+      "sourceId": "giftmandu",
+      "url": "https://www.giftmandu.com/dashain",
+      "status": "PRODUCT_EVIDENCE_UNVERIFIED",
+      "note": "Current 2083 products exist, but reviewed product shows only full price and conditional extra discount on two-plus hampers. Collection redirects resolve to /dashain without trailing slash. Need actual discounted original/sale price pair; coupon alone does not count.",
+      "countsTowardCoverage": false,
+      "reviewedAt": "2026-10-01T18:22:28.066420Z"
+    },
+    {
+      "sourceId": "aroan-nepal",
+      "url": "https://aroannepal.com/",
+      "status": "FETCH_FAILED",
+      "note": "Indexed first-party all-item Dashain sale is undated; production-safe website fetch failed response validation. Ordinary read-only header probe reached a Next page. Need current campaign evidence and working product refresh.",
+      "countsTowardCoverage": false,
+      "reviewedAt": "2026-10-01T18:22:28.066420Z"
+    },
+    {
+      "sourceId": "makkuse",
+      "url": "https://makkuse.com/",
+      "status": "FETCH_FAILED",
+      "note": "Daraz indexed current 2083 gift packs with discounts, but live public detail omitted seller and sale price; manufacturer website robots policy unavailable. Cannot publish indexed prices or count seller without working refresh.",
+      "countsTowardCoverage": false,
+      "reviewedAt": "2026-10-01T18:22:28.066420Z"
     }
   ]
 }
