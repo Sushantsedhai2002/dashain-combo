@@ -1,3 +1,10 @@
+import {
+  DiscoverySchema,
+  OFFER_TYPES,
+  parseBudgetIntent,
+  type OfferDiscovery,
+  type OfferType,
+} from "./discovery.ts";
 import { parseSourceRegistry, type SourceDefinition } from "@dashain-offer/source-registry";
 import { z } from "zod";
 
@@ -76,6 +83,7 @@ const MoneySchema = z
 
 const PublishOfferSchema = z
   .object({
+    discovery: DiscoverySchema.nullish().transform((value) => value ?? null),
     source: z.unknown(),
     sourceOfferKey: requiredText(200),
     title: requiredText(300),
@@ -138,6 +146,15 @@ const OfferIdSchema = z.uuid();
 
 const SearchOffersSchema = z
   .object({
+    model: requiredText(200).optional(),
+    variant: requiredText(200).optional(),
+    scope: z.enum(["ALL", "DASHAIN"]).default("ALL"),
+    season: z.number().int().min(2000).max(2200).optional(),
+    brands: z.array(requiredText(200)).max(50).default([]),
+    offerTypes: z.array(z.enum(OFFER_TYPES)).default([]),
+    availability: z.literal("IN_STOCK").optional(),
+    minPriceMinor: z.number().int().nonnegative().safe().optional(),
+    maxPriceMinor: z.number().int().nonnegative().safe().optional(),
     text: z
       .string()
       .trim()
@@ -155,7 +172,7 @@ const SearchOffersSchema = z
       .default([])
       .transform((values) => [...new Set(values)]),
     currency: CurrencySchema.nullish().transform((value) => value ?? null),
-    sort: z.enum(OFFER_SORTS).default("NEWEST"),
+    sort: z.enum(OFFER_SORTS).optional(),
     limit: z.number().int().min(1).max(100).default(20),
     cursor: z
       .string()
@@ -168,6 +185,7 @@ const SearchOffersSchema = z
   .strict();
 
 export type NormalizedPublishOfferInput = Readonly<{
+  discovery: OfferDiscovery | null;
   source: SourceDefinition;
   sourceOfferKey: string;
   title: string;
@@ -193,6 +211,15 @@ export type NormalizedWithdrawOfferInput = Readonly<{
 }>;
 
 export type NormalizedSearchOffersQuery = Readonly<{
+  model?: string | undefined;
+  variant?: string | undefined;
+  scope: "ALL" | "DASHAIN";
+  season?: number | undefined;
+  brands: readonly string[];
+  offerTypes: readonly OfferType[];
+  availability?: "IN_STOCK" | undefined;
+  minPriceMinor?: number | undefined;
+  maxPriceMinor?: number | undefined;
   text: string | null;
   categories: readonly OfferCategory[];
   sourceIds: readonly string[];
@@ -295,6 +322,41 @@ export function parsePublishOfferInput(input: unknown): CatalogResult<Normalized
       message: "Source must be ACTIVE",
     });
   }
+  const discovery = parsed.data.discovery;
+  if (discovery !== null) {
+    const approved = (url: string) =>
+      source.channels.some(
+        (channel) =>
+          channel.kind === "WEBSITE" &&
+          channel.isEnabled &&
+          new URL(channel.url).origin === new URL(url).origin,
+      );
+    if (
+      discovery.evidence.some((evidence) => !approved(evidence.url)) ||
+      (discovery.campaign && !approved(discovery.campaign.evidenceUrl))
+    )
+      sourceIssues.push({
+        code: "INVALID_INPUT",
+        path: "discovery.evidence",
+        message: "Evidence must use an approved source origin",
+      });
+    if (discovery.qualification === "QUALIFIED") {
+      const fields = new Set(discovery.evidence.flatMap((entry) => entry.fields));
+      for (const field of ["salePrice", "originalPrice"] as const)
+        if (parsed.data[field] !== null && !fields.has(field))
+          sourceIssues.push({
+            code: "INVALID_INPUT",
+            path: `discovery.evidence`,
+            message: `Missing evidence for ${field}`,
+          });
+      if (discovery.offerType === "BUNDLE" && discovery.components.length < 2)
+        sourceIssues.push({
+          code: "INVALID_INPUT",
+          path: "discovery.components",
+          message: "A bundle needs at least two sourced components",
+        });
+    }
+  }
   if (sourceIssues.length > 0) return invalid(sourceIssues);
 
   return valid(Object.freeze({ ...parsed.data, source }));
@@ -331,5 +393,37 @@ export function parseSearchOffersQuery(input: unknown): CatalogResult<Normalized
     ]);
   }
 
-  return valid(Object.freeze(parsed.data));
+  const intent = parseBudgetIntent(parsed.data.text ?? "");
+  const maxPriceMinor = parsed.data.maxPriceMinor ?? intent.maxPriceMinor ?? undefined;
+  if (
+    parsed.data.minPriceMinor !== undefined &&
+    maxPriceMinor !== undefined &&
+    parsed.data.minPriceMinor > maxPriceMinor
+  )
+    return invalid([
+      {
+        code: "INVALID_INPUT",
+        path: "maxPriceMinor",
+        message: "Maximum budget must be at least minimum budget",
+      },
+    ]);
+  if (
+    (parsed.data.minPriceMinor !== undefined || maxPriceMinor !== undefined) &&
+    parsed.data.currency === null
+  )
+    return invalid([
+      {
+        code: "INVALID_INPUT",
+        path: "currency",
+        message: "Currency is required for budget filtering",
+      },
+    ]);
+  return valid(
+    Object.freeze({
+      ...parsed.data,
+      text: intent.text || null,
+      sort: parsed.data.sort ?? (intent.text ? "RELEVANCE" : "NEWEST"),
+      ...(maxPriceMinor !== undefined ? { maxPriceMinor } : {}),
+    }),
+  );
 }

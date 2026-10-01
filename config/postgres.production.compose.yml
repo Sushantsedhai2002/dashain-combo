@@ -1,0 +1,19 @@
+services:
+  catalog-postgres:
+    image: postgres:17.6-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dashain_offer_catalog
+      POSTGRES_USER: dashain
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a production database password}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - catalog-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dashain -d dashain_offer_catalog"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+volumes:
+  catalog-data:

@@ -16,3 +16,11 @@ export type {
   SourceTime,
   WithdrawOfferInput,
 } from "./contract.ts";
+
+export {
+  OFFER_TYPES,
+  DiscoverySchema,
+  UNKNOWN_ELIGIBILITY,
+  parseBudgetIntent,
+} from "./discovery.ts";
+export type { OfferDiscovery, OfferType } from "./discovery.ts";

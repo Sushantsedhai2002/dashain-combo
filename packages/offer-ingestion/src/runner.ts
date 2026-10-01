@@ -6,7 +6,12 @@ export type CandidateOffer = Omit<PublishOfferInput, "source">;
 export type ScanFailure = "NETWORK_ERROR" | "STRUCTURE_CHANGED" | "UNSUPPORTED_SOURCE";
 
 export type ScanResult =
-  | Readonly<{ ok: true; offers: readonly CandidateOffer[] }>
+  | Readonly<{
+      ok: true;
+      offers: readonly CandidateOffer[];
+      authoritative?: boolean;
+      partial?: boolean;
+    }>
   | Readonly<{ ok: false; reason: ScanFailure }>;
 
 export type SourceAdapter = Readonly<{
@@ -20,6 +25,8 @@ export type ObservedOffer = Readonly<{
 }>;
 
 export interface ObservationStore {
+  quarantine?(sourceId: string, offer: CandidateOffer, reasons: readonly unknown[]): Promise<void>;
+  clearQuarantine?(sourceId: string, key: string): Promise<void>;
   list(sourceId: string): Promise<readonly ObservedOffer[]>;
   resolveKey(sourceId: string, baseKey: string): Promise<string>;
   remember(sourceId: string, baseKey: string, offer: ObservedOffer): Promise<void>;
@@ -32,7 +39,7 @@ export type Presence = "PRESENT" | "REMOVED" | "UNKNOWN";
 export type RunResult =
   | Readonly<{
       sourceId: string;
-      status: "COMPLETE";
+      status: "COMPLETE" | "PARTIAL";
       published: number;
       withdrawn: number;
       skipped: number;
@@ -112,10 +119,9 @@ export function createIngestionRunner(dependencies: IngestionDependencies): Read
             continue;
           }
           candidateKeys.add(offer.sourceOfferKey);
-          const sourceOfferKey = await dependencies.observations.resolveKey(
-            source.id,
-            offer.sourceOfferKey,
-          );
+          const sourceOfferKey = offer.discovery?.campaign
+            ? offer.sourceOfferKey
+            : await dependencies.observations.resolveKey(source.id, offer.sourceOfferKey);
           current.add(sourceOfferKey);
           const result = await dependencies.catalog.publishOffer({
             ...offer,
@@ -123,8 +129,9 @@ export function createIngestionRunner(dependencies: IngestionDependencies): Read
             source,
           });
           if (!result.ok) {
+            await dependencies.observations.quarantine?.(source.id, offer, result.issues);
             rejected = true;
-            break;
+            continue;
           }
           if (result.value.lifecycleStatus === "WITHDRAWN") {
             await dependencies.observations.remember(source.id, offer.sourceOfferKey, {
@@ -139,6 +146,7 @@ export function createIngestionRunner(dependencies: IngestionDependencies): Read
             sourceOfferKey,
             destinationUrl: offer.destinationUrl,
           });
+          await dependencies.observations.clearQuarantine?.(source.id, offer.sourceOfferKey);
           published += 1;
         }
         if (rejected) {
@@ -149,9 +157,12 @@ export function createIngestionRunner(dependencies: IngestionDependencies): Read
         let withdrawn = 0;
         for (const offer of existing) {
           if (current.has(offer.sourceOfferKey)) continue;
+          if (scan.partial) continue;
           let presence: Presence;
           try {
-            presence = await dependencies.checkPresence(offer.destinationUrl, source);
+            presence = scan.authoritative
+              ? "REMOVED"
+              : await dependencies.checkPresence(offer.destinationUrl, source);
           } catch {
             presence = "UNKNOWN";
           }
@@ -169,7 +180,13 @@ export function createIngestionRunner(dependencies: IngestionDependencies): Read
           await dependencies.observations.markWithdrawn(source.id, offer.sourceOfferKey);
           withdrawn += 1;
         }
-        results.push({ sourceId: source.id, status: "COMPLETE", published, withdrawn, skipped });
+        results.push({
+          sourceId: source.id,
+          status: scan.partial ? "PARTIAL" : "COMPLETE",
+          published,
+          withdrawn,
+          skipped,
+        });
       }
       return Object.freeze(results);
     },

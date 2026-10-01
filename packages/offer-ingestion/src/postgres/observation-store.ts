@@ -1,6 +1,6 @@
 import type { Pool } from "pg";
 
-import type { ObservationStore, ObservedOffer } from "../runner.ts";
+import type { CandidateOffer, ObservationStore, ObservedOffer, RunResult } from "../runner.ts";
 
 type ObservationRow = Readonly<{
   source_offer_key: string;
@@ -21,6 +21,40 @@ export class PostgresObservationStore implements ObservationStore {
 
   constructor(pool: Pool) {
     this.pool = pool;
+  }
+
+  async quarantine(
+    sourceId: string,
+    offer: CandidateOffer,
+    reasons: readonly unknown[],
+  ): Promise<void> {
+    await this.pool.query(
+      `INSERT INTO ingestion_quarantine (source_id, source_offer_key, reasons, candidate) VALUES ($1,$2,$3,$4) ON CONFLICT (source_id, source_offer_key) DO UPDATE SET reasons=EXCLUDED.reasons, candidate=EXCLUDED.candidate, updated_at=CURRENT_TIMESTAMP`,
+      [sourceId, offer.sourceOfferKey, JSON.stringify(reasons), JSON.stringify(offer)],
+    );
+  }
+  async clearQuarantine(sourceId: string, key: string): Promise<void> {
+    await this.pool.query(
+      "DELETE FROM ingestion_quarantine WHERE source_id=$1 AND source_offer_key=$2",
+      [sourceId, key],
+    );
+  }
+  async isDue(sourceId: string): Promise<boolean> {
+    const result = await this.pool.query(
+      "SELECT 1 FROM ingestion_source_health WHERE source_id=$1 AND next_scan_at > CURRENT_TIMESTAMP",
+      [sourceId],
+    );
+    return result.rows.length === 0;
+  }
+  async recordOutcome(result: RunResult): Promise<void> {
+    await this.pool.query(
+      `INSERT INTO ingestion_source_health (source_id, last_scan_at, next_scan_at, consecutive_failures, outcome)
+      VALUES ($1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP + CASE WHEN $3 THEN INTERVAL '30 minutes' ELSE INTERVAL '6 hours' END, CASE WHEN $3 THEN 1 ELSE 0 END, $2)
+      ON CONFLICT (source_id) DO UPDATE SET last_scan_at=CURRENT_TIMESTAMP, outcome=EXCLUDED.outcome,
+      consecutive_failures=CASE WHEN $3 THEN ingestion_source_health.consecutive_failures+1 ELSE 0 END,
+      next_scan_at=CURRENT_TIMESTAMP + CASE WHEN $3 THEN least(24, power(2, least(ingestion_source_health.consecutive_failures, 6)) * 0.5) * INTERVAL '1 hour' ELSE INTERVAL '6 hours' END`,
+      [result.sourceId, JSON.stringify(result), result.status === "FAILED"],
+    );
   }
 
   async list(sourceId: string): Promise<readonly ObservedOffer[]> {

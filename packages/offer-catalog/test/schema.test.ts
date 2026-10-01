@@ -42,6 +42,7 @@ describe("parsePublishOfferInput", () => {
       ok: true,
       value: {
         ...validPublishInput,
+        discovery: null,
         summary: null,
         productName: null,
         brandName: null,
@@ -168,6 +169,9 @@ describe("parseSearchOffersQuery", () => {
     ).toEqual({
       ok: true,
       value: {
+        scope: "ALL",
+        brands: [],
+        offerTypes: [],
         text: null,
         categories: ["AUTOMOTIVE"],
         sourceIds: ["daraz-nepal"],

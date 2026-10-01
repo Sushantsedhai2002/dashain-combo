@@ -6,10 +6,16 @@ import { createOfferCatalog, type PublishOfferInput } from "@dashain-offer/offer
 import { activeSource, textOnlyOffer } from "./fixtures/offers.ts";
 
 describe("offer-catalog public package contract", () => {
-  it("exports only the catalog factory at runtime", async () => {
+  it("exports catalog and shared discovery contracts at runtime", async () => {
     const publicModule = await import("@dashain-offer/offer-catalog");
 
-    expect(Object.keys(publicModule)).toEqual(["createOfferCatalog"]);
+    expect(Object.keys(publicModule)).toEqual([
+      "createOfferCatalog",
+      "OFFER_TYPES",
+      "DiscoverySchema",
+      "UNKNOWN_ELIGIBILITY",
+      "parseBudgetIntent",
+    ]);
   });
 
   it("composes publication input with source-registry definitions", () => {

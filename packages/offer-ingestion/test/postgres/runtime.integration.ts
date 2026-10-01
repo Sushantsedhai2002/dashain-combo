@@ -25,6 +25,7 @@ const io = {
 const html = `<div class="products-list-container"><div class="common-item grey-white"><a href="https://evostore.com.np/speaker"><div class="name"><p>Speaker sale</p></div><div class="price"><p>NPR 4,000<s>NPR 5,000</s></p></div></a></div></div>`;
 
 beforeAll(async () => {
+  await pool.query("DROP SCHEMA public CASCADE; CREATE SCHEMA public");
   await runMigrations({
     pool,
     migrationsDirectory: fileURLToPath(
@@ -36,7 +37,9 @@ beforeAll(async () => {
 
 beforeEach(async () => {
   output.length = 0;
-  await pool.query("TRUNCATE ingestion_observations, offers");
+  await pool.query(
+    "TRUNCATE ingestion_observations, ingestion_source_health, ingestion_quarantine, offer_price_observations, offers",
+  );
 });
 
 afterAll(async () => {
@@ -51,7 +54,7 @@ describe("ingestion runtime with PostgreSQL", () => {
   // Real crawl spacing is retained. Each group verifies both publication and rediscovery
   // within the existing timeout, without overlapping database resets.
   it.each([
-    { name: "priced listings", sourceIds: priceSourceIds, offerCount: 281 },
+    { name: "priced listings", sourceIds: priceSourceIds, offerCount: 300 },
     { name: "Fonepay campaigns", sourceIds: ["fonepay"], offerCount: 4 },
     { name: "Yamaha and Khalti campaigns", sourceIds: ["yamaha-nepal", "khalti"], offerCount: 4 },
   ])(

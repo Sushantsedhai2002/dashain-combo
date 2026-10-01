@@ -31,6 +31,28 @@ export const SourceDefinitionSchema = z
     marketSegments: z.array(z.string().trim().min(1)).min(1).readonly(),
     channels: z.array(SourceChannelSchema).readonly(),
     verification: VerificationEvidenceSchema.nullable(),
+    campaignEntryPoints: z.array(httpsUrl).max(20).readonly().optional(),
+    capabilities: z
+      .array(z.enum(["CAMPAIGN", "PRODUCT", "DOCUMENT", "REVALIDATION"]))
+      .readonly()
+      .optional(),
+  })
+  .superRefine((source, ctx) => {
+    for (const url of source.campaignEntryPoints ?? []) {
+      if (
+        !source.channels.some(
+          (channel) =>
+            channel.kind === "WEBSITE" &&
+            channel.isEnabled &&
+            channel.url.split("/")[2] === url.split("/")[2],
+        )
+      )
+        ctx.addIssue({
+          code: "custom",
+          path: ["campaignEntryPoints"],
+          message: "Campaign entry point must use an enabled website origin",
+        });
+    }
   })
   .readonly();
 

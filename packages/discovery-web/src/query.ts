@@ -1,4 +1,11 @@
-import type { OfferCategory, OfferSort, SearchOffersQuery } from "@dashain-offer/offer-catalog";
+import {
+  OFFER_TYPES,
+  parseBudgetIntent,
+  type OfferType,
+  type OfferCategory,
+  type OfferSort,
+  type SearchOffersQuery,
+} from "@dashain-offer/offer-catalog";
 
 export type SourceOption = Readonly<{ id: string; displayName: string }>;
 export const CATEGORIES: Readonly<Record<OfferCategory, string>> = Object.freeze({
@@ -15,6 +22,7 @@ export const CATEGORIES: Readonly<Record<OfferCategory, string>> = Object.freeze
   OTHER: "More offers",
 });
 export const SORTS: Readonly<Record<OfferSort, string>> = Object.freeze({
+  RELEVANCE: "Most relevant",
   NEWEST: "Newest first",
   EXPIRING_SOON: "Ending soon",
   DISCOUNT_DESC: "Biggest discount",
@@ -34,15 +42,53 @@ export function parseDiscoveryQuery(
 ): Readonly<{ ok: true; query: SearchOffersQuery }> | Readonly<{ ok: false }> {
   if (
     [...params.keys()].some(
-      (key) => !["q", "category", "source", "sort", "cursor"].includes(key),
+      (key) =>
+        ![
+          "q",
+          "category",
+          "source",
+          "sort",
+          "cursor",
+          "scope",
+          "brand",
+          "type",
+          "min",
+          "max",
+          "stock",
+        ].includes(key),
     ) ||
-    ["q", "sort", "cursor"].some((key) => params.getAll(key).length > 1)
+    ["q", "sort", "cursor", "scope", "min", "max", "stock"].some(
+      (key) => params.getAll(key).length > 1,
+    )
   )
     return { ok: false };
   const text = params.get("q")?.trim() || null;
   const categories = [...new Set(params.getAll("category"))];
   const sourceIds = [...new Set(params.getAll("source"))];
-  const selectedSort = params.get("sort") || "NEWEST";
+  const intent = parseBudgetIntent(text ?? "");
+  const selectedSort = params.get("sort") || (intent.text ? "RELEVANCE" : "NEWEST");
+  const scope = params.get("scope") || "ALL";
+  const budget = (key: string): number | undefined => {
+    const value = params.get(key);
+    return value === null || value === ""
+      ? undefined
+      : /^\d+(?:\.\d{1,2})?$/.test(value)
+        ? Math.round(Number(value) * 100)
+        : NaN;
+  };
+  const minPriceMinor = budget("min");
+  const maxPriceMinor = budget("max") ?? intent.maxPriceMinor ?? undefined;
+  const offerTypes = params.getAll("type") as OfferType[];
+  if (
+    !["ALL", "DASHAIN"].includes(scope) ||
+    !offerTypes.every((type) => OFFER_TYPES.includes(type)) ||
+    [minPriceMinor, maxPriceMinor].some(
+      (value) => value !== undefined && (!Number.isSafeInteger(value) || value < 0),
+    ) ||
+    (minPriceMinor !== undefined && maxPriceMinor !== undefined && minPriceMinor > maxPriceMinor) ||
+    (params.has("stock") && params.get("stock") !== "IN_STOCK")
+  )
+    return { ok: false };
   const cursor = params.get("cursor") || null;
   if (
     (text?.length ?? 0) > 200 ||
@@ -55,13 +101,23 @@ export function parseDiscoveryQuery(
   return {
     ok: true,
     query: {
-      text,
+      text: intent.text || null,
+      scope: scope as "ALL" | "DASHAIN",
+      brands: params.getAll("brand").filter(Boolean),
+      offerTypes,
+      ...(minPriceMinor !== undefined ? { minPriceMinor } : {}),
+      ...(maxPriceMinor !== undefined ? { maxPriceMinor } : {}),
+      ...(params.get("stock") === "IN_STOCK" ? { availability: "IN_STOCK" as const } : {}),
       categories,
       sourceIds,
       sort: selectedSort,
       limit: 24,
       cursor,
-      ...(selectedSort.startsWith("PRICE_") ? { currency: "NPR" } : {}),
+      ...(selectedSort.startsWith("PRICE_") ||
+      minPriceMinor !== undefined ||
+      maxPriceMinor !== undefined
+        ? { currency: "NPR" }
+        : {}),
     },
   };
 }

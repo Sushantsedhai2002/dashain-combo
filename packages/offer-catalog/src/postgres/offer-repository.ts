@@ -1,3 +1,4 @@
+import { searchTokens } from "../discovery.ts";
 import type { Pool } from "pg";
 
 import type { PublishCommand, SearchCatalogRepository, SearchCommand } from "../catalog.ts";
@@ -7,6 +8,7 @@ import { CatalogStorageError } from "./errors.ts";
 import { rowToOffer, type OfferRow } from "./row-mapper.ts";
 
 const RETURNING_COLUMNS = `
+  discovery,
   id,
   source_id,
   source_offer_key,
@@ -81,16 +83,55 @@ function buildSearchSql(command: SearchCommand, now: Date): SearchSql {
   ];
   const query = command.query;
 
+  const document = "lower(search_document)";
+  let rank = "0";
   if (query.text !== null) {
-    const pattern = parameter(`%${escapeLikePattern(query.text)}%`);
-    clauses.push(`(
-      title ILIKE ${pattern} ESCAPE E'\\\\'
-      OR seller_display_name ILIKE ${pattern} ESCAPE E'\\\\'
-      OR category ILIKE ${pattern} ESCAPE E'\\\\'
-      OR COALESCE(product_name, '') ILIKE ${pattern} ESCAPE E'\\\\'
-      OR COALESCE(brand_name, '') ILIKE ${pattern} ESCAPE E'\\\\'
-    )`);
+    const groups = searchTokens(query.text);
+    const matches = groups.map(
+      (group) =>
+        "(" +
+        group
+          .map((token) => {
+            const term = parameter(token);
+            const literal = `${document} LIKE ${parameter(`%${escapeLikePattern(token)}%`)} ESCAPE E'\\\\'`;
+            const words = `to_tsvector('simple', search_document) @@ plainto_tsquery('simple', ${term})`;
+            const typo = /^[a-z]{5,}$/.test(token)
+              ? ` OR word_similarity(${term}, ${document}) >= 0.65`
+              : "";
+            return `(${words} OR ${literal}${typo})`;
+          })
+          .join(" OR ") +
+        ")",
+    );
+    clauses.push(...matches);
+    const exact = parameter(query.text.toLowerCase());
+    rank = `(CASE WHEN lower(discovery->'product'->>'model') = ${exact} THEN 1000000 ELSE 0 END + CASE WHEN lower(product_name) = ${exact} THEN 10000 ELSE 0 END + (1000 * ts_rank(setweight(to_tsvector('simple', coalesce(product_name, '') || ' ' || coalesce(brand_name, '')), 'A') || setweight(to_tsvector('simple', search_document), 'D'), plainto_tsquery('simple', ${exact})))::int + CASE WHEN discovery->>'qualification' = 'QUALIFIED' THEN 10 ELSE 0 END)`;
   }
+  clauses.push("COALESCE(discovery->>'qualification', 'UNCLASSIFIED') <> 'QUARANTINED'");
+  if (query.scope === "DASHAIN") {
+    clauses.push(
+      "discovery->>'qualification' = 'QUALIFIED'",
+      "discovery->'campaign'->'festivals' ? 'DASHAIN'",
+      `(discovery->'campaign'->>'seasonAD')::int = ${parameter(query.season ?? Number(new Intl.DateTimeFormat("en", { timeZone: "Asia/Kathmandu", year: "numeric" }).format(now)))}`,
+      `(discovery->>'lastVerifiedAt')::timestamptz > ${parameter(new Date(now.getTime() - 48 * 3600000))}`,
+      `(discovery->'campaign'->>'startsAt' IS NULL OR (discovery->'campaign'->>'startsAt')::timestamptz <= ${parameter(now)})`,
+      `(discovery->'campaign'->>'endsAt' IS NULL OR (discovery->'campaign'->>'endsAt')::timestamptz > ${parameter(now)})`,
+    );
+  }
+  if (query.model)
+    clauses.push(`lower(discovery->'product'->>'model') = ${parameter(query.model.toLowerCase())}`);
+  if (query.variant)
+    clauses.push(
+      `lower(discovery->'product'->>'variant') = ${parameter(query.variant.toLowerCase())}`,
+    );
+  if (query.brands.length)
+    clauses.push(
+      `lower(brand_name) = ANY(${parameter(query.brands.map((b) => b.toLowerCase()))}::text[])`,
+    );
+  if (query.offerTypes.length)
+    clauses.push(`discovery->>'offerType' = ANY(${parameter(query.offerTypes)}::text[])`);
+  if (query.availability)
+    clauses.push(`discovery->>'availability' = ${parameter(query.availability)}`);
 
   if (query.categories.length > 0) {
     clauses.push(`category = ANY(${parameter([...query.categories])}::text[])`);
@@ -107,9 +148,26 @@ function buildSearchSql(command: SearchCommand, now: Date): SearchSql {
     )`);
   }
 
+  if (query.minPriceMinor !== undefined)
+    clauses.push(`${effectivePrice} >= ${parameter(query.minPriceMinor)}`);
+  if (query.maxPriceMinor !== undefined)
+    clauses.push(`${effectivePrice} <= ${parameter(query.maxPriceMinor)}`);
+  if (query.minPriceMinor !== undefined || query.maxPriceMinor !== undefined)
+    clauses.push("(discovery IS NULL OR discovery->'product' <> 'null'::jsonb)");
+  if (query.sort === "PRICE_ASC" || query.sort === "PRICE_DESC")
+    clauses.push(
+      `(discovery IS NULL OR (discovery->'product' <> 'null'::jsonb AND ${effectivePrice} IS NOT NULL))`,
+    );
   let orderBy: string;
   const keyset = command.keyset;
   switch (query.sort) {
+    case "RELEVANCE":
+      orderBy = `${rank} DESC, id DESC`;
+      if (keyset !== null) {
+        if (keyset.sort !== "RELEVANCE") throw new CatalogStorageError();
+        clauses.push(`(${rank}, id) < (${parameter(keyset.relevance)}, ${parameter(keyset.id)})`);
+      }
+      break;
     case "NEWEST":
       orderBy = "first_discovered_at DESC, id DESC";
       if (keyset !== null) {
@@ -184,7 +242,7 @@ function buildSearchSql(command: SearchCommand, now: Date): SearchSql {
   const limit = parameter(query.limit + 1);
   return Object.freeze({
     text: `
-      SELECT ${RETURNING_COLUMNS}
+      SELECT ${RETURNING_COLUMNS}, ${rank} AS relevance
       FROM offers
       WHERE ${clauses.join(" AND ")}
       ORDER BY ${orderBy}
@@ -234,6 +292,7 @@ export class PostgresOfferRepository implements SearchCatalogRepository {
       command.expiresAt,
       now,
       now,
+      offer.discovery,
     ];
 
     try {
@@ -268,13 +327,15 @@ export class PostgresOfferRepository implements SearchCatalogRepository {
             first_discovered_at,
             expires_at,
             created_at,
-            updated_at
+            updated_at,
+            discovery
           ) VALUES (
             $1, $2, $3, $4, $5, $6, $7, $8, $9, $10,
             $11, $12, $13, $14, $15, $16, $17, $18, $19, $20,
-            $21, $22, $23, $24, $25, $26, $27, $28, $29
+            $21, $22, $23, $24, $25, $26, $27, $28, $29, $30
           )
           ON CONFLICT (source_id, source_offer_key) DO UPDATE SET
+            discovery = EXCLUDED.discovery,
             seller_display_name = EXCLUDED.seller_display_name,
             title = EXCLUDED.title,
             summary = EXCLUDED.summary,
@@ -350,6 +411,7 @@ export class PostgresOfferRepository implements SearchCatalogRepository {
           SELECT ${RETURNING_COLUMNS}
           FROM offers
           WHERE id = $1
+            AND COALESCE(discovery->>'qualification', 'UNCLASSIFIED') <> 'QUARANTINED'
             AND withdrawn_at IS NULL
             AND (validity_starts_at IS NULL OR validity_starts_at <= $2)
             AND expires_at > $2

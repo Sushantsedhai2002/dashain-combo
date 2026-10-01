@@ -51,3 +51,9 @@ _Avoid_: Deleted offer, expired offer
 **Offer category**:
 A controlled classification of the promoted item or service, independent of the source's market segment.
 _Avoid_: Source segment, arbitrary tag
+
+## Campaign discovery contract (2026-10-01)
+
+A **campaign instance** is a source's evidenced promotion for a specific season. Festival keywords alone do not establish membership. A **product variant** uses a source product key, exact model and variant attributes. A **combo** is either a priced bundle with explicit components, a product with an applicable gift/service, or separately eligible payment promotions whose combination is expressly permitted.
+
+**Qualification** is a versioned rule result, supported by field-level source evidence. Unclassified legacy records remain in All offers; quarantined records remain nonpublic. Current Dashain requires qualified membership, the current AD season, valid lifecycle and recent verification. A new season uses a new campaign identity. Verification never extends fallback expiry. Unknown delivery, stock, expiry and combination permission remain unknown.

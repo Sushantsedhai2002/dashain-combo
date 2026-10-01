@@ -1,8 +1,10 @@
+import { createHash } from "node:crypto";
 import { z } from "zod";
 
 import type { CatalogResult, OfferSort } from "./contract.ts";
 
 export type OfferCursorKeyset =
+  | Readonly<{ sort: "RELEVANCE"; relevance: number; id: string }>
   | Readonly<{
       sort: "NEWEST";
       firstDiscoveredAt: string;
@@ -30,6 +32,7 @@ const InstantSchema = z.iso.datetime({ offset: true });
 const CurrencySchema = z.string().regex(/^[A-Z]{3}$/);
 
 const KeysetSchema = z.discriminatedUnion("sort", [
+  z.object({ sort: z.literal("RELEVANCE"), relevance: z.number().finite(), id: IdSchema }).strict(),
   z
     .object({
       sort: z.literal("NEWEST"),
@@ -72,6 +75,7 @@ const KeysetSchema = z.discriminatedUnion("sort", [
 const CursorPayloadSchema = z
   .object({
     version: z.literal(1),
+    fingerprint: z.string().optional(),
     keyset: KeysetSchema,
   })
   .strict();
@@ -89,19 +93,21 @@ function invalidCursor(): CatalogResult<OfferCursorKeyset> {
   });
 }
 
-export function encodeCursor(keyset: OfferCursorKeyset): string {
+export function encodeCursor(keyset: OfferCursorKeyset, fingerprint?: string): string {
   const parsed = KeysetSchema.safeParse(keyset);
   if (!parsed.success) throw new TypeError("Invalid offer cursor keyset");
 
-  return Buffer.from(JSON.stringify({ version: 1, keyset: parsed.data }), "utf8").toString(
-    "base64url",
-  );
+  return Buffer.from(
+    JSON.stringify({ version: 1, keyset: parsed.data, fingerprint }),
+    "utf8",
+  ).toString("base64url");
 }
 
 export function decodeCursor(
   cursor: string,
   expectedSort: OfferSort,
   expectedCurrency?: string,
+  fingerprint?: string,
 ): CatalogResult<OfferCursorKeyset> {
   try {
     if (!/^[A-Za-z0-9_-]+$/.test(cursor)) return invalidCursor();
@@ -111,7 +117,11 @@ export function decodeCursor(
 
     const parsedJson: unknown = JSON.parse(buffer.toString("utf8"));
     const parsed = CursorPayloadSchema.safeParse(parsedJson);
-    if (!parsed.success || parsed.data.keyset.sort !== expectedSort) {
+    if (
+      !parsed.success ||
+      parsed.data.keyset.sort !== expectedSort ||
+      (fingerprint !== undefined && parsed.data.fingerprint !== fingerprint)
+    ) {
       return invalidCursor();
     }
 
@@ -128,4 +138,9 @@ export function decodeCursor(
   } catch {
     return invalidCursor();
   }
+}
+
+export function queryFingerprint(query: object): string {
+  const { cursor: _cursor, limit: _limit, ...filters } = query as Record<string, unknown>;
+  return createHash("sha256").update(JSON.stringify(filters)).digest("hex").slice(0, 24);
 }

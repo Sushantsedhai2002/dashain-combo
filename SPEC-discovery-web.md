@@ -3,6 +3,14 @@
 Status: Implementation authorized by the user's request on 2026-09-30.
 Module: `discovery-web`; depends on `offer-catalog` and `source-registry`.
 
+## Campaign discovery amendment — 2026-10-01
+
+This amendment supersedes conflicting earlier scope below.
+
+- Shareable query fields add scope (ALL/DASHAIN), brand, type, min/max NPR budget and known stock. Text queries default to RELEVANCE; explicit sorting is preserved. Parsed budget intent is displayed in the editable maximum-price control.
+- Cards and detail pages expose model, campaign, component quantities, guaranteed/conditional/chance benefits, verification date, stock uncertainty, evidence links and applicable conditions. Automatic listing cutoffs are not represented as stated offer deadlines.
+- DASHAIN empty states explicitly say no verified current matches and link to `?scope=ALL`. Set DEFAULT_OFFER_SCOPE=DASHAIN only after migrating and publishing the verified pilot; compatibility default is ALL until that rollout step.
+
 ## Objective and acceptance criteria
 
 Build an English, responsive offer discovery website with a homepage, offer detail pages, literal text search, category and source filtering, all five catalog sorts, cursor pagination, and original seller links. Only publicly visible catalog offers appear. Empty, invalid-query, unavailable-database, and missing-offer states must be usable. Price sorting uses NPR explicitly. Filters persist in the URL and work without JavaScript.

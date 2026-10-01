@@ -1,3 +1,4 @@
+import type { OfferDiscovery, OfferType } from "./discovery.ts";
 import type { SourceDefinition } from "@dashain-offer/source-registry";
 
 export const OFFER_CATEGORIES = [
@@ -15,6 +16,7 @@ export const OFFER_CATEGORIES = [
 ] as const;
 
 export const OFFER_SORTS = [
+  "RELEVANCE",
   "NEWEST",
   "EXPIRING_SOON",
   "DISCOUNT_DESC",
@@ -36,6 +38,7 @@ export type SourceTime =
   | Readonly<{ kind: "KATHMANDU_DATE"; value: string }>;
 
 export type PublishOfferInput = Readonly<{
+  discovery?: OfferDiscovery | null;
   source: SourceDefinition;
   sourceOfferKey: string;
   title: string;
@@ -61,6 +64,15 @@ export type WithdrawOfferInput = Readonly<{
 }>;
 
 export type SearchOffersQuery = Readonly<{
+  model?: string;
+  variant?: string;
+  scope?: "ALL" | "DASHAIN";
+  season?: number;
+  brands?: readonly string[];
+  offerTypes?: readonly OfferType[];
+  availability?: "IN_STOCK";
+  minPriceMinor?: number;
+  maxPriceMinor?: number;
   text?: string | null;
   categories?: readonly OfferCategory[];
   sourceIds?: readonly string[];
@@ -71,6 +83,8 @@ export type SearchOffersQuery = Readonly<{
 }>;
 
 export type Offer = Readonly<{
+  discovery?: OfferDiscovery | null;
+  relevance?: number;
   id: string;
   sourceId: string;
   sourceOfferKey: string;

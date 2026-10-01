@@ -1,8 +1,11 @@
+import type { OfferDiscovery } from "../discovery.ts";
 import type { Money, Offer, OfferCategory, SourceTime } from "../contract.ts";
 import { deriveLifecycleStatus } from "../lifecycle.ts";
 import { CatalogStorageError } from "./errors.ts";
 
 export type OfferRow = Readonly<{
+  discovery?: OfferDiscovery | null;
+  relevance?: number;
   id: string;
   source_id: string;
   source_offer_key: string;
@@ -71,6 +74,8 @@ export function rowToOffer(row: OfferRow, now: Date): Offer {
   const withdrawnAt = row.withdrawn_at?.toISOString() ?? null;
 
   return Object.freeze({
+    discovery: row.discovery ?? null,
+    relevance: row.relevance ?? 0,
     id: row.id,
     sourceId: row.source_id,
     sourceOfferKey: row.source_offer_key,

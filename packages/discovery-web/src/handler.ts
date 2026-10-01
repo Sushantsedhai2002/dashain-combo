@@ -1,6 +1,6 @@
 import type { OfferCatalog } from "@dashain-offer/offer-catalog";
 import { parseDiscoveryQuery, type SourceOption } from "./query.ts";
-import { renderDetail, renderHome, renderMessage } from "./render.ts";
+import { renderComparison, renderDetail, renderHome, renderMessage } from "./render.ts";
 
 type WebResponse = Readonly<{
   status: number;
@@ -21,6 +21,7 @@ export function createWebHandler(
     catalog: Pick<OfferCatalog, "searchVisibleOffers" | "getVisibleOffer">;
     sources: readonly SourceOption[];
     stylesheet: string;
+    defaultScope?: "ALL" | "DASHAIN";
   }>,
 ): (method: string, target: string) => Promise<WebResponse> {
   return async (method, target) => {
@@ -44,6 +45,8 @@ export function createWebHandler(
       if (url.pathname === "/assets/style.css")
         return response(200, dependencies.stylesheet, "text/css; charset=utf-8");
       if (url.pathname === "/") {
+        if (!url.searchParams.has("scope") && dependencies.defaultScope)
+          url.searchParams.set("scope", dependencies.defaultScope);
         const parsed = parseDiscoveryQuery(url.searchParams, dependencies.sources);
         if (!parsed.ok)
           return response(
@@ -65,12 +68,52 @@ export function createWebHandler(
             );
       }
       const match =
-        /^\/offers\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$/i.exec(
+        /^\/offers\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})(\/compare)?$/i.exec(
           url.pathname,
         );
       if (match?.[1] !== undefined) {
         const result = await dependencies.catalog.getVisibleOffer(match[1]);
-        if (result.ok) return response(200, renderDetail(result.value));
+        if (result.ok) {
+          if (match[2]) {
+            const product = result.value.discovery?.product;
+            if (!product || !result.value.brandName)
+              return response(
+                404,
+                renderMessage(
+                  "Comparison unavailable",
+                  "This offer has no verified model and variant identity.",
+                ),
+              );
+            const comparisons = await dependencies.catalog.searchVisibleOffers({
+              model: product.model,
+              variant: product.variant,
+              brands: [result.value.brandName],
+              limit: 100,
+              currency: result.value.salePrice?.currency ?? "NPR",
+              sort: "PRICE_ASC",
+            });
+            if (!comparisons.ok)
+              return response(
+                400,
+                renderMessage("Comparison unavailable", "Try again from the offer detail page."),
+              );
+            const mainItems = (offer: typeof result.value) =>
+              JSON.stringify(
+                offer.discovery?.components
+                  .filter((item) => item.role !== "GIFT")
+                  .map((item) => [item.description.toLowerCase(), item.quantity, item.unit])
+                  .sort(),
+              );
+            const items = comparisons.value.items.filter(
+              (offer) =>
+                (offer.discovery?.offerType !== "BUNDLE" &&
+                  result.value.discovery?.offerType !== "BUNDLE") ||
+                mainItems(offer) === mainItems(result.value),
+            );
+            return response(200, renderComparison(result.value, items));
+          }
+          return response(200, renderDetail(result.value));
+        }
       }
       return response(
         404,

@@ -10,7 +10,7 @@ import type {
   SearchOffersQuery,
   WithdrawOfferInput,
 } from "./contract.ts";
-import { decodeCursor, encodeCursor, type OfferCursorKeyset } from "./cursor.ts";
+import { decodeCursor, encodeCursor, queryFingerprint, type OfferCursorKeyset } from "./cursor.ts";
 import { calculateExpiry } from "./lifecycle.ts";
 import { CatalogStorageError } from "./postgres/errors.ts";
 import {
@@ -91,6 +91,20 @@ function publisherMethod(
     if (!parsed.ok) return parsed;
 
     const discoveredAt = new Date(clock().getTime());
+    if (
+      parsed.value.discovery &&
+      Date.parse(parsed.value.discovery.lastVerifiedAt) > discoveredAt.getTime() + 60000
+    )
+      return {
+        ok: false,
+        issues: [
+          {
+            code: "INVALID_INPUT",
+            path: "discovery.lastVerifiedAt",
+            message: "Verification time cannot be in the future",
+          },
+        ],
+      };
     const expiresAt = calculateExpiry({
       explicitValidityEnd: parsed.value.explicitValidityEnd,
       sourcePublishedAt: parsed.value.sourcePublishedAt,
@@ -110,6 +124,8 @@ function publisherMethod(
 
 function cursorKeyset(offer: Offer, query: NormalizedSearchOffersQuery): OfferCursorKeyset {
   switch (query.sort) {
+    case "RELEVANCE":
+      return { sort: "RELEVANCE", relevance: offer.relevance ?? 0, id: offer.id };
     case "NEWEST":
       return Object.freeze({
         sort: query.sort,
@@ -206,6 +222,7 @@ export function buildOfferCatalog(
           parsed.value.cursor,
           parsed.value.sort,
           parsed.value.currency ?? undefined,
+          queryFingerprint(parsed.value),
         );
         if (!decoded.ok) return decoded;
         keyset = decoded.value;
@@ -220,7 +237,7 @@ export function buildOfferCatalog(
       const lastItem = items.at(-1);
       const nextCursor =
         hasNextPage && lastItem !== undefined
-          ? encodeCursor(cursorKeyset(lastItem, parsed.value))
+          ? encodeCursor(cursorKeyset(lastItem, parsed.value), queryFingerprint(parsed.value))
           : null;
 
       return Object.freeze({

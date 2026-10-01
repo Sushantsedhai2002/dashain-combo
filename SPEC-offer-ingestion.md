@@ -4,6 +4,15 @@
 **Status:** 22 website adapters implemented; 135-promotion evaluation complete; 28 active sources remain unsupported
 **Dependencies:** `source-registry`, `offer-catalog`
 
+## Campaign discovery amendment — 2026-10-01
+
+This amendment supersedes conflicting earlier scope below.
+
+- CG Digital's approved campaign entry point is collected with the unchanged safe-fetch/robots policy. The LG 2083 adapter supports the explicit washing-machine table, not every campaign category. Separate category rules attach 6/4/2 kg detergent; washer/dryer eligibility is not inferred. Structured/table price conflicts are excluded.
+- Campaign keys include the season and exact model and bypass automatic generic-offer generation suffixes. Failed scans preserve previous offers; partial scans never confirm removal. An authoritative complete campaign scan can confirm removal even when a destination still returns HTTP 200. Rediscovery refreshes evidence, never fallback validity.
+- Publication rejections persist candidate evidence and reasons in ingestion_quarantine. Successful retries clear the quarantine record. Source health persists outcomes and due times. The worker polls every five minutes, normally scans every six hours, and backs off failures from 30 minutes to 24 hours under the existing advisory lock.
+- OCR/social collection and additional campaign adapters require independent evidence and access assessments; they are not assumed supported.
+
 ## Objective
 
 Collect promotions from approved source channels, turn supported evidence into catalog offers, and keep those offers current without requiring manual publication. The first website adapter covers EvoStore's public Special Offers listing. Additional sources are enabled only after their extraction rules and output have been measured against real pages. A registered channel alone does not imply that it can be ingested.

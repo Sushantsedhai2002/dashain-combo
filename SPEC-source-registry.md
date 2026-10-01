@@ -5,6 +5,14 @@
 **Capability map:** [`CAPABILITY_MAP.md`](./CAPABILITY_MAP.md)  
 **Product direction:** [`docs/ideas/dashain-offer-radar.md`](./docs/ideas/dashain-offer-radar.md)
 
+## Campaign discovery amendment — 2026-10-01
+
+This amendment supersedes conflicting earlier scope below.
+
+- The exactly-50-source target is superseded by measured current campaign/product coverage. Preserve source identities and history; do not replace strategic sources merely to improve counts.
+- Optional campaignEntryPoints and capabilities describe supported collection paths. Every campaign entry point must belong to an enabled website origin. All discovered fetches still enforce the same origin, HTTPS/public-IP, robots, timeout and size limits.
+- CG Digital is reactivated under cg-digital after the 2026-10-01 production-safe campaign fetch. Its previous replacement retailer remains a distinct identity.
+
 ## Objective
 
 Create the authoritative, version-controlled registry of 50 trusted promotion sources serving the Nepali market. The registry identifies official brands and retailers, records their website and social channels, and exposes only validated active sources to `offer-ingestion`.

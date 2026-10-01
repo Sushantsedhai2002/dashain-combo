@@ -640,3 +640,17 @@ footer p {
   margin-top: 1rem;
   margin-bottom: 0;
 }
+
+.filter-body > input,
+.filter-body > select {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #b6b6b6;
+  border-radius: 6px;
+  background: white;
+  color: #202020;
+}
+.combo-details { font-size: 0.875rem; line-height: 1.5; overflow-wrap: anywhere; }
+.combo-details .campaign { font-weight: 600; }

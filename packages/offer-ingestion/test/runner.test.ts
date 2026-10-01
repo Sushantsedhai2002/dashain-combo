@@ -178,3 +178,47 @@ describe("ingestion runner", () => {
     expect(scan).not.toHaveBeenCalled();
   });
 });
+
+describe("campaign scan completeness", () => {
+  it("withdraws removed campaign members after complete scans even when the page exists", async () => {
+    const offers = catalog();
+    const store = observations();
+    store.entries.set(candidate.sourceOfferKey, candidate.destinationUrl);
+    const checkPresence = vi.fn(async () => "PRESENT" as const);
+    const runner = createIngestionRunner({
+      sources: [source],
+      adapters: [
+        { sourceId: source.id, scan: async () => ({ ok: true, offers: [], authoritative: true }) },
+      ],
+      catalog: offers.instance,
+      observations: store,
+      checkPresence,
+    });
+    await runner.runOnce();
+    await runner.runOnce();
+    expect(offers.withdrawn).toHaveLength(1);
+    expect(checkPresence).not.toHaveBeenCalled();
+  });
+  it("does not infer removal from a partial scan", async () => {
+    const offers = catalog();
+    const store = observations();
+    store.entries.set(candidate.sourceOfferKey, candidate.destinationUrl);
+    const checkPresence = vi.fn(async () => "REMOVED" as const);
+    const runner = createIngestionRunner({
+      sources: [source],
+      adapters: [
+        {
+          sourceId: source.id,
+          scan: async () => ({ ok: true, offers: [], authoritative: true, partial: true }),
+        },
+      ],
+      catalog: offers.instance,
+      observations: store,
+      checkPresence,
+    });
+    expect(await runner.runOnce()).toMatchObject([{ status: "PARTIAL" }]);
+    await runner.runOnce();
+    expect(offers.withdrawn).toHaveLength(0);
+    expect(checkPresence).not.toHaveBeenCalled();
+  });
+});

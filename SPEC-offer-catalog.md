@@ -7,6 +7,15 @@
 **Implementation plan:** [`tasks/offer-catalog-plan.md`](./tasks/offer-catalog-plan.md)
 **Task list:** [`tasks/offer-catalog-todo.md`](./tasks/offer-catalog-todo.md)
 
+## Campaign discovery amendment — 2026-10-01
+
+This amendment supersedes conflicting earlier scope below.
+
+- Additive `0002-campaign-discovery.sql` preserves existing identities and rows. `discovery` is a validated JSONB aggregate containing campaign, product/variant, components, benefits, eligibility, evidence and qualification. Price observations are append-only and remain distinct from stated MRP.
+- Legacy rows have null discovery and remain in ALL. DASHAIN requires qualified explicit membership, current season, current lifecycle and verification within 48 hours. Quarantine is hidden from all public lookups.
+- Product budget bounds require currency and known actual price. Search normalizes Unicode/Nepali digits, recognizes explicit budget phrases, expands maintained aliases, searches across fields, ranks models first and supports bounded typo matching. Cursor fingerprints bind all filters and rank keys.
+- Gift-only records do not require paired prices. Unknown BS dates retain their calendar and source text; no arithmetic year-offset date conversion is permitted. Cashback calculation requires known eligibility, basis, cap/timing and combination permission.
+
 ## Objective
 
 Create the authoritative catalog of normalized Dashain offers. The catalog accepts offers from trusted sources, persists their canonical representation in PostgreSQL, calculates visibility and expiry, and exposes stable write and query interfaces to downstream modules.

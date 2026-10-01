@@ -3,8 +3,8 @@
 ## Confirmed product constraints
 
 - Responsive web application; no native app in the MVP.
-- English-only initial release.
-- Fifty trusted sources across multiple Nepal market categories.
+- English-first interface with maintained Nepali and romanized query aliases.
+- Measure verified campaigns and useful products per category; no fixed source-count target.
 - Collection and publication are automatic, without manual review.
 - Offers remain visible through `23:59:59` on their final validity date in `Asia/Kathmandu` and expire immediately afterward.
 - Offers without an explicit validity end expire 20 days after source publication, falling back to first discovery when source publication is unavailable; rediscovery does not extend expiry.
@@ -17,7 +17,7 @@
 
 | Module ID | Responsibility | Depends on |
 |---|---|---|
-| `source-registry` | Define, verify, and configure the 50 trusted websites and social accounts | — |
+| `source-registry` | Define, verify, and configure trusted identities, approved campaign entry points and collection capabilities | — |
 | `offer-catalog` | Canonical offer model, storage, lifecycle, categories, search, and query interfaces | `source-registry` |
 | `offer-ingestion` | Schedule collection, extract and normalize promotions, deduplicate, and publish automatically | `source-registry`, `offer-catalog` |
 | `discovery-web` | Responsive homepage, search, filters, offer presentation, and outbound links | `offer-catalog` |
@@ -31,7 +31,11 @@
 
 ## Unresolved cross-module decisions
 
-- Minimum extraction confidence required for automatic publication
+- Automatic publication uses explicit evidence and rule results; ambiguous candidates are quarantined for automatic retry
 - Collection frequency within the VPS resource budget
 - Exact social-media access methods permitted by each platform
 - Whether watchlists use verified email only or full user accounts
+
+## Implemented campaign pilot
+
+CG Digital retains its original identity and is active after a successful production-safe fetch. The LG 2083 washing-machine campaign supplies evidenced model prices and category-specific gifts. Shared discovery contracts, additive PostgreSQL storage, current-Dashain scope, budget/brand/type/stock filters, ranked token search, source outcomes, backoff and quarantine are implemented. See [rollout and validation](docs/campaign-discovery.md).

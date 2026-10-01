@@ -143,6 +143,9 @@ describe("public source types", () => {
         marketSegments: readonly string[];
         channels: readonly SourceChannel[];
         verification: VerificationEvidence | null;
+        campaignEntryPoints?: readonly string[] | undefined;
+        capabilities?:
+          readonly ("CAMPAIGN" | "PRODUCT" | "DOCUMENT" | "REVALIDATION")[] | undefined;
       }>
     >();
   });

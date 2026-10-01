@@ -1,3 +1,4 @@
+import { createCgDigitalAdapter } from "./cg-digital.ts";
 import { createEvoStoreAdapter, type PageFetcher } from "./evostore.ts";
 import { createIttiAdapter } from "./itti.ts";
 import { createKhaltiAdapter } from "./khalti.ts";
@@ -10,6 +11,7 @@ import type { SourceAdapter } from "../runner.ts";
 
 export function createWebsiteAdapters(fetchPage: PageFetcher): readonly SourceAdapter[] {
   return [
+    createCgDigitalAdapter(fetchPage),
     createEvoStoreAdapter(fetchPage),
     createIttiAdapter(fetchPage),
     createDarazAdapter(fetchPage),

@@ -20,7 +20,11 @@ type Io = Readonly<{ stdout(message: string): void; stderr(message: string): voi
 export function createIngestionRuntime(
   databaseUrl: string | undefined,
   io: Io,
-  options: Readonly<{ fetchPage?: PageFetcher; sourceIds?: readonly string[] }> = {},
+  options: Readonly<{
+    fetchPage?: PageFetcher;
+    sourceIds?: readonly string[];
+    respectDueTimes?: boolean;
+  }> = {},
 ): Readonly<{
   dependencies: IngestionCliDependencies;
   close(): Promise<void>;
@@ -58,14 +62,21 @@ export function createIngestionRuntime(
         locked = result.rows[0]?.acquired === true;
         if (!locked) return null;
         const guardedFetch = createRobotsAwareFetcher(fetchPage);
+        const observations = new PostgresObservationStore(pool);
+        const dueSources = [];
+        for (const source of sources)
+          if (!options.respectDueTimes || (await observations.isDue(source.id)))
+            dueSources.push(source);
         const runner = createIngestionRunner({
-          sources,
+          sources: dueSources,
           adapters: createAdapters(guardedFetch),
           catalog,
-          observations: new PostgresObservationStore(pool),
+          observations,
           checkPresence: (url, source) => checkOfferPresence(url, source, guardedFetch),
         });
-        return await runner.runOnce();
+        const results = await runner.runOnce();
+        for (const result of results) await observations.recordOutcome(result);
+        return results;
       } finally {
         if (locked) {
           await client.query("SELECT pg_advisory_unlock($1)", [RUN_LOCK_ID]).catch(() => undefined);

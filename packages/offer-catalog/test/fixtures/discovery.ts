@@ -1,0 +1,72 @@
+import { UNKNOWN_ELIGIBILITY, type OfferDiscovery } from "../../src/discovery.ts";
+export function discovery(overrides: Partial<OfferDiscovery> = {}): OfferDiscovery {
+  return {
+    offerType: "GIFT_WITH_PURCHASE",
+    qualification: "QUALIFIED",
+    ruleVersion: "test-v1",
+    reasons: ["EXPLICIT_PRODUCT"],
+    campaign: {
+      key: "dashain-2026",
+      title: "Dashain 2026",
+      festivals: ["DASHAIN"],
+      seasonAD: 2026,
+      seasonBS: "2083",
+      publishedAt: null,
+      startsAt: null,
+      endsAt: null,
+      originalDateText: null,
+      dateCalendar: "UNKNOWN",
+      evidenceUrl: "https://www.daraz.com.np/campaign",
+      membership: "EXPLICIT_PRODUCT",
+    },
+    product: {
+      key: "washer-1",
+      model: "LG-123",
+      variant: "8kg",
+      gtin: null,
+      attributes: { capacity: "8kg" },
+    },
+    merchant: "Example seller",
+    availability: "UNKNOWN",
+    lastVerifiedAt: "2026-10-01T07:00:00Z",
+    priceObservedAt: "2026-10-01T07:00:00Z",
+    components: [
+      { description: "Washing machine", quantity: 1, unit: "item", role: "MAIN_ITEM" },
+      { description: "Detergent", quantity: 4, unit: "kg", role: "GIFT" },
+    ],
+    benefits: [
+      {
+        type: "GIFT_WITH_PURCHASE",
+        description: "Free detergent",
+        status: "GUARANTEED",
+        amountMinor: null,
+        percent: null,
+        capMinor: null,
+        eligibleProductKeys: ["washer-1"],
+        conditions: null,
+      },
+    ],
+    eligibility: { ...UNKNOWN_ELIGIBILITY },
+    evidence: [
+      {
+        url: "https://www.daraz.com.np/campaign",
+        fetchedAt: "2026-10-01T07:00:00Z",
+        contentHash: "a".repeat(64),
+        excerpt: "LG-123 washing machine includes 4 kg detergent for NPR 50000, Dashain 2026",
+        path: "table.model-LG-123",
+        extractorVersion: "test-v1",
+        fields: [
+          "product",
+          "campaign",
+          "membership",
+          "benefits",
+          "components",
+          "offerType",
+          "salePrice",
+          "originalPrice",
+        ],
+      },
+    ],
+    ...overrides,
+  };
+}

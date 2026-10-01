@@ -277,7 +277,7 @@
   {
     "id": "cg-digital",
     "displayName": "CG Digital",
-    "status": "RETIRED",
+    "status": "ACTIVE",
     "supportedMarkets": ["NP"],
     "marketSegments": ["electronics-retail"],
     "channels": [
@@ -288,9 +288,11 @@
       }
     ],
     "verification": {
-      "verifiedAt": "2026-09-30T00:00:00+05:45",
-      "evidenceUrl": "https://cgdigital.com.np/"
-    }
+      "verifiedAt": "2026-10-01T06:43:25Z",
+      "evidenceUrl": "https://cgdigital.com.np/offers/lg-dashain-tihar-offer-83/index.html"
+    },
+    "campaignEntryPoints": ["https://cgdigital.com.np/offers/lg-dashain-tihar-offer-83/index.html"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   },
   {
     "id": "samsung-nepal",

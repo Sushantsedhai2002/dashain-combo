@@ -101,3 +101,9 @@ Fonepay reads at most eight details; Khalti reads at most three. Missing ends us
 For each of the remaining 28 sources: establish a permitted, explicitly verified origin and bounded listing/detail contract; capture relevant first-party evidence; independently annotate positive and negative examples; verify prices, dates and terms; add regression tests; run a live robots-aware scan; then verify publication into the disposable database. Continue searching comparable verified replacements when a registered feed is unreliable. An expired campaign, routine price, image-only banner or guessed endpoint does not establish a current promotion.
 
 Final deterministic gate: `corepack pnpm check` passed 268 tests with 94.84% total line coverage and all per-file gates. Registry validation passed with exactly 50 active sources among 59 records. No dependency or quality-threshold changes were introduced.
+
+## 2026-10-01 campaign correction
+
+The previous adapter-count target is superseded by useful campaign/product coverage. CG Digital was reassessed at its explicit LG 2083 festival page, using the production robots-aware safe fetcher. Live collection succeeded with 19 washing-machine/washer-dryer price-table candidates, including 15 models with applicable detergent gifts. Unknown campaign expiry and stock remain unknown. The source retains `cg-digital`; historical identities are not merged into a replacement retailer.
+
+The pilot fixtures now test model/category membership, 6/4/2 kg gift boundaries, washer/dryer exclusion, stale seasons, changed benefits, cross-origin URLs, and conflicting price evidence. The original general-offer evaluation remains useful for legacy extraction but does not certify festival membership. See [campaign rollout](campaign-discovery.md) and `scripts/coverage-report.sql` for new coverage/health checks and remaining source gaps.

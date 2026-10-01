@@ -47,6 +47,9 @@ describe("discovery query boundary", () => {
     ).toEqual({
       ok: true,
       query: {
+        scope: "ALL",
+        brands: [],
+        offerTypes: [],
         text: "speaker",
         categories: ["CONSUMER_ELECTRONICS"],
         sourceIds: ["evostore"],
@@ -74,6 +77,9 @@ describe("discovery query boundary", () => {
     ).toEqual({
       ok: true,
       query: {
+        scope: "ALL",
+        brands: [],
+        offerTypes: [],
         text: null,
         categories: [],
         sourceIds: ["evostore"],
@@ -221,5 +227,75 @@ describe("HTTP routes", () => {
         server.close((e) => (e ? reject(e) : resolve())),
       );
     }
+  });
+});
+
+describe("campaign discovery UI", () => {
+  it("parses visible budgets and rejects invalid filter combinations", () => {
+    expect(
+      parseDiscoveryQuery(
+        new URLSearchParams(
+          "q=washer+under+60k&scope=DASHAIN&type=GIFT_WITH_PURCHASE&stock=IN_STOCK&brand=LG",
+        ),
+        [source],
+      ),
+    ).toMatchObject({
+      ok: true,
+      query: {
+        text: "washer",
+        maxPriceMinor: 6000000,
+        scope: "DASHAIN",
+        sort: "RELEVANCE",
+        currency: "NPR",
+        availability: "IN_STOCK",
+        brands: ["LG"],
+      },
+    });
+    for (const query of [
+      "scope=wrong",
+      "min=-1",
+      "max=bad",
+      "min=100&max=50",
+      "type=wrong",
+      "stock=maybe",
+      "min=1&min=2",
+    ])
+      expect(parseDiscoveryQuery(new URLSearchParams(query), [source]).ok).toBe(false);
+  });
+  it("shows quantities, uncertainty, evidence and an exact-model comparison", async () => {
+    const { discovery } = await import("../../offer-catalog/test/fixtures/discovery.ts");
+    const product = { ...offer, title: "Washer", discovery: discovery() };
+    const detail = renderDetail(product);
+    expect(detail).toContain("4 kg Detergent");
+    expect(detail).toContain("Original offer evidence");
+    expect(detail).toContain("Compare this model and variant");
+    const search = vi.fn(async () => ({
+      ok: true as const,
+      value: { items: [product], nextCursor: null },
+    }));
+    const handler = createWebHandler({
+      catalog: {
+        getVisibleOffer: async () => ({ ok: true, value: product }),
+        searchVisibleOffers: search,
+      },
+      sources: [source],
+      stylesheet: "",
+      defaultScope: "DASHAIN",
+    });
+    expect((await handler("GET", `/offers/${offer.id}/compare`)).body).toContain(
+      "No other verified matching offers",
+    );
+    expect(search).toHaveBeenCalledWith(
+      expect.objectContaining({ model: "LG-123", variant: "8kg", brands: ["Marshall"] }),
+    );
+    expect((await handler("GET", "/")).body).toContain('value="DASHAIN" selected');
+    const empty = renderHome(
+      { items: [], nextCursor: null },
+      new URLSearchParams("scope=DASHAIN&q=washer+under+60k"),
+      [source],
+    );
+    expect(empty).toContain("No verified current Dashain offers match");
+    expect(empty).toContain('href="/?scope=ALL"');
+    expect(empty).toContain('value="60000"');
   });
 });
