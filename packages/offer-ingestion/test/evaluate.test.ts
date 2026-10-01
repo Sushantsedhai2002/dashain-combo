@@ -25,7 +25,7 @@ describe("recorded extraction evaluation", () => {
     for (const adapter of createWebsiteAdapters(
       fetchPage,
       [],
-      () => new Date("2026-10-01T07:00:00Z"),
+      () => new Date("2026-10-01T19:00:00Z"),
     )) {
       const source = registry.sources.find((s) => s.id === adapter.sourceId);
       if (!source) throw new Error("Missing source");

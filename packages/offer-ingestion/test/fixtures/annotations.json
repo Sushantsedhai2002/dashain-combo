@@ -1817,6 +1817,18 @@
       "sourcePublishedAt": null,
       "explicitValidityEnd": null,
       "terms": null
+    },
+    {
+      "sourceId": "mypower",
+      "title": "MY POWER Dashain Combo Offer 1 \u2013 Power & Entertainment Combo",
+      "destinationUrl": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-01-2083",
+      "originalMinor": 708500,
+      "saleMinor": 456000,
+      "category": "CONSUMER_ELECTRONICS",
+      "brandName": "MY POWER",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": "Price is for the named three-product bundle. Color is unspecified; confirm color availability with MyPower. No separate color offers or lucky-draw savings are included."
     }
   ],
   "negatives": [

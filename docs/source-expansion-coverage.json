@@ -1,23 +1,24 @@
 {
-  "checkedAt": "2026-10-01T19:04:56.915Z",
+  "checkedAt": "2026-10-01T19:18:36.567Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 16,
+    "sellers": 17,
     "categories": 6,
-    "offers": 1165
+    "offers": 1168
   },
   "remaining": {
-    "sellers": 4,
+    "sellers": 3,
     "categories": 0,
     "offers": 0
   },
   "achieved": false,
   "conflictingProducts": 0,
   "bySeller": {
+    "mypower": 3,
     "sugandha-griha": 1,
     "giftmandu": 4,
     "maake-beauty-nepal": 3,
@@ -36,10 +37,10 @@
     "cg-digital": 78
   },
   "byCategory": {
+    "CONSUMER_ELECTRONICS": 90,
     "FASHION_AND_LIFESTYLE": 110,
     "HOME_AND_FURNITURE": 214,
     "COMPUTERS_AND_ACCESSORIES": 373,
-    "CONSUMER_ELECTRONICS": 87,
     "HOME_APPLIANCES": 362,
     "MOBILE_AND_TABLETS": 19
   },
@@ -154,6 +155,13 @@
       "sourceId": "sugandha-griha",
       "status": "PARTIAL",
       "published": 1,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "mypower",
+      "status": "PARTIAL",
+      "published": 3,
       "withdrawn": 0,
       "skipped": 0
     }

@@ -2,6 +2,438 @@
   {
     "discovery": {
       "product": {
+        "key": "149",
+        "gtin": null,
+        "model": "MP-DASH-COMBO-03-2083",
+        "variant": "MY POWER Dashain Combo Offer 3 – Power & Sound Combo; color unspecified",
+        "attributes": {
+          "sku": "MP-DASH-COMBO-03-2083",
+          "bundleType": "3-Product Combo"
+        }
+      },
+      "reasons": [
+        "CURRENT_2083_EXACT_BUNDLE_SKU",
+        "EXPLICIT_OCTOBER_WINDOW_AND_2026_PUBLICATION_METADATA",
+        "HOMEPAGE_COVER_PRODUCT_DETAIL_AND_SPECIFICATION_PRICES_AGREE",
+        "COLOR_UNSPECIFIED_NO_VARIANT_COUNT_INFLATION"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "mypower-dashain-2026",
+        "title": "MY POWER Dashain Special Offer 2083",
+        "endsAt": "2026-10-16T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": "2026-10-01T18:15:00.000Z",
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-03-2083",
+        "publishedAt": null,
+        "dateCalendar": "UNKNOWN",
+        "originalDateText": "2nd OCT – 16th OCT 2083; campaign bundle created 2026-09-29T11:37:21.000000Z"
+      },
+      "evidence": [
+        {
+          "url": "https://www.mypower.com.np/",
+          "path": "Flight homepage featured_products and matching Dashain cover",
+          "fields": [
+            "campaign",
+            "membership",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Dashain Combo 3; SKU MP-DASH-COMBO-03-2083; MRP NPR 5160; offer NPR 3277; dated cover metadata September 2026",
+          "fetchedAt": "2026-10-01T19:18:31.635Z",
+          "contentHash": "6b5676e4409771e6c8b9614fabf6ca55cfaf02d77a016284c96de7cbede6a814",
+          "extractorVersion": "mypower-v1"
+        },
+        {
+          "url": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-03-2083",
+          "path": "Flight exact bundle; details and specifications; fixed SKU price; unspecified color",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "MY POWER Dashain Combo Offer 3 – Power & Sound Combo; SKU MP-DASH-COMBO-03-2083; 2nd OCT – 16th OCT 2083; MRP NPR 5160; offer NPR 3277; MY POWER M159 FC Power Bank + MY POWER MS-55 Speaker + MY POWER Mi256UC Charger; Price is for the named three-product bundle. Color is unspecified; confirm color availability with MyPower. No separate color offers or lucky-draw savings are included.",
+          "fetchedAt": "2026-10-01T19:18:31.635Z",
+          "contentHash": "17b968361397ce2ce35ab3ef5878d88bf67583adce475a759756b7fee70744be",
+          "extractorVersion": "mypower-v1"
+        }
+      ],
+      "merchant": "MyPower",
+      "offerType": "BUNDLE",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER M159 FC Power Bank"
+        },
+        {
+          "role": "INCLUDED_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER MS-55 Speaker"
+        },
+        {
+          "role": "INCLUDED_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER Mi256UC Charger"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "UNKNOWN",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T19:18:31.635Z",
+      "priceObservedAt": "2026-10-01T19:18:31.635Z"
+    },
+    "relevance": 0,
+    "id": "3bcb7d75-0502-4e89-b339-afe1a7cf7e5e",
+    "sourceId": "mypower",
+    "sourceOfferKey": "mypower-dashain-2026:149",
+    "sellerDisplayName": "MyPower",
+    "title": "MY POWER Dashain Combo Offer 3 – Power & Sound Combo",
+    "summary": null,
+    "productName": "MY POWER Dashain Combo Offer 3 – Power & Sound Combo",
+    "brandName": "MY POWER",
+    "category": "CONSUMER_ELECTRONICS",
+    "imageUrl": null,
+    "destinationUrl": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-03-2083",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 516000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 327700
+    },
+    "discountPercent": 36,
+    "discountLabel": null,
+    "terms": "Price is for the named three-product bundle. Color is unspecified; confirm color availability with MyPower. No separate color offers or lucky-draw savings are included.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T19:18:36.558Z",
+    "expiresAt": "2026-10-21T19:18:36.558Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T19:18:36.558Z",
+    "updatedAt": "2026-10-01T19:18:36.558Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "148",
+        "gtin": null,
+        "model": "MP-DASH-COMBO-02-2083",
+        "variant": "MY POWER Dashain Combo Offer 2 – Essential Charging Combo; color unspecified",
+        "attributes": {
+          "sku": "MP-DASH-COMBO-02-2083",
+          "bundleType": "3-Product Combo"
+        }
+      },
+      "reasons": [
+        "CURRENT_2083_EXACT_BUNDLE_SKU",
+        "EXPLICIT_OCTOBER_WINDOW_AND_2026_PUBLICATION_METADATA",
+        "HOMEPAGE_COVER_PRODUCT_DETAIL_AND_SPECIFICATION_PRICES_AGREE",
+        "COLOR_UNSPECIFIED_NO_VARIANT_COUNT_INFLATION"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "mypower-dashain-2026",
+        "title": "MY POWER Dashain Special Offer 2083",
+        "endsAt": "2026-10-16T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": "2026-10-01T18:15:00.000Z",
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-02-2083",
+        "publishedAt": null,
+        "dateCalendar": "UNKNOWN",
+        "originalDateText": "2nd OCT – 16th OCT 2083; campaign bundle created 2026-09-29T11:29:48.000000Z"
+      },
+      "evidence": [
+        {
+          "url": "https://www.mypower.com.np/",
+          "path": "Flight homepage featured_products and matching Dashain cover",
+          "fields": [
+            "campaign",
+            "membership",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Dashain Combo 2; SKU MP-DASH-COMBO-02-2083; MRP NPR 4150; offer NPR 2622; dated cover metadata September 2026",
+          "fetchedAt": "2026-10-01T19:18:31.635Z",
+          "contentHash": "6b5676e4409771e6c8b9614fabf6ca55cfaf02d77a016284c96de7cbede6a814",
+          "extractorVersion": "mypower-v1"
+        },
+        {
+          "url": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-02-2083",
+          "path": "Flight exact bundle; details and specifications; fixed SKU price; unspecified color",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "MY POWER Dashain Combo Offer 2 – Essential Charging Combo; SKU MP-DASH-COMBO-02-2083; 2nd OCT – 16th OCT 2083; MRP NPR 4150; offer NPR 2622; MY POWER M159 FC Power Bank + MY POWER E7C Earphones + MY POWER CT109CC Cable; Price is for the named three-product bundle. Color is unspecified; confirm color availability with MyPower. No separate color offers or lucky-draw savings are included.",
+          "fetchedAt": "2026-10-01T19:18:31.635Z",
+          "contentHash": "2eebb50dbf300f92ca695801ef896a68fa7f6c53f5dd30132aa92f0a79e7c85a",
+          "extractorVersion": "mypower-v1"
+        }
+      ],
+      "merchant": "MyPower",
+      "offerType": "BUNDLE",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER M159 FC Power Bank"
+        },
+        {
+          "role": "INCLUDED_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER E7C Earphones"
+        },
+        {
+          "role": "INCLUDED_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER CT109CC Cable"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "UNKNOWN",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T19:18:31.635Z",
+      "priceObservedAt": "2026-10-01T19:18:31.635Z"
+    },
+    "relevance": 0,
+    "id": "00af0fa2-648c-4963-b2f7-e83124f87827",
+    "sourceId": "mypower",
+    "sourceOfferKey": "mypower-dashain-2026:148",
+    "sellerDisplayName": "MyPower",
+    "title": "MY POWER Dashain Combo Offer 2 – Essential Charging Combo",
+    "summary": null,
+    "productName": "MY POWER Dashain Combo Offer 2 – Essential Charging Combo",
+    "brandName": "MY POWER",
+    "category": "CONSUMER_ELECTRONICS",
+    "imageUrl": null,
+    "destinationUrl": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-02-2083",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 415000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 262200
+    },
+    "discountPercent": 37,
+    "discountLabel": null,
+    "terms": "Price is for the named three-product bundle. Color is unspecified; confirm color availability with MyPower. No separate color offers or lucky-draw savings are included.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T19:18:36.550Z",
+    "expiresAt": "2026-10-21T19:18:36.550Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T19:18:36.550Z",
+    "updatedAt": "2026-10-01T19:18:36.550Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "147",
+        "gtin": null,
+        "model": "MP-DASH-COMBO-01-2083",
+        "variant": "MY POWER Dashain Combo Offer 1 – Power & Entertainment Combo; color unspecified",
+        "attributes": {
+          "sku": "MP-DASH-COMBO-01-2083",
+          "bundleType": "3-Product Combo"
+        }
+      },
+      "reasons": [
+        "CURRENT_2083_EXACT_BUNDLE_SKU",
+        "EXPLICIT_OCTOBER_WINDOW_AND_2026_PUBLICATION_METADATA",
+        "HOMEPAGE_COVER_PRODUCT_DETAIL_AND_SPECIFICATION_PRICES_AGREE",
+        "COLOR_UNSPECIFIED_NO_VARIANT_COUNT_INFLATION"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "mypower-dashain-2026",
+        "title": "MY POWER Dashain Special Offer 2083",
+        "endsAt": "2026-10-16T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": "2026-10-01T18:15:00.000Z",
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-01-2083",
+        "publishedAt": null,
+        "dateCalendar": "UNKNOWN",
+        "originalDateText": "2nd OCT – 16th OCT 2083; campaign bundle created 2026-09-29T11:20:54.000000Z"
+      },
+      "evidence": [
+        {
+          "url": "https://www.mypower.com.np/",
+          "path": "Flight homepage featured_products and matching Dashain cover",
+          "fields": [
+            "campaign",
+            "membership",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Dashain Combo 1; SKU MP-DASH-COMBO-01-2083; MRP NPR 7085; offer NPR 4560; dated cover metadata September 2026",
+          "fetchedAt": "2026-10-01T19:18:31.635Z",
+          "contentHash": "6b5676e4409771e6c8b9614fabf6ca55cfaf02d77a016284c96de7cbede6a814",
+          "extractorVersion": "mypower-v1"
+        },
+        {
+          "url": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-01-2083",
+          "path": "Flight exact bundle; details and specifications; fixed SKU price; unspecified color",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "MY POWER Dashain Combo Offer 1 – Power & Entertainment Combo; SKU MP-DASH-COMBO-01-2083; 2nd OCT – 16th OCT 2083; MRP NPR 7085; offer NPR 4560; MY POWER M259 FC Power Bank + MY POWER MS 55 Bluetooth Speaker + MY POWER MyPod S7 Earbuds; Price is for the named three-product bundle. Color is unspecified; confirm color availability with MyPower. No separate color offers or lucky-draw savings are included.",
+          "fetchedAt": "2026-10-01T19:18:31.635Z",
+          "contentHash": "9643a66fcb19a278b9456e3b504871ea189f090f6342d86d4e15554601039988",
+          "extractorVersion": "mypower-v1"
+        }
+      ],
+      "merchant": "MyPower",
+      "offerType": "BUNDLE",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER M259 FC Power Bank"
+        },
+        {
+          "role": "INCLUDED_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER MS 55 Bluetooth Speaker"
+        },
+        {
+          "role": "INCLUDED_ITEM",
+          "unit": null,
+          "quantity": null,
+          "description": "MY POWER MyPod S7 Earbuds"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "UNKNOWN",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T19:18:31.635Z",
+      "priceObservedAt": "2026-10-01T19:18:31.635Z"
+    },
+    "relevance": 0,
+    "id": "caf016fe-637e-4d78-b625-3eb727b5d136",
+    "sourceId": "mypower",
+    "sourceOfferKey": "mypower-dashain-2026:147",
+    "sellerDisplayName": "MyPower",
+    "title": "MY POWER Dashain Combo Offer 1 – Power & Entertainment Combo",
+    "summary": null,
+    "productName": "MY POWER Dashain Combo Offer 1 – Power & Entertainment Combo",
+    "brandName": "MY POWER",
+    "category": "CONSUMER_ELECTRONICS",
+    "imageUrl": null,
+    "destinationUrl": "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-01-2083",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 708500
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 456000
+    },
+    "discountPercent": 36,
+    "discountLabel": null,
+    "terms": "Price is for the named three-product bundle. Color is unspecified; confirm color availability with MyPower. No separate color offers or lucky-draw savings are included.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T19:18:36.526Z",
+    "expiresAt": "2026-10-21T19:18:36.526Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T19:18:36.526Z",
+    "updatedAt": "2026-10-01T19:18:36.526Z"
+  },
+  {
+    "discovery": {
+      "product": {
         "key": "774",
         "gtin": null,
         "model": "blanko_da_774",

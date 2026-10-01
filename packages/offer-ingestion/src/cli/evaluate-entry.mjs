@@ -25,7 +25,7 @@ const fetchPage = async (url, source) => ({
 for (const adapter of createWebsiteAdapters(
   fetchPage,
   [],
-  () => new Date("2026-10-01T07:00:00Z"),
+  () => new Date("2026-10-01T19:00:00Z"),
 )) {
   const source = registry.sources.find((entry) => entry.id === adapter.sourceId);
   const result = await adapter.scan(source);

@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01T19:07:04.169631Z",
+  "reviewedAt": "2026-10-01T19:24:07.125273Z",
   "target": {
     "sellers": 20,
     "categories": 5,
@@ -179,7 +179,7 @@
       "sourceId": "mask-queen-nepal",
       "url": "https://maskqueenprofessional.com/pages/dashain-sale-2026-new",
       "status": "COLLECTOR_IMPLEMENTED",
-      "note": "Dated Sep 15\u2013Oct 10, 2026 campaign explicitly links Dashain collection. Bounded first-page pilot checks 20 cards and eight products with uniform observed original/sale prices; exact variant selectors, JSON records and NPR JSON-LD agree. Recorded fixture has 61 available variants; live refresh has 66. From-prices and unavailable variants are omitted. Scan remains partial. Sorted URL disallowed by robots; crawlable unsorted collection used.",
+      "note": "Dated Sep 15–Oct 10, 2026 campaign explicitly links Dashain collection. Bounded first-page pilot checks 20 cards and eight products with uniform observed original/sale prices; exact variant selectors, JSON records and NPR JSON-LD agree. Recorded fixture has 61 available variants; live refresh has 66. From-prices and unavailable variants are omitted. Scan remains partial. Sorted URL disallowed by robots; crawlable unsorted collection used.",
       "countsTowardCoverage": true,
       "reviewedAt": "2026-10-01T18:22:28.066420Z"
     },
@@ -222,6 +222,14 @@
       "note": "One exact available simple product has active 2026 Dashain offer dates. Reviewed vendor 153 and storefront slug agree across public offer, exact product and seller profile. Published absolute discount amount agrees with storefront price semantics; no campaign percentage applied. Expired other sellers and unrelated Rakshya Bandan offers excluded. Three anonymous JSON endpoints explicitly registered; pinned HTTPS/robots/3MB checks retained. Partial single-product pilot.",
       "countsTowardCoverage": true,
       "reviewedAt": "2026-10-01T19:07:04.169631Z"
+    },
+    {
+      "sourceId": "mypower",
+      "url": "https://www.mypower.com.np/",
+      "reviewedAt": "2026-10-01T19:24:07.125273Z",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Three fixed-price named Dashain 2083 bundle SKUs have matching homepage, detail and specification original/sale prices. October 2–16 campaign is now active in Nepal. Count each bundle once; color unspecified and stock unknown. Separate color preferences are not variant inventory. The older brand domain is not a second seller.",
+      "countsTowardCoverage": true
     }
   ]
 }

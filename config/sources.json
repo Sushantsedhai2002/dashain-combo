@@ -1571,5 +1571,25 @@
       "https://shofydrop.com/api/vendor/vendorDescription/?username=sugandha_griha"
     ],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "mypower",
+    "displayName": "MyPower",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.mypower.com.np/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T19:13:59.219480Z",
+      "evidenceUrl": "https://www.mypower.com.np/about-us"
+    },
+    "campaignEntryPoints": ["https://www.mypower.com.np/"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   }
 ]

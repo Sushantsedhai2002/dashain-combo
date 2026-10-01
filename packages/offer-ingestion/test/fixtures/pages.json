@@ -104,5 +104,9 @@
   "https://www.giftmandu.com/divine-ganesh-ji-acrylic-frame": "giftmandu-5.html",
   "https://shofydrop.com/api/products/product/offerProduct?offset=0&noOfRows=100": "shofy-0.json",
   "https://shofydrop.com/api/products/product/id?id=774": "shofy-1.json",
-  "https://shofydrop.com/api/vendor/vendorDescription/?username=sugandha_griha": "shofy-2.json"
+  "https://shofydrop.com/api/vendor/vendorDescription/?username=sugandha_griha": "shofy-2.json",
+  "https://www.mypower.com.np/": "mypower-0.html",
+  "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-01-2083": "mypower-1.html",
+  "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-02-2083": "mypower-2.html",
+  "https://www.mypower.com.np/product/MYPOWER-DASHAIN-COMBO-03-2083": "mypower-3.html"
 }
