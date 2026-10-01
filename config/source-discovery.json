@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01T19:24:07.125273Z",
+  "reviewedAt": "2026-10-01T19:36:05.468867Z",
   "target": {
     "sellers": 20,
     "categories": 5,
@@ -229,6 +229,14 @@
       "reviewedAt": "2026-10-01T19:24:07.125273Z",
       "status": "COLLECTOR_IMPLEMENTED",
       "note": "Three fixed-price named Dashain 2083 bundle SKUs have matching homepage, detail and specification original/sale prices. October 2–16 campaign is now active in Nepal. Count each bundle once; color unspecified and stock unknown. Separate color preferences are not variant inventory. The older brand domain is not a second seller.",
+      "countsTowardCoverage": true
+    },
+    {
+      "sourceId": "s3-tech",
+      "url": "https://sthree.tech/",
+      "reviewedAt": "2026-10-01T19:36:05.468867Z",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Current 2083 campaign modal and exact Dashain product badges. Three bounded reviewed simple products have matching homepage/detail prices, cart IDs and NPR JSON-LD SKU/stock/seller identity. Coupons and custom-PC bonus terms are not applied to displayed prices.",
       "countsTowardCoverage": true
     }
   ]

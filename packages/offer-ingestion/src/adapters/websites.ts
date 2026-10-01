@@ -1,3 +1,4 @@
+import { createS3TechAdapter } from "./s3-tech.ts";
 import { createCgDigitalAdapter } from "./cg-digital.ts";
 import { createEvoStoreAdapter, type PageFetcher } from "./evostore.ts";
 import { createIttiAdapter } from "./itti.ts";
@@ -47,6 +48,7 @@ export function createWebsiteAdapters(
     createGiftmanduAdapter(fetchPage, clock),
     createShofyAdapter(fetchPage, clock),
     createMypowerAdapter(fetchPage, clock),
+    createS3TechAdapter(fetchPage, clock),
     ...DATED_CAMPAIGNS.map((profile) => createDatedCampaignAdapter(profile, fetchPage, clock)),
     createEvoStoreAdapter(fetchPage),
     createIttiAdapter(fetchPage),

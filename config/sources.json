@@ -1591,5 +1591,25 @@
     },
     "campaignEntryPoints": ["https://www.mypower.com.np/"],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "s3-tech",
+    "displayName": "S3 TECH",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://sthree.tech/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T19:32:17.484994Z",
+      "evidenceUrl": "https://sthree.tech/"
+    },
+    "campaignEntryPoints": ["https://sthree.tech/"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   }
 ]

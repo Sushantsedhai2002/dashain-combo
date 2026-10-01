@@ -2,6 +2,396 @@
   {
     "discovery": {
       "product": {
+        "key": "290",
+        "gtin": null,
+        "model": "MOU-HAV-MS73",
+        "variant": "Havit MS73 Gaming Mouse with Side Button",
+        "attributes": {
+          "condition": "New"
+        }
+      },
+      "reasons": [
+        "EXPLICIT_CURRENT_2083_CAMPAIGN",
+        "EXPLICIT_PRODUCT_DASHAIN_BADGE",
+        "VISIBLE_HOME_AND_DETAIL_PRICES_AGREE",
+        "EXACT_CART_SKU_AND_STOCK_AGREE"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "s3-tech-dashain-tihar-2083",
+        "title": "S3 TECH Dashain/Tihar 2083",
+        "endsAt": null,
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": null,
+        "festivals": [
+          "DASHAIN",
+          "TIHAR"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://sthree.tech/",
+        "publishedAt": null,
+        "dateCalendar": "UNKNOWN",
+        "originalDateText": null
+      },
+      "evidence": [
+        {
+          "url": "https://sthree.tech/",
+          "path": "current festive modal; exact product badge and card prices/cart identity",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "salePrice",
+            "originalPrice"
+          ],
+          "excerpt": "बडा दशैं तथा दीपावली २०८३ महा-अफर; दशैं अफर; Havit MS73 Gaming Mouse with Side Button; NPR 450; reference NPR 750",
+          "fetchedAt": "2026-10-01T19:34:56.638Z",
+          "contentHash": "c962e4b47ed0afb392dc27dce47defebd0c826a138e1e5767e52976c54197412",
+          "extractorVersion": "s3-tech-v1"
+        },
+        {
+          "url": "https://sthree.tech/product/details/havit-ms73-gaming-mouse-with-side-button",
+          "path": "visible detail price pair; simple cart identity/stock; matching NPR Product JSON-LD",
+          "fields": [
+            "product",
+            "salePrice",
+            "originalPrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "Havit MS73 Gaming Mouse with Side Button; SKU MOU-HAV-MS73; NPR 450; reference NPR 750; In Stock; Displayed Dashain product discount. Separate festive coupons and custom PC-build bonuses are not deducted from this observed price. No additional warranty duration is inferred.",
+          "fetchedAt": "2026-10-01T19:34:56.638Z",
+          "contentHash": "993c20c25644b678563c3d59a8c3e085333bc7bdd1083abefab7745b038603b9",
+          "extractorVersion": "s3-tech-v1"
+        }
+      ],
+      "merchant": "S3 TECH",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Havit MS73 Gaming Mouse with Side Button"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T19:34:56.638Z",
+      "priceObservedAt": "2026-10-01T19:34:56.638Z"
+    },
+    "relevance": 0,
+    "id": "d7cf4382-152a-48e6-af2d-b4c8c1e4c4ec",
+    "sourceId": "s3-tech",
+    "sourceOfferKey": "s3-tech-dashain-tihar-2083:290",
+    "sellerDisplayName": "S3 TECH",
+    "title": "Havit MS73 Gaming Mouse with Side Button",
+    "summary": null,
+    "productName": "Havit MS73 Gaming Mouse with Side Button",
+    "brandName": "Havit",
+    "category": "COMPUTERS_AND_ACCESSORIES",
+    "imageUrl": null,
+    "destinationUrl": "https://sthree.tech/product/details/havit-ms73-gaming-mouse-with-side-button",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 75000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 45000
+    },
+    "discountPercent": 40,
+    "discountLabel": null,
+    "terms": "Displayed Dashain product discount. Separate festive coupons and custom PC-build bonuses are not deducted from this observed price. No additional warranty duration is inferred.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T19:35:02.001Z",
+    "expiresAt": "2026-10-21T19:35:02.001Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T19:35:02.001Z",
+    "updatedAt": "2026-10-01T19:35:02.001Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "404",
+        "gtin": null,
+        "model": "HP-ZIA-RT9",
+        "variant": "Ziasys Ritmo 9 Wireless Headphone",
+        "attributes": {
+          "condition": "New"
+        }
+      },
+      "reasons": [
+        "EXPLICIT_CURRENT_2083_CAMPAIGN",
+        "EXPLICIT_PRODUCT_DASHAIN_BADGE",
+        "VISIBLE_HOME_AND_DETAIL_PRICES_AGREE",
+        "EXACT_CART_SKU_AND_STOCK_AGREE"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "s3-tech-dashain-tihar-2083",
+        "title": "S3 TECH Dashain/Tihar 2083",
+        "endsAt": null,
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": null,
+        "festivals": [
+          "DASHAIN",
+          "TIHAR"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://sthree.tech/",
+        "publishedAt": null,
+        "dateCalendar": "UNKNOWN",
+        "originalDateText": null
+      },
+      "evidence": [
+        {
+          "url": "https://sthree.tech/",
+          "path": "current festive modal; exact product badge and card prices/cart identity",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "salePrice",
+            "originalPrice"
+          ],
+          "excerpt": "बडा दशैं तथा दीपावली २०८३ महा-अफर; दशैं अफर; Ziasys Ritmo 9 Wireless Headphone; NPR 2480; reference NPR 3100",
+          "fetchedAt": "2026-10-01T19:34:56.638Z",
+          "contentHash": "c962e4b47ed0afb392dc27dce47defebd0c826a138e1e5767e52976c54197412",
+          "extractorVersion": "s3-tech-v1"
+        },
+        {
+          "url": "https://sthree.tech/product/details/ziasys-ritmo-9-wireless-headphone",
+          "path": "visible detail price pair; simple cart identity/stock; matching NPR Product JSON-LD",
+          "fields": [
+            "product",
+            "salePrice",
+            "originalPrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "Ziasys Ritmo 9 Wireless Headphone; SKU HP-ZIA-RT9; NPR 2480; reference NPR 3100; In Stock; Displayed Dashain product discount. Separate festive coupons and custom PC-build bonuses are not deducted from this observed price. No additional warranty duration is inferred.",
+          "fetchedAt": "2026-10-01T19:34:56.638Z",
+          "contentHash": "36b81df333d10bab87a1af67fb30d0b520f814404039aa02aa6f2c3e4d396d7c",
+          "extractorVersion": "s3-tech-v1"
+        }
+      ],
+      "merchant": "S3 TECH",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Ziasys Ritmo 9 Wireless Headphone"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T19:34:56.638Z",
+      "priceObservedAt": "2026-10-01T19:34:56.638Z"
+    },
+    "relevance": 0,
+    "id": "ccef4030-1cd5-4b1a-9054-d46d96eb41fb",
+    "sourceId": "s3-tech",
+    "sourceOfferKey": "s3-tech-dashain-tihar-2083:404",
+    "sellerDisplayName": "S3 TECH",
+    "title": "Ziasys Ritmo 9 Wireless Headphone",
+    "summary": null,
+    "productName": "Ziasys Ritmo 9 Wireless Headphone",
+    "brandName": "Ziasys",
+    "category": "CONSUMER_ELECTRONICS",
+    "imageUrl": null,
+    "destinationUrl": "https://sthree.tech/product/details/ziasys-ritmo-9-wireless-headphone",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 310000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 248000
+    },
+    "discountPercent": 20,
+    "discountLabel": null,
+    "terms": "Displayed Dashain product discount. Separate festive coupons and custom PC-build bonuses are not deducted from this observed price. No additional warranty duration is inferred.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T19:35:01.997Z",
+    "expiresAt": "2026-10-21T19:35:01.997Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T19:35:01.997Z",
+    "updatedAt": "2026-10-01T19:35:01.997Z"
+  },
+  {
+    "discovery": {
+      "product": {
+        "key": "839",
+        "gtin": null,
+        "model": "KOORUI-E2711F",
+        "variant": "KOORUI E2711F 27-inch FHD 100Hz IPS Gaming & Office Monitor",
+        "attributes": {
+          "condition": "New"
+        }
+      },
+      "reasons": [
+        "EXPLICIT_CURRENT_2083_CAMPAIGN",
+        "EXPLICIT_PRODUCT_DASHAIN_BADGE",
+        "VISIBLE_HOME_AND_DETAIL_PRICES_AGREE",
+        "EXACT_CART_SKU_AND_STOCK_AGREE"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "s3-tech-dashain-tihar-2083",
+        "title": "S3 TECH Dashain/Tihar 2083",
+        "endsAt": null,
+        "seasonAD": 2026,
+        "seasonBS": "2083",
+        "startsAt": null,
+        "festivals": [
+          "DASHAIN",
+          "TIHAR"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://sthree.tech/",
+        "publishedAt": null,
+        "dateCalendar": "UNKNOWN",
+        "originalDateText": null
+      },
+      "evidence": [
+        {
+          "url": "https://sthree.tech/",
+          "path": "current festive modal; exact product badge and card prices/cart identity",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "salePrice",
+            "originalPrice"
+          ],
+          "excerpt": "बडा दशैं तथा दीपावली २०८३ महा-अफर; दशैं अफर; KOORUI E2711F 27-inch FHD 100Hz IPS Gaming & Office Monitor; NPR 21150; reference NPR 23500",
+          "fetchedAt": "2026-10-01T19:34:56.638Z",
+          "contentHash": "c962e4b47ed0afb392dc27dce47defebd0c826a138e1e5767e52976c54197412",
+          "extractorVersion": "s3-tech-v1"
+        },
+        {
+          "url": "https://sthree.tech/product/details/koorui-e2711f-27-inch-fhd-100hz-ips-gaming-office-monitor",
+          "path": "visible detail price pair; simple cart identity/stock; matching NPR Product JSON-LD",
+          "fields": [
+            "product",
+            "salePrice",
+            "originalPrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "KOORUI E2711F 27-inch FHD 100Hz IPS Gaming & Office Monitor; SKU KOORUI-E2711F; NPR 21150; reference NPR 23500; In Stock; Displayed Dashain product discount. Separate festive coupons and custom PC-build bonuses are not deducted from this observed price. No additional warranty duration is inferred.",
+          "fetchedAt": "2026-10-01T19:34:56.638Z",
+          "contentHash": "d52d292e8d6198152316f5cad009f63f1858a9f5899c67784a3d7e5a802b8ba6",
+          "extractorVersion": "s3-tech-v1"
+        }
+      ],
+      "merchant": "S3 TECH",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "KOORUI E2711F 27-inch FHD 100Hz IPS Gaming & Office Monitor"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T19:34:56.638Z",
+      "priceObservedAt": "2026-10-01T19:34:56.638Z"
+    },
+    "relevance": 0,
+    "id": "2118f9ab-f0e3-4994-934e-542aef9c2fc0",
+    "sourceId": "s3-tech",
+    "sourceOfferKey": "s3-tech-dashain-tihar-2083:839",
+    "sellerDisplayName": "S3 TECH",
+    "title": "KOORUI E2711F 27-inch FHD 100Hz IPS Gaming & Office Monitor",
+    "summary": null,
+    "productName": "KOORUI E2711F 27-inch FHD 100Hz IPS Gaming & Office Monitor",
+    "brandName": "KOORUI",
+    "category": "COMPUTERS_AND_ACCESSORIES",
+    "imageUrl": null,
+    "destinationUrl": "https://sthree.tech/product/details/koorui-e2711f-27-inch-fhd-100hz-ips-gaming-office-monitor",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 2350000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 2115000
+    },
+    "discountPercent": 10,
+    "discountLabel": null,
+    "terms": "Displayed Dashain product discount. Separate festive coupons and custom PC-build bonuses are not deducted from this observed price. No additional warranty duration is inferred.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T19:35:01.977Z",
+    "expiresAt": "2026-10-21T19:35:01.977Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T19:35:01.977Z",
+    "updatedAt": "2026-10-01T19:35:01.977Z"
+  },
+  {
+    "discovery": {
+      "product": {
         "key": "149",
         "gtin": null,
         "model": "MP-DASH-COMBO-03-2083",

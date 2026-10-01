@@ -1,23 +1,24 @@
 {
-  "checkedAt": "2026-10-01T19:18:36.567Z",
+  "checkedAt": "2026-10-01T19:35:02.008Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 17,
+    "sellers": 18,
     "categories": 6,
-    "offers": 1168
+    "offers": 1171
   },
   "remaining": {
-    "sellers": 3,
+    "sellers": 2,
     "categories": 0,
     "offers": 0
   },
   "achieved": false,
   "conflictingProducts": 0,
   "bySeller": {
+    "s3-tech": 3,
     "mypower": 3,
     "sugandha-griha": 1,
     "giftmandu": 4,
@@ -37,10 +38,10 @@
     "cg-digital": 78
   },
   "byCategory": {
-    "CONSUMER_ELECTRONICS": 90,
+    "COMPUTERS_AND_ACCESSORIES": 375,
+    "CONSUMER_ELECTRONICS": 91,
     "FASHION_AND_LIFESTYLE": 110,
     "HOME_AND_FURNITURE": 214,
-    "COMPUTERS_AND_ACCESSORIES": 373,
     "HOME_APPLIANCES": 362,
     "MOBILE_AND_TABLETS": 19
   },
@@ -160,6 +161,13 @@
     },
     {
       "sourceId": "mypower",
+      "status": "PARTIAL",
+      "published": 3,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "s3-tech",
       "status": "PARTIAL",
       "published": 3,
       "withdrawn": 0,
