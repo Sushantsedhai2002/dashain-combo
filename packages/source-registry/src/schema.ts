@@ -34,6 +34,9 @@ export const SourceDefinitionSchema = z
     campaignEntryPoints: z.array(httpsUrl).max(20).readonly().optional(),
     requestTimeoutMs: z.number().int().min(1_000).max(30_000).optional(),
     socialPromotionFeeds: z.array(httpsUrl).max(5).readonly().optional(),
+    // Reviewed anonymous first-party campaign/product/seller JSON endpoints.
+    // Exact URLs only; this does not authorize arbitrary APIs or authenticated data.
+    publicEvidenceFeeds: z.array(httpsUrl).max(5).readonly().optional(),
     capabilities: z
       .array(z.enum(["CAMPAIGN", "PRODUCT", "DOCUMENT", "REVALIDATION"]))
       .readonly()
@@ -43,6 +46,7 @@ export const SourceDefinitionSchema = z
     for (const url of [
       ...(source.campaignEntryPoints ?? []),
       ...(source.socialPromotionFeeds ?? []),
+      ...(source.publicEvidenceFeeds ?? []),
     ]) {
       if (
         !source.channels.some(
@@ -54,10 +58,19 @@ export const SourceDefinitionSchema = z
       )
         ctx.addIssue({
           code: "custom",
-          path: ["campaignEntryPoints", "socialPromotionFeeds"],
+          path: ["campaignEntryPoints", "socialPromotionFeeds", "publicEvidenceFeeds"],
           message: "Collection entry point must use an enabled website origin",
         });
     }
+    if (
+      source.publicEvidenceFeeds?.some((url) => url.includes("#")) ||
+      new Set(source.publicEvidenceFeeds).size !== (source.publicEvidenceFeeds?.length ?? 0)
+    )
+      ctx.addIssue({
+        code: "custom",
+        path: ["publicEvidenceFeeds"],
+        message: "Public evidence feeds must be distinct URLs without fragments",
+      });
   })
   .readonly();
 

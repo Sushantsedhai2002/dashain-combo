@@ -1547,5 +1547,29 @@
       "https://www.giftmandu.com/occasions/dashain/dashain-offers/"
     ],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "sugandha-griha",
+    "displayName": "Sugandha Griha",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://shofydrop.com/store/sugandha_griha",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T19:01:02.456778Z",
+      "evidenceUrl": "https://shofydrop.com/api/vendor/vendorDescription/?username=sugandha_griha"
+    },
+    "publicEvidenceFeeds": [
+      "https://shofydrop.com/api/products/product/offerProduct?offset=0&noOfRows=100",
+      "https://shofydrop.com/api/products/product/id?id=774",
+      "https://shofydrop.com/api/vendor/vendorDescription/?username=sugandha_griha"
+    ],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   }
 ]

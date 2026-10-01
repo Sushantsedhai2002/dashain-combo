@@ -33,6 +33,17 @@ function fakeTransport(
 }
 
 describe("pinned HTTPS transport", () => {
+  it("negotiates anonymous JSON without adding credentials or changing GET semantics", async () => {
+    const transport = fakeTransport(200, "[]", { "content-type": "application/json" });
+    await expect(
+      transport.request("https://merchant.test/api/offers", ["8.8.8.8"], 1000, 100),
+    ).resolves.toMatchObject({ body: "[]", contentType: "application/json" });
+    expect(transport.getOptions()?.method).toBe("GET");
+    expect(transport.getOptions()?.headers).toMatchObject({
+      Accept: expect.stringContaining("application/json"),
+    });
+    expect(transport.getOptions()?.headers).not.toHaveProperty("Authorization");
+  });
   it("returns bounded HTML and pins lookup to the validated address", async () => {
     const transport = fakeTransport(200, "<html>offer</html>");
     await expect(

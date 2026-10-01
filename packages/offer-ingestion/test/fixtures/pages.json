@@ -101,5 +101,8 @@
   "https://www.giftmandu.com/golden-lord-ganesha-statue": "giftmandu-2.html",
   "https://www.giftmandu.com/shri-ganeshay-namah-ganesh-statue": "giftmandu-3.html",
   "https://www.giftmandu.com/golden-lord-buddha-statue-wall-hanging-frame-11-inch": "giftmandu-4.html",
-  "https://www.giftmandu.com/divine-ganesh-ji-acrylic-frame": "giftmandu-5.html"
+  "https://www.giftmandu.com/divine-ganesh-ji-acrylic-frame": "giftmandu-5.html",
+  "https://shofydrop.com/api/products/product/offerProduct?offset=0&noOfRows=100": "shofy-0.json",
+  "https://shofydrop.com/api/products/product/id?id=774": "shofy-1.json",
+  "https://shofydrop.com/api/vendor/vendorDescription/?username=sugandha_griha": "shofy-2.json"
 }

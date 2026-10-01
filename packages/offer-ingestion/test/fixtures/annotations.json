@@ -1805,6 +1805,18 @@
       "sourcePublishedAt": null,
       "explicitValidityEnd": null,
       "terms": "Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller."
+    },
+    {
+      "sourceId": "sugandha-griha",
+      "title": "Blanko Dawn Perfume 100ML",
+      "destinationUrl": "https://shofydrop.com/store/sugandha_griha/product/774",
+      "originalMinor": 159800,
+      "saleMinor": 135800,
+      "category": "FASHION_AND_LIFESTYLE",
+      "brandName": null,
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": null,
+      "terms": null
     }
   ],
   "negatives": [

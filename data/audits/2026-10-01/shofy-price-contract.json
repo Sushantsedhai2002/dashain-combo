@@ -1,0 +1,13 @@
+{
+  "reviewedAt": "2026-10-01T19:07:04.169631Z",
+  "url": "https://shofydrop.com/_next/static/chunks/app/store/%5BstoreId%5D/product/%5BproductId%5D/page-2cd8cc2d9ec6b596.js",
+  "contentHash": "63457b528c8df26a3904c28e626d4503ef163b97296cccd4f0b79405eab46fe9",
+  "priceMeaning": "discountedPrice is an absolute reduction; payable price is price minus discountedPrice, not discountedPrice itself.",
+  "rendererExcerpt": "||0)).toLocaleString(\"en-IN\"):(e?.price-(e?.discountedPrice||0)).toLocaleString(\"en-IN\")",
+  "sellerIdentity": {
+    "vendorId": 153,
+    "shopName": "Sugandha Griha",
+    "username": "sugandha_griha"
+  },
+  "countsTowardCoverage": false
+}

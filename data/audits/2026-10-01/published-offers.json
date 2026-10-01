@@ -2,6 +2,147 @@
   {
     "discovery": {
       "product": {
+        "key": "774",
+        "gtin": null,
+        "model": "blanko_da_774",
+        "variant": "Blanko Dawn Perfume 100ML",
+        "attributes": {
+          "sku": "blanko_da_774",
+          "volume": "100 ML"
+        }
+      },
+      "reasons": [
+        "DATED_DASHAIN_EXACT_PRODUCT_MEMBERSHIP",
+        "REVIEWED_INDEPENDENT_MARKETPLACE_SELLER",
+        "CAMPAIGN_AND_PRODUCT_DISCOUNT_AMOUNT_AGREE",
+        "SIMPLE_PRODUCT_WITH_AVAILABLE_STOCK"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "sugandha-griha-dashain-2026",
+        "title": "Dashain Sale Offer!!",
+        "endsAt": "2026-10-14T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": null,
+        "startsAt": "2026-09-23T18:15:00.000Z",
+        "festivals": [
+          "DASHAIN"
+        ],
+        "membership": "EXPLICIT_PRODUCT",
+        "evidenceUrl": "https://shofydrop.com/api/products/product/offerProduct?offset=0&noOfRows=100",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "1790187300000–1792001700000 (source epoch milliseconds)"
+      },
+      "evidence": [
+        {
+          "url": "https://shofydrop.com/api/products/product/offerProduct?offset=0&noOfRows=100",
+          "path": "reviewed public offerProduct response; exact active product/seller/date membership",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType",
+            "product",
+            "originalPrice",
+            "salePrice"
+          ],
+          "excerpt": "Dashain Sale Offer!!; product 774; vendor 153; validity 1790187300000–1792001700000; original NPR 1598; discount amount NPR 240; price NPR 1358",
+          "fetchedAt": "2026-10-01T19:04:56.871Z",
+          "contentHash": "d1b288068d0ffad943becb8b74f13c1efd2787895b2b3b7fe05b73aa80ae1e71",
+          "extractorVersion": "shofy-v1"
+        },
+        {
+          "url": "https://shofydrop.com/api/products/product/id?id=774",
+          "path": "public exact product record; storefront's original minus absolute discount amount contract",
+          "fields": [
+            "product",
+            "originalPrice",
+            "salePrice",
+            "components",
+            "eligibility"
+          ],
+          "excerpt": "Blanko Dawn Perfume 100ML; SKU blanko_da_774; stock 9; no variables; original NPR 1598; discount amount NPR 240; price NPR 1358",
+          "fetchedAt": "2026-10-01T19:04:56.871Z",
+          "contentHash": "ebf6d35330a1616847fb4f86dc86665113780a6daa0718f7373ff4fecaa4cbb6",
+          "extractorVersion": "shofy-v1"
+        },
+        {
+          "url": "https://shofydrop.com/api/vendor/vendorDescription/?username=sugandha_griha",
+          "path": "public merchant profile identity corroborates campaign and product",
+          "fields": [
+            "membership"
+          ],
+          "excerpt": "Vendor 153: Sugandha Griha; sugandha_griha; active; Old Baneshwor, Kathmandu, Bagmati Province",
+          "fetchedAt": "2026-10-01T19:04:56.871Z",
+          "contentHash": "003a20bb975e306d250887b2ec51ef699c5b6a2c514d59780393d171221ea76d",
+          "extractorVersion": "shofy-v1"
+        }
+      ],
+      "merchant": "Sugandha Griha",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "item",
+          "quantity": 1,
+          "description": "Blanko Dawn Perfume 100ML"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T19:04:56.871Z",
+      "priceObservedAt": "2026-10-01T19:04:56.871Z"
+    },
+    "relevance": 0,
+    "id": "0960fca9-e1a6-416e-8e5c-5318f7290147",
+    "sourceId": "sugandha-griha",
+    "sourceOfferKey": "sugandha-griha-dashain-2026:774",
+    "sellerDisplayName": "Sugandha Griha",
+    "title": "Blanko Dawn Perfume 100ML",
+    "summary": null,
+    "productName": "Blanko Dawn Perfume 100ML",
+    "brandName": null,
+    "category": "FASHION_AND_LIFESTYLE",
+    "imageUrl": null,
+    "destinationUrl": "https://shofydrop.com/store/sugandha_griha/product/774",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 159800
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 135800
+    },
+    "discountPercent": 15,
+    "discountLabel": null,
+    "terms": null,
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": null,
+    "firstDiscoveredAt": "2026-10-01T19:04:56.890Z",
+    "expiresAt": "2026-10-21T19:04:56.890Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T19:04:56.890Z",
+    "updatedAt": "2026-10-01T19:04:56.890Z"
+  },
+  {
+    "discovery": {
+      "product": {
         "key": "44561",
         "gtin": null,
         "model": "SP-7857",

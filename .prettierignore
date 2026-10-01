@@ -5,3 +5,5 @@ node_modules/
 dist/
 coverage/
 pnpm-lock.yaml
+# Raw recorded public API response bodies retain their provenance hashes.
+packages/offer-ingestion/test/fixtures/shofy-?.json

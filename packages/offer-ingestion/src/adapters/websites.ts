@@ -17,6 +17,7 @@ import { createSukumartAdapter } from "./sukumart.ts";
 import { createSabkoAdapter } from "./sabko-phone.ts";
 import { createDealayoAdapter } from "./dealayo.ts";
 import { createMaskQueenAdapter } from "./mask-queen.ts";
+import { createShofyAdapter } from "./shofy.ts";
 import { createGiftmanduAdapter } from "./giftmandu.ts";
 import { createMaakeAdapter } from "./maake.ts";
 import { createMuditaAdapter } from "./mudita.ts";
@@ -43,6 +44,7 @@ export function createWebsiteAdapters(
     createMaskQueenAdapter(fetchPage, clock),
     createMaakeAdapter(fetchPage, clock),
     createGiftmanduAdapter(fetchPage, clock),
+    createShofyAdapter(fetchPage, clock),
     ...DATED_CAMPAIGNS.map((profile) => createDatedCampaignAdapter(profile, fetchPage, clock)),
     createEvoStoreAdapter(fetchPage),
     createIttiAdapter(fetchPage),

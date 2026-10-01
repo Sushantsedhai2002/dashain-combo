@@ -63,6 +63,7 @@ describe("ingestion runtime with PostgreSQL", () => {
     "mask-queen-nepal",
     "maake-beauty-nepal",
     "giftmandu",
+    "sugandha-griha",
   ];
   const priceSourceIds = createWebsiteAdapters(async () => ({ status: 503, body: "" }))
     .map((a) => a.sourceId)
@@ -80,6 +81,7 @@ describe("ingestion runtime with PostgreSQL", () => {
     { name: "Sabko exact refurbished units", sourceIds: ["sabko-phone"], offerCount: 2 },
     { name: "Dealayo complete Dashain collection", sourceIds: ["dealayo"], offerCount: 324 },
     { name: "Mask Queen available variants", sourceIds: ["mask-queen-nepal"], offerCount: 61 },
+    { name: "Sugandha Griha dated product", sourceIds: ["sugandha-griha"], offerCount: 1 },
     { name: "Giftmandu priced Dashain products", sourceIds: ["giftmandu"], offerCount: 4 },
     { name: "Maake observed discounts", sourceIds: ["maake-beauty-nepal"], offerCount: 3 },
     { name: "Mudita dated Dashain section", sourceIds: ["mudita-store"], offerCount: 233 },

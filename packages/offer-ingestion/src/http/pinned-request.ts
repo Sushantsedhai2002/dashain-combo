@@ -18,7 +18,7 @@ export function createPinnedRequest(startRequest: typeof httpsRequest = httpsReq
           method: "GET",
           signal: AbortSignal.timeout(timeoutMs),
           headers: {
-            Accept: "text/html,application/xhtml+xml,text/plain",
+            Accept: "text/html,application/xhtml+xml,text/plain,application/json",
             "Accept-Encoding": "identity",
             "User-Agent": "DashainOfferRadar/0.1 (+public-offer-monitor)",
           },

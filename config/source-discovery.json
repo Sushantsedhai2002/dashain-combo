@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01T18:57:49.105141Z",
+  "reviewedAt": "2026-10-01T19:07:04.169631Z",
   "target": {
     "sellers": 20,
     "categories": 5,
@@ -214,6 +214,14 @@
       "note": "Daraz indexed current 2083 gift packs with discounts, but live public detail omitted seller and sale price; manufacturer website robots policy unavailable. Cannot publish indexed prices or count seller without working refresh.",
       "countsTowardCoverage": false,
       "reviewedAt": "2026-10-01T18:22:28.066420Z"
+    },
+    {
+      "sourceId": "sugandha-griha",
+      "url": "https://shofydrop.com/store/sugandha_griha",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "One exact available simple product has active 2026 Dashain offer dates. Reviewed vendor 153 and storefront slug agree across public offer, exact product and seller profile. Published absolute discount amount agrees with storefront price semantics; no campaign percentage applied. Expired other sellers and unrelated Rakshya Bandan offers excluded. Three anonymous JSON endpoints explicitly registered; pinned HTTPS/robots/3MB checks retained. Partial single-product pilot.",
+      "countsTowardCoverage": true,
+      "reviewedAt": "2026-10-01T19:07:04.169631Z"
     }
   ]
 }

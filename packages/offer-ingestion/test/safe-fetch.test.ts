@@ -21,6 +21,24 @@ const source: SourceDefinition = {
 };
 
 describe("safe website fetch", () => {
+  it("accepts anonymous public JSON evidence only at exact reviewed URLs with existing transport limits", async () => {
+    const url = "https://evostore.com.np/api/products?id=774";
+    const request = vi.fn(async () => ({
+      status: 200,
+      body: "{}",
+      contentType: "application/json",
+    }));
+    const fetch = createSafePageFetcher({ resolveHostname: async () => ["8.8.8.8"], request });
+    const registered = { ...source, publicEvidenceFeeds: [url] };
+    await expect(fetch(url, registered)).resolves.toMatchObject({ status: 200 });
+    expect(request).toHaveBeenCalledWith(url, ["8.8.8.8"], 10_000, 3_000_000);
+    for (const other of [url.replace("774", "775"), url + "&other=1", "https://evostore.com.np/"])
+      await expect(fetch(other, registered)).rejects.toThrow("Unsupported website response");
+    await expect(fetch(url, source)).rejects.toThrow("Unsupported website response");
+    await expect(fetch("https://attacker.test/api/products?id=774", registered)).rejects.toThrow(
+      "URL outside approved website origin",
+    );
+  });
   it("uses a bounded registered timeout and rejects invalid values before transport", async () => {
     const request = vi.fn(async () => ({
       status: 200,

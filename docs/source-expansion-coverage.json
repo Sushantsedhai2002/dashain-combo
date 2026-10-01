@@ -1,23 +1,24 @@
 {
-  "checkedAt": "2026-10-01T18:57:13.080Z",
+  "checkedAt": "2026-10-01T19:04:56.915Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 15,
+    "sellers": 16,
     "categories": 6,
-    "offers": 1164
+    "offers": 1165
   },
   "remaining": {
-    "sellers": 5,
+    "sellers": 4,
     "categories": 0,
     "offers": 0
   },
   "achieved": false,
   "conflictingProducts": 0,
   "bySeller": {
+    "sugandha-griha": 1,
     "giftmandu": 4,
     "maake-beauty-nepal": 3,
     "mask-queen-nepal": 66,
@@ -35,8 +36,8 @@
     "cg-digital": 78
   },
   "byCategory": {
+    "FASHION_AND_LIFESTYLE": 110,
     "HOME_AND_FURNITURE": 214,
-    "FASHION_AND_LIFESTYLE": 109,
     "COMPUTERS_AND_ACCESSORIES": 373,
     "CONSUMER_ELECTRONICS": 87,
     "HOME_APPLIANCES": 362,
@@ -146,6 +147,13 @@
       "sourceId": "giftmandu",
       "status": "PARTIAL",
       "published": 4,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "sugandha-griha",
+      "status": "PARTIAL",
+      "published": 1,
       "withdrawn": 0,
       "skipped": 0
     }

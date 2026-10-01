@@ -97,7 +97,8 @@ export function createSafePageFetcher(
       (response.status === 200 &&
         !(url.pathname === "/robots.txt"
           ? /^text\/plain(?:;|$)/i.test(response.contentType)
-          : source.socialPromotionFeeds?.includes(url.href)
+          : source.socialPromotionFeeds?.includes(url.href) ||
+              source.publicEvidenceFeeds?.includes(url.href)
             ? /^application\/json(?:;|$)/i.test(response.contentType)
             : /^(?:text\/html|application\/xhtml\+xml)(?:;|$)/i.test(response.contentType)))
     ) {

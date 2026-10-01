@@ -155,9 +155,36 @@ describe("public source types", () => {
         requestTimeoutMs?: number | undefined;
         campaignEntryPoints?: readonly string[] | undefined;
         socialPromotionFeeds?: readonly string[] | undefined;
+        publicEvidenceFeeds?: readonly string[] | undefined;
         capabilities?:
           readonly ("CAMPAIGN" | "PRODUCT" | "DOCUMENT" | "REVALIDATION")[] | undefined;
       }>
     >();
+  });
+});
+
+describe("public anonymous JSON evidence registration", () => {
+  it("requires bounded distinct credential-free exact URLs on enabled website origins", () => {
+    const good = "https://www.daraz.com.np/api/product?id=774";
+    expect(
+      SourceDefinitionSchema.safeParse({ ...validSource, publicEvidenceFeeds: [good] }).success,
+    ).toBe(true);
+    for (const publicEvidenceFeeds of [
+      [good, good],
+      [good + "#fragment"],
+      ["https://attacker.test/api/product"],
+      ["https://user:password@www.daraz.com.np/api/product"],
+      Array.from({ length: 6 }, (_, i) => good + i),
+    ])
+      expect(
+        SourceDefinitionSchema.safeParse({ ...validSource, publicEvidenceFeeds }).success,
+      ).toBe(false);
+    expect(
+      SourceDefinitionSchema.safeParse({
+        ...validSource,
+        channels: [],
+        publicEvidenceFeeds: [good],
+      }).success,
+    ).toBe(false);
   });
 });

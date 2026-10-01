@@ -25,6 +25,7 @@ export type SourceDefinition = Readonly<{
   requestTimeoutMs?: number | undefined;
   campaignEntryPoints?: readonly string[] | undefined;
   socialPromotionFeeds?: readonly string[] | undefined;
+  publicEvidenceFeeds?: readonly string[] | undefined;
   capabilities?: readonly ("CAMPAIGN" | "PRODUCT" | "DOCUMENT" | "REVALIDATION")[] | undefined;
 }>;
 
