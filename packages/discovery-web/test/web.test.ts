@@ -5,6 +5,7 @@ import type { Offer, OfferCatalog } from "@dashain-offer/offer-catalog";
 import { parseDiscoveryQuery } from "../src/query.ts";
 import { renderHome, renderDetail } from "../src/render.ts";
 import { createWebHandler } from "../src/handler.ts";
+import { discovery } from "../../offer-catalog/test/fixtures/discovery.ts";
 
 const source = { id: "evostore", displayName: "EvoStore" };
 const offer: Offer = {
@@ -160,7 +161,12 @@ describe("HTTP routes", () => {
     })),
   };
   it("serves catalog pages with security headers and correct error statuses", async () => {
-    const handler = createWebHandler({ catalog, sources: [source], stylesheet: "body{}" });
+    const handler = createWebHandler({
+      catalog,
+      sources: [source],
+      defaultScope: "ALL",
+      stylesheet: "body{}",
+    });
     expect((await handler("GET", "/")).status).toBe(200);
     expect((await handler("GET", "/assets/style.css")).body).toBe("body{}");
     expect((await handler("GET", "/?sort=INVALID")).status).toBe(400);
@@ -178,6 +184,7 @@ describe("HTTP routes", () => {
     const invalid = createWebHandler({
       catalog: { ...catalog, searchVisibleOffers: async () => ({ ok: false, issues: [] }) },
       sources: [source],
+      defaultScope: "ALL",
       stylesheet: "",
     });
     expect((await invalid("GET", "/?cursor=bad")).status).toBe(400);
@@ -189,6 +196,7 @@ describe("HTTP routes", () => {
         },
       },
       sources: [source],
+      defaultScope: "ALL",
       stylesheet: "",
     });
     const response = await failing("GET", "/");
@@ -197,12 +205,18 @@ describe("HTTP routes", () => {
     const found = createWebHandler({
       catalog: { ...catalog, getVisibleOffer: async () => ({ ok: true, value: offer }) },
       sources: [source],
+      defaultScope: "ALL",
       stylesheet: "",
     });
     expect((await found("GET", "/offers/" + offer.id)).status).toBe(200);
   });
   it("responds through a real Node HTTP server", async () => {
-    const handler = createWebHandler({ catalog, sources: [source], stylesheet: "body{}" });
+    const handler = createWebHandler({
+      catalog,
+      sources: [source],
+      defaultScope: "ALL",
+      stylesheet: "body{}",
+    });
     const server = createServer((req, res) => {
       void handler(req.method ?? "GET", req.url ?? "/").then((r) => {
         res.writeHead(r.status, r.headers);
@@ -231,6 +245,47 @@ describe("HTTP routes", () => {
 });
 
 describe("campaign discovery UI", () => {
+  it("enforces discounted Dashain products on every public route", async () => {
+    const current = { ...offer, title: "Verified Dashain washer", discovery: discovery() };
+    const generic = {
+      ...offer,
+      title: "Generic everyday sale",
+      id: "22345678-1234-4234-8234-123456789012",
+    };
+    let detail = current;
+    const search = vi.fn<OfferCatalog["searchVisibleOffers"]>(async () => ({
+      ok: true,
+      value: { items: [current, generic], nextCursor: null },
+    }));
+    const handler = createWebHandler({
+      catalog: {
+        searchVisibleOffers: search,
+        getVisibleOffer: async () => ({ ok: true, value: detail }),
+      },
+      sources: [source],
+      stylesheet: "",
+      clock: () => new Date("2026-10-01T07:00:00Z"),
+    });
+    const home = await handler("GET", "/");
+    expect(home.status).toBe(200);
+    expect(home.body).toContain("1 offer on this page");
+    expect(home.body).toContain("Verified Dashain washer");
+    expect(home.body).not.toContain("Generic everyday sale");
+    expect(home.body).not.toContain('value="ALL"');
+    expect(home.body).not.toContain('value="PRIZE_DRAW"');
+    expect(search).toHaveBeenCalledWith(expect.objectContaining({ scope: "DASHAIN" }));
+    expect((await handler("GET", "/?scope=ALL")).status).toBe(400);
+    expect((await handler("GET", `/offers/${offer.id}`)).status).toBe(200);
+    const comparison = await handler("GET", `/offers/${offer.id}/compare`);
+    expect(comparison.status).toBe(200);
+    expect(comparison.body).not.toContain("Generic everyday sale");
+    expect(search).toHaveBeenLastCalledWith(expect.objectContaining({ scope: "DASHAIN" }));
+    detail = { ...current, salePrice: current.originalPrice };
+    expect((await handler("GET", `/offers/${offer.id}`)).status).toBe(404);
+    expect((await handler("GET", `/offers/${offer.id}/compare`)).status).toBe(404);
+    detail = { ...current, discovery: discovery({ priceObservedAt: "2026-09-25T00:00:00Z" }) };
+    expect((await handler("GET", `/offers/${offer.id}`)).status).toBe(404);
+  });
   it("parses visible budgets and rejects invalid filter combinations", () => {
     expect(
       parseDiscoveryQuery(
@@ -281,6 +336,7 @@ describe("campaign discovery UI", () => {
       sources: [source],
       stylesheet: "",
       defaultScope: "DASHAIN",
+      clock: () => new Date("2026-10-01T07:00:00Z"),
     });
     expect((await handler("GET", `/offers/${offer.id}/compare`)).body).toContain(
       "No other verified matching offers",
@@ -288,14 +344,14 @@ describe("campaign discovery UI", () => {
     expect(search).toHaveBeenCalledWith(
       expect.objectContaining({ model: "LG-123", variant: "8kg", brands: ["Marshall"] }),
     );
-    expect((await handler("GET", "/")).body).toContain('value="DASHAIN" selected');
+    expect((await handler("GET", "/")).body).toContain('name="scope" value="DASHAIN"');
     const empty = renderHome(
       { items: [], nextCursor: null },
       new URLSearchParams("scope=DASHAIN&q=washer+under+60k"),
       [source],
     );
     expect(empty).toContain("No verified current Dashain offers match");
-    expect(empty).toContain('href="/?scope=ALL"');
+    expect(empty).toContain('href="/"');
     expect(empty).toContain('value="60000"');
   });
 });

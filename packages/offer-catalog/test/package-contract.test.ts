@@ -15,6 +15,8 @@ describe("offer-catalog public package contract", () => {
       "DiscoverySchema",
       "UNKNOWN_ELIGIBILITY",
       "parseBudgetIntent",
+      "isCurrentDashainDiscount",
+      "DASHAIN_PRODUCT_TYPES",
     ]);
   });
 

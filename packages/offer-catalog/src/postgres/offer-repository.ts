@@ -1,4 +1,9 @@
 import { searchTokens } from "../discovery.ts";
+import {
+  DASHAIN_PRODUCT_TYPES,
+  DASHAIN_PRICE_EVIDENCE,
+  DASHAIN_FRESHNESS_MS,
+} from "../dashain-eligibility.ts";
 import type { Pool } from "pg";
 
 import type { PublishCommand, SearchCatalogRepository, SearchCommand } from "../catalog.ts";
@@ -109,11 +114,22 @@ function buildSearchSql(command: SearchCommand, now: Date): SearchSql {
   }
   clauses.push("COALESCE(discovery->>'qualification', 'UNCLASSIFIED') <> 'QUARANTINED'");
   if (query.scope === "DASHAIN") {
+    const cutoff = parameter(new Date(now.getTime() - DASHAIN_FRESHNESS_MS));
+    const latest = parameter(new Date(now.getTime() + 60000));
     clauses.push(
       "discovery->>'qualification' = 'QUALIFIED'",
+      "discovery->'product'->>'key' IS NOT NULL",
+      `discovery->>'offerType' = ANY(${parameter(DASHAIN_PRODUCT_TYPES)}::text[])`,
+      "discovery->>'availability' <> 'OUT_OF_STOCK'",
+      "original_currency = 'NPR' AND sale_currency = 'NPR'",
+      "sale_amount_minor > 0 AND sale_amount_minor < original_amount_minor",
+      `(discovery->>'priceObservedAt')::timestamptz > ${cutoff}`,
+      `(discovery->>'priceObservedAt')::timestamptz <= ${latest}`,
+      `NOT EXISTS (SELECT 1 FROM unnest(${parameter(DASHAIN_PRICE_EVIDENCE)}::text[]) AS required(field) WHERE NOT EXISTS (SELECT 1 FROM jsonb_array_elements(discovery->'evidence') AS evidence WHERE evidence->'fields' ? required.field AND (evidence->>'fetchedAt')::timestamptz > ${cutoff} AND (evidence->>'fetchedAt')::timestamptz <= ${latest}))`,
       "discovery->'campaign'->'festivals' ? 'DASHAIN'",
       `(discovery->'campaign'->>'seasonAD')::int = ${parameter(query.season ?? Number(new Intl.DateTimeFormat("en", { timeZone: "Asia/Kathmandu", year: "numeric" }).format(now)))}`,
-      `(discovery->>'lastVerifiedAt')::timestamptz > ${parameter(new Date(now.getTime() - 48 * 3600000))}`,
+      `(discovery->>'lastVerifiedAt')::timestamptz > ${cutoff}`,
+      `(discovery->>'lastVerifiedAt')::timestamptz <= ${latest}`,
       `(discovery->'campaign'->>'startsAt' IS NULL OR (discovery->'campaign'->>'startsAt')::timestamptz <= ${parameter(now)})`,
       `(discovery->'campaign'->>'endsAt' IS NULL OR (discovery->'campaign'->>'endsAt')::timestamptz > ${parameter(now)})`,
     );

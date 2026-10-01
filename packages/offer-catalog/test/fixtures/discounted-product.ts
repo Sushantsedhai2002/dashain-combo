@@ -1,0 +1,31 @@
+import type { Offer } from "../../src/contract.ts";
+import { discovery } from "./discovery.ts";
+const now = new Date("2026-10-01T07:00:00Z");
+export const discountedProduct: Offer = {
+  id: "12345678-1234-4234-8234-123456789012",
+  sourceId: "daraz-nepal",
+  sourceOfferKey: "washer",
+  sellerDisplayName: "Daraz Nepal",
+  title: "LG washer",
+  summary: null,
+  productName: "Washer",
+  brandName: "LG",
+  category: "HOME_APPLIANCES",
+  imageUrl: null,
+  destinationUrl: "https://www.daraz.com.np/washer",
+  originalPrice: { currency: "NPR", amountMinor: 6000000 },
+  salePrice: { currency: "NPR", amountMinor: 5000000 },
+  discountPercent: 17,
+  discountLabel: null,
+  terms: null,
+  sourcePublishedAt: null,
+  validityStartsAt: null,
+  explicitValidityEnd: null,
+  firstDiscoveredAt: now.toISOString(),
+  expiresAt: "2026-10-21T07:00:00Z",
+  withdrawnAt: null,
+  lifecycleStatus: "ACTIVE",
+  createdAt: now.toISOString(),
+  updatedAt: now.toISOString(),
+  discovery: discovery(),
+};

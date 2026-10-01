@@ -10,6 +10,8 @@ describe("@dashain-offer/offer-catalog", () => {
       "DiscoverySchema",
       "UNKNOWN_ELIGIBILITY",
       "parseBudgetIntent",
+      "isCurrentDashainDiscount",
+      "DASHAIN_PRODUCT_TYPES",
     ]);
   });
 });

@@ -1,4 +1,4 @@
-import type { OfferCatalog } from "@dashain-offer/offer-catalog";
+import { isCurrentDashainDiscount, type OfferCatalog } from "@dashain-offer/offer-catalog";
 import { parseDiscoveryQuery, type SourceOption } from "./query.ts";
 import { renderComparison, renderDetail, renderHome, renderMessage } from "./render.ts";
 
@@ -22,9 +22,12 @@ export function createWebHandler(
     sources: readonly SourceOption[];
     stylesheet: string;
     defaultScope?: "ALL" | "DASHAIN";
+    clock?: () => Date;
   }>,
 ): (method: string, target: string) => Promise<WebResponse> {
   return async (method, target) => {
+    const scope = dependencies.defaultScope ?? "DASHAIN";
+    const now = (dependencies.clock ?? (() => new Date()))();
     const response = (
       status: number,
       body: string,
@@ -45,10 +48,9 @@ export function createWebHandler(
       if (url.pathname === "/assets/style.css")
         return response(200, dependencies.stylesheet, "text/css; charset=utf-8");
       if (url.pathname === "/") {
-        if (!url.searchParams.has("scope") && dependencies.defaultScope)
-          url.searchParams.set("scope", dependencies.defaultScope);
+        if (!url.searchParams.has("scope")) url.searchParams.set("scope", scope);
         const parsed = parseDiscoveryQuery(url.searchParams, dependencies.sources);
-        if (!parsed.ok)
+        if (!parsed.ok || (scope === "DASHAIN" && parsed.query.scope !== "DASHAIN"))
           return response(
             400,
             renderMessage(
@@ -58,7 +60,20 @@ export function createWebHandler(
           );
         const result = await dependencies.catalog.searchVisibleOffers(parsed.query);
         return result.ok
-          ? response(200, renderHome(result.value, url.searchParams, dependencies.sources))
+          ? response(
+              200,
+              renderHome(
+                {
+                  ...result.value,
+                  items:
+                    parsed.query.scope === "DASHAIN"
+                      ? result.value.items.filter((offer) => isCurrentDashainDiscount(offer, now))
+                      : result.value.items,
+                },
+                url.searchParams,
+                dependencies.sources,
+              ),
+            )
           : response(
               400,
               renderMessage(
@@ -73,7 +88,7 @@ export function createWebHandler(
         );
       if (match?.[1] !== undefined) {
         const result = await dependencies.catalog.getVisibleOffer(match[1]);
-        if (result.ok) {
+        if (result.ok && (scope === "ALL" || isCurrentDashainDiscount(result.value, now))) {
           if (match[2]) {
             const product = result.value.discovery?.product;
             if (!product || !result.value.brandName)
@@ -85,6 +100,7 @@ export function createWebHandler(
                 ),
               );
             const comparisons = await dependencies.catalog.searchVisibleOffers({
+              scope,
               model: product.model,
               variant: product.variant,
               brands: [result.value.brandName],
@@ -106,9 +122,10 @@ export function createWebHandler(
               );
             const items = comparisons.value.items.filter(
               (offer) =>
-                (offer.discovery?.offerType !== "BUNDLE" &&
+                (scope === "ALL" || isCurrentDashainDiscount(offer, now)) &&
+                ((offer.discovery?.offerType !== "BUNDLE" &&
                   result.value.discovery?.offerType !== "BUNDLE") ||
-                mainItems(offer) === mainItems(result.value),
+                  mainItems(offer) === mainItems(result.value)),
             );
             return response(200, renderComparison(result.value, items));
           }

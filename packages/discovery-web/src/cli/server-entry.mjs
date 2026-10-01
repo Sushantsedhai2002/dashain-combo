@@ -15,7 +15,7 @@ const registry = parseSourceRegistry(
 if (!registry.ok) throw new Error("Source registry is invalid.");
 const handler = createWebHandler({
   catalog: createOfferCatalog({ databaseUrl }),
-  defaultScope: process.env.DEFAULT_OFFER_SCOPE === "DASHAIN" ? "DASHAIN" : "ALL",
+  defaultScope: "DASHAIN",
   sources: getActiveSources(registry.sources),
   stylesheet: await readFile(new URL("../style.css", import.meta.url), "utf8"),
 });

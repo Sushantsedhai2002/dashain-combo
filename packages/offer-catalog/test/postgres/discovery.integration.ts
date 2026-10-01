@@ -28,6 +28,7 @@ async function publish(key: string, overrides = {}) {
     title: "LG Washing machine",
     productName: "Washing machine",
     brandName: "LG",
+    originalPrice: { currency: "NPR", amountMinor: 6000000 },
     salePrice: { currency: "NPR", amountMinor: 5000000 },
     discovery: discovery(),
     ...overrides,
@@ -93,8 +94,49 @@ it("finds aliases, reordered tokens, exact models and budget-qualified product p
     value: { items: [] },
   });
   expect(
-    await catalog.searchVisibleOffers({ minPriceMinor: 6000000, currency: "NPR" }),
+    await catalog.searchVisibleOffers({
+      scope: "DASHAIN",
+      minPriceMinor: 6000000,
+      currency: "NPR",
+    }),
   ).toMatchObject({ ok: true, value: { items: [] } });
+});
+it("requires a fresh evidenced NPR reduction while retaining discounted gifts", async () => {
+  const product = await publish("valid-gift");
+  await publish("equal-price", { salePrice: { currency: "NPR", amountMinor: 6000000 } });
+  await publish("no-reference-price", { originalPrice: null });
+  await publish("gift-only", { originalPrice: null, salePrice: null });
+  await publish("out-of-stock", { discovery: discovery({ availability: "OUT_OF_STOCK" }) });
+  await publish("old-price", { discovery: discovery({ priceObservedAt: "2026-09-29T07:00:00Z" }) });
+  await publish("unknown-price-time", { discovery: discovery({ priceObservedAt: null }) });
+  await publish("future-price", {
+    discovery: discovery({ priceObservedAt: "2026-10-02T07:00:00Z" }),
+  });
+  await publish("old-evidence", {
+    discovery: discovery({
+      evidence: discovery().evidence.map((e) => ({ ...e, fetchedAt: "2026-09-29T07:00:00Z" })),
+    }),
+  });
+  await publish("prize", { discovery: discovery({ offerType: "PRIZE_DRAW" }) });
+  await publish("expired-campaign", {
+    discovery: discovery({ campaign: { ...discovery().campaign!, endsAt: now.toISOString() } }),
+  });
+  await publish("future-campaign", {
+    discovery: discovery({
+      campaign: { ...discovery().campaign!, startsAt: "2026-10-02T07:00:00Z" },
+    }),
+  });
+  const result = await catalog.searchVisibleOffers({ scope: "DASHAIN" });
+  expect(result.ok && result.value.items.map((offer) => offer.id)).toEqual([product.id]);
+  // Persisted legacy evidence may predate stricter validation; the query still guards it.
+  await pool.query(
+    'UPDATE offers SET discovery = jsonb_set(discovery, \'{evidence,0,fields}\', \'["campaign","membership","product"]\') WHERE id = $1',
+    [product.id],
+  );
+  expect(await catalog.searchVisibleOffers({ scope: "DASHAIN" })).toMatchObject({
+    ok: true,
+    value: { items: [] },
+  });
 });
 it("keeps ranked cursors bound to filters and records price observations", async () => {
   await publish("a");
@@ -126,4 +168,27 @@ it("keeps ranked cursors bound to filters and records price observations", async
   });
   expect(changed.salePrice?.amountMinor).toBe(4900000);
   expect(changed.discovery?.benefits).toEqual([]);
+});
+
+it("filters campaign membership before pagination and preserves it on the next page", async () => {
+  const firstProduct = await publish("first-dashain");
+  const secondProduct = await publish("second-dashain");
+  await publish("generic-sale", { discovery: null });
+  await publish("tihar-only", {
+    discovery: discovery({ campaign: { ...discovery().campaign!, festivals: ["TIHAR"] } }),
+  });
+  const first = await catalog.searchVisibleOffers({ scope: "DASHAIN", limit: 1 });
+  if (!first.ok || !first.value.nextCursor) throw new Error("Missing Dashain cursor");
+  expect(first.value.items).toHaveLength(1);
+  const second = await catalog.searchVisibleOffers({
+    scope: "DASHAIN",
+    limit: 1,
+    cursor: first.value.nextCursor,
+  });
+  if (!second.ok) throw new Error("Second Dashain page failed");
+  expect(second.value.items).toHaveLength(1);
+  expect(second.value.nextCursor).toBeNull();
+  expect(new Set([...first.value.items, ...second.value.items].map((offer) => offer.id))).toEqual(
+    new Set([firstProduct.id, secondProduct.id]),
+  );
 });
