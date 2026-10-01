@@ -27,7 +27,7 @@
     "sources:check": "pnpm --filter @dashain-offer/source-registry sources:check",
     "sources:validate": "pnpm --filter @dashain-offer/source-registry sources:validate",
     "test": "vitest run --config vitest.workspace.ts --passWithNoTests",
-    "test:coverage": "vitest run --config vitest.workspace.ts --coverage --passWithNoTests",
+    "test:coverage": "vitest run --config vitest.workspace.ts --coverage --maxWorkers=4 --passWithNoTests",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm test:coverage && pnpm build && pnpm sources:validate"
   },
   "devDependencies": {

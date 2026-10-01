@@ -93,16 +93,26 @@ describe("discovery query boundary", () => {
 });
 
 describe("presentation", () => {
+  it("shows the Dashain kite intro on landing and offer details", () => {
+    const landing = renderHome({ items: [], nextCursor: null }, new URLSearchParams(), true);
+    expect(landing).toContain('class="page-intro" aria-hidden="true"');
+    expect(landing).toContain('class="page-intro-kite"');
+    expect(landing).toContain("DASHAIN 2083");
+    const detail = renderDetail(offer);
+    expect(detail).toContain('class="page-intro" aria-hidden="true"');
+    expect(detail).toContain("Opening your offer");
+  });
   it("escapes hostile content and preserves filters in pagination", () => {
     const html = renderHome(
       { items: [offer], nextCursor: "next+cursor" },
       new URLSearchParams("q=speaker&source=evostore"),
-      [source],
     );
     expect(html).not.toContain("<script>");
     expect(html).toContain("&lt;script&gt;");
     expect(html).toContain("cursor=next%2Bcursor");
     expect(html).toContain("source=evostore");
+    expect(html).not.toContain("Trusted sources");
+    expect(html).not.toContain('name="source"');
     expect(html).toContain('loading="lazy"');
     expect(html).toContain("NPR");
   });
@@ -132,7 +142,6 @@ describe("presentation", () => {
     const html = renderHome(
       { items: [], nextCursor: null },
       new URLSearchParams("category=TRAVEL&sort=EXPIRING_SOON"),
-      [source],
     );
     expect(html).toContain("No offers found");
     expect(html).toContain("checked");
@@ -167,7 +176,10 @@ describe("HTTP routes", () => {
       defaultScope: "ALL",
       stylesheet: "body{}",
     });
-    expect((await handler("GET", "/")).status).toBe(200);
+    const landing = await handler("GET", "/");
+    expect(landing.status).toBe(200);
+    expect(landing.body).toContain('class="page-intro"');
+    expect((await handler("GET", "/?scope=ALL")).body).not.toContain('class="page-intro"');
     expect((await handler("GET", "/assets/style.css")).body).toBe("body{}");
     expect((await handler("GET", "/?sort=INVALID")).status).toBe(400);
     expect((await handler("GET", "/offers/" + offer.id)).status).toBe(404);
@@ -348,7 +360,6 @@ describe("campaign discovery UI", () => {
     const empty = renderHome(
       { items: [], nextCursor: null },
       new URLSearchParams("scope=DASHAIN&q=washer+under+60k"),
-      [source],
     );
     expect(empty).toContain("No verified current Dashain offers match");
     expect(empty).toContain('href="/"');

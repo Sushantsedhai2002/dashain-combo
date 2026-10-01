@@ -129,6 +129,154 @@ header {
   color: var(--accent);
   white-space: nowrap;
 }
+.page-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--canvas);
+  animation: intro-depart 1.6s ease-in forwards;
+}
+.page-intro-inner {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  text-align: center;
+}
+.page-intro-flight {
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  width: 4rem;
+  height: 6.5rem;
+  margin-left: -2rem;
+  animation: kite-flight 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.page-intro-kite {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(90deg, var(--accent) 50%, #b93b35 50%);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  filter: drop-shadow(0 0.25rem 0.25rem #681b2222);
+}
+.page-intro-kite::before,
+.page-intro-kite::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  background: #f7dfc8a6;
+}
+.page-intro-kite::before {
+  top: 0;
+  left: calc(50% - 0.5px);
+  width: 1px;
+  height: 100%;
+}
+.page-intro-kite::after {
+  top: calc(50% - 0.5px);
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+.page-intro-tail {
+  position: absolute;
+  top: 3.65rem;
+  left: 50%;
+  width: 1.4rem;
+  height: 2.5rem;
+  border-left: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  border-radius: 0 0 0 100%;
+  transform: rotate(-28deg);
+  transform-origin: top left;
+}
+.page-intro-title {
+  margin: 8.4rem 0 0;
+  color: var(--accent-dark);
+  font:
+    700 clamp(2rem, 6vw, 3.25rem)/1.1 Georgia,
+    "Times New Roman",
+    serif;
+  letter-spacing: -0.04em;
+  animation: intro-copy 1.6s ease-out both;
+}
+.page-intro-title span {
+  font-weight: 400;
+}
+.page-intro-note {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  animation: intro-copy 1.6s ease-out both;
+}
+.page-intro-progress {
+  display: block;
+  width: 7rem;
+  height: 2px;
+  margin: 1.65rem auto 0;
+  background: var(--line);
+  animation: intro-copy 1.6s ease-out both;
+}
+.page-intro-progress::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: intro-progress 1.25s ease-out forwards;
+}
+@keyframes kite-flight {
+  0% {
+    transform: translate(0, 0) rotate(-8deg) scale(0.8);
+  }
+  28% {
+    transform: translate(-14vw, -2rem) rotate(-16deg) scale(1);
+  }
+  56% {
+    transform: translate(7vw, -5rem) rotate(9deg) scale(1);
+  }
+  72% {
+    transform: translate(0, -7rem) rotate(-7deg) scale(1);
+  }
+  100% {
+    transform: translate(56vw, -10rem) rotate(14deg) scale(0.8);
+  }
+}
+@keyframes intro-copy {
+  0%,
+  22% {
+    opacity: 0;
+  }
+  40%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes intro-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes intro-depart {
+  0%,
+  77% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 .intro {
   position: relative;
   display: grid;
@@ -888,6 +1036,9 @@ footer p {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .page-intro {
+    display: none;
+  }
   html {
     scroll-behavior: auto;
   }
@@ -895,5 +1046,10 @@ footer p {
   .button,
   .offer-card {
     transition: none;
+  }
+}
+@media print {
+  .page-intro {
+    display: none;
   }
 }

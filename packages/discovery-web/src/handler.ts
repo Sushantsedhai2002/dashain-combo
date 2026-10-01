@@ -48,6 +48,7 @@ export function createWebHandler(
       if (url.pathname === "/assets/style.css")
         return response(200, dependencies.stylesheet, "text/css; charset=utf-8");
       if (url.pathname === "/") {
+        const showIntro = url.search === "";
         if (!url.searchParams.has("scope")) url.searchParams.set("scope", scope);
         const parsed = parseDiscoveryQuery(url.searchParams, dependencies.sources);
         if (!parsed.ok || (scope === "DASHAIN" && parsed.query.scope !== "DASHAIN"))
@@ -71,7 +72,7 @@ export function createWebHandler(
                       : result.value.items,
                 },
                 url.searchParams,
-                dependencies.sources,
+                showIntro,
               ),
             )
           : response(
