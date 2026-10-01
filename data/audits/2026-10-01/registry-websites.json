@@ -1,0 +1,1050 @@
+{
+  "capturedOn": "2026-10-01",
+  "method": "Read-only production-safe first-party homepage fetches with public-IP, HTTPS and robots restrictions. This discovery audit does not qualify product offers or seller coverage.",
+  "websites": [
+    {
+      "url": "https://bigmart.com.np/",
+      "status": null,
+      "error": "Robots policy unavailable",
+      "title": null,
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.oppo.com/np/",
+      "status": null,
+      "error": "Unsupported website response",
+      "title": null,
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.godrej.com/np",
+      "status": null,
+      "error": "Unsupported website response",
+      "title": null,
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.bigdigital.com.np/",
+      "status": 301,
+      "error": null,
+      "title": "",
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://hukut.com/",
+      "status": 200,
+      "error": null,
+      "title": "Hukut Store - Authentic Gadget Store in Nepal",
+      "contentHash": "95696fd85503de4e054ae4333489d0afe51d18a712d501fa79e73e3f87589d87",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://esewa.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "eSewa | Digital wallet in Nepal for Online payment services ",
+      "contentHash": "e45620126a62e2e1f3ba226296ad9951a25417782ce312fa6da6b3a65a2ad75a",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://khalti.com/",
+      "status": 200,
+      "error": null,
+      "title": "Khalti by IME | Nepal's 1st Unified Payment Platform",
+      "contentHash": "c8e25a6b79be1cd47dbb6c30d8bb1677fc9f357526533b1e620a04783e508a9b",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://calibershoes.com/",
+      "status": 200,
+      "error": null,
+      "title": "Caliber Shoes – Made in Nepal",
+      "contentHash": "5effd7955cf246e2d9aeb41510ce222c519aeb07ad8cc6c4c4cb51bc1ac0c3ff",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://cgelectronics.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "CG ElectronicsCG Electronics",
+      "contentHash": "80ff87967a48f3f56993b47608df4e4c9063394c54592c0304a7c67e9faad069",
+      "campaignText": [
+        "R को सामान खरीदमा हरेक हफ्ता उपहार दुबई भ्रमण गर्ने मौका BLACK+DECKER ले आफ्नो ग्राहकहरूको लागि बडा दशैँको उपलक्ष्यमा ल्याएको छ एउटा सुनौलो अवसर जसमा BLA... Read More 01 Nov गोडरेजको \"गज्जबको GODREJ कमालको अफर\" योजना सार्वजनिक ६५ बर्षको गौरवमय ईतिहास बोकेको ईन्डियाको चर्चित होम अप्लाएन्स तथा नम्बर १ रेफ",
+        "elebrate Greatness\" योजना ! ओम्दिया बाट प्रमाणित विश्वको नम्बर १ एन्ड्रोइड टिभी ब्राण्ड टिसिएलले यो दशैं, तिहार तथा छठलाई लक... Read More 01 Nov बेको को दशैं तिहार योजना बजारमा सार्वजनिक युरोपको ठुलो इलेक्ट्रोनिक्स ब्राण्ड बेकोले नजिकिरहेको नेपालीहरुको दशैं तिहार २०७९ लाई लक्षित गर्... Read More 01 Nov ",
+        "सेन्साई को दशैं तिहार योजना बजारमा सार्वजनिक जापानमा ईन्जिनियरिङ गरिएको नेपाली इलेक्ट्रोनिक्स ब्राण्ड सेन्साईले नजिकिरहेको नेपालीहरुको चाड दश... Read More 07 Apr बेको को नयाँ बर्ष योजना सार्वजनिक युरोपको ठुलो इलेक्ट",
+        " दोश्रो ठूलो टिभी ब्राण्ड टिसिएलले \"नयाँ बर्षको TCLमय सुरुवात!&qu... Read More 26 Sep केन्ट आर.ओ.को दशैं र तिहार २०७८ अफर काठमाडौंः ई.ओ.एल. प्रा. लि., नेपालमा केन्ट उत्पादनहरूका लागि एक मात्र आधिकारिक वितरक, सि. जी. इल... Read More EXPLORE a selection of our brands LET'S STAY IN TOUCH Get updates on sal"
+      ],
+      "campaignLinks": [
+        {
+          "text": "बेको को दशैं तिहार योजना बजारमा सार्वजनिक",
+          "href": "https://cgelectronics.com.np/newsroom/b-ka-ka-thasha-ta-ha-ra-ya-jana-bja-rama-sa-ra-vajana-ka"
+        },
+        {
+          "text": "सेन्साई को दशैं तिहार योजना बजारमा सार्वजनिक",
+          "href": "https://cgelectronics.com.np/newsroom/sa-na-sa-ii-ka-thasha-ta-ha-ra-ya-jana-bja-rama-sa-ra-vajana-ka"
+        },
+        {
+          "text": "केन्ट आर.ओ.को दशैं र तिहार २०७८ अफर",
+          "href": "https://cgelectronics.com.np/newsroom/ka-na-ta-aara-o-ka-thasha-ra-ta-ha-ra-afara"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://fonepay.com/",
+      "status": 200,
+      "error": null,
+      "title": "Nepal's Trusted Digital Payment: QR, Fund Transfers, Bills, Card | Fonepay",
+      "contentHash": "aa9f1e2961d119c49397c904a794ee6c4e493a22ad039dd873d1c1d4e3e7b37b",
+      "campaignText": [
+        "ent Updates Explore some of the latest blog & news featuring fonepay. Sep 28, 2026 Travel Home This Dashain-Tihar — Get Cashback on Every Flight Booking with 'Super Yatra' 2083 Aug 18, 2026 Enjoy 20% Cashback Through Checkout by Fonepay on Jeevee Jul 07, 2026 WHAT THE FAST! FATAFAT ORDER, FATAFAT CHECKOUT!"
+      ],
+      "campaignLinks": [
+        {
+          "text": "",
+          "href": "https://fonepay.com/blogs/travel-home-this-dashain-tihar-get-cashback-on-every-flight-booking-with-super-yatra-2083"
+        },
+        {
+          "text": "Travel Home This Dashain-Tihar — Get Cashback on Every Flight Booking with 'Super Yatra' 2",
+          "href": "https://fonepay.com/blogs/travel-home-this-dashain-tihar-get-cashback-on-every-flight-booking-with-super-yatra-2083"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.tatamotors.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Tata Motors Nepal — Commercial Vehicles, Trucks, Buses & Pickups",
+      "contentHash": "d3ea0fa3bd885263e3d00d8fcc860a51893b18d8a31fbed176342f2356587ed2",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.olizstore.com/",
+      "status": 200,
+      "error": null,
+      "title": "Oliz Store - Apple Authorised Reseller | The best gadget store in Nepal.",
+      "contentHash": "58243f4a74cb8569fc8dc9c86cf7cfae35d35808e4ed90521cde39658f441a0c",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://yantranepal.com/",
+      "status": 200,
+      "error": null,
+      "title": "Biggest Laptop and Electronics Shopping Store in Nepal",
+      "contentHash": "5d1ca1ee7cdd4fa6a77ca7d8daf10785877d1ff0bda7cf0a58f43f4f7d1b79a2",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.shreeairlines.com/",
+      "status": 200,
+      "error": null,
+      "title": "Shree Airlines | Fly the new high",
+      "contentHash": "a608a6da2bf415b5ab4022d228e255f862393d45e015933f0ef668d0bc6b519c",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.toyota.com.np/en.html",
+      "status": 200,
+      "error": null,
+      "title": "Toyota Nepal | Cars, SUVs, Commercial | Mobility For AllToyota logo",
+      "contentHash": "9744f51160ccbfe397a0938d9d754a814a2026014fea47472d7b7cdf93a4d49d",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://yetiairlines.com/",
+      "status": 200,
+      "error": null,
+      "title": "Yeti Airlines is one of the leading domestic airlines in Nepal offers daily flight to major cities of Nepal (Nepalgunj, Bhairahawa, Pokhara, Kathmandu, Simara, Janakpur, Biratnagar, Bhadrapur, Mountain Flight). Serving Nepal for over two decades, we operate ATR 72s.\nOur flights:\nKathmandu to Pokhara flight\nKathmandu to Nepalgunj flight\nKathmandu to Bhairahawa flight\nKathmandu to Biratnagar flight\nKathmandu to Bhadrapur flight\nKathmandu to Janakpur flight\nKathmandu to Simara flight\nMountain Flights from Kathmandu (Everest View) ",
+      "contentHash": "29a30754d697008d4069ada583c8d0365e3304102b02500b72b353f4cf75fabb",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.khudra.com.np/",
+      "status": 200,
+      "error": null,
+      "title": " Online Shopping in Nepal for Laptops, Mobiles, Electronics & Accessories ",
+      "contentHash": "dbfddb3baebcebab21002a13140dadf889491fdac2b268973301d8f289e56f8e",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.lg.com/np/",
+      "status": 301,
+      "error": null,
+      "title": "",
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://saraworldwide.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Sara Worldwide Nepal | Natural Foods, Organics & Wholesale",
+      "contentHash": "aa3d5dc4fd355625113f138c472bbc731eb64de9dfcf34c73585397249f1147d",
+      "campaignText": [
+        "Skip to content Sara Worldwide Business Pvt. Ltd. 10% OFF EVERYTHING Dashain · Tihar · Chhath · Auto-applied in cart · Valid till November 16 Shop now ↗ Menu HomeShopSara FoodsSara OrganicsWholesale / Bulk SupplyImport & ExportAboutContact Shop ↗ SARA WORLDWIDE BUSINESS PVT. ",
+        "l. Explore the shop ↗ Wholesale & sourcing ↗ SARA FESTIVE SEASON SALE 10% off everything. Celebrate Dashain, Tihar and Chhath with 10% off every product across Sara Foods and Sara Organics. Your discount is applied automatically in the cart. DashainTiharChhath Save10%sitewide Valid tillNovember 16, 2026Sho",
+        "p the offer ↗ Tihar Priority DASHAIN · TIHAR · LAXMI PUJA Akhanda Deep.A steadier jyot for your puja space. A traditional brass Akhand Jyot lamp with a clear glass chimney that helps shield the flame from ordinary drafts while keeping t",
+        "252 info@saraworldwide.com.np sales@saraworldwide.com.np © 2026 Sara Worldwide Business Pvt. Ltd. × Dashain · Tihar · Chhath 10% off everything SARA FESTIVE SEASON SALE A little more joy in every cart. Enjoy 10% off every product across Sara Foods and Sara Organics. No coupon code needed—the discount appea"
+      ],
+      "campaignLinks": [
+        {
+          "text": "10% OFF EVERYTHING\n            Dashain · Tihar · Chhath · Auto-applied in cart · Valid til",
+          "href": "https://saraworldwide.com.np/shop/"
+        },
+        {
+          "text": "SARA FESTIVE SEASON SALE\n                10% off everything.\n                Celebrate Das",
+          "href": "https://saraworldwide.com.np/shop/"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://bananatechi.com/",
+      "status": 200,
+      "error": null,
+      "title": "Bananatechi — Laptops, Desktops & Printers in Putalisadak, Kathmandu",
+      "contentHash": "86c285c27b33b144bbaff662d1dfae3ff1adcfee63c2a7ffee5e490cfd303a2a",
+      "campaignText": [
+        "ts✓Tested before pickup— assembled at our counter✓Real WhatsApp support— a person replies, not a botDashain offerUp to 15% off selected laptopsHP, Dell and Asus models, while stock lasts.→Shop by categoryLaptopsBuild PCAccessoriesPrintersGamingFantechPlayStationLaptopsBuild PCAccessoriesPrintersGamingFante"
+      ],
+      "campaignLinks": [
+        {
+          "text": "Dashain offerUp to 15% off selected laptopsHP, Dell and Asus models, while stock lasts.→",
+          "href": "/laptops-nepal"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://himstar.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Himstar - for a complete home",
+      "contentHash": "01a314784b0b70741692a8d516a38ce80d22ca53f001e86583857b64d1e89ce6",
+      "campaignText": [
+        "edStore PolicyunsubscribeAbout UsElectric Pressure Cooker CookbookTestHome CopyprivacypolicyHimstar Dashain OfferWinter AppliancesArticleThandaaa Himstar ACWarranty PolicyDashain Tihar Special OfferEMIWrongAboutUsBlogBlog DetailsFAQDeliveryWorldcup OfferSearch Learn More Learn more Learn more Digital Inver"
+      ],
+      "campaignLinks": [
+        {
+          "text": "Himstar Dashain Offer",
+          "href": "https://himstar.com.np/himstar-dashain-offer"
+        },
+        {
+          "text": "Dashain Tihar Special Offer",
+          "href": "https://himstar.com.np/dashain-tihar-special-offer"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://nagmani.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "ASUS | Lenovo Authorized Distributor for Nepal | Laptop Store | Nagmani",
+      "contentHash": "89a9c36d6a6679c19e65f5d27e1f529fc98507d43be722be7571d8e6b5c9a2eb",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://jeevee.com/",
+      "status": 200,
+      "error": null,
+      "title": "Online Beauty, Baby & Health Store - E commerce Store | Jeevee",
+      "contentHash": "47f0271c4e82d880ab0c377443f7c821529017ce275fbd868ad46e81710d742a",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://suzuki.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Home",
+      "contentHash": "387716acbc03f8cfb0a68afc932edcbb025e52f22a66715b3143674c5ee538cf",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://evostore.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Evostore: Apple Authorised Reseller & Buy Best Gadgets Online",
+      "contentHash": "3a7e6cbfaa950cdf62de4c1be2d5d81e208180848f5957f56ae5a2d31ca0c602",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://foodmandu.com/",
+      "status": 200,
+      "error": null,
+      "title": "\n\t\tFoodmandu: Food Delivery Service in Kathmandu, Pokhara, Chitwan, Butwal\n\t",
+      "contentHash": "4869576abe9e281ad9fe7f082692ecdce8794a6b98579553bf12f00f7e40b82e",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://hamrobazaar.com/",
+      "status": 200,
+      "error": null,
+      "title": "Home - Hamrobazar",
+      "contentHash": "62619a7c66792e03dc4c5ac66705c763734573f42732d4b759b793f8d023e2ee",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://pathao.com/np/",
+      "status": 200,
+      "error": null,
+      "title": "Pathao Nepal - #1 Platform for All Services Online",
+      "contentHash": "07bd82009c640240faa756754d216b2893ad7910632cd9cef708f0daffbd2448",
+      "campaignText": [
+        "25 Items Not Accepted by Pathao Parcel: What Merchants Should Know Newsroom September 12, 2024 पठाओ दशैं महोत्सव २०८१ मा 3 जना लाई Honda Shine 125 CC बम्पर उपहार Download App About Us Blog Press Kit Contact Terms & Conditions User App Drive App Region NP (EN) Go to top Made with in Dhaka, Bangladesh. Pa"
+      ],
+      "campaignLinks": [
+        {
+          "text": "पठाओ दशैं महोत्सव २०८१ मा 3 जना लाई Honda Shine 125 CC बम्पर उपहार",
+          "href": "https://pathao.com/np/blog/pathao-dashain-mahotsav-2081/"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://shoes4lessnepal.com/",
+      "status": 200,
+      "error": null,
+      "title": "SHOES4LESS - Designer Shoes & Bags for Less – Shoes4Less",
+      "contentHash": "e8019ec6f3651d2609e3e22b637c790acc44bfc414307e9e766559dc20690ff0",
+      "campaignText": [
+        " PAY INSTRUCTIONS EXCHANGE POLICY Log In/Create Account Search NO EXCHANGE NO RETURNS on SALE Items Dashain SALE : SAVE up to 60% off Cart 0 HOME SHOES All Shoe Styles Boots Sneakers Pumps Sandals Loafers Flats Sample Shoes HANDBAGS All Handbag Styles Backpacks Crossbody and Sling Messenger Bags Shoulder B"
+      ],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://gadgethousenepal.com/",
+      "status": 200,
+      "error": null,
+      "title": "Home - Gadget House Nepal",
+      "contentHash": "d4ec086d26070971fdd5cecbf7980ae84cf3169f8cb1f2a9cad0be9ff9bdfb84",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://shoes4lessnepal.com/collections/sale",
+      "status": 200,
+      "error": null,
+      "title": "SALE – Shoes4Less",
+      "contentHash": "c25f3b852804c3400bc8c805c2ef08dadaa46c9e83c4af14d5eae5d35506b4e3",
+      "campaignText": [
+        " PAY INSTRUCTIONS EXCHANGE POLICY Log In/Create Account Search NO EXCHANGE NO RETURNS on SALE Items Dashain SALE : SAVE up to 60% off Cart 0 HOME SHOES All Shoe Styles Boots Sneakers Pumps Sandals Loafers Flats Sample Shoes HANDBAGS All Handbag Styles Backpacks Crossbody and Sling Messenger Bags Shoulder B"
+      ],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.bajajauto.com/en-np",
+      "status": 200,
+      "error": null,
+      "title": "3 Wheelers & Bikes | Bajaj Auto - NepalArrow Left SignArrow Right Sign",
+      "contentHash": "11b401a081c3b337ac15da14cd4347fbc63e42bc9b0d6467df83d00599223bf6",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://itti.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "ITTI Computer World - Best Place To Buy Laptops in Nepal",
+      "contentHash": "597a20a23a918c33110f6142ec8cc9ecadd70df0bdac870a2bf828f312bcf47e",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://nikodeal.com/",
+      "status": 200,
+      "error": null,
+      "title": "NIKO DEAL — Dhangadhi & Nepal's Premier Tech Marketplace",
+      "contentHash": "fa39e136c91340251b55bf2c893e29aab34b6c9470be6ab6d002cae56f19645b",
+      "campaignText": [
+        "ameraरु 3,300रु 5,125View ProductFlash DealRealme P4 Power 5G (12/256)रु 76,999रु 82,999View ProductDashain-Tihar Festive OfferSep 25 – Nov 25Xiaomi किन्दा उपहार Everyday, Bumper मा Thailand Holiday!Daily Buds 6 Play • Weekly Watch 6 Active • Bumper Thailand Trip (4N/5D)Shop Xiaomi →Prizes & Stepsvivo Fest"
+      ],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://ktmcty.com/",
+      "status": 406,
+      "error": null,
+      "title": "",
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://bbsm.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Home — Bhat-Bhateni",
+      "contentHash": "f3b1f8e0c6b5250c32f9683eacc7034d6fa139f6f601dd4b306d31b812a6e9c6",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://bookshopnepal.com/",
+      "status": 200,
+      "error": null,
+      "title": "\n      Book Shop Nepal : Buy Books Online in Nepal | Worldwide Shipping\n – The Book Shop Nepal",
+      "contentHash": "4b846cb066b31d8555f30b42e498c504f03c8fa6ccadb3327d3e831e9398f04f",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://blog.khalti.com/",
+      "status": 200,
+      "error": null,
+      "title": "Know what is new updates, offers and events in Khalti Blog | Khalti",
+      "contentHash": "b0834c59e010c08db43d1ec5c4f1a622cd486340c52345e32c007436cb1eb8a4",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.daraz.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Online Shopping in Nepal: Best Deals, Prices & Discounts - Daraz.com.np",
+      "contentHash": "4d050318d8727dd25c96ba3d964334ca3529c478c5fd83d82832aa2cb840b369",
+      "campaignText": [
+        "anagement team)OR Email: customer.experience.np@care.daraz.com TRENDING Daraz 11.11 Sale,12.12 Sale,Dashain Dhamaka,Mobile Week,Valentine's Day Sale,Cricket Streaming,Grocery Shopping in Nepal,Realme GT 2 Pro,Realme GT Neo 3, Top Categories & Brands NEW MOBILE PHONES IN NEPAL Samsung Mobile Phones , Xiaomi"
+      ],
+      "campaignLinks": [
+        {
+          "text": "Dashain Dhamaka",
+          "href": "https://www.daraz.com.np/dashain-dhamaka-2020/?scm=1003.4.icms-zebra-100024112-2954427.OTHER_6034480333_2597769"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.realme.com/np/",
+      "status": 200,
+      "error": null,
+      "title": "realme Nepal | Smartphones, 5G Phones, Audio & AIoT",
+      "contentHash": "a8ecfc72945b81f117f01e1142e2428703c011ca9e45c14afd2f5b40c0381061",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://aadimanepal.com/collections/sale",
+      "status": 200,
+      "error": null,
+      "title": "Fashion Sale in Nepal - Clothing, Footwear & Accessories – Aadima Nepal",
+      "contentHash": "4eb58dcbc4926b8e36ff40bc81a289490838052fa882e53be915c1c819b2496c",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.vivo.com/np/",
+      "status": 200,
+      "error": null,
+      "title": "Homepage | vivo Nepal",
+      "contentHash": "f10700a888bdc3ef4ae278f1ab3d0358dc4411654e6a8052499b31ffa1844cad",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://goldstarshoes.com/",
+      "status": 200,
+      "error": null,
+      "title": "GoldStar Shoes – Goldstar – Walking the World for Over Five Decades",
+      "contentHash": "c40c93c6048ce9d0acfec1101435c9e9a39fb5c7db92ce849966a51614b34fcc",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://laxmihyundai.com/",
+      "status": 200,
+      "error": null,
+      "title": "Hyundai Cars, EVs & Best SUV in Nepal - Car Price in Nepal ",
+      "contentHash": "a593b196e64a8c65fe906d0a79f2d9c55743aa9f6e0900643d2ec26b7edccb70",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.maw2wheelers.com/",
+      "status": 200,
+      "error": null,
+      "title": "Yamaha Nepal - The Most Technologically Advanced Bikes in Nepal",
+      "contentHash": "dff7c0d021f0860ae82655ec5cd675e66e5bbad10123e2422f6ec1465320223b",
+      "campaignText": [
+        "d (Drum) Aerox 155 BS6 Latest News/BlogYamaha Changa Chet Jitko Naya UpgradeSeptember 15, 2026 This Dashain & Tihar, Upgrade Your Ride and Your Chances to Win Big with Yamaha This festive season, Yamaha NepalRead More YAMAHA Sales and Service National Sales Skill Contest Winners NepalJune 3, 2026 Yamaha Ne"
+      ],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.madeinnepalstores.com/",
+      "status": 200,
+      "error": null,
+      "title": "Made in Nepal Products | Authentic Handmade Nepali Goods Online",
+      "contentHash": "0fea58df14c7e7602bb058bf82b90f74d7bac2a1fb9b23ccd03f15cb4c4cadd2",
+      "campaignText": [
+        "ntactReview us on GoogleSEARCHPOPULARIncenseSweaters & KnitwearGreen TeaBest SellersYOUR BAG (0)झोलाDashainदशैंतपाईंको झोला खाली छYour bag is empty.Goods made for everyday movement, expression, and use.विजया दशमीको शुभकामना·Sent in time for tika — order early, the roads are busy this fortnight.START SHOPPI",
+        "prices are already on the tickets.SHOP ALL CATEGORIESनयाँ · NEW DROPFresh from the store.VIEW ALLNEWDashainAdd to Cart Made in Nepal StoresHemp Rosette Backpack — Buddha EyesNatural and multicolourRs 1,4501,800-19%Save Rs 350NEWDashainAdd to Cart Made in Nepal StoresCrochet Shoulder Bag — Grey FloralCream ",
+        "and greyRs 2,4502,950-17%Save Rs 500NEWDashainAdd to Cart Made in Nepal StoresDhaka-Trim Kurtha — BeigeBeigeRs 1,4501,650-12%Save Rs 200NEWDashainAdd to Cart Made in Nepal StoresDhaka-Trim Kurtha — OliveOliveRs 1,4501,800-19%Save Rs 350NEWDashain",
+        "Add to Cart Made in Nepal StoresKathmandu Tee — Blue GreyBlue greyRs 1,4501,650-12%Save Rs 200NEWDashainAdd to Cart Made in Nepal StoresMushroom Print Harem Trousers — GreyGrey and whiteRs 2,9503,350-12%Save Rs 400NEWDashainAdd to Cart Made in Nepal StoresBoho Skirt Set — MaroonMaroon and rustRs 2,9503,",
+        "300-11%Save Rs 350NEWDashainAdd to Cart Made in Nepal StoresBoho Skirt Set — TurquoiseTurquoise and goldRs 2,9503,550-17%Save Rs 600MATERIAL / 01MADE FROM HEMP. MADE IN NEPAL.Natural in texture and built for everyday use. Explor",
+        "t hemp-blend knit for everyday warmth. Made in Nepal.Rs 4,9505,800-15%Save Rs 850SHOP NOWBEST SELLERDashainAdd to Cart Made in Nepal Stores8\" Ceremonial Kothimora Khukuri — Design ARs 9,50010,950-13%Save Rs 1,450BEST SELLERDashainAdd to Cart Made in Nepal StoresGheri Stripe HempCotton & Leather BackpackGhe",
+        "ri StripeRs 5,1005,950-14%Save Rs 850BEST SELLERDashainAdd to Cart Made in Nepal StoresCrochet Granny-Square Floral Tote — Rust BrownRust BrownRs 1,9502,300-15%Save Rs 350BEST SELLERDashainChoose sizeMade in Nepal StoresCotton Dori Kurtha — GreyHeather Gr",
+        "eyRs 1,4501,800-19%Save Rs 350SMLXLधूपIncenseHimalayan resins, herbs and cedar.ALL INCENSEDashainAdd to Cart Shanti DhoopShanti Dhoop Early Morning Incense No.1Rs 280348-20%DashainAdd to Cart Shanti DhoopShanti Dhoop Good Evening Incense No.3Rs 280349-20%DashainAdd to Cart Shanti DhoopShanti Dhoo",
+        "p Day Time Incense No.2Rs 280449-38%Save Rs 169DashainAdd to Cart Stupa IncenseSandalwood Incense 30gRs 240399-40%Save Rs 159DashainAdd to Cart Stupa IncenseCitronella Incense 30gRs 240399-40%Save Rs 159DashainAdd to Cart Stupa IncenseNa Swa Incense 30gR",
+        "s 240399-40%Save Rs 159DashainAdd to Cart Stupa IncenseDevdar Incense 30gRs 240399-40%Save Rs 159DashainAdd to Cart Stupa IncenseDorjee Incense 30gRs 240399-40%Save Rs 159म्याग्नेटFridge MagnetsALL FRIDGE MAGNETSDashainAdd to Cart Made in Nepal StoresAnnapurna Pokhara Nepal Fridge MagnetRs 450650-31%Sav",
+        "e Rs 200DashainAdd to Cart Made in Nepal StoresNepal Swayambhunath Fridge MagnetRs 450650-31%Save Rs 200DashainAdd to Cart Made in Nepal StoresMt.Everest Nupte Nepal Fridge MagnetRs 450650-31%Save Rs 200DashainAdd t",
+        "o Cart Made in Nepal StoresSwayambhunath Kathmandu Nepal Fridge MagnetRs 450650-31%Save Rs 200DashainAdd to Cart Made in Nepal StoresKathamandu Durban Square Fridge MagnetRs 450650-31%Save Rs 200DashainAdd to Cart Made in Nepal StoresTrekking In Everest Base Camp Fridge MagnetRs 450650-31%Save Rs 200",
+        "DashainAdd to Cart Made in Nepal StoresBhaktapur Durban Square Kathmandu Valley Fridge MagnetRs 450650-31%Save Rs 200DashainAdd to Cart Made in Nepal StoresEverest/Neptse Nepal Fridge MagnetRs 450650-31%Save",
+        " Rs 200हरियो चियाGreen TeaALL GREEN TEABEST SELLERDashainAdd to Cart Himalayan Bagan50 GM Himalayan Dargon Pearl Green Tea Himalayan Organic ChiyaRs 250310-19%BEST SELLERDashainAdd to Cart Himalayan BaganGolden Tips Tea Himalayan Bagan ChiyaRs 1,2501,500-17",
+        "%Save Rs 250BEST SELLERDashainAdd to Cart Himalayan BaganSilver Tips Tea Himalayan Bagan ChiyaRs 1,2501,600-22%Save Rs 350BEST SELLERDashainAdd to Cart Himalayan BaganRoasted Green Tea Himalayan Bagan ChiyaRs 390440-11%BEST SELLER"
+      ],
+      "campaignLinks": [
+        {
+          "text": "Festival Offers",
+          "href": "/festivals"
+        },
+        {
+          "text": "Festival Offers",
+          "href": "/festivals"
+        },
+        {
+          "text": "NEWDashainAdd to Cart",
+          "href": "/product/hemp-rosette-backpack-buddha-eyes"
+        },
+        {
+          "text": "NEWDashainAdd to Cart",
+          "href": "/product/crochet-shoulder-bag-grey-floral"
+        },
+        {
+          "text": "NEWDashainAdd to Cart",
+          "href": "/product/dhaka-trim-kurtha-beige"
+        },
+        {
+          "text": "NEWDashainAdd to Cart",
+          "href": "/product/dhaka-trim-kurtha-olive"
+        },
+        {
+          "text": "NEWDashainAdd to Cart",
+          "href": "/product/tee-kathmandu-skyline"
+        },
+        {
+          "text": "NEWDashainAdd to Cart",
+          "href": "/product/mushroom-print-harem-trousers-grey"
+        },
+        {
+          "text": "NEWDashainAdd to Cart",
+          "href": "/product/boho-skirt-set-maroon"
+        },
+        {
+          "text": "NEWDashainAdd to Cart",
+          "href": "/product/boho-skirt-set-turquoise"
+        },
+        {
+          "text": "BEST SELLERDashainAdd to Cart",
+          "href": "/product/8-ceremonial-kothimora-khukuri-design-a"
+        },
+        {
+          "text": "BEST SELLERDashainAdd to Cart",
+          "href": "/product/gheri-stripe-hempcotton-leather-backpack"
+        },
+        {
+          "text": "BEST SELLERDashainAdd to Cart",
+          "href": "/product/crochet-granny-square-floral-tote-rust-brown"
+        },
+        {
+          "text": "BEST SELLERDashainChoose size",
+          "href": "/product/cotton-dori-kurtha-grey"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/shanti-dhoop-early-morning-incense-no1"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/shanti-dhoop-good-evening-incense"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/shanti-dhoop-day-time-incense-no2"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/ssandalwood-incense"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/scitronella-incense"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/snaswa-incense"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/sdevdar-incense"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/sdorjee-incense"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/annapurna-pokhara-nepal-fridge-magnet"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/nepal-swayambhunath-fridge-magnet"
+        },
+        {
+          "text": "DashainAdd to Cart",
+          "href": "/product/mteverest-nupte-nepal-fridge-magnet"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://sonamgear.com/",
+      "status": 200,
+      "error": null,
+      "title": "Sonam",
+      "contentHash": "bad3ead9c28b82074e50f7d39e493987faa86d937f69685cb7a13f1f2e4cabbe",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://midea.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Midea Nepal | Nepal's most preferred AC Company",
+      "contentHash": "780a848d2e43d3ca49df63fd3c883aec5a088e39a04467d6b3e10160a56df2f0",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://honda.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Official Honda Bikes, Scooters & Automobiles – Honda Nepal",
+      "contentHash": "daf127e86cfe8ec9bd1d02f8833a5147600bbc34adb4f3cf712c50424ef369f9",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://kia.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Kia Nepal | Movement that inspires | Kia SUVs in Nepal | Kia Cars",
+      "contentHash": "3f4e9681f13ddfff6f532fd25e07d132e5c0230d80db4a2105bbae714bff129c",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.mi.com/np/",
+      "status": 200,
+      "error": null,
+      "title": "Xiaomi Nepal",
+      "contentHash": "3f63315e8e457d2bc89decbb3a2761ec0b9f0dbc00917d9e0e1a6bad67618c51",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.buddhaair.com/",
+      "status": 200,
+      "error": null,
+      "title": "Buddha Air: Nepal's No.1 Safest Airline | Book @Lowest Fare",
+      "contentHash": "4b2b65617132a28ebae5f25a1f3ebc9a50db68790b72547ad84f9a0f227cc910",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://ishop.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "iShop, Online Shopping Nepal, Online Shop, Nepal",
+      "contentHash": "51a3d04c4d89188bde11efbcd8c37bf0d8dba08c94df3bab34c26c069248c00f",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://onin.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Onin Infosys – Genuine Laptops, Apple & Electronics Store in Kathmandu",
+      "contentHash": "290bef904a82d00d0831515b2633284be277ff57fe1b5ecd94d838eb4ee316ed",
+      "campaignText": [
+        "ank Transfer Newsletter Subscribe ONIN Infosys © All rights reserved. | Crafted By Greative Soft 🪁 Dashain ON 1 How can we help? Pick a way to reach us ONIN AI Ask the assistant WhatsApp Message us now Call +977-015340320 ONIN Assistant Prices · Stock · Specs Laptop under 80k Monitor under 30k Return poli"
+      ],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://gentlewomanclothing.wixsite.com/",
+      "status": 404,
+      "error": null,
+      "title": "",
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://shikharshoes.com/",
+      "status": 200,
+      "error": null,
+      "title": "Shikhar Shoes - Premium Footwear",
+      "contentHash": "44cc9dca1afc3c0bced451575ed12d4878f56b6df80d813d148dfb187bf6bb48",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://onlinesaathi.com/",
+      "status": 200,
+      "error": null,
+      "title": "Online shopping in Nepal | Best Deals & Discount | EMI | Online Saathi",
+      "contentHash": "edac3d36ac558b0deb06fab8646a9679c90c2bf6ef0644978f9156fe05cceb92",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.neostore.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Neostore",
+      "contentHash": "fe73cf0b9218c5a12dcff8e6d92e4814aadc715c98426e448729f1c45638b457",
+      "campaignText": [],
+      "campaignLinks": [
+        {
+          "text": "neo Festive Fiesta",
+          "href": "https://www.neostore.com.np/product-category/neo-festive-fiesta"
+        },
+        {
+          "text": "neo Festive Fiesta",
+          "href": "https://www.neostore.com.np/product-category/neo-festive-fiesta"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://latido.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Latido Leathers",
+      "contentHash": "d3c87eed5394351e19a0a6e357b450a393c018a4d804d92016ee10fecee4e7ef",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://sabkophone.com/",
+      "status": 200,
+      "error": null,
+      "title": "Sabko Phone - Sabko Phone",
+      "contentHash": "58d19d39a18bbe7c32c70d16425ede646d5d29435319bf1449f8a1318ad6a0fa",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.muncha.com/",
+      "status": 200,
+      "error": null,
+      "title": "Send Gifts to Nepal | Online Shopping | www.muncha.com - Send Gifts and Money to Nepal Online from www.muncha.com",
+      "contentHash": "53f849401d7da6dd2478a81ea399155d51034639d1742acb430f8b808a582462",
+      "campaignText": [
+        " Day Mother's Day Winter Days Festivals Teej Chhata Parwa Tihar Shrawan Festivities Nepali New Year Dashain Christmas International New Year Yomari Punhi Tamu Lhosar Maghe Sankranti Sonam Lhosar Holi Cakes, Sweets & Spirits Cakes Popular Flavors Sugarfree Cakes Cake Accessories Sweets Traditional Mithai Po",
+        " Day Mother's Day Winter Days Festivals Teej Chhata Parwa Tihar Shrawan Festivities Nepali New Year Dashain Christmas International New Year Yomari Punhi Tamu Lhosar Maghe Sankranti Sonam Lhosar Holi Cakes, Sweets & Spirits Cakes Popular Flavors Sugarfree Cakes Cake Accessories Sweets Traditional Mithai Po"
+      ],
+      "campaignLinks": [
+        {
+          "text": "Festivals",
+          "href": "/14824/C/Festivals"
+        },
+        {
+          "text": "Dashain",
+          "href": "/14847/C/Dashain"
+        },
+        {
+          "text": "Festivals",
+          "href": "/14824/C/Festivals"
+        },
+        {
+          "text": "Dashain",
+          "href": "/14847/C/Dashain"
+        },
+        {
+          "text": "Festivals",
+          "href": "/14824/C/Festivals"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://suntraders.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Dashain Offers 2083 on Laptops, Phones & Electronics",
+      "contentHash": "4983d3f825aa30a5395d0cc78d6ed893a1d0e6283f4a4964bd03cbaea39bfe63",
+      "campaignText": [
+        "Skip to contentशुभ दशैं✦Dashain offers on laptops, phones & moreGift on NPR 20,000+Surprise Dashain gift on orders of NPR 20,000+Ghatasthapana in 9d 02hSee the deal dropsविजया दशमी २०८३ को हार्दिक मंगलमय शुभकामनाWishing you and your family a joyful Dashain, from all of us at Sun Traders, New Road.S",
+        "omponentsGadgetsLaptopsDesktopAccessoriesOffice ComponentsGadgetsMoreHomeCategoriesSearchCartSign inDashain 2083 at Sun TradersदशैंChanga chet! Prices are cut this Dashain.Ten days of deal drops from Ghatasthapana: a new category unlocks every morning, from laptops for study to a projector for the family m",
+        "ovie night. Genuine products, official warranty.See the deal dropsShop laptopsSurprise Dashain gift on orders of NPR 20,000+Ghatasthapana in 9d 02h01 / 05MacBook NeoThe future of portable computing.A18 Pro chip. All-day battery. Starting at NPR 1,16,999*Shop NowMacBook NeoGalaxy Z FoldMacBook "
+      ],
+      "campaignLinks": [
+        {
+          "text": "See the deal drops",
+          "href": "/#festival-drops"
+        },
+        {
+          "text": "See the deal drops",
+          "href": "#festival-drops"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://bigdigital.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Buy Home and Kitchen Appliances in Nepal | Big Digital | ",
+      "contentHash": "920673354326299ca756e8cea3748e7961458dda74a14e0522ffd15a3432e9e5",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://www.ekjor.com/",
+      "status": 200,
+      "error": null,
+      "title": "Buy Shoes Online in Nepal | Sneakers, Footwear & Juta | Ekjor",
+      "contentHash": "dac43cc25e9a6525dab5df03a81edbd0df187399673c11e5022048c3be2bcb42",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://mudita.com.np/",
+      "status": 200,
+      "error": null,
+      "title": "Mudita Store: Your Trusted Laptop Store in Nepal",
+      "contentHash": "1c39cfcfc82afab9ac87a63994746da54689fb448c536714a9d0326026dc6b5d",
+      "campaignText": [
+        "ll Us: 01-5327800 | Store Location | Track an order Toggle Nav Search Search Advanced Search Search DASHAIN DEALS Day Hour Minute Second Hello, My Account Sign In to your Account Sign In Sign Up a Mudita Account My Orders My Wish List My Cart LaptopsASUSROG SeriesTUF Gaming SeriesZenBook SeriesVivoBook Ser",
+        "ctor ScreensProjector LampsBusiness ProjectorsHome TheatreProjector ScreensProjector LampsPC BuilderDASHAIN DEALSRefer & EarnTrack an OrderCustomer ServiceAbout UsAbout MuditaBlogsContactTerms & ConditionsPrivacy PolicyCareerShipping InformationWarranty PolicyReturn PolicyService and RepairAbout MuditaBlog",
+        "G LAPTOPS BEST GAMING SERIES BUDGET LAPTOPS APPLE MACBOOK MONITORS ACCESSORIES DRONES PC COMPONENTS DASHAIN DEALS New 2024's Apple Mac Mini M4 (10 Core CPU | 10 Core GPU | 16 Core Neural Engine | 16GB Unified Memory | 256GB SSD Storage | Wi-Fi 6E & Bluetooth 5.3 | Genuine VAT Bill | 1 Year International Wa"
+      ],
+      "campaignLinks": [
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer"
+        },
+        {
+          "text": "DASHAIN DEALS",
+          "href": "https://mudita.com.np/dashain-offer/"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer/laptop/gaming-laptops.html"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer/laptop/apple-macbook.html"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer/laptop/budget-laptops.html"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer/apple-product/iphone.html"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer/laptop/gaming-laptops.html"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer/laptop/apple-macbook.html"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer/laptop/budget-laptops.html"
+        },
+        {
+          "text": "",
+          "href": "https://mudita.com.np/dashain-offer/apple-product/iphone.html"
+        },
+        {
+          "text": "SEE ALL DEALS",
+          "href": "https://mudita.com.np/dashain-offer"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://shishyastra.com/",
+      "status": 200,
+      "error": null,
+      "title": "Shishyastra — Shop Local, Shop Nepal",
+      "contentHash": "e440578f1a6a101c38d1937051e4421b2129b9a09bcdf23308ac08dcfe7ece24",
+      "campaignText": [
+        " harvest dates on every pack — not a best-before.Shop tea & coffeeVisit Ilam Tea HouseFestival readyDashain and Tihar hampers, ready to send.Ghee, achar and dry fruit crated together, or the yak-wool winter bundle at a third off. Delivered across all seven provinces.See festival offersGift ideas01 / 05Feat",
+        "dMustang OrganicsWinter Warmers Bundle — Yak Woolरु. 8,900रु. 13,500-34%Shop Now-32%Mustang OrganicsDashain Hamper — Ghee, Achar & Dry Fruitरु. 4,900रु. 7,200Shop Now-19%Everest Meat & MasalaNon-Veg Achar Sampler — 4 × 150gरु. 2,400रु. 2,950Shop Now-21%Everest Meat & MasalaChicken Achar — Boneless 300gरु. ",
+        "Bundle — Yak Woolरु. 8,900रु. 13,500VerifiedUnavailable−32%🏔 NPOut of stockMustang Organics4.9(464)Dashain Hamper — Ghee, Achar & Dry Fruitरु. 4,900रु. 7,200VerifiedUnavailable−19%🏔 NPOut of stockEverest Meat & Masala4.3(241)Non-Veg Achar Sampler — 4 × 150gरु. 2,400रु. 2,950VerifiedUnavailable−21%🏔 NPOu",
+        "ts & Sweets Bundleरु. 2,800रु. 4,100VerifiedUnavailable−32%🏔 NPOut of stockMustang Organics4.9(464)Dashain Hamper — Ghee, Achar & Dry Fruitरु. 4,900रु. 7,200VerifiedUnavailable−19%🏔 NPOut of stockEverest Meat & Masala4.3(241)Non-Veg Achar Sampler — 4 × 150gरु. 2,400रु. 2,950VerifiedUnavailable🏔 NPOut of",
+        "t & Masala4.2(304)Chicken Achar — Boneless 300gरु. 880रु. 1,120VerifiedUnavailableLimited time offerDashain & Tihar SaleUp to 50% off on selected products. Celebrate the festivals with the best deals!Shop the saleLimited time offerDashain & Tihar Sale 🪔Up to 50% off on selected products. Celebrate the fes"
+      ],
+      "campaignLinks": [
+        {
+          "text": "See festival offers",
+          "href": "/category/marketing-flash-sales"
+        },
+        {
+          "text": "-32%",
+          "href": "/product/dashain-hamper-ghee-achar-dry-fruit"
+        },
+        {
+          "text": "Dashain Hamper — Ghee, Achar & Dry Fruit",
+          "href": "/product/dashain-hamper-ghee-achar-dry-fruit"
+        },
+        {
+          "text": "Shop Now",
+          "href": "/product/dashain-hamper-ghee-achar-dry-fruit"
+        },
+        {
+          "text": "−32%🏔 NPOut of stockMustang Organics4.9(464)Dashain Hamper — Ghee, Achar & Dry Fruitरु. 4",
+          "href": "/product/dashain-hamper-ghee-achar-dry-fruit"
+        },
+        {
+          "text": "−32%🏔 NPOut of stockMustang Organics4.9(464)Dashain Hamper — Ghee, Achar & Dry Fruitरु. 4",
+          "href": "/product/dashain-hamper-ghee-achar-dry-fruit"
+        }
+      ],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://motoworldnepal.com/",
+      "status": 200,
+      "error": null,
+      "title": "Home | Moto World Nepal",
+      "contentHash": "af36cfe83c1c228c17496d22de11f35ae9c33e79184764014ece7cfb9a3c1623",
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://maxnepal.com.np/",
+      "status": null,
+      "error": "The operation was aborted",
+      "title": null,
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://onlineit.com.np/",
+      "status": null,
+      "error": "The operation was aborted",
+      "title": null,
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    },
+    {
+      "url": "https://choicemandu.com/",
+      "status": null,
+      "error": "The operation was aborted",
+      "title": null,
+      "contentHash": null,
+      "campaignText": [],
+      "campaignLinks": [],
+      "countsTowardCoverage": false
+    }
+  ]
+}
