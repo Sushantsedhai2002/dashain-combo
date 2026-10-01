@@ -1461,5 +1461,25 @@
     },
     "campaignEntryPoints": ["https://www.acghar.com/"],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "dealayo",
+    "displayName": "Dealayo Pvt Ltd",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["consumer-electronics-appliances", "general-retail"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://dealayo.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-01T18:03:23.395Z",
+      "evidenceUrl": "https://dealayo.com/about-us"
+    },
+    "campaignEntryPoints": ["https://dealayo.com/dashain-offer-2082.html"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
   }
 ]

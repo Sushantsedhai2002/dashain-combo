@@ -15,6 +15,7 @@ import { createDatedCampaignAdapter, DATED_CAMPAIGNS } from "./dated-campaigns.t
 import { createSbFurnitureAdapter } from "./sb-furniture.ts";
 import { createSukumartAdapter } from "./sukumart.ts";
 import { createSabkoAdapter } from "./sabko-phone.ts";
+import { createDealayoAdapter } from "./dealayo.ts";
 import { createMuditaAdapter } from "./mudita.ts";
 import { createAcGharAdapter } from "./ac-ghar.ts";
 import { createWildYakAdapter } from "./wild-yak.ts";
@@ -35,6 +36,7 @@ export function createWebsiteAdapters(
     createAcGharAdapter(fetchPage, clock),
     createMuditaAdapter(fetchPage, clock),
     createSabkoAdapter(fetchPage, clock),
+    createDealayoAdapter(fetchPage, clock),
     ...DATED_CAMPAIGNS.map((profile) => createDatedCampaignAdapter(profile, fetchPage, clock)),
     createEvoStoreAdapter(fetchPage),
     createIttiAdapter(fetchPage),

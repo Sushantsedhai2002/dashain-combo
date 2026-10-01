@@ -1,17 +1,17 @@
 {
-  "checkedAt": "2026-10-01T18:00:40.721Z",
+  "checkedAt": "2026-10-01T18:09:21.692Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 11,
+    "sellers": 12,
     "categories": 6,
-    "offers": 767
+    "offers": 1091
   },
   "remaining": {
-    "sellers": 9,
+    "sellers": 8,
     "categories": 0,
     "offers": 0
   },
@@ -20,6 +20,7 @@
   "bySeller": {
     "proud-nepal": 8,
     "maxell": 20,
+    "dealayo": 324,
     "sabko-phone": 2,
     "mudita-store": 233,
     "ac-ghar": 6,
@@ -31,10 +32,10 @@
     "cg-digital": 78
   },
   "byCategory": {
-    "COMPUTERS_AND_ACCESSORIES": 371,
-    "CONSUMER_ELECTRONICS": 46,
+    "COMPUTERS_AND_ACCESSORIES": 373,
+    "CONSUMER_ELECTRONICS": 87,
+    "HOME_APPLIANCES": 362,
     "MOBILE_AND_TABLETS": 19,
-    "HOME_APPLIANCES": 81,
     "FASHION_AND_LIFESTYLE": 40,
     "HOME_AND_FURNITURE": 210
   },
@@ -100,6 +101,13 @@
       "sourceId": "sabko-phone",
       "status": "PARTIAL",
       "published": 2,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "dealayo",
+      "status": "PARTIAL",
+      "published": 324,
       "withdrawn": 0,
       "skipped": 0
     },
