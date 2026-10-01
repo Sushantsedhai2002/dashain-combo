@@ -1,3 +1,4 @@
+import { createSaraAdapter } from "./sara-worldwide.ts";
 import { createS3TechAdapter } from "./s3-tech.ts";
 import { createCgDigitalAdapter } from "./cg-digital.ts";
 import { createEvoStoreAdapter, type PageFetcher } from "./evostore.ts";
@@ -49,6 +50,7 @@ export function createWebsiteAdapters(
     createShofyAdapter(fetchPage, clock),
     createMypowerAdapter(fetchPage, clock),
     createS3TechAdapter(fetchPage, clock),
+    createSaraAdapter(fetchPage, clock),
     ...DATED_CAMPAIGNS.map((profile) => createDatedCampaignAdapter(profile, fetchPage, clock)),
     createEvoStoreAdapter(fetchPage),
     createIttiAdapter(fetchPage),

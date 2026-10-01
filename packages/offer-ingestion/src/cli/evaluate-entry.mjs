@@ -17,6 +17,9 @@ const candidates = new Map();
 const candidateCounts = {};
 const fetchPage = async (url, source) => ({
   status: 200,
+  ...(url === "https://saraworldwide.com.np/wp-json/wc/store/v1/cart"
+    ? { cartToken: "recorded-anonymous-session" }
+    : {}),
   body: await readFile(
     new URL(`../../test/fixtures/${pages[url] ?? `${source.id}.html`}`, import.meta.url),
     "utf8",

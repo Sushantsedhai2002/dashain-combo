@@ -1,0 +1,11 @@
+{
+  "url": "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item",
+  "capturedAt": "2026-10-01T19:52:03.610241+00:00",
+  "contentHash": "21600fd997993b25c515a78c0521929ef85aed84cc8b923f12e84628ec537499",
+  "method": "POST",
+  "body": {
+    "id": 1075,
+    "quantity": 1
+  },
+  "context": "Fresh anonymous single-item cart; token omitted; no customer data or order."
+}

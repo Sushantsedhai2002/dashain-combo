@@ -73,7 +73,7 @@ export function createRobotsAwareFetcher(
   // Cache only within one runtime operation; the runtime recreates this for each run.
   const policies = new Map<string, Promise<string>>();
   const nextRequestAt = new Map<string, number>();
-  return async (url: string, source: SourceDefinition) => {
+  return async (url, source, operation) => {
     const origin = new URL(url).origin;
     let policy = policies.get(origin);
     if (policy === undefined) {
@@ -95,6 +95,6 @@ export function createRobotsAwareFetcher(
     const start = Math.max(now, nextRequestAt.get(origin) ?? now);
     nextRequestAt.set(origin, start + delayMs);
     if (start > now) await time.sleep(start - now);
-    return fetchPage(url, source);
+    return operation ? fetchPage(url, source, operation) : fetchPage(url, source);
   };
 }

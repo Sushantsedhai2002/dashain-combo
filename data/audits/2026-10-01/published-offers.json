@@ -2,6 +2,146 @@
   {
     "discovery": {
       "product": {
+        "key": "1075",
+        "gtin": null,
+        "model": "Sara Black Salt",
+        "variant": "250g",
+        "attributes": {
+          "pack": "250g"
+        }
+      },
+      "reasons": [
+        "DATED_SITEWIDE_DASHAIN_CAMPAIGN",
+        "EXACT_SIMPLE_PRODUCT_AND_PACK",
+        "MERCHANT_CART_SUBTOTAL_AND_DISCOUNTED_TOTAL"
+      ],
+      "benefits": [],
+      "campaign": {
+        "key": "sara-festive-2026",
+        "title": "Sara festive season sale 2026",
+        "endsAt": "2026-11-16T18:14:59.999Z",
+        "seasonAD": 2026,
+        "seasonBS": null,
+        "startsAt": null,
+        "festivals": [
+          "DASHAIN",
+          "TIHAR"
+        ],
+        "membership": "ELIGIBLE_CATEGORY",
+        "evidenceUrl": "https://saraworldwide.com.np/",
+        "publishedAt": null,
+        "dateCalendar": "AD",
+        "originalDateText": "Valid till November 16, 2026"
+      },
+      "evidence": [
+        {
+          "url": "https://saraworldwide.com.np/",
+          "path": "dated sitewide campaign and merchant identity",
+          "fields": [
+            "campaign",
+            "membership",
+            "offerType"
+          ],
+          "excerpt": "Sara Worldwide Business Pvt. Ltd.; Dashain, Tihar and Chhath; automatic 10% off every product; valid till November 16, 2026",
+          "fetchedAt": "2026-10-01T19:56:36.869Z",
+          "contentHash": "aa3d5dc4fd355625113f138c472bbc731eb64de9dfcf34c73585397249f1147d",
+          "extractorVersion": "sara-cart-v1"
+        },
+        {
+          "url": "https://saraworldwide.com.np/wp-json/wc/store/v1/products/1075",
+          "path": "public Store API product, exact pack and price",
+          "fields": [
+            "product",
+            "originalPrice",
+            "components"
+          ],
+          "excerpt": "Product 1075; Black Salt; 250gm Rs 150; simple, purchasable, in stock, no options",
+          "fetchedAt": "2026-10-01T19:56:36.869Z",
+          "contentHash": "34157ce0daf0c69de794020fb79b939ed56d9055f98e7a65a710c7930226f45e",
+          "extractorVersion": "sara-cart-v1"
+        },
+        {
+          "url": "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item",
+          "path": "merchant anonymous cart response; observed line price after automatic discount",
+          "fields": [
+            "salePrice",
+            "originalPrice",
+            "eligibility"
+          ],
+          "excerpt": "Anonymous single-item cart: product 1075, quantity 1, NPR 150 subtotal, sara-festive-10 reduction NPR 15, NPR 135 line total; no tax/fees; shipping not calculated",
+          "fetchedAt": "2026-10-01T19:56:36.869Z",
+          "contentHash": "21600fd997993b25c515a78c0521929ef85aed84cc8b923f12e84628ec537499",
+          "extractorVersion": "sara-cart-v1"
+        }
+      ],
+      "merchant": "Sara Worldwide",
+      "offerType": "PRODUCT_DISCOUNT",
+      "components": [
+        {
+          "role": "MAIN_ITEM",
+          "unit": "pack",
+          "quantity": 1,
+          "description": "Black Salt 250g"
+        }
+      ],
+      "eligibility": {
+        "coupon": null,
+        "channel": null,
+        "location": null,
+        "bankOrCard": null,
+        "usageLimit": null,
+        "cashbackBasis": null,
+        "combinability": "UNKNOWN",
+        "paymentMethod": null,
+        "cashbackTiming": null,
+        "minimumSpendMinor": null,
+        "mandatoryChargesMinor": null
+      },
+      "ruleVersion": "dashain-price-v2",
+      "availability": "IN_STOCK",
+      "qualification": "QUALIFIED",
+      "lastVerifiedAt": "2026-10-01T19:56:36.869Z",
+      "priceObservedAt": "2026-10-01T19:56:36.869Z"
+    },
+    "relevance": 0,
+    "id": "60979eba-96b2-477e-a73f-a1809209e76e",
+    "sourceId": "sara-worldwide",
+    "sourceOfferKey": "sara-festive-2026:1075",
+    "sellerDisplayName": "Sara Worldwide",
+    "title": "Black Salt 250g",
+    "summary": null,
+    "productName": "Black Salt 250g",
+    "brandName": "Sara Foods",
+    "category": "FOOD_AND_DELIVERY",
+    "imageUrl": null,
+    "destinationUrl": "https://saraworldwide.com.np/product/black-salt/",
+    "originalPrice": {
+      "currency": "NPR",
+      "amountMinor": 15000
+    },
+    "salePrice": {
+      "currency": "NPR",
+      "amountMinor": 13500
+    },
+    "discountPercent": 10,
+    "discountLabel": null,
+    "terms": "Automatic sara-festive-10 cart discount verified for one Black Salt 250g pack in an empty anonymous cart. NPR 150 item subtotal and NPR 135 item total; delivery charges are excluded and depend on destination. No order is placed. Sara Foods and Sara Organics are one seller.",
+    "sourcePublishedAt": null,
+    "validityStartsAt": null,
+    "explicitValidityEnd": {
+      "kind": "INSTANT",
+      "value": "2026-11-16T18:14:59.999Z"
+    },
+    "firstDiscoveredAt": "2026-10-01T19:56:40.308Z",
+    "expiresAt": "2026-11-16T18:14:59.999Z",
+    "withdrawnAt": null,
+    "lifecycleStatus": "ACTIVE",
+    "createdAt": "2026-10-01T19:56:40.308Z",
+    "updatedAt": "2026-10-01T19:56:40.308Z"
+  },
+  {
+    "discovery": {
+      "product": {
         "key": "290",
         "gtin": null,
         "model": "MOU-HAV-MS73",

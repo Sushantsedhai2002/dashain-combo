@@ -112,5 +112,9 @@
   "https://sthree.tech/": "s3-tech-0.html",
   "https://sthree.tech/product/details/koorui-e2711f-27-inch-fhd-100hz-ips-gaming-office-monitor": "s3-tech-1.html",
   "https://sthree.tech/product/details/ziasys-ritmo-9-wireless-headphone": "s3-tech-2.html",
-  "https://sthree.tech/product/details/havit-ms73-gaming-mouse-with-side-button": "s3-tech-3.html"
+  "https://sthree.tech/product/details/havit-ms73-gaming-mouse-with-side-button": "s3-tech-3.html",
+  "https://saraworldwide.com.np/": "sara-0.html",
+  "https://saraworldwide.com.np/wp-json/wc/store/v1/products/1075": "sara-1.json",
+  "https://saraworldwide.com.np/wp-json/wc/store/v1/cart": "sara-2.json",
+  "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item": "sara-3.json"
 }

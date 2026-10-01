@@ -10,10 +10,17 @@ const ORIGIN = "https://evostore.com.np";
 const LISTING_URL = `${ORIGIN}/special-offers`;
 const MAX_PAGES = 20;
 
+export type AnonymousCartAdd = Readonly<{
+  kind: "SARA_CART_ADD";
+  productId: 1075;
+  cartToken: string;
+}>;
+
 export type PageFetcher = (
   url: string,
   source: SourceDefinition,
-) => Promise<Readonly<{ status: number; body: string }>>;
+  operation?: AnonymousCartAdd,
+) => Promise<Readonly<{ status: number; body: string; cartToken?: string }>>;
 
 function productUrl(href: string | undefined): string | null {
   if (href === undefined) return null;

@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01T19:36:05.468867Z",
+  "reviewedAt": "2026-10-01T19:57:33.731621+00:00",
   "target": {
     "sellers": 20,
     "categories": 5,
@@ -18,10 +18,10 @@
     {
       "sourceId": "sara-worldwide",
       "url": "https://saraworldwide.com.np/",
-      "reviewedAt": "2026-10-01T16:10:37.214Z",
-      "status": "CURRENT_CAMPAIGN",
-      "note": "Dated 2026 sitewide 10% cart discount. Public Store API read-only research lists products but only full prices. Robots disallows add-to-cart URLs. Need merchant-provided discounted price/cart evidence and working refresh; no 10% sale prices derived.",
-      "countsTowardCoverage": false
+      "reviewedAt": "2026-10-01T19:57:33.731621+00:00",
+      "status": "COLLECTOR_IMPLEMENTED",
+      "note": "Dated 2026 sitewide Dashain campaign. Exact simple Black Salt 250g product 1075 corroborates NPR 150 original price; fresh anonymous Store API cart returns automatic sara-festive-10 coupon and observed NPR 135 line total. Fixed single-item cart POST is allowed by robots, pinned to approved public IPs, bounded, and cannot submit checkout/orders or customer data. No sale price computed from announcement. Sara Foods and Sara Organics count as one seller.",
+      "countsTowardCoverage": true
     },
     {
       "sourceId": "max-international",
@@ -238,6 +238,14 @@
       "status": "COLLECTOR_IMPLEMENTED",
       "note": "Current 2083 campaign modal and exact Dashain product badges. Three bounded reviewed simple products have matching homepage/detail prices, cart IDs and NPR JSON-LD SKU/stock/seller identity. Coupons and custom-PC bonus terms are not applied to displayed prices.",
       "countsTowardCoverage": true
+    },
+    {
+      "sourceId": "smartdoko-research",
+      "url": "https://smartdoko.com/",
+      "reviewedAt": "2026-10-01T19:57:33.731621+00:00",
+      "status": "SELLER_UNVERIFIED",
+      "note": "Three newly created 2026 Dashain gift boxes show explicit original/sale pairs and stock. Vendor ID 321 lacks seller-name evidence; platform terms describe an intermediary marketplace, so neither SmartDoko nor Makkuse is assumed to be the independent seller.",
+      "countsTowardCoverage": false
     }
   ]
 }

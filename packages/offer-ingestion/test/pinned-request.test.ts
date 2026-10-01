@@ -13,6 +13,7 @@ function fakeTransport(
   headers: Record<string, string> = { "content-type": "text/html" },
 ) {
   let options: RequestOptions | undefined;
+  let sentBody: unknown;
   const startRequest = ((
     _url: string,
     requestOptions: RequestOptions,
@@ -20,7 +21,8 @@ function fakeTransport(
   ) => {
     options = requestOptions;
     const request = new EventEmitter() as ClientRequest;
-    request.end = (() => {
+    request.end = ((payload?: unknown) => {
+      sentBody = payload;
       const response = Readable.from([Buffer.from(body)]) as IncomingMessage;
       response.statusCode = status;
       response.headers = headers;
@@ -29,10 +31,38 @@ function fakeTransport(
     }) as ClientRequest["end"];
     return request;
   }) as typeof httpsRequest;
-  return { request: createPinnedRequest(startRequest), getOptions: () => options };
+  return {
+    request: createPinnedRequest(startRequest),
+    getOptions: () => options,
+    getBody: () => sentBody,
+  };
 }
 
 describe("pinned HTTPS transport", () => {
+  it("uses a bounded anonymous cart token and fixed single-item JSON body", async () => {
+    const original = fakeTransport(201, "{}", {
+      "content-type": "application/json",
+      "cart-token": "new-anonymous-token",
+    });
+    // Verify framing separately from the normal GET transport: no cookies or auth headers.
+    const response = await original.request(
+      "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item",
+      ["8.8.8.8"],
+      1000,
+      100,
+      { token: "anonymous-token", productId: 1075 },
+    );
+    expect(response.body).toBe("{}");
+    expect(response.status).toBe(201);
+    expect(original.getBody()).toBe(JSON.stringify({ id: 1075, quantity: 1 }));
+    expect(original.getOptions()?.method).toBe("POST");
+    expect(original.getOptions()?.headers).toMatchObject({
+      "Content-Type": "application/json",
+      "Cart-Token": "anonymous-token",
+    });
+    expect(original.getOptions()?.headers).not.toHaveProperty("Cookie");
+    expect(original.getOptions()?.headers).not.toHaveProperty("Authorization");
+  });
   it("negotiates anonymous JSON without adding credentials or changing GET semantics", async () => {
     const transport = fakeTransport(200, "[]", { "content-type": "application/json" });
     await expect(

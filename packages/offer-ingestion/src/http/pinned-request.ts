@@ -1,7 +1,12 @@
 import { request as httpsRequest } from "node:https";
 import { isIP } from "node:net";
 
-export type TransportResult = Readonly<{ status: number; body: string; contentType: string }>;
+export type TransportResult = Readonly<{
+  status: number;
+  body: string;
+  contentType: string;
+  cartToken?: string;
+}>;
 
 export function createPinnedRequest(startRequest: typeof httpsRequest = httpsRequest) {
   return function requestPinned(
@@ -9,15 +14,17 @@ export function createPinnedRequest(startRequest: typeof httpsRequest = httpsReq
     addresses: readonly string[],
     timeoutMs: number,
     maxBytes: number,
+    cart?: Readonly<{ token: string; productId: 1075 }>,
   ): Promise<TransportResult> {
     const records = addresses.map((address) => ({ address, family: isIP(address) }));
     return new Promise((resolve, reject) => {
       const request = startRequest(
         url,
         {
-          method: "GET",
+          method: cart ? "POST" : "GET",
           signal: AbortSignal.timeout(timeoutMs),
           headers: {
+            ...(cart ? { "Content-Type": "application/json", "Cart-Token": cart.token } : {}),
             Accept: "text/html,application/xhtml+xml,text/plain,application/json",
             "Accept-Encoding": "identity",
             "User-Agent": "DashainOfferRadar/0.1 (+public-offer-monitor)",
@@ -41,7 +48,7 @@ export function createPinnedRequest(startRequest: typeof httpsRequest = httpsReq
         (response) => {
           const status = response.statusCode ?? 0;
           const contentType = String(response.headers["content-type"] ?? "");
-          if (status !== 200) {
+          if (status !== 200 && !(cart && status === 201)) {
             response.resume();
             resolve({ status, body: "", contentType });
             return;
@@ -63,13 +70,19 @@ export function createPinnedRequest(startRequest: typeof httpsRequest = httpsReq
             chunks.push(chunk);
           });
           response.on("end", () => {
-            resolve({ status, body: Buffer.concat(chunks).toString("utf8"), contentType });
+            const cartToken = response.headers["cart-token"];
+            resolve({
+              status,
+              body: Buffer.concat(chunks).toString("utf8"),
+              contentType,
+              ...(typeof cartToken === "string" && cartToken.length <= 4096 ? { cartToken } : {}),
+            });
           });
           response.on("error", reject);
         },
       );
       request.on("error", reject);
-      request.end();
+      request.end(cart ? JSON.stringify({ id: cart.productId, quantity: 1 }) : undefined);
     });
   };
 }

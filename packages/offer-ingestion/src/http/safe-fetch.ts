@@ -59,6 +59,7 @@ type SafeFetchDependencies = Readonly<{
     addresses: readonly string[],
     timeoutMs: number,
     maxBytes: number,
+    cart?: Readonly<{ token: string; productId: 1075 }>,
   ): Promise<TransportResult>;
 }>;
 
@@ -69,7 +70,7 @@ async function resolveHostname(hostname: string): Promise<readonly string[]> {
 export function createSafePageFetcher(
   dependencies: SafeFetchDependencies = { resolveHostname, request: requestPinned },
 ): PageFetcher {
-  return async (rawUrl, source) => {
+  return async (rawUrl, source, operation) => {
     const url = new URL(rawUrl);
     if (
       url.protocol !== "https:" ||
@@ -84,6 +85,18 @@ export function createSafePageFetcher(
     ) {
       throw new Error("URL outside approved website origin");
     }
+    // Only one reviewed anonymous cart item is supported. No cookies, customer data,
+    // checkout, orders, arbitrary headers or arbitrary POST bodies are accepted.
+    if (
+      operation &&
+      (source.id !== "sara-worldwide" ||
+        operation.kind !== "SARA_CART_ADD" ||
+        operation.productId !== 1075 ||
+        url.href !== "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item" ||
+        !source.publicEvidenceFeeds?.includes(url.href) ||
+        !/^[A-Za-z0-9._-]{20,4096}$/.test(operation.cartToken))
+    )
+      throw new Error("Unsupported anonymous cart operation");
     const timeoutMs = source.requestTimeoutMs ?? TIMEOUT_MS;
     if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1_000 || timeoutMs > 30_000)
       throw new Error("Invalid website request timeout");
@@ -91,10 +104,15 @@ export function createSafePageFetcher(
     if (addresses.length === 0 || addresses.some((address) => !isPublicIpAddress(address))) {
       throw new Error("Unsafe website address");
     }
-    const response = await dependencies.request(url.href, addresses, timeoutMs, MAX_BYTES);
+    const response = operation
+      ? await dependencies.request(url.href, addresses, timeoutMs, MAX_BYTES, {
+          token: operation.cartToken,
+          productId: operation.productId,
+        })
+      : await dependencies.request(url.href, addresses, timeoutMs, MAX_BYTES);
     if (
       response.body.length > MAX_BYTES ||
-      (response.status === 200 &&
+      ((response.status === 200 || response.status === 201) &&
         !(url.pathname === "/robots.txt"
           ? /^text\/plain(?:;|$)/i.test(response.contentType)
           : source.socialPromotionFeeds?.includes(url.href) ||
@@ -104,7 +122,15 @@ export function createSafePageFetcher(
     ) {
       throw new Error("Unsupported website response");
     }
-    return { status: response.status, body: response.body };
+    return {
+      status: response.status,
+      body: response.body,
+      ...(source.id === "sara-worldwide" &&
+      url.href === "https://saraworldwide.com.np/wp-json/wc/store/v1/cart" &&
+      response.cartToken
+        ? { cartToken: response.cartToken }
+        : {}),
+    };
   };
 }
 

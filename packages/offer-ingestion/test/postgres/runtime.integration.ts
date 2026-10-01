@@ -66,6 +66,7 @@ describe("ingestion runtime with PostgreSQL", () => {
     "sugandha-griha",
     "mypower",
     "s3-tech",
+    "sara-worldwide",
   ];
   const priceSourceIds = createWebsiteAdapters(async () => ({ status: 503, body: "" }))
     .map((a) => a.sourceId)
@@ -84,6 +85,7 @@ describe("ingestion runtime with PostgreSQL", () => {
     { name: "Dealayo complete Dashain collection", sourceIds: ["dealayo"], offerCount: 324 },
     { name: "Mask Queen available variants", sourceIds: ["mask-queen-nepal"], offerCount: 61 },
     { name: "MyPower dated bundle SKUs", sourceIds: ["mypower"], offerCount: 3 },
+    { name: "Sara observed automatic cart discount", sourceIds: ["sara-worldwide"], offerCount: 1 },
     { name: "S3 TECH exact Dashain products", sourceIds: ["s3-tech"], offerCount: 3 },
     { name: "Sugandha Griha dated product", sourceIds: ["sugandha-griha"], offerCount: 1 },
     { name: "Giftmandu priced Dashain products", sourceIds: ["giftmandu"], offerCount: 4 },
@@ -107,6 +109,9 @@ describe("ingestion runtime with PostgreSQL", () => {
           const id = source.id;
           return {
             status: 200,
+            ...(url === "https://saraworldwide.com.np/wp-json/wc/store/v1/cart"
+              ? { cartToken: "recorded-anonymous-session" }
+              : {}),
             body: await readFile(
               new URL(`../fixtures/${pages[url] ?? `${id}.html`}`, import.meta.url),
               "utf8",

@@ -17,6 +17,9 @@ describe("recorded extraction evaluation", () => {
     const candidates = new Map<string, readonly CandidateOffer[]>();
     const fetchPage = async (url: string, source: { id: string }) => ({
       status: 200,
+      ...(url === "https://saraworldwide.com.np/wp-json/wc/store/v1/cart"
+        ? { cartToken: "recorded-anonymous-session" }
+        : {}),
       body: await readFile(
         new URL(`./fixtures/${fixturePages[url] ?? `${source.id}.html`}`, import.meta.url),
         "utf8",

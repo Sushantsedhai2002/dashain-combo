@@ -21,6 +21,52 @@ const source: SourceDefinition = {
 };
 
 describe("safe website fetch", () => {
+  it("restricts anonymous cart POST to the exact reviewed seller, item, origin and endpoint", async () => {
+    const url = "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item";
+    const registered = {
+      ...source,
+      id: "sara-worldwide",
+      channels: [
+        { kind: "WEBSITE" as const, url: "https://saraworldwide.com.np/", isEnabled: true },
+      ],
+      publicEvidenceFeeds: [url],
+    };
+    const request = vi.fn(async () => ({
+      status: 200,
+      body: "{}",
+      contentType: "application/json",
+    }));
+    const fetch = createSafePageFetcher({ resolveHostname: async () => ["8.8.8.8"], request });
+    const op = {
+      kind: "SARA_CART_ADD" as const,
+      productId: 1075 as const,
+      cartToken: "fresh-anonymous-session-token",
+    };
+    await fetch(url, registered, op);
+    expect(request).toHaveBeenCalledWith(url, ["8.8.8.8"], 10000, 3000000, {
+      token: op.cartToken,
+      productId: 1075,
+    });
+    request.mockClear();
+    for (const target of [
+      url + "?other=1",
+      url.replace("add-item", "checkout"),
+      url.replace("add-item", "orders"),
+    ])
+      await expect(fetch(target, registered, op)).rejects.toThrow(
+        "Unsupported anonymous cart operation",
+      );
+    await expect(fetch(url, { ...registered, id: "other" }, op)).rejects.toThrow(
+      "Unsupported anonymous cart operation",
+    );
+    await expect(fetch(url, { ...registered, publicEvidenceFeeds: [] }, op)).rejects.toThrow(
+      "Unsupported anonymous cart operation",
+    );
+    await expect(
+      fetch(url, registered, { ...op, cartToken: "token\r\nInjected: value" }),
+    ).rejects.toThrow("Unsupported anonymous cart operation");
+    expect(request).not.toHaveBeenCalled();
+  });
   it("accepts anonymous public JSON evidence only at exact reviewed URLs with existing transport limits", async () => {
     const url = "https://evostore.com.np/api/products?id=774";
     const request = vi.fn(async () => ({

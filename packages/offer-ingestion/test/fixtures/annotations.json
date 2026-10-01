@@ -1841,6 +1841,21 @@
       "sourcePublishedAt": null,
       "explicitValidityEnd": null,
       "terms": "Displayed Dashain product discount. Separate festive coupons and custom PC-build bonuses are not deducted from this observed price. No additional warranty duration is inferred."
+    },
+    {
+      "sourceId": "sara-worldwide",
+      "title": "Black Salt 250g",
+      "destinationUrl": "https://saraworldwide.com.np/product/black-salt/",
+      "originalMinor": 15000,
+      "saleMinor": 13500,
+      "category": "FOOD_AND_DELIVERY",
+      "brandName": "Sara Foods",
+      "sourcePublishedAt": null,
+      "explicitValidityEnd": {
+        "kind": "INSTANT",
+        "value": "2026-11-16T18:14:59.999Z"
+      },
+      "terms": "Automatic sara-festive-10 cart discount verified for one Black Salt 250g pack in an empty anonymous cart. NPR 150 item subtotal and NPR 135 item total; delivery charges are excluded and depend on destination. No order is placed. Sara Foods and Sara Organics are one seller."
     }
   ],
   "negatives": [

@@ -1,23 +1,24 @@
 {
-  "checkedAt": "2026-10-01T19:35:02.008Z",
+  "checkedAt": "2026-10-01T19:56:40.343Z",
   "target": {
     "sellers": 20,
     "categories": 5,
     "offers": 500
   },
   "actual": {
-    "sellers": 18,
-    "categories": 6,
-    "offers": 1171
+    "sellers": 19,
+    "categories": 7,
+    "offers": 1172
   },
   "remaining": {
-    "sellers": 2,
+    "sellers": 1,
     "categories": 0,
     "offers": 0
   },
   "achieved": false,
   "conflictingProducts": 0,
   "bySeller": {
+    "sara-worldwide": 1,
     "s3-tech": 3,
     "mypower": 3,
     "sugandha-griha": 1,
@@ -38,6 +39,7 @@
     "cg-digital": 78
   },
   "byCategory": {
+    "FOOD_AND_DELIVERY": 1,
     "COMPUTERS_AND_ACCESSORIES": 375,
     "CONSUMER_ELECTRONICS": 91,
     "FASHION_AND_LIFESTYLE": 110,
@@ -170,6 +172,13 @@
       "sourceId": "s3-tech",
       "status": "PARTIAL",
       "published": 3,
+      "withdrawn": 0,
+      "skipped": 0
+    },
+    {
+      "sourceId": "sara-worldwide",
+      "status": "PARTIAL",
+      "published": 1,
       "withdrawn": 0,
       "skipped": 0
     }

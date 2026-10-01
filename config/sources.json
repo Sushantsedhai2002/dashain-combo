@@ -1205,7 +1205,7 @@
   {
     "id": "sara-worldwide",
     "displayName": "Sara Worldwide",
-    "status": "CANDIDATE",
+    "status": "ACTIVE",
     "supportedMarkets": ["NP"],
     "marketSegments": ["general-retail"],
     "channels": [
@@ -1215,8 +1215,17 @@
         "isEnabled": true
       }
     ],
-    "verification": null,
-    "campaignEntryPoints": ["https://saraworldwide.com.np/"]
+    "verification": {
+      "verifiedAt": "2026-10-01T19:52:03.612402+00:00",
+      "evidenceUrl": "https://saraworldwide.com.np/"
+    },
+    "campaignEntryPoints": ["https://saraworldwide.com.np/"],
+    "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"],
+    "publicEvidenceFeeds": [
+      "https://saraworldwide.com.np/wp-json/wc/store/v1/products/1075",
+      "https://saraworldwide.com.np/wp-json/wc/store/v1/cart",
+      "https://saraworldwide.com.np/wp-json/wc/store/v1/cart/add-item"
+    ]
   },
   {
     "id": "max-international",
