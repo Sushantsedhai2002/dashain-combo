@@ -28,6 +28,7 @@ import { createMuditaAdapter } from "./mudita.ts";
 import { createAcGharAdapter } from "./ac-ghar.ts";
 import { createWildYakAdapter } from "./wild-yak.ts";
 import { createInfotechsAdapter } from "./infotechs.ts";
+import { createStorefrontAdapter } from "./storefront.ts";
 
 export function createWebsiteAdapters(
   fetchPage: PageFetcher,
@@ -63,6 +64,15 @@ export function createWebsiteAdapters(
     createKhaltiAdapter(fetchPage),
     ...LISTING_PROFILES.map((profile) => createListingAdapter(profile, fetchPage)),
   ];
+  // Registered Shopify/WooCommerce shops need no hand-written adapter.
+  websites.push(
+    ...sources
+      .filter(
+        (source) =>
+          source.storefront && !websites.some((adapter) => adapter.sourceId === source.id),
+      )
+      .map((source) => createStorefrontAdapter(source.id, fetchPage, clock)),
+  );
   return [
     ...websites.map((adapter) => withSocialFeed(adapter, fetchPage)),
     ...sources

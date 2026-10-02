@@ -5,6 +5,7 @@ import type { SourceDefinition } from "@dashain-offer/source-registry";
 import type { PageFetcher } from "../adapters/evostore.ts";
 import type { Presence } from "../runner.ts";
 import { requestPinned, type TransportResult } from "./pinned-request.ts";
+import { isStorefrontApiUrl } from "../adapters/storefront.ts";
 
 const TIMEOUT_MS = 10_000;
 // Recorded SB Furniture campaign pages are about 2.2 MB. Keep a bounded 3 MB ceiling.
@@ -116,7 +117,8 @@ export function createSafePageFetcher(
         !(url.pathname === "/robots.txt"
           ? /^text\/plain(?:;|$)/i.test(response.contentType)
           : source.socialPromotionFeeds?.includes(url.href) ||
-              source.publicEvidenceFeeds?.includes(url.href)
+              source.publicEvidenceFeeds?.includes(url.href) ||
+              isStorefrontApiUrl(source, url.href)
             ? /^application\/json(?:;|$)/i.test(response.contentType)
             : /^(?:text\/html|application\/xhtml\+xml)(?:;|$)/i.test(response.contentType)))
     ) {

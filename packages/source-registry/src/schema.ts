@@ -37,6 +37,12 @@ export const SourceDefinitionSchema = z
     // Reviewed anonymous first-party campaign/product/seller JSON endpoints.
     // Exact URLs only; this does not authorize arbitrary APIs or authenticated data.
     publicEvidenceFeeds: z.array(httpsUrl).max(5).readonly().optional(),
+    // Generic e-commerce platform collection: the worker reads the platform's anonymous
+    // public catalogue endpoints on the enabled website origin and keeps Dashain items only.
+    storefront: z
+      .strictObject({ platform: z.enum(["SHOPIFY", "WOOCOMMERCE"]) })
+      .readonly()
+      .optional(),
     capabilities: z
       .array(z.enum(["CAMPAIGN", "PRODUCT", "DOCUMENT", "REVALIDATION"]))
       .readonly()
@@ -62,6 +68,15 @@ export const SourceDefinitionSchema = z
           message: "Collection entry point must use an enabled website origin",
         });
     }
+    if (
+      source.storefront &&
+      !source.channels.some((channel) => channel.kind === "WEBSITE" && channel.isEnabled)
+    )
+      ctx.addIssue({
+        code: "custom",
+        path: ["storefront"],
+        message: "Storefront collection requires an enabled website channel",
+      });
     if (
       source.publicEvidenceFeeds?.some((url) => url.includes("#")) ||
       new Set(source.publicEvidenceFeeds).size !== (source.publicEvidenceFeeds?.length ?? 0)

@@ -1262,7 +1262,7 @@
   {
     "id": "book-shop-nepal",
     "displayName": "The Book Shop Nepal",
-    "status": "CANDIDATE",
+    "status": "ACTIVE",
     "supportedMarkets": ["NP"],
     "marketSegments": ["general-retail"],
     "channels": [
@@ -1272,8 +1272,14 @@
         "isEnabled": true
       }
     ],
-    "verification": null,
-    "campaignEntryPoints": ["https://bookshopnepal.com/collections/dashain-sale"]
+    "verification": {
+      "verifiedAt": "2026-10-02T16:00:00+05:45",
+      "evidenceUrl": "https://bookshopnepal.com/collections/dashain-sale"
+    },
+    "campaignEntryPoints": ["https://bookshopnepal.com/collections/dashain-sale"],
+    "storefront": {
+      "platform": "SHOPIFY"
+    }
   },
   {
     "id": "sabko-phone",
@@ -1645,5 +1651,68 @@
       "https://www.daraz.com.np/makkus%C3%A9-124624095/?ajax=true&sort=newest"
     ],
     "capabilities": ["CAMPAIGN", "PRODUCT", "REVALIDATION"]
+  },
+  {
+    "id": "blushy-lady",
+    "displayName": "BlushyLady",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://blushylady.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-02T16:00:00+05:45",
+      "evidenceUrl": "https://blushylady.com/collections/dashain-offer"
+    },
+    "storefront": {
+      "platform": "SHOPIFY"
+    }
+  },
+  {
+    "id": "juta-pasal",
+    "displayName": "Juta Pasal",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://jutapasal.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-02T16:00:00+05:45",
+      "evidenceUrl": "https://jutapasal.com/collections/dashain-dhamaka-deal"
+    },
+    "storefront": {
+      "platform": "SHOPIFY"
+    }
+  },
+  {
+    "id": "newmew",
+    "displayName": "Newmew",
+    "status": "ACTIVE",
+    "supportedMarkets": ["NP"],
+    "marketSegments": ["fashion-lifestyle"],
+    "channels": [
+      {
+        "kind": "WEBSITE",
+        "url": "https://www.newmew.com/",
+        "isEnabled": true
+      }
+    ],
+    "verification": {
+      "verifiedAt": "2026-10-02T16:00:00+05:45",
+      "evidenceUrl": "https://www.newmew.com/product-category/dashain-offer/"
+    },
+    "storefront": {
+      "platform": "WOOCOMMERCE"
+    }
   }
 ]

@@ -156,6 +156,7 @@ describe("public source types", () => {
         campaignEntryPoints?: readonly string[] | undefined;
         socialPromotionFeeds?: readonly string[] | undefined;
         publicEvidenceFeeds?: readonly string[] | undefined;
+        storefront?: Readonly<{ platform: "SHOPIFY" | "WOOCOMMERCE" }> | undefined;
         capabilities?:
           readonly ("CAMPAIGN" | "PRODUCT" | "DOCUMENT" | "REVALIDATION")[] | undefined;
       }>
