@@ -5,6 +5,7 @@ import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { flightObjects, readFlightRecords } from "./flight-records.ts";
 import { inferProductDetails, parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 
 export const DATED_CAMPAIGNS = [
   { id: "maxell", merchant: "Maxell", url: "https://maxell.com.np/dashain-tihar-offer" },
@@ -174,6 +175,7 @@ export function extractDatedCampaign(
       productName: title.length <= 200 ? title : null,
       ...inferProductDetails(title, "COMPUTERS_AND_ACCESSORIES"),
       destinationUrl: url.href,
+      imageUrl: sellerImageUrl(card.find("img").first().attr("src"), context?.url ?? profile.url),
       originalPrice: { currency: "NPR", amountMinor: original },
       salePrice: { currency: "NPR", amountMinor: sale },
       discountPercent: Math.round((1 - sale / original) * 100),

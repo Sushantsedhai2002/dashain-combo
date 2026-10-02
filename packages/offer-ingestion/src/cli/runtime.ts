@@ -5,6 +5,7 @@ import pg from "pg";
 import { createOfferCatalog } from "@dashain-offer/offer-catalog";
 import { parseSourceRegistry, type SourceDefinition } from "@dashain-offer/source-registry";
 import type { PageFetcher } from "../adapters/evostore.ts";
+import { productPageImage } from "../adapters/product-image.ts";
 import { createWebsiteAdapters } from "../adapters/websites.ts";
 import { createRobotsAwareFetcher } from "../http/robots.ts";
 import { checkOfferPresence, createSafePageFetcher } from "../http/safe-fetch.ts";
@@ -32,10 +33,50 @@ export function createIngestionRuntime(
 }> {
   const fetchPage = options.fetchPage ?? createSafePageFetcher();
   let registeredSources: readonly SourceDefinition[] = [];
-  const createAdapters = (guardedFetch: PageFetcher) =>
-    createWebsiteAdapters(guardedFetch, registeredSources).filter(
-      (adapter) => options.sourceIds === undefined || options.sourceIds.includes(adapter.sourceId),
-    );
+  const createAdapters = (guardedFetch: PageFetcher) => {
+    const pages = new Map<string, string>();
+    const images = new Map<string, string | null>();
+    const recordingFetch: PageFetcher = async (url, source, operation) => {
+      const response = await guardedFetch(url, source, operation);
+      if (response.status === 200 && response.body.includes("og:image")) {
+        const address = new URL(url);
+        pages.set(`${address.origin}${address.pathname}`, response.body);
+      }
+      return response;
+    };
+    return createWebsiteAdapters(recordingFetch, registeredSources)
+      .filter(
+        (adapter) =>
+          options.sourceIds === undefined || options.sourceIds.includes(adapter.sourceId),
+      )
+      .map((adapter) => ({
+        sourceId: adapter.sourceId,
+        async scan(source: SourceDefinition) {
+          pages.clear();
+          images.clear();
+          const result = await adapter.scan(source);
+          if (!result.ok) return result;
+          return {
+            ...result,
+            offers: result.offers.map((offer) => {
+              if (offer.imageUrl) return offer;
+              try {
+                const destination = new URL(offer.destinationUrl);
+                const key = `${destination.origin}${destination.pathname}`;
+                if (!images.has(key)) {
+                  const html = pages.get(key);
+                  images.set(key, html ? productPageImage(html, offer.destinationUrl) : null);
+                }
+                const imageUrl = images.get(key);
+                return imageUrl ? { ...offer, imageUrl } : offer;
+              } catch {
+                return offer;
+              }
+            }),
+          };
+        },
+      }));
+  };
   let pool: pg.Pool | null = null;
   let catalog: ReturnType<typeof createOfferCatalog> | null = null;
 

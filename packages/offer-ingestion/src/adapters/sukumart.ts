@@ -4,6 +4,7 @@ import { UNKNOWN_ELIGIBILITY } from "@dashain-offer/offer-catalog";
 import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { inferProductDetails, parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 
 export const SUKUMART_HOME = "https://www.sukumart.com/?v=4cc62c62baa2";
 export const SUKUMART_CAMPAIGN =
@@ -68,6 +69,7 @@ export function extractSukumartPage(
       productName: title.length <= 200 ? title : null,
       ...inferProductDetails(title, "GENERAL_RETAIL"),
       destinationUrl: destination.href,
+      imageUrl: sellerImageUrl(card.find("img").first().attr("src"), url),
       originalPrice: { currency: "NPR", amountMinor: original },
       salePrice: { currency: "NPR", amountMinor: sale },
       discountPercent: Math.round((1 - sale / original) * 100),

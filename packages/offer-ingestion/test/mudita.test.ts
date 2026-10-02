@@ -15,6 +15,9 @@ describe("Mudita dated Dashain product section", () => {
   it("deduplicates 233 exact product identities and excludes recommendations and separate deadlines", () => {
     const offers = extractMuditaCampaign(html, now)!;
     expect(offers).toHaveLength(233);
+    expect(offers.every((offer) => offer.imageUrl?.startsWith("https://mudita.com.np/"))).toBe(
+      true,
+    );
     expect(new Set(offers.map((o) => o.sourceOfferKey)).size).toBe(233);
     for (const o of offers) expect(DiscoverySchema.safeParse(o.discovery).success).toBe(true);
     expect(offers.some((o) => o.title.startsWith("AMD Ryzen 7 5700X Tray"))).toBe(false);

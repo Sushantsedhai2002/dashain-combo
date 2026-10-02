@@ -4,6 +4,7 @@ import { UNKNOWN_ELIGIBILITY } from "@dashain-offer/offer-catalog";
 import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { inferProductDetails, parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 export const MUDITA_CAMPAIGN = "https://mudita.com.np/dashain-offer";
 export function extractMuditaCampaign(
   html: string,
@@ -141,6 +142,7 @@ export function extractMuditaCampaign(
       productName: model,
       ...inferProductDetails(full, "COMPUTERS_AND_ACCESSORIES"),
       destinationUrl: url.href,
+      imageUrl: sellerImageUrl(card.find("img").first().attr("src"), MUDITA_CAMPAIGN),
       originalPrice: { currency: "NPR", amountMinor: original },
       salePrice: { currency: "NPR", amountMinor: sale },
       discountPercent: Math.round((1 - sale / original) * 100),

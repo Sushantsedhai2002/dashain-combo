@@ -46,18 +46,16 @@ export function maskMembers(html: string): readonly Member[] | null {
       original = parseNprPrice(c.find(".price__sale s").text());
     // Omit from-prices, full-price products and zero/invalid compare-at placeholders.
     if (sale === null || original === null || sale <= 0 || original <= sale) continue;
-    const href = a.attr("href");
+    // A product can remain in the collection after its Dashain badge is removed.
     if (
-      a.length !== 1 ||
-      !href ||
-      !title ||
-      title.length > 200 ||
       !c
         .find(".badge")
         .toArray()
         .some((e) => $(e).text().trim() === "Dashain Rate")
     )
-      return null;
+      continue;
+    const href = a.attr("href");
+    if (a.length !== 1 || !href || !title || title.length > 200) return null;
     const url = new URL(href, ORIGIN);
     if (
       url.origin !== ORIGIN ||

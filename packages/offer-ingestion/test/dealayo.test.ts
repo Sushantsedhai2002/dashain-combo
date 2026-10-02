@@ -34,6 +34,9 @@ describe("Dealayo current-season collection", () => {
     if (!r.ok) return;
     expect(urls).toHaveLength(17);
     expect(r.offers).toHaveLength(324);
+    expect(r.offers.every((offer) => offer.imageUrl?.startsWith("https://dealayo.com/"))).toBe(
+      true,
+    );
     expect(r.partial).toBe(true);
     for (const o of r.offers) expect(DiscoverySchema.safeParse(o.discovery).success).toBe(true);
     expect(r.offers[0]).toMatchObject({

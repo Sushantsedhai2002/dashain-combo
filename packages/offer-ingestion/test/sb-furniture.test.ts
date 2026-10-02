@@ -28,6 +28,9 @@ describe("SB Furniture seasonal collection", () => {
     expect(result.ok).toBe(true);
     if (!result.ok) throw Error("Scan failed");
     expect(result.offers).toHaveLength(210);
+    expect(
+      result.offers.every((offer) => offer.imageUrl?.startsWith("https://sbfurniturenepal.com/")),
+    ).toBe(true);
     expect(result.offers[0]?.salePrice?.amountMinor).toBe(1755000);
     expect(result.offers[0]?.originalPrice?.amountMinor).toBe(2340000);
     for (const offer of result.offers)

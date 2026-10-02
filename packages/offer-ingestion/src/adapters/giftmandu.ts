@@ -4,6 +4,7 @@ import { UNKNOWN_ELIGIBILITY } from "@dashain-offer/offer-catalog";
 import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 
 export const GIFTMANDU_ROOT = "https://www.giftmandu.com/";
 export const GIFTMANDU_COLLECTION = `${GIFTMANDU_ROOT}occasions/dashain/dashain-offers/`;
@@ -208,6 +209,23 @@ export function extractGiftmandu(
   const key = `giftmandu-dashain-${campaign.season}`,
     terms =
       "Observed product discount in Dashain Offers. Extra hamper/multi-item promotions are conditional and are not applied to this price. Design may vary where stated by the seller.";
+  const image = $('meta[property="og:image"]').attr("content");
+  let imageUrl = sellerImageUrl(image, member.url);
+  if (!imageUrl && image) {
+    try {
+      const cdn = new URL(image);
+      if (
+        cdn.protocol === "https:" &&
+        cdn.hostname === "cdn11.bigcommerce.com" &&
+        cdn.pathname.startsWith(`/s-tgrcca6nho/products/${member.id}/images/`) &&
+        !cdn.username &&
+        !cdn.password
+      )
+        imageUrl = cdn.href;
+    } catch {
+      // An invalid image does not invalidate observed prices.
+    }
+  }
   return {
     sourceOfferKey: `${key}:${member.id}`,
     title: member.title,
@@ -215,6 +233,7 @@ export function extractGiftmandu(
     brandName: null,
     category: "HOME_AND_FURNITURE",
     destinationUrl: member.url,
+    imageUrl,
     originalPrice: { currency: "NPR", amountMinor: member.original },
     salePrice: { currency: "NPR", amountMinor: member.sale },
     discountPercent: Math.round((1 - member.sale / member.original) * 100),

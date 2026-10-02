@@ -4,6 +4,7 @@ import { UNKNOWN_ELIGIBILITY } from "@dashain-offer/offer-catalog";
 import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { inferProductDetails, parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 
 export const INFOTECHS_CAMPAIGN = "https://infotechsnepal.com.np/dashain-offer/";
 export const INFOTECHS_COLLECTIONS = ["laptop-delas", "monitor-deals", "accessories-deal"].map(
@@ -111,6 +112,10 @@ export function extractInfotechsCampaign(
       productName: title.length <= 200 ? title : null,
       ...inferProductDetails(title, "COMPUTERS_AND_ACCESSORIES"),
       destinationUrl: destination.href,
+      imageUrl: sellerImageUrl(
+        card.find("img").first().attr("data-src") ?? card.find("img").first().attr("src"),
+        context?.url ?? INFOTECHS_CAMPAIGN,
+      ),
       originalPrice: { currency: "NPR", amountMinor: original },
       salePrice: { currency: "NPR", amountMinor: sale },
       discountPercent: Math.round((1 - sale / original) * 100),

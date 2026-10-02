@@ -3,6 +3,7 @@ import { load } from "cheerio";
 import { UNKNOWN_ELIGIBILITY } from "@dashain-offer/offer-catalog";
 import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
+import { sellerImageUrl } from "./product-image.ts";
 export const SARA_ROOT = "https://saraworldwide.com.np/";
 export const SARA_PRODUCT = `${SARA_ROOT}wp-json/wc/store/v1/products/1075`;
 export const SARA_CART = `${SARA_ROOT}wp-json/wc/store/v1/cart`;
@@ -125,6 +126,12 @@ export function extractSara(
     brandName: "Sara Foods",
     category: "FOOD_AND_DELIVERY",
     destinationUrl: URL,
+    imageUrl: sellerImageUrl(
+      Array.isArray(p.images) && record(p.images[0]) && typeof p.images[0].src === "string"
+        ? p.images[0].src
+        : undefined,
+      URL,
+    ),
     originalPrice: { currency: "NPR", amountMinor: 15000 },
     salePrice: { currency: "NPR", amountMinor: 13500 },
     discountPercent: 10,

@@ -5,6 +5,7 @@ import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { flightObjects, isRecord, readFlightRecords } from "./flight-records.ts";
 import { inferProductDetails, parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 
 export const IT_MONSTER_CAMPAIGN_URL = "https://itmonster.com.np/dashain-offers";
 
@@ -102,6 +103,7 @@ export function extractItMonsterCampaign(
       productName: title.length <= 200 ? title : null,
       ...inferProductDetails(title, "COMPUTERS_AND_ACCESSORIES"),
       destinationUrl: url.href,
+      imageUrl: sellerImageUrl(card.find("img").first().attr("src"), IT_MONSTER_CAMPAIGN_URL),
       originalPrice: { currency: "NPR", amountMinor: original },
       salePrice: { currency: "NPR", amountMinor: sale },
       discountPercent: Math.round((1 - sale / original) * 100),

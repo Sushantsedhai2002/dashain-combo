@@ -4,6 +4,7 @@ import { UNKNOWN_ELIGIBILITY } from "@dashain-offer/offer-catalog";
 import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { inferProductDetails, parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 
 // The publisher retained the previous year's URL, but the displayed collection heading specifies its season.
 export const DEALAYO_CAMPAIGN = "https://dealayo.com/dashain-offer-2082.html";
@@ -100,6 +101,7 @@ export function extractDealayoPage(html: string, url: string, fetchedAt: string)
       productName: model,
       ...inferProductDetails(name, "HOME_APPLIANCES"),
       destinationUrl: destination.href,
+      imageUrl: sellerImageUrl(card.find("img").first().attr("src"), url),
       originalPrice: { currency: "NPR", amountMinor: original },
       salePrice: { currency: "NPR", amountMinor: sale },
       discountPercent: Math.round((1 - sale / original) * 100),

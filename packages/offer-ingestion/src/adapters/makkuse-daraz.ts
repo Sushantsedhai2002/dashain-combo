@@ -4,6 +4,7 @@ import { UNKNOWN_ELIGIBILITY } from "@dashain-offer/offer-catalog";
 import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 export const MAKKUSE_FEED =
   "https://www.daraz.com.np/makkus%C3%A9-124624095/?ajax=true&sort=newest";
 export const MAKKUSE_DETAIL =
@@ -169,6 +170,7 @@ export function extractMakkuse(
     brandName: "Makkusé",
     category: "FOOD_AND_DELIVERY",
     destinationUrl: MAKKUSE_DETAIL,
+    imageUrl: sellerImageUrl(typeof m.image === "string" ? m.image : undefined, MAKKUSE_DETAIL),
     originalPrice: { currency: "NPR", amountMinor: original },
     salePrice: { currency: "NPR", amountMinor: sale },
     discountPercent: Math.round((1 - sale / original) * 100),

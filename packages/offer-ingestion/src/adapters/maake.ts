@@ -4,6 +4,7 @@ import { UNKNOWN_ELIGIBILITY } from "@dashain-offer/offer-catalog";
 import type { CandidateOffer, SourceAdapter } from "../runner.ts";
 import type { PageFetcher } from "./evostore.ts";
 import { parseNprPrice } from "./product-details.ts";
+import { sellerImageUrl } from "./product-image.ts";
 export const MAAKE_ROOT = "https://maakebeautynepal.com/";
 type Member = Readonly<{ url: string; title: string; id: string; sale: number; original: number }>;
 function record(v: unknown): v is Record<string, unknown> {
@@ -122,11 +123,13 @@ export function extractMaake(
     .get()
     .filter((a) => a.startsWith("productPage("));
   let config: unknown;
+  let images: unknown;
   try {
     const arg = args[0];
     if (args.length !== 1 || !arg || arg.length > 50_000 || !arg.endsWith(")")) return null;
     const decoded: unknown = JSON.parse("[" + arg.slice("productPage(".length, -1) + "]");
     if (!Array.isArray(decoded) || decoded.length !== 2) return null;
+    images = decoded[0];
     config = decoded[1];
   } catch {
     return null;
@@ -169,6 +172,10 @@ export function extractMaake(
     brandName: "Maake Beauty",
     category: "FASHION_AND_LIFESTYLE",
     destinationUrl: member.url,
+    imageUrl: sellerImageUrl(
+      Array.isArray(images) && typeof images[0] === "string" ? images[0] : undefined,
+      member.url,
+    ),
     originalPrice: { currency: "NPR", amountMinor: member.original },
     salePrice: { currency: "NPR", amountMinor: member.sale },
     discountPercent: Math.round((1 - member.sale / member.original) * 100),

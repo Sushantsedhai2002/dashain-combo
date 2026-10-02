@@ -68,6 +68,12 @@ describe("Mask Queen dated exact variant pilot", () => {
     expect(maskCampaign(campaign, "2027-10-01T00:00:00Z")).toBeNull();
     expect(maskCampaign("", now)).toBeNull();
     expect(maskMembers("")).toBeNull();
+    const withoutBadge = load(collection);
+    withoutBadge("#product-grid > li")
+      .filter((_i, element) => withoutBadge(element).find("h3.h5 a").text().trim() === member.title)
+      .find(".badge")
+      .remove();
+    expect(maskMembers(withoutBadge.html())).toHaveLength(7);
     expect(
       maskMembers(
         collection.replaceAll('href="/products/', 'href="https://attacker.test/products/'),

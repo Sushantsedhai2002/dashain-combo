@@ -102,6 +102,28 @@ export function extractShofy(
   const sale = original - amount,
     key = `sugandha-griha-dashain-${season}`,
     url = `${SHOFY_STORE}/product/774`;
+  let imageUrl: string | null = null;
+  if (
+    typeof o.productImage === "string" &&
+    record(p.productImages) &&
+    Object.values(p.productImages).some(
+      (entry) => record(entry) && entry.thumbnail === true && entry.image === o.productImage,
+    )
+  ) {
+    try {
+      const image = new URL(o.productImage);
+      if (
+        image.protocol === "https:" &&
+        image.hostname === "shofydroplive.s3.ap-south-1.amazonaws.com" &&
+        image.pathname.startsWith("/live/") &&
+        !image.username &&
+        !image.password
+      )
+        imageUrl = image.href;
+    } catch {
+      // An invalid image does not invalidate the verified product price.
+    }
+  }
   return {
     sourceOfferKey: `${key}:774`,
     title: "Blanko Dawn Perfume 100ML",
@@ -109,6 +131,7 @@ export function extractShofy(
     brandName: null,
     category: "FASHION_AND_LIFESTYLE",
     destinationUrl: url,
+    imageUrl,
     originalPrice: { currency: "NPR", amountMinor: original },
     salePrice: { currency: "NPR", amountMinor: sale },
     discountPercent: Math.round((amount / original) * 100),
