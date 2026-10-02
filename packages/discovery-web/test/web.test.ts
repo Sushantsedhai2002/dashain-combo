@@ -273,7 +273,7 @@ describe("campaign discovery UI", () => {
       title: "Generic everyday sale",
       id: "22345678-1234-4234-8234-123456789012",
     };
-    let detail = current;
+    let detail: Offer = current;
     const search = vi.fn<OfferCatalog["searchVisibleOffers"]>(async () => ({
       ok: true,
       value: { items: [current, combo, generic], nextCursor: null },

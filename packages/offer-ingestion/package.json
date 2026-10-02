@@ -16,7 +16,8 @@
     "test": "vitest run --root ../.. --config vitest.workspace.ts packages/offer-ingestion/test",
     "test:coverage": "vitest run --root ../.. --config vitest.workspace.ts --coverage packages/offer-ingestion/test",
     "test:integration": "vitest run --root ../.. --config packages/offer-ingestion/vitest.integration.config.ts",
-    "test:integration:coverage": "vitest run --root ../.. --config packages/offer-ingestion/vitest.integration.config.ts --coverage"
+    "test:integration:coverage": "vitest run --root ../.. --config packages/offer-ingestion/vitest.integration.config.ts --coverage",
+    "discover": "node src/cli/discover-entry.mjs"
   },
   "dependencies": {
     "@dashain-offer/offer-catalog": "workspace:*",

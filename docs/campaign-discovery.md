@@ -46,6 +46,30 @@ The public website now enforces exact product identity, qualified current Dashai
 
 The CG collector now reads five reviewed campaign tables: TV/audio, washing machines, refrigerators, air conditioners and microwaves. The preserved first-party fixture and a fresh robots-aware live dry-run both yielded 78 products (13 consumer-electronics and 65 home-appliance products). Fifteen washing-machine products retain their previously evidenced detergent gifts. The 32-inch TV is excluded because the FAQ conflicts with its discounted table row. No additional gifts are inferred for the new categories. Missing or changed table contracts fail the scan rather than establish authoritative removal. Existing washing-machine identities are preserved. The earlier 19-product validation remains a historical pilot record.
 
+## All Dashain offers view (2026-10-02)
+
+The public home now defaults to `scope=DASHAIN_OFFERS`: every qualified, current-season Dashain campaign offer, whether or not it has a price cut. That covers combos, gifts, free services, payment offers and the new `FESTIVE_LISTING` type, which is a product the merchant placed in a Dashain collection without an evidenced reduction. It still requires a DASHAIN campaign in the current Kathmandu year, a live campaign window and lifecycle, not out of stock, and verification within 7 days (`DASHAIN_OFFER_FRESHNESS_MS`). `scope=DASHAIN` remains as the "Price drops only" tab, with the unchanged strict 48-hour price-evidence policy. `scope=ALL` is still rejected publicly.
+
+## Shopify and WooCommerce storefront collector
+
+A source with `"storefront": { "platform": "SHOPIFY" | "WOOCOMMERCE" }` needs no hand-written adapter (`packages/offer-ingestion/src/adapters/storefront.ts`). The collector reads only the platform's anonymous public catalogue JSON on the enabled website origin. The safe fetcher accepts JSON for exactly those paths: Shopify `/collections.json`, `/products.json`, `/collections/<handle>/products.json`; WooCommerce `/wp-json/wc/store/v1/products[/categories|/tags]`. Robots rules and crawl delays still apply.
+
+Membership comes from merchant labelling: a collection/category/tag **title**, a product title, or a product tag matching Dashain (`dashain`, `dasain`, `दशैं`, `vijaya dashami`, …). Collection handles and product descriptions alone never count. A label naming another year (`Dashain 2025`, `Sale 2082`) is rejected. Dashain always falls in BS year AD + 57. For Shopify, the product must have been updated or published in the current season. For WooCommerce (which exposes no product dates), the label must name this season, or the category banner or product image must come from this year's `/wp-content/uploads/YYYY/`. Shopify shops must price in NPR (`Shopify.currency.active`). WooCommerce items must report `currency_code: "NPR"` and a single price (variable price ranges are skipped).
+
+Each variant is one offer. A compare-at/regular price above the price makes it `PRODUCT_DISCOUNT`. Combo wording whose title lists components (`A + B`, `A | B`) becomes `BUNDLE`; anything else is `FESTIVE_LISTING`. At most 500 offers per source per scan. Shopify rate-limits bursts across all shops on its shared edge, so scan shops sequentially (the worker and `sources:discover` do).
+
+## Vendor discovery: `pnpm sources:discover`
+
+```sh
+pnpm sources:discover shop-one.com.np shop-two.com
+pnpm sources:discover --file candidates.txt --out discovered.json
+BRAVE_SEARCH_API_KEY=... pnpm sources:discover --search   # web-search seeding
+```
+
+For each domain not already registered, it detects Shopify/WooCommerce from the home page, runs the storefront collector, and writes `CANDIDATE` registry entries for shops with current Dashain items (`--out`, default `discovered-sources.json`). Discovery never activates a source. Review the sample titles, shop identity and currency, then set `status: ACTIVE` with `verification` evidence (the Dashain collection URL) and add the id to `config/coverage.json`.
+
+The first sweep (2026-10-02) covered about 230 Nepali shop domains from Shopify/WooCommerce directories and web search. 97 run a supported platform, but only a handful label Dashain products. Four were registered: BlushyLady (189 offers), Newmew (107), Juta Pasal and The Book Shop Nepal. The last two were temporarily throttled by Shopify on the day of registration. Most Nepali shops publish Dashain offers only on social media, which this collector cannot read.
+
 ## Merchant feeds for social promotions
 
 A source may register up to five `socialPromotionFeeds` HTTPS JSON URLs on an enabled official website origin. Enable the source's verified social account channel as well. No live merchant feed is configured by this change; no platform API credentials are required for this collection route. Campaign rows must supply `"festivals": ["DASHAIN"]` (or `["DASHAIN", "TIHAR"]` for combined campaigns). Festival words in a campaign title never establish membership; missing classification and Tihar-only feeds are rejected.
