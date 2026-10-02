@@ -14,6 +14,38 @@ export const DASHAIN_PRICE_EVIDENCE = [
   "originalPrice",
 ] as const;
 export const DASHAIN_FRESHNESS_MS = 48 * 3600000;
+/** The broader Dashain view tolerates slower merchant/social re-verification cycles. */
+export const DASHAIN_OFFER_FRESHNESS_MS = 7 * 24 * 3600000;
+
+function kathmanduYear(now: Date): number {
+  return Number(
+    new Intl.DateTimeFormat("en", { timeZone: "Asia/Kathmandu", year: "numeric" }).format(now),
+  );
+}
+
+/**
+ * Every current, qualified Dashain campaign offer: combos, gifts, festive collections,
+ * payment offers and discounts. Unlike the discount view, no price reduction is required.
+ */
+export function isCurrentDashainOffer(offer: Offer, now: Date = new Date()): boolean {
+  const d = offer.discovery;
+  const campaign = d?.campaign;
+  if (!d || !campaign || d.qualification !== "QUALIFIED") return false;
+  const time = now.getTime();
+  const verified = Date.parse(d.lastVerifiedAt);
+  return (
+    campaign.festivals.includes("DASHAIN") &&
+    campaign.seasonAD === kathmanduYear(now) &&
+    verified > time - DASHAIN_OFFER_FRESHNESS_MS &&
+    verified <= time + 60000 &&
+    d.availability !== "OUT_OF_STOCK" &&
+    offer.withdrawnAt === null &&
+    Date.parse(offer.expiresAt) > time &&
+    (offer.validityStartsAt === null || Date.parse(offer.validityStartsAt) <= time) &&
+    (campaign.startsAt === null || Date.parse(campaign.startsAt) <= time) &&
+    (campaign.endsAt === null || Date.parse(campaign.endsAt) > time)
+  );
+}
 
 /** The public collection requires an evidenced product price, independently of gifts. */
 export function isCurrentDashainDiscount(offer: Offer, now: Date = new Date()): boolean {
@@ -21,12 +53,7 @@ export function isCurrentDashainDiscount(offer: Offer, now: Date = new Date()): 
   const campaign = d?.campaign;
   if (!d || !campaign || !d.product || d.qualification !== "QUALIFIED") return false;
   if (!(DASHAIN_PRODUCT_TYPES as readonly string[]).includes(d.offerType)) return false;
-  const season = Number(
-    new Intl.DateTimeFormat("en", {
-      timeZone: "Asia/Kathmandu",
-      year: "numeric",
-    }).format(now),
-  );
+  const season = kathmanduYear(now);
   const time = now.getTime();
   const recent = (value: string | null) =>
     value !== null &&

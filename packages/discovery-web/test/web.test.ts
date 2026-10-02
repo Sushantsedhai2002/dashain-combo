@@ -257,8 +257,17 @@ describe("HTTP routes", () => {
 });
 
 describe("campaign discovery UI", () => {
-  it("enforces discounted Dashain products on every public route", async () => {
+  it("shows every current Dashain offer by default and narrows to price drops", async () => {
     const current = { ...offer, title: "Verified Dashain washer", discovery: discovery() };
+    const combo = {
+      ...current,
+      id: "32345678-1234-4234-8234-123456789012",
+      title: "Dashain combo hamper",
+      originalPrice: null,
+      salePrice: current.originalPrice,
+      discountPercent: null,
+      discovery: discovery({ offerType: "FESTIVE_LISTING", priceObservedAt: null }),
+    };
     const generic = {
       ...offer,
       title: "Generic everyday sale",
@@ -267,7 +276,7 @@ describe("campaign discovery UI", () => {
     let detail = current;
     const search = vi.fn<OfferCatalog["searchVisibleOffers"]>(async () => ({
       ok: true,
-      value: { items: [current, generic], nextCursor: null },
+      value: { items: [current, combo, generic], nextCursor: null },
     }));
     const handler = createWebHandler({
       catalog: {
@@ -280,22 +289,36 @@ describe("campaign discovery UI", () => {
     });
     const home = await handler("GET", "/");
     expect(home.status).toBe(200);
-    expect(home.body).toContain("1 offer on this page");
+    expect(home.body).toContain("2 offers on this page");
     expect(home.body).toContain("Verified Dashain washer");
+    expect(home.body).toContain("Dashain combo hamper");
+    expect(home.body).toContain("Dashain collection");
+    expect(home.body).toContain("Price drops only");
     expect(home.body).not.toContain("Generic everyday sale");
     expect(home.body).not.toContain('value="ALL"');
-    expect(home.body).not.toContain('value="PRIZE_DRAW"');
-    expect(search).toHaveBeenCalledWith(expect.objectContaining({ scope: "DASHAIN" }));
+    expect(search).toHaveBeenCalledWith(expect.objectContaining({ scope: "DASHAIN_OFFERS" }));
+    const drops = await handler("GET", "/?scope=DASHAIN");
+    expect(drops.body).toContain("1 offer on this page");
+    expect(drops.body).not.toContain("Dashain combo hamper");
+    expect(drops.body).not.toContain('value="PRIZE_DRAW"');
+    expect(search).toHaveBeenLastCalledWith(expect.objectContaining({ scope: "DASHAIN" }));
     expect((await handler("GET", "/?scope=ALL")).status).toBe(400);
     expect((await handler("GET", `/offers/${offer.id}`)).status).toBe(200);
     const comparison = await handler("GET", `/offers/${offer.id}/compare`);
     expect(comparison.status).toBe(200);
     expect(comparison.body).not.toContain("Generic everyday sale");
-    expect(search).toHaveBeenLastCalledWith(expect.objectContaining({ scope: "DASHAIN" }));
-    detail = { ...current, salePrice: current.originalPrice };
+    expect(search).toHaveBeenLastCalledWith(expect.objectContaining({ scope: "DASHAIN_OFFERS" }));
+    detail = combo;
+    expect((await handler("GET", `/offers/${offer.id}`)).status).toBe(200);
+    detail = generic;
+    expect((await handler("GET", `/offers/${offer.id}`)).status).toBe(404);
+    detail = { ...current, discovery: discovery({ lastVerifiedAt: "2026-09-20T00:00:00Z" }) };
     expect((await handler("GET", `/offers/${offer.id}`)).status).toBe(404);
     expect((await handler("GET", `/offers/${offer.id}/compare`)).status).toBe(404);
-    detail = { ...current, discovery: discovery({ priceObservedAt: "2026-09-25T00:00:00Z" }) };
+    detail = {
+      ...current,
+      discovery: discovery({ campaign: { ...discovery().campaign!, seasonAD: 2025 } }),
+    };
     expect((await handler("GET", `/offers/${offer.id}`)).status).toBe(404);
   });
   it("parses visible budgets and rejects invalid filter combinations", () => {
@@ -356,7 +379,7 @@ describe("campaign discovery UI", () => {
     expect(search).toHaveBeenCalledWith(
       expect.objectContaining({ model: "LG-123", variant: "8kg", brands: ["Marshall"] }),
     );
-    expect((await handler("GET", "/")).body).toContain('name="scope" value="DASHAIN"');
+    expect((await handler("GET", "/")).body).toContain('name="scope" value="DASHAIN_OFFERS"');
     const empty = renderHome(
       { items: [], nextCursor: null },
       new URLSearchParams("scope=DASHAIN&q=washer+under+60k"),

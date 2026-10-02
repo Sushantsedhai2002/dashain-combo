@@ -16,6 +16,7 @@ describe("offer-catalog public package contract", () => {
       "UNKNOWN_ELIGIBILITY",
       "parseBudgetIntent",
       "isCurrentDashainDiscount",
+      "isCurrentDashainOffer",
       "DASHAIN_PRODUCT_TYPES",
       "COVERAGE_TARGET",
       "measureCoverage",

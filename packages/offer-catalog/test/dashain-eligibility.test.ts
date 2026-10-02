@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Offer } from "../src/contract.ts";
-import { isCurrentDashainDiscount } from "../src/dashain-eligibility.ts";
+import { isCurrentDashainDiscount, isCurrentDashainOffer } from "../src/dashain-eligibility.ts";
 import { discovery } from "./fixtures/discovery.ts";
 
 const now = new Date("2026-10-01T07:00:00Z");
@@ -70,5 +70,46 @@ describe("Dashain discounted products", () => {
     expect(isCurrentDashainDiscount(discountedProduct, new Date("2026-12-31T18:15:00Z"))).toBe(
       false,
     );
+  });
+});
+
+describe("all current Dashain offers", () => {
+  it("includes combos, festive listings and payment offers without a price drop", () => {
+    for (const offerType of ["FESTIVE_LISTING", "BUNDLE", "CASHBACK", "COUPON"] as const)
+      expect(
+        isCurrentDashainOffer(
+          {
+            ...discountedProduct,
+            originalPrice: null,
+            salePrice: null,
+            discovery: discovery({ offerType, priceObservedAt: null }),
+          },
+          now,
+        ),
+      ).toBe(true);
+  });
+  it("still includes current discounted products", () => {
+    expect(isCurrentDashainOffer(discountedProduct as Offer, now)).toBe(true);
+  });
+  it.each([
+    { discovery: null },
+    { withdrawnAt: now.toISOString() },
+    { expiresAt: now.toISOString() },
+    { validityStartsAt: "2026-10-02T07:00:00Z" },
+    { discovery: discovery({ qualification: "UNCLASSIFIED" }) },
+    { discovery: discovery({ campaign: null }) },
+    { discovery: discovery({ availability: "OUT_OF_STOCK" }) },
+    { discovery: discovery({ lastVerifiedAt: "2026-09-23T07:00:00Z" }) },
+    { discovery: discovery({ lastVerifiedAt: "2026-10-02T07:00:00Z" }) },
+    { discovery: discovery({ campaign: { ...discovery().campaign!, seasonAD: 2025 } }) },
+    { discovery: discovery({ campaign: { ...discovery().campaign!, festivals: ["TIHAR"] } }) },
+    { discovery: discovery({ campaign: { ...discovery().campaign!, endsAt: now.toISOString() } }) },
+    {
+      discovery: discovery({
+        campaign: { ...discovery().campaign!, startsAt: "2026-10-02T07:00:00Z" },
+      }),
+    },
+  ] as Partial<Offer>[])("excludes %#", (override) => {
+    expect(isCurrentDashainOffer({ ...discountedProduct, ...override } as Offer, now)).toBe(false);
   });
 });

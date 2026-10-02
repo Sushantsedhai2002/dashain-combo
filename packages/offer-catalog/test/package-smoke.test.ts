@@ -11,6 +11,7 @@ describe("@dashain-offer/offer-catalog", () => {
       "UNKNOWN_ELIGIBILITY",
       "parseBudgetIntent",
       "isCurrentDashainDiscount",
+      "isCurrentDashainOffer",
       "DASHAIN_PRODUCT_TYPES",
       "COVERAGE_TARGET",
       "measureCoverage",

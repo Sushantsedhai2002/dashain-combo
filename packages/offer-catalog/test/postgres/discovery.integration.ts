@@ -93,6 +93,28 @@ it("round trips combos and isolates old, generic, quarantined and stale records"
     value: { items: [] },
   });
 });
+it("lists every current Dashain offer, including combos without a price drop", async () => {
+  const discounted = await publish("discounted");
+  const listing = await publish("festive-listing", {
+    originalPrice: null,
+    salePrice: { currency: "NPR", amountMinor: 250000 },
+    discovery: discovery({ offerType: "FESTIVE_LISTING", priceObservedAt: null, benefits: [] }),
+  });
+  await publish("generic", { discovery: null });
+  const d = discovery();
+  await publish("old", { discovery: discovery({ campaign: { ...d.campaign!, seasonAD: 2025 } }) });
+  await publish("tihar", {
+    discovery: discovery({ campaign: { ...d.campaign!, festivals: ["TIHAR"] } }),
+  });
+  await publish("stale", { discovery: discovery({ lastVerifiedAt: "2026-09-20T00:00:00Z" }) });
+  await publish("sold-out", { discovery: discovery({ availability: "OUT_OF_STOCK" }) });
+  const result = await catalog.searchVisibleOffers({ scope: "DASHAIN_OFFERS", sort: "NEWEST" });
+  expect(result.ok && result.value.items.map((o) => o.id).sort()).toEqual(
+    [discounted.id, listing.id].sort(),
+  );
+  const drops = await catalog.searchVisibleOffers({ scope: "DASHAIN" });
+  expect(drops.ok && drops.value.items.map((o) => o.id)).toEqual([discounted.id]);
+});
 it("finds aliases, reordered tokens, exact models and budget-qualified product prices", async () => {
   const product = await publish("gift");
   await publish("unknown-price", { salePrice: null });

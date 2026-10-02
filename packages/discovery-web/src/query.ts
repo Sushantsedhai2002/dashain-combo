@@ -81,7 +81,7 @@ export function parseDiscoveryQuery(
   const maxPriceMinor = budget("max") ?? intent.maxPriceMinor ?? undefined;
   const offerTypes = params.getAll("type") as OfferType[];
   if (
-    !["ALL", "DASHAIN"].includes(scope) ||
+    !["ALL", "DASHAIN", "DASHAIN_OFFERS"].includes(scope) ||
     !offerTypes.every((type) => OFFER_TYPES.includes(type)) ||
     [minPriceMinor, maxPriceMinor].some(
       (value) => value !== undefined && (!Number.isSafeInteger(value) || value < 0),
@@ -103,7 +103,7 @@ export function parseDiscoveryQuery(
     ok: true,
     query: {
       text: intent.text || null,
-      scope: scope as "ALL" | "DASHAIN",
+      scope: scope as "ALL" | "DASHAIN" | "DASHAIN_OFFERS",
       brands: params.getAll("brand").filter(Boolean),
       offerTypes,
       ...(minPriceMinor !== undefined ? { minPriceMinor } : {}),

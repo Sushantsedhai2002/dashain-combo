@@ -1053,3 +1053,33 @@ footer p {
     display: none;
   }
 }
+
+.scope-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.scope-tab {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  padding: 0.45rem 0.95rem;
+  text-decoration: none;
+}
+
+.scope-tab.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+
+.offer-type {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0.15rem 0 0;
+  text-transform: uppercase;
+}

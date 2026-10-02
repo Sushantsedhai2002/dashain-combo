@@ -67,7 +67,7 @@ export type WithdrawOfferInput = Readonly<{
 export type SearchOffersQuery = Readonly<{
   model?: string;
   variant?: string;
-  scope?: "ALL" | "DASHAIN";
+  scope?: "ALL" | "DASHAIN" | "DASHAIN_OFFERS";
   season?: number;
   brands?: readonly string[];
   offerTypes?: readonly OfferType[];

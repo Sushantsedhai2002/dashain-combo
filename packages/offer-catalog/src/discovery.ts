@@ -8,6 +8,8 @@ export const OFFER_TYPES = [
   "COUPON",
   "SERVICE_BENEFIT",
   "PRIZE_DRAW",
+  // A product the merchant placed in a Dashain collection, with no evidenced price cut.
+  "FESTIVE_LISTING",
 ] as const;
 const text = z.string().trim().min(1).max(2000);
 const instant = z.iso.datetime({ offset: true });

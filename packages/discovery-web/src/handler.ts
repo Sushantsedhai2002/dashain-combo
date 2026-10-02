@@ -1,4 +1,9 @@
-import { isCurrentDashainDiscount, type OfferCatalog } from "@dashain-offer/offer-catalog";
+import {
+  isCurrentDashainDiscount,
+  isCurrentDashainOffer,
+  type Offer,
+  type OfferCatalog,
+} from "@dashain-offer/offer-catalog";
 import { parseDiscoveryQuery, type SourceOption } from "./query.ts";
 import { renderComparison, renderDetail, renderHome, renderMessage } from "./render.ts";
 
@@ -21,13 +26,22 @@ export function createWebHandler(
     catalog: Pick<OfferCatalog, "searchVisibleOffers" | "getVisibleOffer">;
     sources: readonly SourceOption[];
     stylesheet: string;
+    /** "DASHAIN" keeps the public Dashain-only policy; "ALL" exposes internal legacy records. */
     defaultScope?: "ALL" | "DASHAIN";
     clock?: () => Date;
   }>,
 ): (method: string, target: string) => Promise<WebResponse> {
   return async (method, target) => {
-    const scope = dependencies.defaultScope ?? "DASHAIN";
+    const publicOnly = (dependencies.defaultScope ?? "DASHAIN") === "DASHAIN";
+    // The public home shows every current Dashain offer; scope=DASHAIN narrows to price drops.
+    const scope = publicOnly ? "DASHAIN_OFFERS" : "ALL";
     const now = (dependencies.clock ?? (() => new Date()))();
+    const visibleIn = (view: string | undefined, offer: Offer): boolean =>
+      view === "DASHAIN"
+        ? isCurrentDashainDiscount(offer, now)
+        : view === "DASHAIN_OFFERS"
+          ? isCurrentDashainOffer(offer, now)
+          : !publicOnly;
     const response = (
       status: number,
       body: string,
@@ -51,7 +65,7 @@ export function createWebHandler(
         const showIntro = url.search === "";
         if (!url.searchParams.has("scope")) url.searchParams.set("scope", scope);
         const parsed = parseDiscoveryQuery(url.searchParams, dependencies.sources);
-        if (!parsed.ok || (scope === "DASHAIN" && parsed.query.scope !== "DASHAIN"))
+        if (!parsed.ok || (publicOnly && parsed.query.scope === "ALL"))
           return response(
             400,
             renderMessage(
@@ -66,10 +80,7 @@ export function createWebHandler(
               renderHome(
                 {
                   ...result.value,
-                  items:
-                    parsed.query.scope === "DASHAIN"
-                      ? result.value.items.filter((offer) => isCurrentDashainDiscount(offer, now))
-                      : result.value.items,
+                  items: result.value.items.filter((offer) => visibleIn(parsed.query.scope, offer)),
                 },
                 url.searchParams,
                 showIntro,
@@ -89,7 +100,7 @@ export function createWebHandler(
         );
       if (match?.[1] !== undefined) {
         const result = await dependencies.catalog.getVisibleOffer(match[1]);
-        if (result.ok && (scope === "ALL" || isCurrentDashainDiscount(result.value, now))) {
+        if (result.ok && visibleIn(scope, result.value)) {
           if (match[2]) {
             const product = result.value.discovery?.product;
             if (!product || !result.value.brandName)
@@ -123,7 +134,7 @@ export function createWebHandler(
               );
             const items = comparisons.value.items.filter(
               (offer) =>
-                (scope === "ALL" || isCurrentDashainDiscount(offer, now)) &&
+                visibleIn(scope, offer) &&
                 ((offer.discovery?.offerType !== "BUNDLE" &&
                   result.value.discovery?.offerType !== "BUNDLE") ||
                   mainItems(offer) === mainItems(result.value)),

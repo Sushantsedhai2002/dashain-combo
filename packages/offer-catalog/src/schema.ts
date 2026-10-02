@@ -152,7 +152,7 @@ const SearchOffersSchema = z
   .object({
     model: requiredText(2000).optional(),
     variant: requiredText(2000).optional(),
-    scope: z.enum(["ALL", "DASHAIN"]).default("ALL"),
+    scope: z.enum(["ALL", "DASHAIN", "DASHAIN_OFFERS"]).default("ALL"),
     season: z.number().int().min(2000).max(2200).optional(),
     brands: z.array(requiredText(200)).max(50).default([]),
     offerTypes: z.array(z.enum(OFFER_TYPES)).default([]),
@@ -217,7 +217,7 @@ export type NormalizedWithdrawOfferInput = Readonly<{
 export type NormalizedSearchOffersQuery = Readonly<{
   model?: string | undefined;
   variant?: string | undefined;
-  scope: "ALL" | "DASHAIN";
+  scope: "ALL" | "DASHAIN" | "DASHAIN_OFFERS";
   season?: number | undefined;
   brands: readonly string[];
   offerTypes: readonly OfferType[];

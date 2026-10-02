@@ -3,6 +3,7 @@ import {
   DASHAIN_PRODUCT_TYPES,
   DASHAIN_PRICE_EVIDENCE,
   DASHAIN_FRESHNESS_MS,
+  DASHAIN_OFFER_FRESHNESS_MS,
 } from "../dashain-eligibility.ts";
 import type { Pool } from "pg";
 
@@ -127,6 +128,20 @@ function buildSearchSql(command: SearchCommand, now: Date): SearchSql {
       `(discovery->>'priceObservedAt')::timestamptz <= ${latest}`,
       `NOT EXISTS (SELECT 1 FROM unnest(${parameter(DASHAIN_PRICE_EVIDENCE)}::text[]) AS required(field) WHERE NOT EXISTS (SELECT 1 FROM jsonb_array_elements(discovery->'evidence') AS evidence WHERE evidence->'fields' ? required.field AND (evidence->>'fetchedAt')::timestamptz > ${cutoff} AND (evidence->>'fetchedAt')::timestamptz <= ${latest}))`,
       "discovery->'campaign'->'festivals' ? 'DASHAIN'",
+      `(discovery->'campaign'->>'seasonAD')::int = ${parameter(query.season ?? Number(new Intl.DateTimeFormat("en", { timeZone: "Asia/Kathmandu", year: "numeric" }).format(now)))}`,
+      `(discovery->>'lastVerifiedAt')::timestamptz > ${cutoff}`,
+      `(discovery->>'lastVerifiedAt')::timestamptz <= ${latest}`,
+      `(discovery->'campaign'->>'startsAt' IS NULL OR (discovery->'campaign'->>'startsAt')::timestamptz <= ${parameter(now)})`,
+      `(discovery->'campaign'->>'endsAt' IS NULL OR (discovery->'campaign'->>'endsAt')::timestamptz > ${parameter(now)})`,
+    );
+  }
+  if (query.scope === "DASHAIN_OFFERS") {
+    const cutoff = parameter(new Date(now.getTime() - DASHAIN_OFFER_FRESHNESS_MS));
+    const latest = parameter(new Date(now.getTime() + 60000));
+    clauses.push(
+      "discovery->>'qualification' = 'QUALIFIED'",
+      "discovery->'campaign'->'festivals' ? 'DASHAIN'",
+      "discovery->>'availability' <> 'OUT_OF_STOCK'",
       `(discovery->'campaign'->>'seasonAD')::int = ${parameter(query.season ?? Number(new Intl.DateTimeFormat("en", { timeZone: "Asia/Kathmandu", year: "numeric" }).format(now)))}`,
       `(discovery->>'lastVerifiedAt')::timestamptz > ${cutoff}`,
       `(discovery->>'lastVerifiedAt')::timestamptz <= ${latest}`,

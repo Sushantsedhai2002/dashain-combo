@@ -24,5 +24,9 @@ export {
   parseBudgetIntent,
 } from "./discovery.ts";
 export type { OfferDiscovery, OfferType } from "./discovery.ts";
-export { isCurrentDashainDiscount, DASHAIN_PRODUCT_TYPES } from "./dashain-eligibility.ts";
+export {
+  isCurrentDashainDiscount,
+  isCurrentDashainOffer,
+  DASHAIN_PRODUCT_TYPES,
+} from "./dashain-eligibility.ts";
 export { COVERAGE_TARGET, measureCoverage, readCoverage } from "./coverage.ts";
